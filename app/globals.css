@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: "Sora", "Avenir Next", "SF Pro Display", "Segoe UI", system-ui, sans-serif;
+    --background: 222 27% 5%;
+    --foreground: 210 20% 95%;
+    --card: 222 24% 7%;
+    --card-foreground: 210 20% 95%;
+    --popover: 222 24% 7%;
+    --popover-foreground: 210 20% 95%;
+    --primary: 215 90% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 20% 10%;
+    --secondary-foreground: 215 15% 70%;
+    --muted: 222 18% 12%;
+    --muted-foreground: 215 12% 48%;
+    --accent: 38 90% 56%;
+    --accent-foreground: 222 27% 5%;
+    --destructive: 0 72% 56%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 18% 12%;
+    --input: 222 18% 12%;
+    --ring: 215 90% 58%;
+    --chart-1: 215 90% 58%;
+    --chart-2: 38 90% 56%;
+    --chart-3: 160 60% 45%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.625rem;
+    --sidebar-background: 222 24% 7%;
+    --sidebar-foreground: 210 20% 95%;
+    --sidebar-primary: 215 90% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 20% 10%;
+    --sidebar-accent-foreground: 215 15% 70%;
+    --sidebar-border: 222 18% 12%;
+    --sidebar-ring: 215 90% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Marquee scrolling animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Faster marquee for companies */
+@keyframes marquee-fast {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-fast {
+  animation: marquee-fast 20s linear infinite;
+}
+
+.animate-marquee-fast:hover {
+  animation-play-state: paused;
+}
+
+/* Subtle animated gradient for hero */
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-shimmer {
+  background-size: 200% 200%;
+  animation: shimmer 8s ease infinite;
+}
+
+/* Glow effect */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Syntax highlighting for JSON code blocks */
+.json-key { color: hsl(215, 90%, 68%); }
+.json-string { color: hsl(38, 90%, 66%); }
+.json-number { color: hsl(160, 60%, 55%); }
+.json-boolean { color: hsl(340, 75%, 65%); }
+.json-null { color: hsl(215, 12%, 48%); }

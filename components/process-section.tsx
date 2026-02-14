@@ -6,21 +6,21 @@ const steps = [
     number: "01",
     title: "System Audit",
     description:
-      "Deep analysis of your workflows, tech stack, and failure points to establish a clear baseline.",
+      "Map workflows, stack, and failure points to set the baseline.",
   },
   {
     icon: PenTool,
     number: "02",
     title: "Architecture Design",
     description:
-      "Define the system blueprint with data flows, integration points, safeguards, and scalability paths.",
+      "Define data flows, integrations, safeguards, and scale envelopes in a blueprint.",
   },
   {
     icon: Code2,
     number: "03",
     title: "Production Build",
     description:
-      "Implement production-grade systems with clean code, testing, monitoring, and documentation.",
+      "Implement clean, tested systems with monitoring, documentation, and ownership.",
   },
   {
     icon: Rocket,
@@ -37,14 +37,13 @@ export function ProcessSection() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mb-16 max-w-xl">
           <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary/80">
-            Production Implementation Framework
+            Delivery Framework
           </p>
           <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[2.75rem]">
-            Execution With Clear Ownership
+            Execution with clear ownership and controls
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-            A structured, repeatable methodology that delivers production
-            systems, not prototypes.
+            A repeatable, auditable path from audit to monitored production.
           </p>
         </div>
 

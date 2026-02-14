@@ -5,7 +5,7 @@ const examples = [
     icon: Bot,
     title: "Lead Qualification AI Agent",
     description:
-      "Autonomous agent that qualifies inbound leads in real-time, routes to CRM, triggers Slack alerts, and initiates personalized email sequences.",
+      "Real-time triage, CRM routing, Slack alerts, and tailored outreach—built to hit SLA.",
     integrations: ["CRM", "Slack", "Email", "AI/LLM"],
     metric: "60%",
     metricLabel: "faster lead response",
@@ -14,7 +14,7 @@ const examples = [
     icon: Workflow,
     title: "Operations Workflow Engine",
     description:
-      "End-to-end operational workflows replacing manual data entry, approval chains, and reporting with event-driven automation and live dashboards.",
+      "Event-driven ops replacing approvals and data entry with live dashboards and recoverable workflows.",
     integrations: ["ERP", "Databases", "Dashboards", "Webhooks"],
     metric: "80%",
     metricLabel: "less manual work",
@@ -23,10 +23,10 @@ const examples = [
     icon: Plug,
     title: "API Orchestration Hub",
     description:
-      "Unified data pipeline connecting disparate SaaS tools through a single, monitored integration layer with retry logic and data transformation.",
+      "Monitored integration layer with retries and transformations—one source of truth across tools.",
     integrations: ["REST APIs", "Webhooks", "ETL", "Monitoring"],
     metric: "1",
-    metricLabel: "source of truth",
+    metricLabel: "single source of truth",
   },
 ]
 
@@ -39,11 +39,10 @@ export function ExamplesSection() {
             Real Systems
           </p>
           <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[2.75rem]">
-            Automation in Production
+            Automation running in production
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Not hypotheticals. Real automation architectures delivering measurable
-            results for businesses right now.
+            Examples of backend-first automation removing bottlenecks for SaaS and ops-heavy teams.
           </p>
         </div>
 

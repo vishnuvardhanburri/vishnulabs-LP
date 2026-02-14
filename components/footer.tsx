@@ -13,7 +13,7 @@ export function Footer() {
         <div className="flex flex-col items-center gap-3 md:items-end">
           <p className="text-xs text-muted-foreground/60">
             Backend-first architecture • Deterministic workflows • Production-grade
-            reliability • Ownership delivery.
+            reliability • You own the stack.
           </p>
           <div className="flex items-center gap-8">
             <a

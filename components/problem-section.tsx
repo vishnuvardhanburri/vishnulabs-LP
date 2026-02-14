@@ -2,24 +2,24 @@ import { AlertTriangle, X } from "lucide-react"
 
 const problems = [
   {
-    title: "Fragile Workflows",
+    title: "Brittleness in revenue ops",
     description:
-      "No-code tools duct-taped together. One API change breaks the entire chain at 2 AM with no alerting, no fallback, and no one who knows how to fix it.",
+      "SaaS glued together; one API change stalls revenue ops at 2 AM with no alerting or fallback.",
   },
   {
-    title: "Tool Overload",
+    title: "Tool sprawl with no spine",
     description:
-      "Dozens of SaaS subscriptions with no unified data layer. Information silos, duplicated logic, and monthly bills for tools no one actually uses.",
+      "Dozens of tools, no shared data layer, duplicated logic, and wasted spend with no ownership.",
   },
   {
-    title: "No Backend Architecture",
+    title: "No deterministic backend",
     description:
-      "Automations built without a foundation. No error handling, no retry logic, no monitoring. When it breaks, you only find out from your customers.",
+      "Automations lack retries, idempotency, and runbooks—you hear about failures from customers first.",
   },
   {
-    title: "Zero Scalability",
+    title: "Breaks under scale",
     description:
-      "Systems that handle 10 users collapse at 1,000. No capacity planning, no load strategy, and no path forward without a complete rewrite.",
+      "Systems fine at 10 users crumble at 1,000 with no capacity plan or path to grow.",
   },
 ]
 
@@ -32,11 +32,10 @@ export function ProblemSection() {
             The Problem
           </p>
           <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[2.75rem]">
-            Why Most Automation Projects Fail
+            Why most automation leaks revenue
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Most businesses invest in automation that looks impressive in a demo
-            but falls apart the moment it hits production.
+            Impressive demos collapse in production—causing missed leads, angry customers, and 2 AM fire drills.
           </p>
         </div>
 

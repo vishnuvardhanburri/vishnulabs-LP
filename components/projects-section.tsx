@@ -9,7 +9,7 @@ const projects = [
     title: "Autonomous Lead Qualification Engine",
     client: "Series-B SaaS Company",
     summary:
-      "Built a multi-agent AI system that autonomously qualifies, scores, and routes 2,000+ inbound leads per day with zero manual intervention. The system integrates with HubSpot, Slack, and a custom scoring model trained on 12 months of sales data.",
+      "Architected a deterministic multi-agent pipeline that qualifies, scores, and routes 2,000+ inbound leads per day across HubSpot and Slack using a scoring model trained on 12 months of data. Zero manual touch; full observability.",
     results: [
       { metric: "94%", label: "Qualification Accuracy" },
       { metric: "12s", label: "Avg Response Time" },
@@ -106,7 +106,7 @@ const projects = [
     title: "Enterprise Operations Workflow Engine",
     client: "E-Commerce Platform (50K+ orders/month)",
     summary:
-      "Designed and deployed a distributed workflow engine that automates order processing, inventory sync, vendor communications, and financial reconciliation across 6 systems. Replaced 14 manual processes and 3 full-time ops roles.",
+      "Built a distributed workflow engine automating order lifecycle, inventory sync, vendor communications, and financial reconciliation across six systems. Replaced 14 manual processes and three full-time ops roles with monitored, recoverable workflows.",
     results: [
       { metric: "87%", label: "Ops Cost Reduction" },
       { metric: "0", label: "Data Sync Errors/Month" },
@@ -306,11 +306,10 @@ export function ProjectsSection() {
               Case Studies
             </p>
             <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[2.75rem]">
-              Production Systems I Built
+              Production systems running in revenue-critical environments
             </h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-              Real architectures running in production right now. Each system includes
-              the actual configuration structure I use to deliver reliable, scalable automation.
+              Live architectures in production today. Real configs, not slideware.
             </p>
           </div>
           <a
@@ -397,7 +396,7 @@ export function ProjectsSection() {
             rel="noopener noreferrer"
             className="group flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
-            Want to see more? Start a project discussion and I will walk you through live systems
+            Want to review more architectures? Book an architecture audit call and I’ll walk you through live systems
             <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
         </div>

@@ -3,25 +3,25 @@ const outcomes = [
     metric: "80%",
     label: "Reduction in Manual Ops",
     description:
-      "Automate repetitive workflows so your team focuses on high-value decisions.",
+      "Free teams for higher-value decisions instead of repetitive tasks.",
   },
   {
     metric: "3x",
     label: "Lead Processing Speed",
     description:
-      "AI-driven qualification ensures every inbound lead is handled instantly.",
+      "Every inbound handled instantly with guardrails and routing logic.",
   },
   {
     metric: "99.9%",
     label: "System Uptime",
     description:
-      "Production infrastructure with monitoring, failover, and graceful degradation.",
+      "Monitored, fail-safe infrastructure with graceful degradation.",
   },
   {
     metric: "10x",
     label: "Faster Deployment",
     description:
-      "Architecture-first methodology means automations ship faster with fewer iterations.",
+      "Architecture-first delivery reduces iterations, rework, and risk.",
   },
 ]
 
@@ -35,11 +35,10 @@ export function OutcomesSection() {
             Outcomes
           </p>
           <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[2.75rem]">
-            Measurable Business Impact
+            Measurable impact for ops-heavy teams
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Every engagement is designed to deliver quantifiable results.
-            No vanity metrics, just real operational improvements.
+            Every engagement anchors to quantifiable results—not vanity metrics.
           </p>
         </div>
 

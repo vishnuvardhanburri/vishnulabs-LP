@@ -18,18 +18,18 @@ export function CtaSection() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
               </span>
               <span className="text-xs font-medium text-muted-foreground">
-                Currently accepting new projects
+                2 architecture audit slots available this month
               </span>
             </div>
 
             <h2 className="mx-auto max-w-2xl text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[2.75rem]">
-              {"Let\u2019s Build Systems That Actually Work"}
+              {"Let\u2019s make your automation reliable"}
             </h2>
             <p className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
-              {"Book a 30-minute strategy call. No sales pitch \u2014 just a direct conversation about your automation challenges and how I\u2019d architect the solution."}
+              {"Book a 30-minute architecture audit—no sales script, just a frank review of your automation stack and how I'd harden it for scale."}
             </p>
             <p className="mx-auto mt-4 max-w-lg text-sm text-muted-foreground">
-              Designed for teams serious about scalable systems — not quick automation experiments.
+              Designed for teams serious about production-ready systems, not quick hacks.
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -44,7 +44,7 @@ export function CtaSection() {
                   rel="noopener noreferrer"
                 >
                   <Calendar className="h-4 w-4" />
-                  Start a Project Discussion
+                  Book Architecture Audit Call
                 </a>
               </Button>
               <Button

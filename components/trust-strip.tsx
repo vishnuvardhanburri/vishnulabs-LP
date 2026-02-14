@@ -3,11 +3,11 @@
 import { Server, Bot, ShieldCheck, Globe, Zap } from "lucide-react"
 
 const capabilities = [
-  { icon: Server, label: "Backend-First Architecture" },
-  { icon: Bot, label: "AI Agents with Guardrails" },
-  { icon: ShieldCheck, label: "Production-Grade Systems" },
-  { icon: Globe, label: "Global Delivery" },
-  { icon: Zap, label: "Full Ownership Execution" },
+  { icon: Server, label: "Backend-first architecture (no brittle zaps)" },
+  { icon: Bot, label: "AI agents that stay deterministic" },
+  { icon: ShieldCheck, label: "Production-grade reliability & alerting" },
+  { icon: Globe, label: "Built for global scale" },
+  { icon: Zap, label: "You own the code and infra" },
 ]
 
 const companies = [

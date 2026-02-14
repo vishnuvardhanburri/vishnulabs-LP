@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button"
 
 const navLinks = [
   { label: "Projects", href: "#projects" },
-  { label: "Engagement Model", href: "#solutions" },
-  { label: "Framework", href: "#process" },
-  { label: "Results", href: "#outcomes" },
+  { label: "Architecture Approach", href: "#solutions" },
+  { label: "Delivery Framework", href: "#process" },
+  { label: "Outcomes", href: "#outcomes" },
   { label: "About", href: "#about" },
 ]
 
@@ -63,7 +63,7 @@ export function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Start a Project Discussion
+                Book Architecture Audit Call
                 <ArrowUpRight className="h-3.5 w-3.5" />
               </a>
             </Button>
@@ -102,7 +102,7 @@ export function Navbar() {
                   rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
                 >
-                  Start a Project Discussion
+                  Book Architecture Audit Call
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
               </Button>

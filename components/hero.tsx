@@ -29,37 +29,35 @@ export function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
               </span>
-              Available Now
+              Now booking
             </span>
             <span className="text-xs text-muted-foreground">
-              Accepting 2 new clients
+              2 architecture slots open
             </span>
           </div>
 
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground/70">
-            Top 3% Global Developer Network • Production Automation Architect • Global Delivery
+            Backend-First AI Automation • Architecture-Led Delivery • Built for Scale
           </p>
 
           <h1 className="text-balance text-[2.5rem] font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-[3.5rem] lg:text-[4.25rem]">
-            I Build AI Systems
+            I build backend-first AI systems
             <br />
             <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-              That Run Your
+              that keep your revenue ops
             </span>
             <br />
-            Business on Autopilot
+            reliable at any scale.
           </h1>
 
           <p className="max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
-            Senior Automation Architect specializing in production-grade AI agents,
-            backend workflow engines, and API orchestration systems. Architecture-first.
-            Zero duct tape. Full ownership.
+            I design deterministic agents, workflow engines, and integration layers so SaaS and ops-heavy teams stop firefighting and keep revenue moving.
           </p>
 
           <ul className="flex max-w-lg list-disc flex-col gap-2 pl-5 text-sm text-muted-foreground">
-            <li>Reduce manual work by up to 80%</li>
-            <li>Increase lead response speed</li>
-            <li>Reliable automation with production-grade safeguards</li>
+            <li>Remove 70–90% of manual steps in core ops</li>
+            <li>Respond to every inbound lead in seconds with guardrails</li>
+            <li>Ship automation with monitoring, alerts, and clear ownership</li>
           </ul>
 
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -74,7 +72,7 @@ export function Hero() {
                 rel="noopener noreferrer"
               >
                 <Calendar className="h-4 w-4" />
-                Start a Project Discussion
+                Book Architecture Audit Call
               </a>
             </Button>
             <Button
@@ -99,7 +97,7 @@ export function Hero() {
               className="gap-2 rounded-xl px-8 py-6 text-base font-medium text-muted-foreground hover:bg-secondary hover:text-foreground"
             >
               <a href="#projects">
-                See My Work
+                Review live projects
                 <ArrowUpRight className="h-4 w-4" />
               </a>
             </Button>
@@ -109,17 +107,17 @@ export function Hero() {
           <div className="mt-4 flex items-center gap-8 border-t border-border/30 pt-8">
             <div>
               <p className="text-2xl font-bold text-foreground">50+</p>
-              <p className="text-xs text-muted-foreground">Systems Deployed</p>
+              <p className="text-xs text-muted-foreground">Production systems shipped</p>
             </div>
             <div className="h-8 w-px bg-border/30" />
             <div>
               <p className="text-2xl font-bold text-foreground">99.9%</p>
-              <p className="text-xs text-muted-foreground">Uptime Record</p>
+              <p className="text-xs text-muted-foreground">Uptime maintained</p>
             </div>
             <div className="h-8 w-px bg-border/30" />
             <div>
               <p className="text-2xl font-bold text-foreground">3x</p>
-              <p className="text-xs text-muted-foreground">Faster Than Agencies</p>
+              <p className="text-xs text-muted-foreground">Faster to production vs agencies</p>
             </div>
           </div>
         </div>

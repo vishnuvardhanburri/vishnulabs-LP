@@ -109,7 +109,7 @@ export function AboutSection() {
                 Vishnu Vardhan Burri
               </h2>
               <p className="mt-2 text-lg font-medium text-primary/80">
-                {"Automation Architect \u2014 Vishnu Labs"}
+                {"Backend-First Automation Architect \u2014 Vishnu Labs"}
               </p>
             </div>
 
@@ -137,13 +137,13 @@ export function AboutSection() {
 
             <div className="flex flex-col gap-5 text-[15px] leading-relaxed text-muted-foreground">
               <p>
-                {"I'm the person companies call when their automation is broken, their AI tools are unreliable, and their backend can't keep up. I don't sell promises \u2014 I deliver production systems with clean architecture, real monitoring, and documentation that your team can actually maintain."}
+                {"I'm the person teams call when automation is brittle, AI tools are unreliable, and backend architecture can't keep up. I deliver production systems with clear ownership and no duct tape."}
               </p>
               <p>
-                {"Every system I build starts with a deep audit of your current stack, a clear architecture blueprint, and a phased delivery plan. No black boxes. No vendor lock-in. You own every line of code, every integration, and every deployment."}
+                {"Every engagement starts with an audit, an architecture blueprint, and a phased delivery plan. No black boxes or lock-in—you own the code, integrations, and deployment runbooks."}
               </p>
               <p>
-                {"I've built systems processing 50,000+ events daily, autonomous AI agents qualifying thousands of leads, and workflow engines that replaced entire manual teams \u2014 all running at 99.9% uptime with zero hand-holding."}
+                {"I've built systems handling 50,000+ daily events, agents qualifying thousands of leads, and workflow engines that replaced entire manual teams—running at 99.9% uptime without hand-holding."}
               </p>
             </div>
 
@@ -189,7 +189,7 @@ export function AboutSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Start a Project Discussion
+                    Book Architecture Audit Call
                     <ArrowUpRight className="h-3.5 w-3.5" />
                   </a>
                 </Button>

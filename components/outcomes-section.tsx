@@ -1,27 +1,27 @@
 const outcomes = [
   {
-    metric: "80%",
-    label: "Reduction in Manual Ops",
+    metric: "50-80%",
+    label: "Reduction in Manual Work",
     description:
-      "Free teams for higher-value decisions instead of repetitive tasks.",
+      "Free teams for higher-value decisions instead of repetitive tasks and admin.",
   },
   {
-    metric: "3x",
-    label: "Lead Processing Speed",
+    metric: "Instant",
+    label: "Lead Response Time",
     description:
-      "Every inbound handled instantly with guardrails and routing logic.",
+      "Every inbound lead qualified and routed in seconds, 24/7.",
   },
   {
-    metric: "99.9%",
-    label: "System Uptime",
+    metric: "100%",
+    label: "System Availability",
     description:
-      "Monitored, fail-safe infrastructure with graceful degradation.",
+      "Your revenue engine runs around the clock, even when you sleep or take weekends off.",
   },
   {
-    metric: "10x",
-    label: "Faster Deployment",
+    metric: "Zero",
+    label: "Maintenance Headaches",
     description:
-      "Architecture-first delivery reduces iterations, rework, and risk.",
+      "Scalable, enterprise-grade systems built to run without constant supervision.",
   },
 ]
 
@@ -35,10 +35,10 @@ export function OutcomesSection() {
             Outcomes
           </p>
           <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[2.75rem]">
-            Measurable impact for ops-heavy teams
+            Measurable impact for revenue teams
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Every engagement anchors to quantifiable results—not vanity metrics.
+            Every engagement anchors to quantifiable results—revenue, efficiency, and scale.
           </p>
         </div>
 

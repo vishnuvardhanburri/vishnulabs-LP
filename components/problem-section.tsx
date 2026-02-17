@@ -29,13 +29,13 @@ export function ProblemSection() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mb-16 max-w-xl">
           <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-destructive/80">
-            The Problem
+            The Growth Bottleneck
           </p>
           <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[2.75rem]">
-            Why most automation leaks revenue
+            Why manual operations limit your growth
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Impressive demos collapse in production—causing missed leads, angry customers, and 2 AM fire drills.
+            Scalability isn't about working harder. It's about removing the bottleneck of human intervention from your revenue engine.
           </p>
         </div>
 

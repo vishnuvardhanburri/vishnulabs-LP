@@ -42,7 +42,7 @@ export function ExamplesSection() {
             Automation running in production
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Examples of backend-first automation removing bottlenecks for SaaS and ops-heavy teams.
+            Examples of enterprise-grade automation removing bottlenecks for growth teams.
           </p>
         </div>
 

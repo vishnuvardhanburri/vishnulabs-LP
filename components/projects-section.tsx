@@ -396,7 +396,7 @@ export function ProjectsSection() {
             rel="noopener noreferrer"
             className="group flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
-            Want to review more architectures? Book an architecture audit call and I’ll walk you through live systems
+            Want to review these systems in detail? Book a Strategy Call and I’ll walk you through the architecture
             <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
         </div>

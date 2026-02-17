@@ -32,32 +32,32 @@ export function Hero() {
               Now booking
             </span>
             <span className="text-xs text-muted-foreground">
-              2 architecture slots open
+              2 partner slots open
             </span>
           </div>
 
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground/70">
-            Backend-First AI Automation • Architecture-Led Delivery • Built for Scale
+            Revenue-Focused Automation • Enterprise-Grade Systems • Scalable Operations
           </p>
 
           <h1 className="text-balance text-[2.5rem] font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-[3.5rem] lg:text-[4.25rem]">
-            I build backend-first AI systems
+            I build AI systems that
             <br />
             <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-              that keep your revenue ops
+              replace manual revenue operations,
             </span>
             <br />
-            reliable at any scale.
+            automate lead handling, and scale response.
           </h1>
 
           <p className="max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
-            I design deterministic agents, workflow engines, and integration layers so SaaS and ops-heavy teams stop firefighting and keep revenue moving.
+            Stop losing leads to slow response times. I architect autonomous systems that qualify prospects, book meetings, and manage operations 24/7—so you can focus on closing without increasing headcount.
           </p>
 
           <ul className="flex max-w-lg list-disc flex-col gap-2 pl-5 text-sm text-muted-foreground">
-            <li>Remove 70–90% of manual steps in core ops</li>
-            <li>Respond to every inbound lead in seconds with guardrails</li>
-            <li>Ship automation with monitoring, alerts, and clear ownership</li>
+            <li>50–80% reduction in manual operational processes</li>
+            <li>Instant 24/7 lead qualification and response</li>
+            <li>Scale revenue capacity without hiring more staff</li>
           </ul>
 
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -72,7 +72,7 @@ export function Hero() {
                 rel="noopener noreferrer"
               >
                 <Calendar className="h-4 w-4" />
-                Book Architecture Audit Call
+                Book Strategy Call
               </a>
             </Button>
             <Button
@@ -97,7 +97,7 @@ export function Hero() {
               className="gap-2 rounded-xl px-8 py-6 text-base font-medium text-muted-foreground hover:bg-secondary hover:text-foreground"
             >
               <a href="#projects">
-                Review live projects
+                See results
                 <ArrowUpRight className="h-4 w-4" />
               </a>
             </Button>
@@ -107,17 +107,17 @@ export function Hero() {
           <div className="mt-4 flex items-center gap-8 border-t border-border/30 pt-8">
             <div>
               <p className="text-2xl font-bold text-foreground">50+</p>
-              <p className="text-xs text-muted-foreground">Production systems shipped</p>
+              <p className="text-xs text-muted-foreground">Systems Deployed</p>
             </div>
             <div className="h-8 w-px bg-border/30" />
             <div>
-              <p className="text-2xl font-bold text-foreground">99.9%</p>
-              <p className="text-xs text-muted-foreground">Uptime maintained</p>
+              <p className="text-2xl font-bold text-foreground">100%</p>
+              <p className="text-xs text-muted-foreground">Lead Response Rate</p>
             </div>
             <div className="h-8 w-px bg-border/30" />
             <div>
-              <p className="text-2xl font-bold text-foreground">3x</p>
-              <p className="text-xs text-muted-foreground">Faster to production vs agencies</p>
+              <p className="text-2xl font-bold text-foreground">24/7</p>
+              <p className="text-xs text-muted-foreground">Automated Coverage</p>
             </div>
           </div>
         </div>

@@ -3,27 +3,21 @@ import { Bot, Workflow, Plug, ShieldCheck } from "lucide-react"
 const solutions = [
   {
     icon: Bot,
-    title: "AI Agents",
+    title: "AI Receptionist / Inbound",
     description:
-      "Deterministic agents with tested prompts, contracts, and live monitoring—no black boxes.",
+      "Handle every call and chat instantly. Qualify visitors 24/7 and book meetings directly into your calendar.",
   },
   {
     icon: Workflow,
-    title: "Backend Workflows",
+    title: "Lead Qual & Outbound",
     description:
-      "Event-driven orchestration with retries, dead-letter queues, and idempotency so work never disappears.",
+      "Identify and engage high-value prospects on autopilot. Personalized outreach at scale that feels human.",
   },
   {
     icon: Plug,
-    title: "API Integrations",
+    title: "Ops Workflow Automation",
     description:
-      "Single integration layer that normalizes data across CRM, ERP, and support with full observability.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Reliable Systems",
-    description:
-      "Health checks, alerting, circuit breakers, and horizontal scaling baked into the design.",
+      "Connect your tools and data. Eliminate manual entry, sync CRMs, and streamline fulfillment seamlessly.",
   },
 ]
 
@@ -37,17 +31,17 @@ export function SolutionSection() {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mb-16 max-w-xl">
           <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary/80">
-            Architecture-Led Engagement
+            Services
           </p>
           <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[2.75rem]">
-            Automation architecture that survives production
+            End-to-end revenue automation
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Blueprint before code—so every build is maintainable, observable, and ready for load.
+            From first touch to closed deal—architected for reliability and speed.
           </p>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-3">
           {solutions.map((solution) => (
             <div
               key={solution.title}

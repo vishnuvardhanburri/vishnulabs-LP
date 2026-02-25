@@ -5,14 +5,11 @@ import { Menu, X, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
-  { label: "Projects", href: "#projects" },
-  { label: "Demos", href: "#demos" },
-  { label: "Automations", href: "#automations" },
-  { label: "Custom Solutions", href: "#custom-solutions" },
-  { label: "Architecture Approach", href: "#solutions" },
-  { label: "Delivery Framework", href: "#process" },
-  { label: "Outcomes", href: "#outcomes" },
+  { label: "Offers", href: "#offers" },
+  { label: "Explore Automations", href: "#automations" },
+  { label: "Delivery", href: "#delivery" },
   { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
 ]
 
 export function Navbar() {
@@ -60,16 +57,16 @@ export function Navbar() {
             size="sm"
             asChild
             className="gap-1.5 rounded-lg bg-foreground px-5 text-background hover:bg-foreground/90"
+          >
+            <a
+              href="https://calendly.com/vishnuvardhanburri19/new-meeting"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <a
-                href="https://calendly.com/vishnuvardhanburri19/new-meeting"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Book Architecture Audit Call
-                <ArrowUpRight className="h-3.5 w-3.5" />
-              </a>
-            </Button>
+              Book Live Demo
+              <ArrowUpRight className="h-3.5 w-3.5" />
+            </a>
+          </Button>
         </div>
 
         <button
@@ -105,7 +102,7 @@ export function Navbar() {
                   rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
                 >
-                  Book Architecture Audit Call
+                  Book Live Demo
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
               </Button>

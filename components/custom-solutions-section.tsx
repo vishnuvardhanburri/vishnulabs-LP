@@ -29,8 +29,8 @@ export function CustomSolutionsSection() {
 
             <div className="rounded-2xl border border-border/40 bg-background/50 p-6">
               <p className="text-xs uppercase tracking-wide text-muted-foreground">Project investment</p>
-              <p className="mt-1 text-2xl font-semibold text-foreground">$1,000 to $10,000+</p>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Final pricing depends on scope, integrations, and delivery timeline based on client requirements.</p>
+              <p className="mt-1 text-2xl font-semibold text-foreground">$1,000 to $10,000</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Final pricing depends on scope, integrations, and delivery timeline based on client requirements. Transparent scope, transparent timeline, and transparent communication before development starts.</p>
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <Button

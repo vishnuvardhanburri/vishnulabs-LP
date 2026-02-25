@@ -29,7 +29,7 @@ export function CtaSection() {
               {"Book a 30-minute architecture audit—no sales script, just a frank review of your automation stack and how I'd harden it for scale."}
             </p>
             <p className="mx-auto mt-4 max-w-lg text-sm text-muted-foreground">
-              Designed for teams serious about production-ready systems, not quick hacks.
+              Designed for teams serious about production-ready systems, with transparent communication from kickoff to go-live.
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">

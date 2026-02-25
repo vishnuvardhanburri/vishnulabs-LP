@@ -7,6 +7,7 @@ const capabilities = [
   { icon: Bot, label: "AI agents that stay deterministic" },
   { icon: ShieldCheck, label: "Production-grade reliability & alerting" },
   { icon: Globe, label: "Built for global scale" },
+  { icon: ShieldCheck, label: "Transparent pricing, timelines, and delivery updates" },
   { icon: Zap, label: "You own the code and infra" },
 ]
 

@@ -4,6 +4,7 @@ import { TrustStrip } from "@/components/trust-strip"
 import { ProblemSection } from "@/components/problem-section"
 import { SolutionSection } from "@/components/solution-section"
 import { ProjectsSection } from "@/components/projects-section"
+import { DemoVideosSection } from "@/components/demo-videos-section"
 import { ExamplesSection } from "@/components/examples-section"
 import { OutcomesSection } from "@/components/outcomes-section"
 import { ProcessSection } from "@/components/process-section"
@@ -19,6 +20,7 @@ export default function Page() {
         <Hero />
         <TrustStrip />
         <ProjectsSection />
+        <DemoVideosSection />
         <ProblemSection />
         <SolutionSection />
         <ExamplesSection />

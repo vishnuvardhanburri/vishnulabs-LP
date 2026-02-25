@@ -9,6 +9,7 @@ import { ExamplesSection } from "@/components/examples-section"
 import { OutcomesSection } from "@/components/outcomes-section"
 import { ProcessSection } from "@/components/process-section"
 import { AboutSection } from "@/components/about-section"
+import { CustomSolutionsSection } from "@/components/custom-solutions-section"
 import { CtaSection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
 
@@ -27,6 +28,7 @@ export default function Page() {
         <OutcomesSection />
         <ProcessSection />
         <AboutSection />
+        <CustomSolutionsSection />
         <CtaSection />
       </main>
       <Footer />

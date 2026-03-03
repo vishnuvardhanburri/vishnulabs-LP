@@ -26,12 +26,14 @@ export function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? "border-b border-border/50 bg-background/90 backdrop-blur-xl" : "bg-transparent"
+        scrolled
+          ? "border-b border-border/60 bg-background/90 shadow-[0_8px_30px_rgba(0,0,0,0.28)] backdrop-blur-xl"
+          : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-6 lg:px-10">
-        <a href="/" className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
+      <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-10">
+        <a href="/" className="tap-target flex items-center gap-3 rounded-lg px-1 py-1">
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary shadow-[0_0_18px_rgba(47,128,255,0.45)]">
             <span className="text-sm font-bold text-primary-foreground">V</span>
           </div>
           <div>
@@ -45,7 +47,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-lg px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+              className="rounded-lg px-4 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-secondary/80 hover:text-foreground"
             >
               {link.label}
             </a>
@@ -53,7 +55,11 @@ export function Navbar() {
         </nav>
 
         <div className="hidden md:block">
-          <Button size="sm" asChild className="gap-1.5 rounded-lg bg-foreground px-5 text-background hover:bg-foreground/90">
+          <Button
+            size="sm"
+            asChild
+            className="gap-1.5 rounded-xl bg-foreground px-5 text-background shadow-[0_0_0_1px_rgba(255,255,255,0.06)] hover:bg-foreground/90"
+          >
             <a href="/book" data-track="nav_book_meeting">
               Book Meeting
               <ArrowUpRight className="h-3.5 w-3.5" />
@@ -62,7 +68,7 @@ export function Navbar() {
         </div>
 
         <button
-          className="flex h-10 w-10 items-center justify-center rounded-lg text-foreground transition-colors hover:bg-secondary md:hidden"
+          className="tap-target inline-flex items-center justify-center rounded-lg text-foreground transition-colors hover:bg-secondary md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
@@ -72,7 +78,7 @@ export function Navbar() {
 
       {mobileOpen && (
         <nav
-          className="border-t border-border/40 bg-background/95 px-6 pb-8 pt-4 backdrop-blur-xl md:hidden"
+          className="border-t border-border/50 bg-background/95 px-4 pb-24 pt-4 backdrop-blur-xl md:hidden"
           aria-label="Mobile navigation"
         >
           <div className="flex flex-col gap-1">
@@ -80,14 +86,14 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-lg px-4 py-3 text-base text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                className="tap-target rounded-lg px-4 py-3 text-base text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
               </a>
             ))}
-            <div className="mt-4 border-t border-border/40 pt-4">
-              <Button size="sm" asChild className="w-full gap-1.5 rounded-lg bg-foreground text-background hover:bg-foreground/90">
+            <div className="mt-4 border-t border-border/45 pt-4">
+              <Button size="sm" asChild className="w-full gap-1.5 rounded-xl bg-foreground py-5 text-background hover:bg-foreground/90">
                 <a href="/book" onClick={() => setMobileOpen(false)} data-track="mobile_nav_book_meeting">
                   Book Meeting
                   <ArrowUpRight className="h-3.5 w-3.5" />

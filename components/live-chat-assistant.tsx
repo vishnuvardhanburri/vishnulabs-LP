@@ -81,9 +81,9 @@ export function LiveChatAssistant() {
       {open && (
         <section
           id="chat"
-          className="fixed bottom-24 right-4 z-[60] flex w-[92vw] max-w-[380px] flex-col overflow-hidden rounded-2xl border border-border/45 bg-background/95 shadow-2xl shadow-black/50 backdrop-blur-xl"
+          className="fixed bottom-[calc(94px+env(safe-area-inset-bottom))] right-2 z-[60] flex w-[calc(100vw-1rem)] max-w-[390px] flex-col overflow-hidden rounded-2xl border border-border/55 bg-background/95 shadow-2xl shadow-black/50 backdrop-blur-xl md:bottom-20 md:right-4 md:w-[380px]"
         >
-          <header className="flex items-center justify-between border-b border-border/40 px-4 py-3">
+          <header className="flex items-center justify-between border-b border-border/45 px-4 py-3">
             <div>
               <p className="text-sm font-semibold text-foreground">VishnuLabs Live Assistant</p>
               <p className="text-[11px] text-muted-foreground">Transparency-first answers</p>
@@ -91,7 +91,7 @@ export function LiveChatAssistant() {
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="rounded-md p-1 text-muted-foreground hover:bg-secondary hover:text-foreground"
+              className="tap-target rounded-md p-1 text-muted-foreground hover:bg-secondary hover:text-foreground"
               aria-label="Close chat"
             >
               <X className="h-4 w-4" />
@@ -111,14 +111,14 @@ export function LiveChatAssistant() {
             ))}
           </div>
 
-          <div className="border-t border-border/40 px-4 py-3">
+          <div className="border-t border-border/45 px-4 py-3">
             <div className="mb-2 flex flex-wrap gap-2">
               {quickPrompts.map((prompt) => (
                 <button
                   key={prompt}
                   type="button"
                   onClick={() => sendMessage(prompt)}
-                  className="rounded-full border border-border/50 px-2.5 py-1 text-[11px] text-muted-foreground hover:bg-secondary hover:text-foreground"
+                  className="rounded-full border border-border/55 px-2.5 py-1 text-[11px] text-muted-foreground hover:bg-secondary hover:text-foreground"
                 >
                   {prompt}
                 </button>
@@ -131,14 +131,14 @@ export function LiveChatAssistant() {
                 onKeyDown={(e) => {
                   if (e.key === "Enter") sendMessage(input)
                 }}
-                className="h-10 w-full rounded-lg border border-border/50 bg-card/60 px-3 text-sm text-foreground outline-none ring-0 placeholder:text-muted-foreground focus:border-primary/60"
+                className="h-10 w-full rounded-lg border border-border/55 bg-card/70 px-3 text-sm text-foreground outline-none ring-0 placeholder:text-muted-foreground focus:border-primary/60"
                 placeholder="Ask about pricing, timeline, integrations..."
               />
               <button
                 type="button"
                 onClick={() => sendMessage(input)}
                 disabled={!canSend}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-foreground text-background disabled:cursor-not-allowed disabled:opacity-50"
+                className="tap-target inline-flex h-10 w-10 items-center justify-center rounded-lg bg-foreground text-background disabled:cursor-not-allowed disabled:opacity-50"
                 aria-label="Send message"
               >
                 <Send className="h-4 w-4" />
@@ -152,7 +152,7 @@ export function LiveChatAssistant() {
         type="button"
         onClick={() => setOpen((prev) => !prev)}
         data-track="open_live_assistant"
-        className="fixed bottom-24 right-4 z-[55] inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 md:bottom-6"
+        className="tap-target fixed bottom-[calc(94px+env(safe-area-inset-bottom))] right-3 z-[55] inline-flex items-center gap-2 rounded-full border border-primary/45 bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30 md:bottom-6 md:right-6"
       >
         <MessageCircle className="h-4 w-4" />
         Live Assistant

@@ -27,8 +27,8 @@ const steps = [
 export function ProcessSection() {
   return (
     <section className="relative py-24 md:py-32" id="delivery">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="mb-14 max-w-3xl">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+        <div className="reveal-in mb-14 max-w-3xl">
           <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary/80">Delivery Framework</p>
           <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[2.65rem]">
             What happens after you say yes
@@ -39,10 +39,10 @@ export function ProcessSection() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
-          {steps.map((step) => (
+          {steps.map((step, idx) => (
             <article
               key={step.day}
-              className="rounded-2xl border border-border/35 bg-card/55 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+              className={`lift-card reveal-in rounded-2xl border border-border/45 bg-card/65 p-6 ${idx === 1 ? "reveal-delay-1" : idx === 2 ? "reveal-delay-2" : ""}`}
             >
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
                 <step.icon className="h-4.5 w-4.5 text-primary" />

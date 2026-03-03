@@ -39,7 +39,7 @@ const caseStudies: CaseStudy[] = [
 export function CaseStudiesSection() {
   return (
     <section className="relative py-24 md:py-32" id="case-studies">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="mb-12 max-w-3xl">
           <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary/80">Case Studies</p>
           <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[2.65rem]">
@@ -52,7 +52,7 @@ export function CaseStudiesSection() {
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {caseStudies.map((study) => (
-            <article key={study.vertical} className="rounded-2xl border border-border/35 bg-card/60 p-6">
+            <article key={study.vertical} className="rounded-2xl border border-border/45 bg-card/65 p-6 lift-card">
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
                 <study.icon className="h-4.5 w-4.5 text-primary" />
               </div>

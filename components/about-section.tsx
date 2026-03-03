@@ -29,7 +29,7 @@ const deliverables = [
 export function AboutSection() {
   return (
     <section className="relative py-24 md:py-32" id="about">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="grid items-start gap-10 lg:grid-cols-[1fr_1fr] lg:gap-14">
           <div>
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-accent/80">Why VishnuLabs</p>
@@ -64,7 +64,7 @@ export function AboutSection() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-border/35 bg-card/55 p-6">
+          <div className="rounded-2xl border border-border/45 bg-card/65 p-6 lift-card">
             <p className="text-xs uppercase tracking-widest text-muted-foreground">Included in Every Engagement</p>
             <div className="mt-4 grid gap-3">
               {deliverables.map((item) => (

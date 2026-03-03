@@ -29,19 +29,19 @@ const faqs = [
 
 export function FaqSection() {
   return (
-    <section className="relative border-y border-border/30 py-24 md:py-32" id="faq">
-      <div className="absolute inset-0 bg-secondary/15" />
-      <div className="relative mx-auto max-w-4xl px-6 lg:px-10">
-        <div className="mb-10 text-center">
+    <section className="relative border-y border-border/35 py-24 md:py-32" id="faq">
+      <div className="absolute inset-0 bg-secondary/20" />
+      <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-10">
+        <div className="reveal-in mb-10 text-center">
           <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary/80">FAQ</p>
           <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl">
             Questions teams ask before they start
           </h2>
         </div>
 
-        <Accordion type="single" collapsible className="rounded-2xl border border-border/35 bg-card/60 px-5 py-2">
+        <Accordion type="single" collapsible className="surface-glass reveal-in reveal-delay-1 rounded-2xl px-4 py-2 sm:px-5">
           {faqs.map((item, idx) => (
-            <AccordionItem key={item.q} value={`faq-${idx}`} className="border-border/35">
+            <AccordionItem key={item.q} value={`faq-${idx}`} className="border-border/40">
               <AccordionTrigger className="text-left text-sm font-semibold text-foreground hover:no-underline md:text-base">
                 {item.q}
               </AccordionTrigger>

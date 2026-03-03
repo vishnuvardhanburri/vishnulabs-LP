@@ -30,8 +30,8 @@ const painPoints = [
 export function ProblemSection() {
   return (
     <section className="relative py-24 md:py-28" id="problem">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="mb-12 max-w-3xl">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+        <div className="reveal-in mb-12 max-w-3xl">
           <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-destructive/75">Revenue Leaks</p>
           <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[2.65rem]">
             Most SMB teams do not lose leads from lack of demand.
@@ -41,10 +41,10 @@ export function ProblemSection() {
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2">
-          {painPoints.map((point) => (
+          {painPoints.map((point, idx) => (
             <article
               key={point.title}
-              className="rounded-2xl border border-border/35 bg-card/55 p-6 transition-all duration-300 hover:border-destructive/30 hover:bg-card/75"
+              className={`lift-card reveal-in rounded-2xl border border-border/45 bg-card/65 p-6 ${idx === 1 ? "reveal-delay-1" : idx === 2 ? "reveal-delay-2" : ""}`}
             >
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-destructive/10">
                 <point.icon className="h-4.5 w-4.5 text-destructive/80" />

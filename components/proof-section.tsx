@@ -50,7 +50,7 @@ export function ProofSection() {
   return (
     <section className="relative border-y border-border/30 py-24 md:py-32" id="proof">
       <div className="absolute inset-0 bg-secondary/15" />
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="mb-12 max-w-3xl">
           <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary/80">Proof & Results</p>
           <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[2.65rem]">
@@ -63,7 +63,7 @@ export function ProofSection() {
 
         <div className="grid gap-4 md:grid-cols-3">
           {outcomeCards.map((card) => (
-            <article key={card.title} className="rounded-2xl border border-border/35 bg-card/60 p-6">
+            <article key={card.title} className="rounded-2xl border border-border/45 bg-card/65 p-6 lift-card">
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
                 <TrendingUp className="h-4.5 w-4.5 text-primary" />
               </div>
@@ -85,7 +85,7 @@ export function ProofSection() {
           ))}
         </div>
 
-        <div className="mt-8 rounded-2xl border border-border/35 bg-card/60 p-6">
+        <div className="mt-8 rounded-2xl border border-border/45 bg-card/65 p-6 lift-card">
           <p className="text-xs uppercase tracking-widest text-muted-foreground">As Used By</p>
           <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {trustSignals.map((label) => (

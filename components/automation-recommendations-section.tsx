@@ -74,7 +74,7 @@ const iconByIndex = [Scale, Home, Wallet, PhoneCall, BriefcaseBusiness, Building
 export function AutomationRecommendationsSection() {
   return (
     <section className="relative py-24 md:py-32" id="industries">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="mb-12 max-w-3xl">
           <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary/80">Industry Playbooks</p>
           <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[2.65rem]">
@@ -92,7 +92,7 @@ export function AutomationRecommendationsSection() {
             return (
               <article
                 key={option.title}
-                className="rounded-2xl border border-border/35 bg-card/55 p-5 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                className="rounded-2xl border border-border/45 bg-card/65 p-5 lift-card transition-all hover:-translate-y-0.5 hover:shadow-lg"
               >
                 <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-border/40 bg-background/60 px-2.5 py-1 text-xs text-muted-foreground">
                   <Icon className="h-3.5 w-3.5" />

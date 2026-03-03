@@ -33,8 +33,14 @@ export function Navbar() {
     >
       <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-10">
         <a href="/" className="tap-target flex items-center gap-3 rounded-lg px-1 py-1">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary shadow-[0_0_18px_rgba(47,128,255,0.45)]">
-            <span className="text-sm font-bold text-primary-foreground">V</span>
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/12 shadow-[0_0_20px_rgba(47,128,255,0.28)]">
+            <img
+              src="/vishnulabs-logo-mark.svg"
+              alt="VishnuLabs V logo"
+              width="30"
+              height="30"
+              className="h-[30px] w-[30px] object-contain"
+            />
           </div>
           <div>
             <p className="text-base font-semibold tracking-tight text-foreground">VishnuLabs</p>

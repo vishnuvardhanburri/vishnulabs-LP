@@ -1,0 +1,24 @@
+<svg width="480" height="140" viewBox="0 0 480 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoLine" x1="96" y1="70" x2="385" y2="70" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DDE6F7"/>
+      <stop offset="1" stop-color="#F5F8FF"/>
+    </linearGradient>
+  </defs>
+
+  <text x="240" y="24" text-anchor="middle" fill="#EEF3FF" font-family="Sora, system-ui, sans-serif" font-size="20" font-weight="700" letter-spacing="4">
+    VISHNU LABS
+  </text>
+
+  <circle cx="240" cy="70" r="28" stroke="url(#logoLine)" stroke-width="7"/>
+  <path d="M92 58H196L207 46H273L284 58H388" stroke="url(#logoLine)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M102 70H193" stroke="url(#logoLine)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M110 82H191" stroke="url(#logoLine)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M378 70H287" stroke="url(#logoLine)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M370 82H289" stroke="url(#logoLine)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M232 58L240 86L248 58" stroke="url(#logoLine)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="240" y="124" text-anchor="middle" fill="#DCE5FA" font-family="Sora, system-ui, sans-serif" font-size="15" font-weight="600" letter-spacing="3">
+    THINK WISELY
+  </text>
+</svg>

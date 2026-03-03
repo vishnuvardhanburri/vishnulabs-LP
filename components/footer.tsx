@@ -22,12 +22,15 @@ export function Footer() {
     <footer className="border-t border-border/30 py-12">
       <div className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-4 lg:px-10">
         <div>
-          <div className="flex items-center gap-3">
-            <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary">
-              <span className="text-[10px] font-bold text-primary-foreground">V</span>
-            </div>
-            <span className="text-sm font-semibold text-foreground">VishnuLabs</span>
-          </div>
+          <a href="/" className="inline-flex items-center rounded-lg border border-border/40 bg-card/50 px-3 py-2">
+            <img
+              src="/vishnulabs-logo-full.svg"
+              alt="VishnuLabs logo"
+              width="170"
+              height="50"
+              className="h-auto w-[170px] object-contain"
+            />
+          </a>
           <p className="mt-3 max-w-xs text-sm text-muted-foreground">
             AI automation agency for call handling, intake, scheduling, and follow-up operations.
           </p>

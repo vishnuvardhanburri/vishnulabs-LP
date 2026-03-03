@@ -1,144 +1,107 @@
-import { ArrowUpRight, Calendar, Rocket } from "lucide-react"
+import { ArrowUpRight, Calendar, CheckCircle2, PlayCircle, ShieldCheck } from "lucide-react"
 import { Button } from "@/components/ui/button"
+
+const heroPoints = [
+  "Answers inbound calls in under 2 seconds",
+  "Qualifies leads and books consultations automatically",
+  "Runs reminders and reschedules to reduce no-shows by 30-40%",
+]
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section className="relative overflow-hidden pb-20 pt-32 md:pb-28 md:pt-40 lg:pt-44">
       <div className="absolute inset-0">
-        <div className="absolute right-0 top-0 h-[600px] w-[600px] rounded-full bg-primary/5 blur-[120px]" />
-        <div className="absolute -left-32 bottom-0 h-[400px] w-[400px] rounded-full bg-accent/5 blur-[100px]" />
+        <div className="absolute -left-20 top-24 h-[320px] w-[320px] rounded-full bg-primary/10 blur-[100px]" />
+        <div className="absolute right-0 top-0 h-[420px] w-[420px] rounded-full bg-accent/10 blur-[120px]" />
       </div>
 
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
-        }}
-      />
-
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center px-6 pb-24 pt-32 md:flex-row md:items-center md:gap-16 md:pb-32 md:pt-40 lg:gap-20 lg:px-10 lg:pt-44">
-        <div className="flex flex-1 flex-col items-start gap-8">
-          <div className="flex items-center gap-3 rounded-full border border-border/50 bg-secondary/50 py-1.5 pl-1.5 pr-4 backdrop-blur-sm">
-            <span className="relative flex items-center gap-2 rounded-full bg-primary/15 px-2.5 py-0.5 text-xs font-semibold text-primary">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-              </span>
-              Revenue automation for US SMBs
-            </span>
-            <span className="text-xs text-muted-foreground">Law firms • Real estate • Consultants</span>
+      <div className="relative mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:gap-12 lg:px-10">
+        <div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-border/40 bg-secondary/55 px-3 py-1.5 text-xs font-medium text-muted-foreground">
+            <ShieldCheck className="h-3.5 w-3.5 text-primary" />
+            Premium AI automation systems for US SMB teams
           </div>
 
-          <h1 className="text-balance text-[2.4rem] font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-[3.45rem] lg:text-[4.1rem]">
-            Losing qualified leads because
+          <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.03] tracking-tight text-foreground sm:text-5xl lg:text-[4rem]">
+            Never Miss Another
             <br />
-            response is manual and slow?
-            <br />
-            <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-              Fix it in 5 days.
-            </span>
+            Lead After Hours
           </h1>
 
-          <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            VishnuLabs builds backend-first automation systems that handle inbound calls, intake, scheduling, and follow-up with deterministic logic. Every build includes monitoring, retries, and clear ownership. No brittle zaps.
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            VishnuLabs builds AI voice and revenue automation systems that answer every call, qualify intent, schedule consultations,
+            and keep your pipeline moving without manual follow-up bottlenecks.
           </p>
 
-          <ul className="flex max-w-2xl list-disc flex-col gap-2 pl-5 text-sm text-muted-foreground">
-            <li>Typical response-time reduction: from hours to under 60 seconds</li>
-            <li>Expected no-show reduction: 20% to 40% with reminders and reschedules</li>
-            <li>First automation live in 3 to 5 days, investment from $1,000 to $10,000</li>
+          <ul className="mt-6 flex max-w-2xl flex-col gap-2.5">
+            {heroPoints.map((point) => (
+              <li key={point} className="flex items-start gap-2.5 text-sm text-muted-foreground md:text-[15px]">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <span>{point}</span>
+              </li>
+            ))}
           </ul>
 
-          <div className="rounded-2xl border border-border/40 bg-card/60 px-5 py-4">
-            <p className="text-xs uppercase tracking-wide text-muted-foreground">Primary offer</p>
-            <p className="mt-1 text-sm font-medium text-foreground">
-              Revenue Automation Launch: AI Scheduling + Legal Intake + AI Voice Receptionist
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button
-              size="lg"
-              asChild
-              className="gap-2 rounded-xl bg-foreground px-8 py-6 text-base font-medium text-background hover:bg-foreground/90"
-            >
-              <a
-                href="https://calendly.com/vishnuvardhanburri19/new-meeting"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Button size="lg" asChild className="gap-2 rounded-xl bg-foreground px-8 py-6 text-base text-background hover:bg-foreground/90">
+              <a href="/book" data-track="hero_book_meeting">
                 <Calendar className="h-4 w-4" />
-                Book Live Demo
+                Book Meeting
               </a>
             </Button>
             <Button
               variant="outline"
               size="lg"
               asChild
-              className="gap-2 rounded-xl border-border/50 px-8 py-6 text-base font-medium hover:bg-secondary"
+              className="gap-2 rounded-xl border-border/60 px-8 py-6 text-base font-medium hover:bg-secondary"
             >
-              <a href="mailto:hello@vishnulabs.com?subject=Start%20Setup%20-%20VishnuLabs">
-                <Rocket className="h-4 w-4" />
-                Start Setup
-              </a>
-            </Button>
-            <Button
-              variant="ghost"
-              size="lg"
-              asChild
-              className="gap-2 rounded-xl px-8 py-6 text-base font-medium text-muted-foreground hover:bg-secondary hover:text-foreground"
-            >
-              <a href="#offers">
-                View Packages
+              <a href="#services" data-track="hero_view_services">
+                View Services
                 <ArrowUpRight className="h-4 w-4" />
               </a>
             </Button>
           </div>
 
-          <div className="mt-2 flex items-center gap-8 border-t border-border/30 pt-8">
+          <div className="mt-9 grid max-w-2xl grid-cols-3 gap-4 border-t border-border/40 pt-7 text-center sm:text-left">
             <div>
-              <p className="text-2xl font-bold text-foreground">3-5 Days</p>
-              <p className="text-xs text-muted-foreground">First System Live</p>
+              <p className="text-2xl font-semibold text-foreground">5-7 days</p>
+              <p className="text-xs text-muted-foreground">First deployment live</p>
             </div>
-            <div className="h-8 w-px bg-border/30" />
             <div>
-              <p className="text-2xl font-bold text-foreground">$1k-$10k</p>
-              <p className="text-xs text-muted-foreground">Investment Range</p>
+              <p className="text-2xl font-semibold text-foreground">$4,997+</p>
+              <p className="text-xs text-muted-foreground">Starter implementation</p>
             </div>
-            <div className="h-8 w-px bg-border/30" />
             <div>
-              <p className="text-2xl font-bold text-foreground">24/7</p>
-              <p className="text-xs text-muted-foreground">Automated Coverage</p>
+              <p className="text-2xl font-semibold text-foreground">24/7</p>
+              <p className="text-xs text-muted-foreground">Lead response coverage</p>
             </div>
           </div>
         </div>
 
-        <div className="relative mt-12 flex-shrink-0 md:mt-0">
-          <div className="absolute -inset-8 rounded-3xl bg-primary/8 blur-3xl" />
+        <div className="relative rounded-2xl border border-border/40 bg-card/65 p-5 shadow-2xl shadow-black/25 backdrop-blur-sm">
+          <div className="mb-4 flex items-center justify-between">
+            <p className="text-sm font-semibold text-foreground">15-second demo preview</p>
+            <a href="#proof" className="text-xs text-primary hover:text-primary/80">
+              Watch outcomes
+            </a>
+          </div>
 
-          <div className="relative animate-float">
-            <div className="relative h-[380px] w-[320px] overflow-hidden rounded-2xl border border-border/30 sm:h-[440px] sm:w-[360px] lg:h-[500px] lg:w-[400px]">
-              <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZimsoQzLU1lkQEgOzbMbgT8RIDw1eB.png"
-                alt="Vishnu Vardhan Burri - VishnuLabs"
-                className="h-full w-full object-cover object-top"
-              />
-              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background/80 to-transparent" />
+          <div className="group flex h-[220px] items-center justify-center rounded-xl border border-border/40 bg-background/70">
+            <PlayCircle className="h-14 w-14 text-primary transition-transform group-hover:scale-105" />
+          </div>
+
+          <div className="mt-4 rounded-xl border border-border/40 bg-background/70 p-4">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground">Implementation Snapshot</p>
+            <div className="mt-3 grid gap-2 text-sm text-muted-foreground">
+              <p>1) Inbound call hits AI voice receptionist</p>
+              <p>2) Lead qualifies and consultation slot is booked</p>
+              <p>3) SMS + email reminders auto-trigger with reschedule support</p>
             </div>
+          </div>
 
-            <div className="absolute -bottom-4 -left-4 rounded-xl border border-border/30 bg-card/90 px-5 py-3 shadow-2xl backdrop-blur-sm sm:-left-6">
-              <p className="text-xs font-medium tracking-wider text-muted-foreground">DELIVERY MODEL</p>
-              <p className="text-base font-semibold text-foreground">Backend-first, monitored, deterministic</p>
-            </div>
-
-            <div className="absolute -right-4 top-6 rounded-xl border border-border/30 bg-card/90 px-4 py-2.5 shadow-2xl backdrop-blur-sm sm:-right-6">
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">Credibility</p>
-              <p className="text-sm font-semibold text-foreground">Enterprise + SMB implementation experience</p>
-            </div>
-
-            <div className="absolute -right-2 -top-2 h-4 w-4 rounded-full bg-primary animate-pulse-glow" />
+          <div className="mt-4 rounded-xl border border-primary/35 bg-primary/8 p-4">
+            <p className="text-sm font-medium text-foreground">Agency-grade delivery, not freelancer patchwork.</p>
+            <p className="mt-1 text-xs text-muted-foreground">Architecture, implementation, QA, and monitoring included.</p>
           </div>
         </div>
       </div>

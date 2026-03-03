@@ -1,60 +1,57 @@
-import { AlertTriangle, X } from "lucide-react"
+import { AlertTriangle, CalendarX2, PhoneMissed, TimerReset } from "lucide-react"
 
-const problems = [
+const painPoints = [
   {
-    title: "Brittleness in revenue ops",
+    icon: PhoneMissed,
+    title: "After-hours calls go unanswered",
     description:
-      "SaaS glued together; one API change stalls revenue ops at 2 AM with no alerting or fallback.",
+      "High-intent leads call outside office hours, hit voicemail, and move to competitors before your team responds.",
   },
   {
-    title: "Tool sprawl with no spine",
+    icon: CalendarX2,
+    title: "Manual scheduling slows conversion",
     description:
-      "Dozens of tools, no shared data layer, duplicated logic, and wasted spend with no ownership.",
+      "Back-and-forth booking kills momentum and leaves warm leads unassigned in your CRM.",
   },
   {
-    title: "No deterministic backend",
+    icon: TimerReset,
+    title: "No-show rates stay high",
     description:
-      "Automations lack retries, idempotency, and runbooks—you hear about failures from customers first.",
+      "Without reminder workflows and reschedule handling, booked consultations fail to convert into sales calls.",
   },
   {
-    title: "Breaks under scale",
+    icon: AlertTriangle,
+    title: "Revenue reporting lacks visibility",
     description:
-      "Systems fine at 10 users crumble at 1,000 with no capacity plan or path to grow.",
+      "Teams cannot see where leads dropped, which means marketing spend grows while close rates stay flat.",
   },
 ]
 
 export function ProblemSection() {
   return (
-    <section className="relative py-28 md:py-36" id="problem">
+    <section className="relative py-24 md:py-28" id="problem">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="mb-16 max-w-xl">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-destructive/80">
-            The Growth Bottleneck
-          </p>
-          <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[2.75rem]">
-            Why manual operations limit your growth
+        <div className="mb-12 max-w-3xl">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-destructive/75">Revenue Leaks</p>
+          <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[2.65rem]">
+            Most SMB teams do not lose leads from lack of demand.
+            <br className="hidden md:block" />
+            They lose them in response and follow-up operations.
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Scalability isn't about working harder. It's about removing the bottleneck of human intervention from your revenue engine.
-          </p>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2">
-          {problems.map((problem) => (
-            <div
-              key={problem.title}
-              className="group relative rounded-2xl border border-border/30 bg-card/50 p-7 transition-all duration-300 hover:border-destructive/20 hover:bg-card"
+          {painPoints.map((point) => (
+            <article
+              key={point.title}
+              className="rounded-2xl border border-border/35 bg-card/55 p-6 transition-all duration-300 hover:border-destructive/30 hover:bg-card/75"
             >
-              <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-xl bg-destructive/8">
-                <X className="h-4 w-4 text-destructive/70" />
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-destructive/10">
+                <point.icon className="h-4.5 w-4.5 text-destructive/80" />
               </div>
-              <h3 className="mb-2.5 text-lg font-semibold text-foreground">
-                {problem.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                {problem.description}
-              </p>
-            </div>
+              <h3 className="text-lg font-semibold text-foreground">{point.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{point.description}</p>
+            </article>
           ))}
         </div>
       </div>

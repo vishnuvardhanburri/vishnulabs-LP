@@ -1,15 +1,16 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { Menu, X, ArrowUpRight } from "lucide-react"
+import { useEffect, useState } from "react"
+import { ArrowUpRight, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
-  { label: "Offers", href: "#offers" },
-  { label: "Explore Automations", href: "#automations" },
-  { label: "Delivery", href: "#delivery" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "/#services" },
+  { label: "Industries", href: "/#industries" },
+  { label: "Case Studies", href: "/#case-studies" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Pricing", href: "/#pricing" },
+  { label: "Contact", href: "/#contact" },
 ]
 
 export function Navbar() {
@@ -17,27 +18,26 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    const onScroll = () => setScrolled(window.scrollY > 12)
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
   return (
     <header
-      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "border-b border-border/40 bg-background/90 backdrop-blur-xl"
-          : "bg-transparent"
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled ? "border-b border-border/50 bg-background/90 backdrop-blur-xl" : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6 lg:px-10">
-        <a href="#" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
+      <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-6 lg:px-10">
+        <a href="/" className="flex items-center gap-3">
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
             <span className="text-sm font-bold text-primary-foreground">V</span>
           </div>
-          <span className="text-base font-semibold tracking-tight text-foreground">
-            Vishnu<span className="text-muted-foreground">Labs</span>
-          </span>
+          <div>
+            <p className="text-base font-semibold tracking-tight text-foreground">VishnuLabs</p>
+            <p className="text-[11px] text-muted-foreground">AI Ops & Voice Automation</p>
+          </div>
         </a>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Main navigation">
@@ -53,17 +53,9 @@ export function Navbar() {
         </nav>
 
         <div className="hidden md:block">
-          <Button
-            size="sm"
-            asChild
-            className="gap-1.5 rounded-lg bg-foreground px-5 text-background hover:bg-foreground/90"
-          >
-            <a
-              href="https://calendly.com/vishnuvardhanburri19/new-meeting"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Book Live Demo
+          <Button size="sm" asChild className="gap-1.5 rounded-lg bg-foreground px-5 text-background hover:bg-foreground/90">
+            <a href="/book" data-track="nav_book_meeting">
+              Book Meeting
               <ArrowUpRight className="h-3.5 w-3.5" />
             </a>
           </Button>
@@ -80,7 +72,7 @@ export function Navbar() {
 
       {mobileOpen && (
         <nav
-          className="border-t border-border/40 bg-background/98 px-6 pb-8 pt-4 backdrop-blur-xl md:hidden"
+          className="border-t border-border/40 bg-background/95 px-6 pb-8 pt-4 backdrop-blur-xl md:hidden"
           aria-label="Mobile navigation"
         >
           <div className="flex flex-col gap-1">
@@ -96,13 +88,8 @@ export function Navbar() {
             ))}
             <div className="mt-4 border-t border-border/40 pt-4">
               <Button size="sm" asChild className="w-full gap-1.5 rounded-lg bg-foreground text-background hover:bg-foreground/90">
-                <a
-                  href="https://calendly.com/vishnuvardhanburri19/new-meeting"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Book Live Demo
+                <a href="/book" onClick={() => setMobileOpen(false)} data-track="mobile_nav_book_meeting">
+                  Book Meeting
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
               </Button>

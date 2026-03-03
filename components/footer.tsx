@@ -1,58 +1,71 @@
+const serviceLinks = [
+  { label: "AI Voice Receptionist", href: "/services/ai-voice-receptionist" },
+  { label: "AI Scheduling & Reminder", href: "/services/ai-scheduling-reminder" },
+  { label: "AI Legal Intake Automation", href: "/services/ai-legal-intake" },
+]
+
+const industryLinks = [
+  { label: "PI Law Firms", href: "/industries/pi-law-firms" },
+  { label: "Real Estate", href: "/industries/real-estate" },
+  { label: "Mortgage", href: "/industries/mortgage" },
+]
+
+const pageLinks = [
+  { label: "Book Meeting", href: "/book" },
+  { label: "Backup Site", href: "/backup" },
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
+]
+
 export function Footer() {
   return (
     <footer className="border-t border-border/30 py-12">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 md:flex-row lg:px-10">
-        <div className="flex items-center gap-2">
-          <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary">
-            <span className="text-[10px] font-bold text-primary-foreground">V</span>
+      <div className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-4 lg:px-10">
+        <div>
+          <div className="flex items-center gap-3">
+            <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary">
+              <span className="text-[10px] font-bold text-primary-foreground">V</span>
+            </div>
+            <span className="text-sm font-semibold text-foreground">VishnuLabs</span>
           </div>
-          <span className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} Vishnu Labs
-          </span>
-        </div>
-        <div className="flex flex-col items-center gap-3 md:items-end">
-          <p className="text-xs text-muted-foreground/60">
-            Backend-first architecture • Deterministic workflows • Production-grade
-            reliability • You own the stack.
+          <p className="mt-3 max-w-xs text-sm text-muted-foreground">
+            AI automation agency for call handling, intake, scheduling, and follow-up operations.
           </p>
-          <div className="flex items-center gap-8">
-            <a
-              href="https://www.linkedin.com/in/vishnuvardhanburri"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-muted-foreground/60 transition-colors hover:text-foreground"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://github.com/vishnuvardhanburri"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-muted-foreground/60 transition-colors hover:text-foreground"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://x.com/burri_vishnu_"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-muted-foreground/60 transition-colors hover:text-foreground"
-            >
-              X
-            </a>
-            <a
-              href="https://threads.net/vishnuvardhanburri"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-muted-foreground/60 transition-colors hover:text-foreground"
-            >
-              Threads
-            </a>
-            <a
-              href="mailto:hello@vishnulabs.com"
-              className="text-sm text-muted-foreground/60 transition-colors hover:text-foreground"
-            >
-              Email
+          <p className="mt-4 text-xs text-muted-foreground/70">&copy; {new Date().getFullYear()} VishnuLabs. All rights reserved.</p>
+        </div>
+
+        <div>
+          <p className="text-sm font-semibold text-foreground">Services</p>
+          <div className="mt-3 grid gap-2">
+            {serviceLinks.map((link) => (
+              <a key={link.href} href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <p className="text-sm font-semibold text-foreground">Industries</p>
+          <div className="mt-3 grid gap-2">
+            {industryLinks.map((link) => (
+              <a key={link.href} href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <p className="text-sm font-semibold text-foreground">Contact & Legal</p>
+          <div className="mt-3 grid gap-2">
+            {pageLinks.map((link) => (
+              <a key={link.href} href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                {link.label}
+              </a>
+            ))}
+            <a href="mailto:hello@vishnulabs.com" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+              hello@vishnulabs.com
             </a>
           </div>
         </div>

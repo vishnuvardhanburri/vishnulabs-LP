@@ -4,55 +4,59 @@ import { Button } from "@/components/ui/button"
 type Offer = {
   icon: typeof CalendarClock
   title: string
-  idealClient: string
-  coreProblem: string
-  measurableImpact: string
-  buildTime: string
+  bestFor: string
+  painSolved: string
+  outcomes: string
+  delivery: string
   investment: string
+  serviceLink: string
 }
 
 const offers: Offer[] = [
   {
+    icon: PhoneCall,
+    title: "AI Voice Receptionist",
+    bestFor: "Real estate teams, law firms, brokers, local service businesses",
+    painSolved: "Missed inbound calls and delayed callback loops that leak qualified opportunities.",
+    outcomes: "Answers every call, qualifies intent, routes priority leads, and books consultations automatically.",
+    delivery: "5 to 7 days",
+    investment: "$4,997 one-time",
+    serviceLink: "/services/ai-voice-receptionist",
+  },
+  {
     icon: CalendarClock,
     title: "AI Scheduling & Reminder System",
-    idealClient: "Consultants, law firms, real estate agents",
-    coreProblem: "Leads drop when booking, reminders, and reschedules are handled manually.",
-    measurableImpact: "Reduce no-shows by 20% to 40% and recover missed bookings automatically.",
-    buildTime: "3 to 5 days",
-    investment: "$1,000 to $10,000",
+    bestFor: "Consulting, legal, mortgage, and high-volume appointment teams",
+    painSolved: "Manual scheduling and reminder gaps causing no-shows and pipeline stalls.",
+    outcomes: "Automated booking, reschedule handling, and reminder orchestration with CRM status sync.",
+    delivery: "5 to 7 days",
+    investment: "$6,500 to $9,500",
+    serviceLink: "/services/ai-scheduling-reminder",
   },
   {
     icon: Gavel,
-    title: "Legal Client Intake Automation",
-    idealClient: "US law firms (immigration, family, personal injury)",
-    coreProblem: "Intake is inconsistent, slow, and unstructured after office hours.",
-    measurableImpact: "Capture and qualify intake 24/7 with structured summaries to your team or CRM.",
-    buildTime: "4 to 6 days",
-    investment: "$1,000 to $10,000",
-  },
-  {
-    icon: PhoneCall,
-    title: "AI Voice Receptionist",
-    idealClient: "Service businesses handling inbound calls daily",
-    coreProblem: "Missed calls and slow callback cycles cause direct revenue leakage.",
-    measurableImpact: "Answer every inbound call, collect lead context, and route qualified calls in real time.",
-    buildTime: "3 to 5 days",
-    investment: "$1,000 to $10,000",
+    title: "AI Legal Intake Automation",
+    bestFor: "Immigration, PI, family, and civil litigation firms",
+    painSolved: "Inconsistent intake quality and delayed lead triage after business hours.",
+    outcomes: "24/7 intake capture, structured summaries, and attorney/staff routing with audit trail.",
+    delivery: "6 to 9 days",
+    investment: "$8,500 to $15,000",
+    serviceLink: "/services/ai-legal-intake",
   },
 ]
 
 export function SolutionSection() {
   return (
-    <section className="relative border-y border-border/30 py-24 md:py-32" id="offers">
+    <section className="relative border-y border-border/30 py-24 md:py-32" id="services">
       <div className="absolute inset-0 bg-secondary/15" />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mb-14 max-w-3xl">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary/80">Primary Offers</p>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary/80">Core Services</p>
           <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[2.65rem]">
-            Three revenue automation packages that are easy to buy
+            Productized automation services designed for fast buying decisions
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Built for US SMBs that need fast implementation, measurable impact, and production-grade reliability.
+            Every service includes architecture, implementation, QA, deployment support, and production monitoring setup.
           </p>
         </div>
 
@@ -70,21 +74,21 @@ export function SolutionSection() {
 
               <div className="mt-4 grid gap-2 text-sm">
                 <div className="rounded-lg border border-border/35 bg-background px-3 py-2">
-                  <span className="text-xs uppercase tracking-wide text-muted-foreground">Ideal Client</span>
-                  <p className="font-medium text-foreground">{offer.idealClient}</p>
+                  <span className="text-xs uppercase tracking-wide text-muted-foreground">Best For</span>
+                  <p className="font-medium text-foreground">{offer.bestFor}</p>
                 </div>
                 <div className="rounded-lg border border-border/35 bg-background px-3 py-2">
-                  <span className="text-xs uppercase tracking-wide text-muted-foreground">Core Problem Solved</span>
-                  <p className="font-medium text-foreground">{offer.coreProblem}</p>
+                  <span className="text-xs uppercase tracking-wide text-muted-foreground">Pain Solved</span>
+                  <p className="font-medium text-foreground">{offer.painSolved}</p>
                 </div>
                 <div className="rounded-lg border border-border/35 bg-background px-3 py-2">
-                  <span className="text-xs uppercase tracking-wide text-muted-foreground">Measurable Impact</span>
-                  <p className="font-medium text-foreground">{offer.measurableImpact}</p>
+                  <span className="text-xs uppercase tracking-wide text-muted-foreground">Expected Outcomes</span>
+                  <p className="font-medium text-foreground">{offer.outcomes}</p>
                 </div>
                 <div className="grid grid-cols-2 gap-2">
                   <div className="rounded-lg border border-border/35 bg-background px-3 py-2">
-                    <span className="text-xs uppercase tracking-wide text-muted-foreground">Build Time</span>
-                    <p className="font-medium text-foreground">{offer.buildTime}</p>
+                    <span className="text-xs uppercase tracking-wide text-muted-foreground">Delivery</span>
+                    <p className="font-medium text-foreground">{offer.delivery}</p>
                   </div>
                   <div className="rounded-lg border border-border/35 bg-background px-3 py-2">
                     <span className="text-xs uppercase tracking-wide text-muted-foreground">Investment</span>
@@ -93,16 +97,19 @@ export function SolutionSection() {
                 </div>
               </div>
 
-              <Button asChild className="mt-5 w-full gap-2 rounded-xl bg-foreground text-background hover:bg-foreground/90">
-                <a
-                  href="https://calendly.com/vishnuvardhanburri19/new-meeting"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Book Live Demo
-                  <ArrowUpRight className="h-4 w-4" />
-                </a>
-              </Button>
+              <div className="mt-5 grid gap-2 sm:grid-cols-2">
+                <Button asChild variant="outline" className="gap-2 rounded-xl border-border/50 hover:bg-secondary">
+                  <a href={offer.serviceLink} data-track={`service_details_${offer.title.toLowerCase().replace(/\s+/g, "_")}`}>
+                    Service Page
+                    <ArrowUpRight className="h-4 w-4" />
+                  </a>
+                </Button>
+                <Button asChild className="gap-2 rounded-xl bg-foreground text-background hover:bg-foreground/90">
+                  <a href="/book" data-track={`service_book_${offer.title.toLowerCase().replace(/\s+/g, "_")}`}>
+                    Book Meeting
+                  </a>
+                </Button>
+              </div>
             </article>
           ))}
         </div>

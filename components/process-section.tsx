@@ -4,23 +4,23 @@ const steps = [
   {
     icon: Search,
     day: "Day 1",
-    title: "Audit",
+    title: "Audit & Architecture",
     description:
-      "We map your current lead flow, identify where revenue leaks, and define deterministic automation rules.",
+      "We map your full lead path, define business rules, and lock technical scope before any build starts.",
   },
   {
     icon: Code2,
     day: "Day 3",
-    title: "Build",
+    title: "Build & QA",
     description:
-      "We connect your stack, implement retries and monitoring, and configure production-safe workflows with clear ownership.",
+      "We implement workflows, connect integrations, add fallback logic, and test call + booking paths end-to-end.",
   },
   {
     icon: Rocket,
     day: "Day 5",
-    title: "Go Live",
+    title: "Go Live & Monitor",
     description:
-      "We launch, validate with real traffic, and hand over runbooks so your team can operate confidently.",
+      "We launch, monitor live traffic, and hand over reporting + SOPs so your team runs operations confidently.",
   },
 ]
 
@@ -29,12 +29,12 @@ export function ProcessSection() {
     <section className="relative py-24 md:py-32" id="delivery">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mb-14 max-w-3xl">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary/80">What Happens After You Say Yes</p>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary/80">Delivery Framework</p>
           <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[2.65rem]">
-            Day 1 to Day 5 delivery framework
+            What happens after you say yes
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Short cycle, transparent checkpoints, and production controls from the first week.
+            Fixed checkpoints, transparent ownership, and production controls from week one.
           </p>
         </div>
 

@@ -7,6 +7,8 @@ const heroPoints = [
   "Runs reminders and reschedules to reduce no-shows by 30-40%",
 ]
 
+const demoHighlights = ["Instant pickup", "Auto booking", "Smart reminders"]
+
 export function Hero() {
   return (
     <section className="relative overflow-hidden pb-20 pt-28 sm:pt-32 md:pb-28 md:pt-40 lg:pt-44">
@@ -67,32 +69,25 @@ export function Hero() {
           </div>
 
           <div className="mt-9 grid max-w-2xl grid-cols-3 gap-2 border-t border-border/45 pt-6 text-center sm:gap-4 sm:text-left">
-            <div className="rounded-lg border border-border/40 bg-card/40 px-2 py-3 sm:bg-transparent sm:px-0 sm:py-0 sm:border-0">
+            <div className="rounded-lg border border-border/40 bg-card/40 px-2 py-3 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0">
               <p className="text-xl font-semibold text-foreground sm:text-2xl">5-7 days</p>
               <p className="text-[11px] text-muted-foreground sm:text-xs">First deployment live</p>
             </div>
-            <div className="rounded-lg border border-border/40 bg-card/40 px-2 py-3 sm:bg-transparent sm:px-0 sm:py-0 sm:border-0">
+            <div className="rounded-lg border border-border/40 bg-card/40 px-2 py-3 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0">
               <p className="text-xl font-semibold text-foreground sm:text-2xl">$4,997+</p>
               <p className="text-[11px] text-muted-foreground sm:text-xs">Starter implementation</p>
             </div>
-            <div className="rounded-lg border border-border/40 bg-card/40 px-2 py-3 sm:bg-transparent sm:px-0 sm:py-0 sm:border-0">
+            <div className="rounded-lg border border-border/40 bg-card/40 px-2 py-3 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0">
               <p className="text-xl font-semibold text-foreground sm:text-2xl">24/7</p>
               <p className="text-[11px] text-muted-foreground sm:text-xs">Lead response coverage</p>
             </div>
           </div>
         </div>
 
-        <div className="surface-glass lift-card reveal-in reveal-delay-1 relative rounded-2xl p-4 sm:p-5">
-          <div className="mb-4 flex items-center justify-between">
-            <p className="text-sm font-semibold text-foreground">15-second demo preview</p>
-            <a href="#proof" className="text-xs text-primary hover:text-primary/80">
-              Watch outcomes
-            </a>
-          </div>
-
-          <div className="overflow-hidden rounded-xl border border-border/45 bg-background/70">
+        <div className="surface-glass lift-card reveal-in reveal-delay-1 relative rounded-2xl p-3 sm:p-5">
+          <div className="overflow-hidden rounded-xl border border-border/45 bg-background/70 shadow-[0_16px_40px_rgba(0,0,0,0.28)]">
             <video
-              className="h-[200px] w-full object-cover sm:h-[220px]"
+              className="aspect-video w-full object-cover"
               src="/videos/vishnulabs-demo.mp4"
               autoPlay
               muted
@@ -105,18 +100,19 @@ export function Hero() {
             </video>
           </div>
 
-          <div className="mt-4 rounded-xl border border-border/45 bg-background/70 p-4">
-            <p className="text-xs uppercase tracking-widest text-muted-foreground">Implementation Snapshot</p>
-            <div className="mt-3 grid gap-2 text-sm text-muted-foreground">
-              <p>1) Inbound call hits AI voice receptionist</p>
-              <p>2) Lead qualifies and consultation slot is booked</p>
-              <p>3) SMS + email reminders auto-trigger with reschedule support</p>
-            </div>
+          <div className="mt-4 grid grid-cols-3 gap-2">
+            {demoHighlights.map((item) => (
+              <div key={item} className="rounded-lg border border-border/45 bg-background/65 px-3 py-2 text-center text-[11px] font-medium text-muted-foreground">
+                {item}
+              </div>
+            ))}
           </div>
 
           <div className="mt-4 rounded-xl border border-primary/35 bg-primary/10 p-4">
-            <p className="text-sm font-medium text-foreground">Agency-grade delivery, not freelancer patchwork.</p>
-            <p className="mt-1 text-xs text-muted-foreground">Architecture, implementation, QA, and monitoring included.</p>
+            <p className="text-xs uppercase tracking-widest text-primary/90">Transparent Delivery</p>
+            <p className="mt-1 text-sm text-foreground">
+              Deterministic workflows, retries, monitoring dashboards, and clean handoff documentation included.
+            </p>
           </div>
         </div>
       </div>

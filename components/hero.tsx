@@ -1,4 +1,4 @@
-import { ArrowUpRight, Calendar, CheckCircle2, PlayCircle, ShieldCheck } from "lucide-react"
+import { ArrowUpRight, Calendar, CheckCircle2, ShieldCheck } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const heroPoints = [
@@ -90,8 +90,19 @@ export function Hero() {
             </a>
           </div>
 
-          <div className="group flex h-[200px] items-center justify-center rounded-xl border border-border/45 bg-background/70 sm:h-[220px]">
-            <PlayCircle className="h-14 w-14 text-primary transition-transform duration-300 group-hover:scale-105" />
+          <div className="overflow-hidden rounded-xl border border-border/45 bg-background/70">
+            <video
+              className="h-[200px] w-full object-cover sm:h-[220px]"
+              src="/videos/vishnulabs-demo.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+              preload="metadata"
+            >
+              Your browser does not support the video tag.
+            </video>
           </div>
 
           <div className="mt-4 rounded-xl border border-border/45 bg-background/70 p-4">

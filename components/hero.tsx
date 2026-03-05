@@ -87,7 +87,7 @@ export function Hero() {
         <div className="surface-glass lift-card reveal-in reveal-delay-1 relative rounded-2xl p-3 sm:p-5">
           <div className="overflow-hidden rounded-xl border border-border/45 bg-background/70 shadow-[0_16px_40px_rgba(0,0,0,0.28)]">
             <video
-              className="aspect-video w-full object-cover"
+              className="aspect-video w-full object-contain bg-background/75"
               src="/videos/vishnulabs-demo.mp4"
               autoPlay
               muted
@@ -95,6 +95,7 @@ export function Hero() {
               playsInline
               controls
               preload="metadata"
+              style={{ objectPosition: "center top" }}
             >
               Your browser does not support the video tag.
             </video>

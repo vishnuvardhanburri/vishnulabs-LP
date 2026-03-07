@@ -1,65 +1,76 @@
-# VishnuLabs Landing Page
+# VishnuLabs Website
 
-Next.js landing page for VishnuLabs with modular sections and a dedicated **Client Demo Videos** section.
+Production website for VishnuLabs (Next.js + Tailwind) with automation services, demo content, and commerce flow for the Stealth Vault offer.
 
 ## Stack
-- Next.js
-- React
-- TypeScript
+- Next.js (App Router)
+- React + TypeScript
 - Tailwind CSS
+- Stripe Checkout (card payments)
+- Resend (transactional emails)
 
 ## Local Setup
 ```bash
 npm install
+cp .env.example .env.local
 npm run dev
 ```
 
 Open: `http://localhost:3000`
 
-## Production Build
+## Build
 ```bash
 npm run build
 npm run start
 ```
 
-## New Section Added
-A new homepage section was added:
+## New Stealth Vault Flow
+### Page routes
+- `/stealth-vault`
+- `/stealth-vault/success`
+- `/stealth-vault/guide`
+- `/guides/stealth-vault-installation-guide.pdf`
 
-- `components/demo-videos-section.tsx`
-- Integrated in `app/page.tsx`
+### API routes
+- `POST /api/checkout/stealth-vault`
+- `POST /api/webhooks/stripe`
+- `POST /api/contact/stealth-vault`
 
-This section renders 5 demo cards:
-1. Suite Overview Demo
-2. AI Scheduling & Reminder Assistant
-3. Legal Client Intake Bot
-4. AI Research Assistant for Lawyers
-5. Real Estate Lead Nurture Bot
+### Checkout behavior
+1. User fills company/email/phone/business type on `/stealth-vault`.
+2. Card payment runs through Stripe Checkout for `$15,000`.
+3. On payment success, Stripe webhook triggers:
+   - Customer email with license key + Loom link + installation guide PDF link.
+   - Internal notification to `hello@vishnulabs.com`.
+4. Customization form sends request to `hello@vishnulabs.com`.
 
-## Add Your Video Links
-Edit the `demoVideos` array in:
+## Required Environment Variables
+Use `.env.example`.
 
-- `components/demo-videos-section.tsx`
+Critical vars:
+- `STRIPE_SECRET_KEY`
+- `STRIPE_WEBHOOK_SECRET`
+- `RESEND_API_KEY`
+- `RESEND_FROM_EMAIL`
+- `NEXT_PUBLIC_SITE_URL`
 
-Set `videoUrl` for each item.
+Optional:
+- `NEXT_PUBLIC_PAYONEER_PAYMENT_URL`
+- `NEXT_PUBLIC_PAYONEER_EMAIL`
+- `STEALTH_VAULT_LOOM_URL`
+- `STEALTH_VAULT_GUIDE_URL`
+- `STEALTH_VAULT_LICENSE_SALT`
 
-Supported formats:
-- YouTube watch URL (`https://www.youtube.com/watch?v=...`)
-- YouTube short URL (`https://youtu.be/...`)
-- Vimeo URL (`https://vimeo.com/...`)
-- Direct embed URL
+## Stripe Webhook Setup
+Create webhook endpoint in Stripe Dashboard:
+- URL: `https://vishnulabs.com/api/webhooks/stripe`
+- Event: `checkout.session.completed`
 
-## Video Creation Assets
-Recording scripts and production checklists are included in:
-
-- `video-production/README.md`
-- `video-production/00-recording-checklist.md`
-- `video-production/01-suite-overview.md`
-- `video-production/02-ai-scheduling-reminder.md`
-- `video-production/03-legal-client-intake-bot.md`
-- `video-production/04-ai-research-assistant-lawyers.md`
-- `video-production/05-real-estate-lead-nurture-bot.md`
-- `video-production/thumbnails-and-hooks.md`
+Copy webhook secret into `STRIPE_WEBHOOK_SECRET`.
 
 ## Notes
-- If `videoUrl` is empty, the card shows a placeholder prompt.
-- Existing sections were not modified beyond inserting this new section in the page flow.
+- Homepage hero includes a new badge linking to `/stealth-vault`.
+- Navbar/Footer include Stealth Vault navigation.
+- Payoneer is included as alternate payment path:
+  - primary: `NEXT_PUBLIC_PAYONEER_PAYMENT_URL`
+  - fallback: mail request to `vishnuvardanbirri19@gmail.com`

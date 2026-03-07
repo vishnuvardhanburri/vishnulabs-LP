@@ -1,4 +1,5 @@
 const serviceLinks = [
+  { label: "Stealth-Mode AI Vault", href: "/stealth-vault" },
   { label: "AI Voice Receptionist", href: "/services/ai-voice-receptionist" },
   { label: "AI Scheduling & Reminder", href: "/services/ai-scheduling-reminder" },
   { label: "AI Legal Intake Automation", href: "/services/ai-legal-intake" },
@@ -32,7 +33,7 @@ export function Footer() {
             />
           </a>
           <p className="mt-3 max-w-xs text-sm text-muted-foreground">
-            AI automation agency for call handling, intake, scheduling, and follow-up operations.
+            AI automation agency for call handling, intake, scheduling, follow-up, and private internal AI infrastructure.
           </p>
           <p className="mt-4 text-xs text-muted-foreground/70">&copy; {new Date().getFullYear()} VishnuLabs. All rights reserved.</p>
         </div>

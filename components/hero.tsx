@@ -24,6 +24,14 @@ export function Hero() {
             Premium AI automation systems for US SMB teams
           </div>
 
+          <a
+            href="/stealth-vault"
+            className="mt-3 inline-flex items-center gap-2 rounded-full border border-primary/35 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary hover:bg-primary/15"
+          >
+            New: Private AI Vault - No Leaks
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </a>
+
           <h1 className="mt-6 text-balance text-[2.2rem] font-bold leading-[1.03] tracking-tight text-foreground sm:text-5xl lg:text-[4rem]">
             Never Miss Another
             <br />

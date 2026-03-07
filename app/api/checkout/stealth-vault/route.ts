@@ -1,11 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
-import Stripe from "stripe"
 
-import {
-  STEALTH_VAULT_PRICE_CENTS,
-  STEALTH_VAULT_PRODUCT_NAME,
-  getSiteUrl,
-} from "@/lib/stealth-vault"
+import { createPayPalOrder } from "@/lib/paypal"
+import { STEALTH_VAULT_PRICE_USD, STEALTH_VAULT_PRODUCT_NAME } from "@/lib/stealth-vault"
 
 export const runtime = "nodejs"
 
@@ -21,14 +17,6 @@ function normalize(input: string | undefined, maxLength: number) {
 }
 
 export async function POST(request: NextRequest) {
-  const stripeSecret = process.env.STRIPE_SECRET_KEY
-
-  if (!stripeSecret) {
-    return NextResponse.json({ error: "Stripe is not configured" }, { status: 500 })
-  }
-
-  const stripe = new Stripe(stripeSecret)
-
   let body: CheckoutBody
 
   try {
@@ -52,55 +40,20 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Please enter a valid email" }, { status: 400 })
   }
 
-  const siteUrl = getSiteUrl(request.headers.get("origin"))
-
   try {
-    const session = await stripe.checkout.sessions.create({
-      mode: "payment",
-      customer_email: email,
-      phone_number_collection: { enabled: true },
-      billing_address_collection: "required",
-      payment_method_types: ["card"],
-      line_items: [
-        {
-          quantity: 1,
-          price_data: {
-            currency: "usd",
-            unit_amount: STEALTH_VAULT_PRICE_CENTS,
-            product_data: {
-              name: STEALTH_VAULT_PRODUCT_NAME,
-              description:
-                "One-time lifetime license. 100% local AI vault for law firms and clinics with private document memory and zero cloud data leakage.",
-            },
-          },
-        },
-      ],
-      metadata: {
-        product: "stealth_vault",
-        companyName,
-        phone,
-        businessType,
-      },
-      payment_intent_data: {
-        metadata: {
-          product: "stealth_vault",
-          companyName,
-          phone,
-          businessType,
-        },
-      },
-      success_url: `${siteUrl}/stealth-vault/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${siteUrl}/stealth-vault?checkout=cancelled`,
-      allow_promotion_codes: false,
+    const order = await createPayPalOrder({
+      amountUsd: `${STEALTH_VAULT_PRICE_USD}.00`,
+      companyName,
+      email,
+      phone,
+      businessType,
+      originHeader: request.headers.get("origin"),
+      productName: STEALTH_VAULT_PRODUCT_NAME,
     })
 
-    if (!session.url) {
-      return NextResponse.json({ error: "Stripe checkout URL unavailable" }, { status: 500 })
-    }
-
-    return NextResponse.json({ url: session.url })
+    return NextResponse.json({ url: order.approveUrl, orderId: order.orderId })
   } catch (error) {
-    console.error("[checkout/stealth-vault]", error)
-    return NextResponse.json({ error: "Unable to start checkout" }, { status: 500 })
+    console.error("[paypal checkout create order]", error)
+    return NextResponse.json({ error: "Unable to start PayPal checkout" }, { status: 500 })
   }
 }

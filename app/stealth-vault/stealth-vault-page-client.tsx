@@ -84,13 +84,13 @@ export function StealthVaultPageClient() {
       const data = (await response.json()) as { url?: string; error?: string }
 
       if (!response.ok || !data.url) {
-        setCheckoutError(data.error || "Unable to start checkout. Please retry.")
+        setCheckoutError(data.error || "Unable to start PayPal checkout. Please retry.")
         return
       }
 
       window.location.href = data.url
     } catch {
-      setCheckoutError("Unexpected error while starting checkout.")
+      setCheckoutError("Unexpected error while starting PayPal checkout.")
     } finally {
       setCheckoutLoading(false)
     }
@@ -181,7 +181,7 @@ export function StealthVaultPageClient() {
         <div className="surface-glass reveal-in reveal-delay-1 rounded-2xl p-4 sm:p-5">
           <div className="mb-4 flex items-center gap-2">
             <CreditCard className="h-4 w-4 text-primary" />
-            <p className="text-sm font-semibold text-foreground">Secure Card Checkout</p>
+            <p className="text-sm font-semibold text-foreground">PayPal Card Checkout</p>
           </div>
 
           <form onSubmit={handleCheckout} className="grid gap-3">
@@ -238,7 +238,7 @@ export function StealthVaultPageClient() {
               disabled={checkoutLoading}
               className="mt-1 h-11 w-full rounded-xl bg-foreground text-base font-semibold text-background hover:bg-foreground/90 disabled:opacity-70"
             >
-              {checkoutLoading ? "Redirecting to secure checkout..." : "Pay $15,000 Now"}
+              {checkoutLoading ? "Redirecting to PayPal..." : "Pay $15,000 via PayPal/Card"}
             </Button>
 
             {checkoutError ? (
@@ -248,7 +248,7 @@ export function StealthVaultPageClient() {
 
           <div className="mt-4 rounded-xl border border-border/45 bg-background/60 p-3">
             <p className="text-xs uppercase tracking-wider text-muted-foreground">Alternative payment</p>
-            <p className="mt-1 text-sm text-muted-foreground">Payoneer is available if card checkout is blocked by your billing policy.</p>
+            <p className="mt-1 text-sm text-muted-foreground">Payoneer is available if PayPal checkout is blocked by your billing policy.</p>
             <a
               href={payoneerPaymentUrl || payoneerFallbackHref}
               target={payoneerPaymentUrl ? "_blank" : undefined}

@@ -6,7 +6,7 @@ Production website for VishnuLabs (Next.js + Tailwind) with automation services,
 - Next.js (App Router)
 - React + TypeScript
 - Tailwind CSS
-- Stripe Checkout (card payments)
+- PayPal Checkout (card + PayPal wallet)
 - Resend (transactional emails)
 
 ## Local Setup
@@ -24,7 +24,7 @@ npm run build
 npm run start
 ```
 
-## New Stealth Vault Flow
+## Stealth Vault Flow
 ### Page routes
 - `/stealth-vault`
 - `/stealth-vault/success`
@@ -33,23 +33,25 @@ npm run start
 
 ### API routes
 - `POST /api/checkout/stealth-vault`
-- `POST /api/webhooks/stripe`
+- `POST /api/checkout/stealth-vault/capture`
 - `POST /api/contact/stealth-vault`
 
 ### Checkout behavior
 1. User fills company/email/phone/business type on `/stealth-vault`.
-2. Card payment runs through Stripe Checkout for `$15,000`.
-3. On payment success, Stripe webhook triggers:
+2. Payment redirects to PayPal Checkout for `$15,000` (PayPal wallet/card supported by PayPal).
+3. User returns to `/stealth-vault/success` and capture API finalizes payment.
+4. After capture:
    - Customer email with license key + Loom link + installation guide PDF link.
    - Internal notification to `hello@vishnulabs.com`.
-4. Customization form sends request to `hello@vishnulabs.com`.
+5. Customization form sends request to `hello@vishnulabs.com`.
 
 ## Required Environment Variables
 Use `.env.example`.
 
 Critical vars:
-- `STRIPE_SECRET_KEY`
-- `STRIPE_WEBHOOK_SECRET`
+- `PAYPAL_ENV`
+- `PAYPAL_CLIENT_ID`
+- `PAYPAL_CLIENT_SECRET`
 - `RESEND_API_KEY`
 - `RESEND_FROM_EMAIL`
 - `NEXT_PUBLIC_SITE_URL`
@@ -60,13 +62,6 @@ Optional:
 - `STEALTH_VAULT_LOOM_URL`
 - `STEALTH_VAULT_GUIDE_URL`
 - `STEALTH_VAULT_LICENSE_SALT`
-
-## Stripe Webhook Setup
-Create webhook endpoint in Stripe Dashboard:
-- URL: `https://vishnulabs.com/api/webhooks/stripe`
-- Event: `checkout.session.completed`
-
-Copy webhook secret into `STRIPE_WEBHOOK_SECRET`.
 
 ## Notes
 - Homepage hero includes a new badge linking to `/stealth-vault`.

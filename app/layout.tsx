@@ -6,6 +6,7 @@ import "./globals.css"
 const gaId = process.env.NEXT_PUBLIC_GA_ID
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://vishnulabs.com"),
   title: "VishnuLabs | AI Automation Agency for Revenue Ops",
   description:
     "VishnuLabs builds premium AI voice, intake, scheduling, and follow-up automation systems for law firms, real estate, and service businesses.",
@@ -15,18 +16,39 @@ export const metadata: Metadata = {
     "legal intake automation",
     "real estate automation",
     "revenue operations automation",
+    "AI vault for law firms",
+    "private AI for clinics",
   ],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     title: "VishnuLabs | AI Automation Agency",
-    description:
-      "Production-grade AI automation for inbound calls, lead qualification, and consultation booking.",
+    description: "Production-grade AI automation for inbound calls, lead qualification, and consultation booking.",
     type: "website",
     url: "https://vishnulabs.com",
+    siteName: "VishnuLabs",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "VishnuLabs | AI Automation Agency",
+    description: "AI voice, intake, scheduling, and private AI vault systems for US SMB teams.",
   },
 }
 
 export const viewport: Viewport = {
-  themeColor: "#080b12",
+  themeColor: "#fff7ed",
   width: "device-width",
   initialScale: 1,
 }
@@ -36,10 +58,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const organizationLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "VishnuLabs",
+    url: "https://vishnulabs.com",
+    email: "hello@vishnulabs.com",
+    logo: "https://vishnulabs.com/vishnulabs-logo-mark.svg",
+    areaServed: "US",
+    description:
+      "VishnuLabs builds AI voice, intake, scheduling, follow-up, and private internal AI vault systems for law firms, real estate teams, and service businesses.",
+  }
+
   return (
-    <html lang="en">
+    <html lang="en-US">
       <body className="font-sans antialiased">
         {children}
+
+        <Script id="organization-jsonld" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify(organizationLd)}
+        </Script>
 
         {gaId ? (
           <>

@@ -81,7 +81,7 @@ export function LiveChatAssistant() {
       {open && (
         <section
           id="chat"
-          className="fixed bottom-[calc(94px+env(safe-area-inset-bottom))] right-2 z-[60] flex w-[calc(100vw-1rem)] max-w-[390px] flex-col overflow-hidden rounded-2xl border border-border/55 bg-background/95 shadow-2xl shadow-black/50 backdrop-blur-xl md:bottom-20 md:right-4 md:w-[380px]"
+          className="fixed bottom-[calc(94px+env(safe-area-inset-bottom))] right-2 z-[60] flex w-[calc(100vw-1rem)] max-w-[390px] flex-col overflow-hidden rounded-2xl border border-border/55 bg-background/95 shadow-[0_18px_40px_rgba(249,115,22,0.18)] backdrop-blur-xl md:bottom-20 md:right-4 md:w-[380px]"
         >
           <header className="flex items-center justify-between border-b border-border/45 px-4 py-3">
             <div>
@@ -152,7 +152,7 @@ export function LiveChatAssistant() {
         type="button"
         onClick={() => setOpen((prev) => !prev)}
         data-track="open_live_assistant"
-        className="tap-target fixed bottom-[calc(94px+env(safe-area-inset-bottom))] right-3 z-[55] inline-flex items-center gap-2 rounded-full border border-primary/45 bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30 md:bottom-6 md:right-6"
+        className="tap-target fixed bottom-[calc(94px+env(safe-area-inset-bottom))] right-3 z-[55] inline-flex items-center gap-2 rounded-full border border-primary/45 bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground shadow-[0_12px_30px_rgba(249,115,22,0.26)] md:bottom-6 md:right-6"
       >
         <MessageCircle className="h-4 w-4" />
         Live Assistant

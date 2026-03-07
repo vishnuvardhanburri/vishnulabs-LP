@@ -28,13 +28,13 @@ export function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-border/60 bg-background/90 shadow-[0_8px_30px_rgba(0,0,0,0.28)] backdrop-blur-xl"
+          ? "border-b border-border/60 bg-background/90 shadow-[0_10px_24px_rgba(15,23,42,0.10)] backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-10">
         <a href="/" className="tap-target flex items-center gap-3 rounded-lg px-1 py-1">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/12 shadow-[0_0_20px_rgba(47,128,255,0.28)]">
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/12 shadow-[0_0_20px_rgba(249,115,22,0.28)]">
             <img
               src="/vishnulabs-logo-mark.svg"
               alt="VishnuLabs V logo"

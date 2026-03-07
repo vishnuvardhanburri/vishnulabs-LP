@@ -9,7 +9,7 @@ export function MobileStickyCta() {
         <a
           href="/book"
           data-track="mobile_book_meeting"
-          className="tap-target inline-flex items-center justify-center gap-2 rounded-lg bg-foreground px-3 py-3 text-sm font-semibold text-background shadow-[0_8px_22px_rgba(47,128,255,0.15)]"
+          className="tap-target inline-flex items-center justify-center gap-2 rounded-lg bg-foreground px-3 py-3 text-sm font-semibold text-background shadow-[0_8px_22px_rgba(249,115,22,0.22)]"
         >
           <Calendar className="h-4 w-4" />
           Book Meeting

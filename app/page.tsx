@@ -12,7 +12,6 @@ import { AboutSection } from "@/components/about-section"
 import { FaqSection } from "@/components/faq-section"
 import { CtaSection } from "@/components/cta-section"
 import { MobileStickyCta } from "@/components/mobile-sticky-cta"
-import { LiveChatAssistant } from "@/components/live-chat-assistant"
 import { Footer } from "@/components/footer"
 
 export default function Page() {
@@ -35,7 +34,6 @@ export default function Page() {
       </main>
       <Footer />
       <MobileStickyCta />
-      <LiveChatAssistant />
     </>
   )
 }

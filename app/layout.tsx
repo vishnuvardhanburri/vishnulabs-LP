@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next"
 import Script from "next/script"
 
 import "./globals.css"
+import { LiveChatAssistant } from "@/components/live-chat-assistant"
 
 const gaId = process.env.NEXT_PUBLIC_GA_ID
 
@@ -74,6 +75,7 @@ export default function RootLayout({
     <html lang="en-US">
       <body className="font-sans antialiased">
         {children}
+        <LiveChatAssistant />
 
         <Script id="organization-jsonld" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify(organizationLd)}

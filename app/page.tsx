@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
+import { PremiumProductsShowcase } from "@/components/premium-products-showcase"
 import { TrustStrip } from "@/components/trust-strip"
 import { ProblemSection } from "@/components/problem-section"
 import { SolutionSection } from "@/components/solution-section"
@@ -20,6 +21,7 @@ export default function Page() {
       <Navbar />
       <main>
         <Hero />
+        <PremiumProductsShowcase />
         <TrustStrip />
         <ProblemSection />
         <SolutionSection />

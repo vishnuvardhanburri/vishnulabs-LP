@@ -14,112 +14,142 @@ type Intent = {
   answer: string
 }
 
-const STORAGE_KEY = "vishnulabs_assistant_messages_v2"
+const STORAGE_KEY = "vishnulabs_assistant_messages_v3"
 
 const initialAssistantMessage: ChatMessage = {
   role: "assistant",
-  text: "Hi, I am VishnuLabs Assistant. Ask me about services, pricing, Stealth Vault security, payment, timeline, integrations, or ownership.",
+  text: "Hi, I am VishnuLabs Assistant. Ask me about services, pricing, payment, security, timelines, support, integrations, or the Stealth Vault.",
 }
 
 const quickPrompts = [
-  "What are your prices?",
-  "What is Stealth Vault and why now?",
+  "What services do you offer?",
+  "Show pricing and package ranges",
+  "What is Stealth Vault?",
   "How does payment work?",
-  "What integrations do you support?",
-  "What is your delivery timeline?",
-  "Do we own the system after delivery?",
+  "How fast can you go live?",
+  "What happens after I say yes?",
 ]
 
 const intents: Intent[] = [
   {
+    id: "services_catalog",
+    patterns: ["services", "service", "offer", "offering", "products", "what do you do", "automation list"],
+    answer:
+      "Core offers: AI Voice Receptionist, AI Scheduling & Reminder System, AI Legal Intake Automation, and Stealth-Mode Internal AI Vault. We also build custom CRM, lead-nurture, and workflow automations for law, real estate, mortgage, clinics, and service teams.",
+  },
+  {
     id: "pricing",
     patterns: ["price", "pricing", "cost", "fees", "how much", "budget", "investment", "quote"],
     answer:
-      "Transparent pricing: AI Voice Receptionist starts at $4,997 one-time. Scheduling system is typically $6,500-$9,500. Legal intake is typically $8,500-$15,000. Stealth-Mode Internal AI Vault is $15,000 one-time lifetime license.",
+      "Transparent ranges: AI Voice Receptionist starts at $4,997 one-time. Scheduling systems usually run $6,500-$9,500. Legal intake systems are usually $8,500-$15,000. Stealth-Mode Internal AI Vault is $15,000 one-time lifetime license.",
+  },
+  {
+    id: "stealth_vault",
+    patterns: ["vault", "stealth", "private ai", "local ai", "air gap", "air-gapped", "data leak", "secure ai"],
+    answer:
+      "Stealth-Mode Internal AI Vault is a private local AI stack for confidential operations. It is air-gapped, supports redaction controls, and keeps data inside your environment. Price is $15,000 one-time lifetime license with post-delivery support.",
+  },
+  {
+    id: "vault_why_now",
+    patterns: ["why now", "chatgpt risk", "claude risk", "leak risk", "security risk", "compliance risk"],
+    answer:
+      "Why now: teams already use ChatGPT/AI daily. Without internal controls, confidential details can leak through prompts and files. A private vault keeps AI speed while reducing exposure risk and improving policy control.",
   },
   {
     id: "voice",
-    patterns: ["voice", "receptionist", "call", "calls", "inbound"],
+    patterns: ["voice", "receptionist", "phone", "call", "inbound", "after hours"],
     answer:
-      "AI Voice Receptionist is built for teams missing inbound calls. It answers in under 2 seconds, qualifies intent, routes priority leads, and can auto-book consultations.",
+      "AI Voice Receptionist answers calls quickly, captures lead intent, qualifies, routes, and can trigger booking workflows. It is built for teams losing inbound opportunities after-hours or during busy windows.",
   },
   {
     id: "scheduling",
-    patterns: ["schedule", "scheduling", "calendar", "reminder", "reschedule", "no show"],
+    patterns: ["schedule", "scheduling", "calendar", "reminder", "reschedule", "no show", "booking"],
     answer:
-      "The AI Scheduling & Reminder system automates booking, reminders, reschedules, and no-show recovery across SMS and email, with CRM status sync.",
+      "Scheduling & Reminder automation handles booking, confirmations, reminders, reschedules, and no-show recovery with CRM updates. Typical outcome is faster response and fewer missed appointments.",
   },
   {
     id: "legal_intake",
-    patterns: ["legal", "intake", "law firm", "lawyer", "attorney", "pi", "personal injury"],
+    patterns: ["legal", "law", "intake", "attorney", "pi", "personal injury", "case qualification"],
     answer:
-      "AI Legal Intake Automation captures leads 24/7, asks structured questions, generates summaries, and routes the right cases to legal staff quickly.",
+      "Legal intake automation collects structured case data, qualifies leads, and routes strong matters to your team faster. It is designed for law-firm response speed, consistency, and intake quality.",
   },
   {
-    id: "vault",
-    patterns: ["vault", "stealth", "air gap", "air-gapped", "private ai", "local ai", "data leak", "security"],
+    id: "real_estate",
+    patterns: ["real estate", "realtor", "broker", "buyer", "seller", "property lead"],
     answer:
-      "Stealth-Mode Internal AI Vault is a private, air-gapped local AI system for law firms/clinics. No data leaves your office. It includes document memory, redaction controls, and a one-time $15,000 lifetime license.",
+      "For real estate teams, we automate lead follow-up, inbound qualification, booking flows, and reminders so agents spend more time closing instead of chasing callbacks.",
   },
   {
-    id: "why_now",
-    patterns: ["why now", "today", "market", "chatgpt", "ai agent", "risk", "leak"],
+    id: "mortgage",
+    patterns: ["mortgage", "loan", "refinance", "lender", "mortgage relief"],
     answer:
-      "Why now: many teams already use ChatGPT/AI agents in daily workflows. Without strict controls, confidential data can leak through public AI usage. A private vault keeps AI speed while reducing cloud exposure risk.",
-  },
-  {
-    id: "market_compare",
-    patterns: ["benchmark", "market price", "market pricing", "compared", "comparison", "expensive", "cheap"],
-    answer:
-      "For private AI + compliance-heavy customization, market implementations commonly run well above entry-level deployments. VishnuLabs positions Stealth Vault at $15,000 one-time for a lower-friction security-first rollout.",
-  },
-  {
-    id: "timeline",
-    patterns: ["timeline", "how long", "delivery", "days", "go live", "implementation"],
-    answer:
-      "Typical timeline: core implementations usually go live in 5-7 days. Delivery framework: Day 1 audit + architecture, Day 3 build + QA, Day 5 go-live + monitoring.",
-  },
-  {
-    id: "ownership",
-    patterns: ["ownership", "own", "lock in", "lock-in", "vendor lock", "handoff"],
-    answer:
-      "You own delivered workflows and documentation. Handoff includes SOPs and operational clarity, designed to avoid brittle setup and vendor lock-in.",
-  },
-  {
-    id: "integrations",
-    patterns: ["integration", "integrations", "crm", "twilio", "calendly", "google calendar", "zapier", "make", "n8n"],
-    answer:
-      "Common integrations include CRM pipelines, Calendly/Google Calendar, Twilio SMS/calls, email systems, and workflow tools like n8n, Make, and Zapier.",
-  },
-  {
-    id: "payments",
-    patterns: ["payment", "paypal", "card", "payoneer", "checkout", "buy"],
-    answer:
-      "Stealth Vault checkout is via PayPal (card/wallet). Payoneer is available as fallback. After successful payment, the system sends license key, installation guide, and onboarding resource links by email.",
-  },
-  {
-    id: "customization",
-    patterns: ["custom", "customization", "customize", "tailored", "specific workflow"],
-    answer:
-      "Yes, custom security and automation workflows are supported. Use the customization form on the Stealth Vault page or contact hello@vishnulabs.com with your stack and requirements.",
-  },
-  {
-    id: "support",
-    patterns: ["support", "maintenance", "monitoring", "post launch", "after launch"],
-    answer:
-      "Every project includes post-launch support. Ongoing monitoring/optimization can be added based on your team capacity and operating model.",
+      "For mortgage operations, we automate intake capture, lead routing, reminder workflows, and pipeline handoffs to reduce manual follow-up delays and improve conversion consistency.",
   },
   {
     id: "industries",
-    patterns: ["industry", "industries", "real estate", "mortgage", "clinic", "consulting", "who is this for"],
+    patterns: ["industry", "industries", "who is this for", "who is it for", "best fit"],
     answer:
-      "Primary fit: law firms, real estate teams, mortgage operations, clinics, and consulting/service businesses with lead-response or intake bottlenecks.",
+      "Best fit industries: law firms, clinics, real estate, mortgage, and service businesses with inbound lead volume, intake bottlenecks, or compliance/security requirements.",
   },
   {
-    id: "book",
-    patterns: ["book", "demo", "call", "meeting", "contact", "talk"],
+    id: "delivery",
+    patterns: ["timeline", "how long", "delivery", "go live", "implementation", "days"],
     answer:
-      "You can book a live demo at /book. For direct email, use hello@vishnulabs.com. If you share your use case, I can suggest the best product path first.",
+      "Typical delivery: 5-7 days for core deployments. Execution model is clear: audit and architecture first, then build and QA, then go-live with monitoring and support.",
+  },
+  {
+    id: "after_yes",
+    patterns: ["after yes", "next steps", "what happens after", "onboarding", "start process"],
+    answer:
+      "After agreement: Day 1 discovery + system map, Day 3 build + integration checks, Day 5 go-live + monitoring handoff. You get documentation, ownership clarity, and support.",
+  },
+  {
+    id: "integrations",
+    patterns: ["integration", "integrations", "crm", "twilio", "calendly", "google calendar", "zapier", "make", "n8n", "slack"],
+    answer:
+      "Common integrations: CRM pipelines, Twilio, Calendly, Google Calendar, email systems, Slack alerts, and automation orchestration via n8n/Make/Zapier depending on your stack.",
+  },
+  {
+    id: "transparency",
+    patterns: ["transparent", "transparency", "reliability", "monitoring", "retry", "retries", "deterministic", "ownership"],
+    answer:
+      "Delivery is transparency-first: deterministic workflows, explicit retries, monitoring signals, and clear handoff documentation. Goal is reliable systems, not brittle automations.",
+  },
+  {
+    id: "ownership",
+    patterns: ["ownership", "own", "vendor lock", "lock in", "lock-in", "handoff"],
+    answer:
+      "You keep operational ownership after delivery. VishnuLabs provides documentation and implementation clarity so your team is not stuck in opaque vendor dependencies.",
+  },
+  {
+    id: "support",
+    patterns: ["support", "maintenance", "after launch", "post launch", "issue", "help"],
+    answer:
+      "Support is included post-launch for stabilization. For Stealth Vault, one month support is included, and ongoing support can be added based on scope.",
+  },
+  {
+    id: "payment",
+    patterns: ["payment", "paypal", "payoneer", "card", "checkout", "buy", "invoice"],
+    answer:
+      "Payment options include PayPal (card/wallet) and Payoneer fallback for policy-restricted teams. After payment, VishnuLabs sends invoice, Loom demo, installation guide, license key, and setup call details.",
+  },
+  {
+    id: "contact",
+    patterns: ["contact", "email", "phone", "reach", "talk to team", "sales"],
+    answer:
+      "Contact: hello@vishnulabs.com or book directly at /book. You can also use the live form on /stealth-vault for customization requests.",
+  },
+  {
+    id: "demo",
+    patterns: ["demo", "video", "vedio", "walkthrough", "show me", "sample"],
+    answer:
+      "You can book a live walkthrough at /book. Demo preview is available on the homepage and product pages. For a focused demo, share your workflow and team size in the booking form.",
+  },
+  {
+    id: "results",
+    patterns: ["results", "roi", "outcome", "case study", "proof", "metrics"],
+    answer:
+      "Reported outcomes vary by workflow, but common patterns include faster lead response, fewer no-shows, improved intake consistency, and reduced manual operational load.",
   },
 ]
 
@@ -162,7 +192,7 @@ function answerFor(input: string) {
     return bestIntent.answer
   }
 
-  return "I can help with services, pricing, Stealth Vault security, payment, timeline, integrations, and ownership. For custom questions, book at /book or email hello@vishnulabs.com."
+  return "I can help with services, pricing, Stealth Vault security, payment, timeline, integrations, support, and ownership. Ask a specific question, or book at /book."
 }
 
 export function LiveChatAssistant() {
@@ -177,7 +207,7 @@ export function LiveChatAssistant() {
       if (!raw) return
       const parsed = JSON.parse(raw) as ChatMessage[]
       if (Array.isArray(parsed) && parsed.length > 0) {
-        setMessages(parsed.slice(-20))
+        setMessages(parsed.slice(-30))
       }
     } catch {
       // ignore parsing issues and continue with defaults
@@ -185,7 +215,7 @@ export function LiveChatAssistant() {
   }, [])
 
   useEffect(() => {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(messages.slice(-20)))
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(messages.slice(-30)))
     if (listRef.current) {
       listRef.current.scrollTop = listRef.current.scrollHeight
     }
@@ -223,7 +253,7 @@ export function LiveChatAssistant() {
           <header className="flex items-center justify-between border-b border-border/50 px-4 py-3">
             <div>
               <p className="text-sm font-semibold text-foreground">VishnuLabs Live Assistant</p>
-              <p className="text-[11px] text-muted-foreground">Full-site product, pricing, and security answers</p>
+              <p className="text-[11px] text-muted-foreground">Full-site product, pricing, and delivery answers</p>
             </div>
             <div className="flex items-center gap-1">
               <button
@@ -279,7 +309,7 @@ export function LiveChatAssistant() {
                   if (e.key === "Enter") sendMessage(input)
                 }}
                 className="h-10 w-full rounded-lg border border-border/60 bg-card/80 px-3 text-sm text-foreground outline-none ring-0 placeholder:text-muted-foreground focus:border-primary/65"
-                placeholder="Ask about products, pricing, security, payment..."
+                placeholder="Ask about services, pricing, security, payment..."
               />
               <button
                 type="button"

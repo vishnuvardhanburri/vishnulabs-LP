@@ -19,9 +19,15 @@ export default function Page() {
     <>
       <Navbar />
       <main>
-        <Hero />
-        <PremiumProductsShowcase />
-        <TrustStrip />
+        <div className="reveal-in">
+          <Hero />
+        </div>
+        <div className="reveal-in reveal-delay-1">
+          <PremiumProductsShowcase />
+        </div>
+        <div className="reveal-in reveal-delay-2">
+          <TrustStrip />
+        </div>
         <ProblemSection />
         <SolutionSection />
         <AutomationRecommendationsSection />

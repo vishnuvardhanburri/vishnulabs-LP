@@ -38,7 +38,7 @@ export function Hero() {
           </a>
 
           <h1 className="mt-6 max-w-3xl text-balance text-[2.1rem] font-bold leading-[1.03] tracking-tight text-foreground sm:text-5xl lg:text-[4rem]">
-            I build AI systems that
+            We build AI systems that
             <br />
             <span className="hero-accent">capture, qualify, and convert leads</span>
           </h1>

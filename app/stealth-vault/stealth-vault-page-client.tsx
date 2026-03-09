@@ -1,6 +1,6 @@
 "use client"
 
-import { FormEvent, useMemo, useState } from "react"
+import { FormEvent, useEffect, useMemo, useState } from "react"
 import {
   AlertTriangle,
   ArrowUpRight,
@@ -21,6 +21,8 @@ type ContactFormState = {
   phone: string
   message: string
 }
+
+type TrackPayload = Record<string, string | number | boolean>
 
 const defaultContactForm: ContactFormState = {
   name: "",
@@ -45,18 +47,26 @@ const licensePoints = [
   "Optional ongoing support after 1 month",
 ]
 
-const paymentDeliverables = [
-  "Invoice",
-  "Loom demo",
-  "Installation guide",
-  "License key",
-  "Setup call",
-]
+const paymentDeliverables = ["Invoice", "Loom demo", "Installation guide", "License key", "Setup call"]
 
 const trustVerticals = ["Personal Injury Law", "Family Law", "Outpatient Clinics", "Mortgage Advisory"]
 
 const PAYPAL_ME_URL = "https://paypal.me/vishnuvardhanburri?locale.x=en_GB&country.x=IN"
 const DEFAULT_PAYONEER_EMAIL = "vishnuvardanbirri19@gmail.com"
+
+function trackStealthVaultEvent(eventName: string, payload: TrackPayload = {}) {
+  if (typeof window === "undefined") return
+
+  const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag
+
+  if (typeof gtag !== "function") return
+
+  gtag("event", eventName, {
+    event_category: "stealth_vault",
+    event_label: window.location.pathname,
+    ...payload,
+  })
+}
 
 export function StealthVaultPageClient() {
   const [contactForm, setContactForm] = useState<ContactFormState>(defaultContactForm)
@@ -74,9 +84,14 @@ export function StealthVaultPageClient() {
     return `mailto:${payoneerEmail}?subject=${subject}&body=${body}`
   }, [payoneerEmail])
 
+  useEffect(() => {
+    trackStealthVaultEvent("stealth_vault_page_view")
+  }, [])
+
   async function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
+    trackStealthVaultEvent("stealth_vault_contact_submit_attempt")
     setContactLoading(true)
     setContactState("idle")
     setContactError("")
@@ -95,14 +110,22 @@ export function StealthVaultPageClient() {
       if (!response.ok || !data.ok) {
         setContactState("error")
         setContactError(data.error || "Unable to send message right now.")
+        trackStealthVaultEvent("stealth_vault_contact_submit_error", {
+          error_type: "api_error",
+          response_status: response.status,
+        })
         return
       }
 
       setContactForm(defaultContactForm)
       setContactState("success")
+      trackStealthVaultEvent("stealth_vault_contact_submit_success")
     } catch {
       setContactState("error")
       setContactError("Unexpected error while sending your message.")
+      trackStealthVaultEvent("stealth_vault_contact_submit_error", {
+        error_type: "unexpected_error",
+      })
     } finally {
       setContactLoading(false)
     }
@@ -157,13 +180,19 @@ export function StealthVaultPageClient() {
                 asChild
                 className="h-11 rounded-full bg-orange-500 px-6 text-sm font-semibold text-white shadow-[0_14px_35px_rgba(249,115,22,0.42)] hover:bg-orange-400"
               >
-                <a href={PAYPAL_ME_URL} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={PAYPAL_ME_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-track="stealth_vault_paypal_click_hero"
+                  onClick={() => trackStealthVaultEvent("stealth_vault_paypal_click", { source: "hero" })}
+                >
                   Pay $15,000 Now
                 </a>
               </Button>
 
               <Button asChild variant="outline" className="h-11 rounded-full border-white/25 bg-transparent px-6 text-sm text-white hover:bg-white/10">
-                <a href="/book">
+                <a href="/book" data-track="stealth_vault_book_call_click_hero" onClick={() => trackStealthVaultEvent("stealth_vault_book_call_click", { source: "hero" })}>
                   Book Setup Call
                 </a>
               </Button>
@@ -215,6 +244,8 @@ export function StealthVaultPageClient() {
                 href={PAYPAL_ME_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-track="stealth_vault_paypal_click_payment"
+                onClick={() => trackStealthVaultEvent("stealth_vault_paypal_click", { source: "payment_block" })}
                 className="inline-flex w-full items-center justify-between rounded-xl border border-orange-300/35 bg-orange-500/15 px-4 py-3 text-sm font-semibold text-orange-50 transition-colors hover:bg-orange-500/25"
               >
                 <span>PayPal: Pay $15,000 Now</span>
@@ -223,6 +254,8 @@ export function StealthVaultPageClient() {
 
               <a
                 href={payoneerRequestMailto}
+                data-track="stealth_vault_payoneer_click"
+                onClick={() => trackStealthVaultEvent("stealth_vault_payoneer_click")}
                 className="inline-flex w-full items-center justify-between rounded-xl border border-white/20 bg-slate-900/70 px-4 py-3 text-sm font-semibold text-slate-100 transition-colors hover:bg-slate-800"
               >
                 <span>Payoneer: {payoneerEmail}</span>
@@ -254,7 +287,7 @@ export function StealthVaultPageClient() {
             </p>
 
             <p className="mt-3 text-sm text-slate-300">
-              For customizations or questions, email hello@vishnulabs.com. You can also book a direct call for urgent setup planning.
+              For customizations or questions, email <a className="underline underline-offset-2" href="mailto:hello@vishnulabs.com" data-track="stealth_vault_email_click">hello@vishnulabs.com</a>. You can also book a direct call for urgent setup planning.
             </p>
 
             <form onSubmit={handleContactSubmit} className="mt-4 grid gap-3">
@@ -306,13 +339,14 @@ export function StealthVaultPageClient() {
                 <Button
                   type="submit"
                   disabled={contactLoading}
+                  data-track="stealth_vault_contact_submit_click"
                   className="h-11 rounded-full bg-orange-500 px-6 text-sm font-semibold text-white hover:bg-orange-400 disabled:opacity-70"
                 >
                   {contactLoading ? "Sending..." : "Send Request"}
                 </Button>
 
                 <Button asChild variant="outline" className="h-11 rounded-full border-white/25 bg-transparent px-6 text-sm text-white hover:bg-white/10">
-                  <a href="/book" className="inline-flex items-center gap-2">
+                  <a href="/book" data-track="stealth_vault_book_call_click_form" onClick={() => trackStealthVaultEvent("stealth_vault_book_call_click", { source: "form_block" })} className="inline-flex items-center gap-2">
                     <PhoneCall className="h-4 w-4" />
                     Call / Book Meeting
                   </a>

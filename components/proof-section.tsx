@@ -1,19 +1,27 @@
 import { Building2, Quote, TrendingUp } from "lucide-react"
 
+import { AnimatedCounter } from "@/components/animated-counter"
+
 const outcomeCards = [
   {
     title: "US PI Firm (Operations Team)",
-    metric: "41%",
+    metricValue: 41,
+    metricSuffix: "%",
+    decimals: 0,
     detail: "fewer missed intake calls after deploying AI voice + callback workflows",
   },
   {
     title: "Multi-Agent Real Estate Team",
-    metric: "2.3x",
+    metricValue: 2.3,
+    metricSuffix: "x",
+    decimals: 1,
     detail: "increase in after-hours lead capture with automated qualification + booking",
   },
   {
     title: "Mortgage Intake Operations",
-    metric: "33%",
+    metricValue: 33,
+    metricSuffix: "%",
+    decimals: 0,
     detail: "drop in no-shows after reminders, reschedules, and owner alerts",
   },
 ]
@@ -48,7 +56,7 @@ const trustSignals = [
 
 export function ProofSection() {
   return (
-    <section className="relative border-y border-border/30 py-24 md:py-32" id="proof">
+    <section className="relative border-y border-border/30 py-24 md:py-32" id="proof" data-reveal>
       <div className="absolute inset-0 bg-secondary/15" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="mb-12 max-w-3xl">
@@ -63,12 +71,14 @@ export function ProofSection() {
 
         <div className="grid gap-4 md:grid-cols-3">
           {outcomeCards.map((card) => (
-            <article key={card.title} className="rounded-2xl border border-border/45 bg-card/65 p-6 lift-card">
+            <article key={card.title} className="rounded-2xl border border-border/45 bg-card/65 p-6 lift-card" data-reveal>
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
                 <TrendingUp className="h-4.5 w-4.5 text-primary" />
               </div>
               <p className="text-xs uppercase tracking-widest text-muted-foreground">{card.title}</p>
-              <p className="mt-1 text-4xl font-semibold text-foreground">{card.metric}</p>
+              <p className="mt-1 text-4xl font-semibold text-foreground">
+                <AnimatedCounter value={card.metricValue} decimals={card.decimals} suffix={card.metricSuffix} />
+              </p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.detail}</p>
             </article>
           ))}
@@ -76,7 +86,7 @@ export function ProofSection() {
 
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {testimonials.map((item) => (
-            <article key={item.quote} className="rounded-2xl border border-border/35 bg-background/70 p-6">
+            <article key={item.quote} className="rounded-2xl border border-border/35 bg-background/70 p-6" data-reveal>
               <Quote className="h-4.5 w-4.5 text-primary" />
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.quote}</p>
               <p className="mt-4 text-sm font-medium text-foreground">{item.author}</p>
@@ -85,7 +95,7 @@ export function ProofSection() {
           ))}
         </div>
 
-        <div className="mt-8 rounded-2xl border border-border/45 bg-card/65 p-6 lift-card">
+        <div className="mt-8 rounded-2xl border border-border/45 bg-card/65 p-6 lift-card" data-reveal>
           <p className="text-xs uppercase tracking-widest text-muted-foreground">As Used By</p>
           <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {trustSignals.map((label) => (

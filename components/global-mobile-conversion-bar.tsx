@@ -1,0 +1,32 @@
+"use client"
+
+import { Calendar, CreditCard } from "lucide-react"
+
+const PAYPAL_ME_URL = "https://paypal.me/vishnuvardhanburri?locale.x=en_GB&country.x=IN"
+
+export function GlobalMobileConversionBar() {
+  return (
+    <div className="mobile-safe-pad fixed inset-x-0 bottom-0 z-50 border-t border-border/45 bg-background/95 px-3 pt-3 backdrop-blur-xl md:hidden">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-2">
+        <a
+          href="/book"
+          data-track="funnel_mobile_book_demo_click"
+          className="tap-target inline-flex items-center justify-center gap-2 rounded-lg bg-foreground px-3 py-3 text-sm font-semibold text-background shadow-[0_8px_22px_rgba(249,115,22,0.22)]"
+        >
+          <Calendar className="h-4 w-4" />
+          Book Demo
+        </a>
+        <a
+          href={PAYPAL_ME_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-track="funnel_mobile_pay_15000_click"
+          className="tap-target inline-flex items-center justify-center gap-2 rounded-lg border border-primary/45 bg-primary px-3 py-3 text-sm font-semibold text-primary-foreground"
+        >
+          <CreditCard className="h-4 w-4" />
+          Pay $15k
+        </a>
+      </div>
+    </div>
+  )
+}

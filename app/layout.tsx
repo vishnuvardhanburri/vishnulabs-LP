@@ -2,7 +2,10 @@ import type { Metadata, Viewport } from "next"
 import Script from "next/script"
 
 import "./globals.css"
+import { FunnelTracker } from "@/components/funnel-tracker"
+import { GlobalMobileConversionBar } from "@/components/global-mobile-conversion-bar"
 import { LiveChatAssistant } from "@/components/live-chat-assistant"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 const gaId = process.env.NEXT_PUBLIC_GA_ID
 
@@ -76,6 +79,9 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         {children}
         <LiveChatAssistant />
+        <GlobalMobileConversionBar />
+        <FunnelTracker />
+        <ScrollReveal />
 
         <Script id="organization-jsonld" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify(organizationLd)}
@@ -91,7 +97,7 @@ export default function RootLayout({
         ) : null}
 
         <Script id="click-event-tracker" strategy="afterInteractive">
-          {`document.addEventListener('click', function(e){var t=e.target; if(!t) return; var el=t.closest('[data-track]'); if(!el) return; var eventName=el.getAttribute('data-track'); if(!eventName) return; if(window.gtag){window.gtag('event', eventName, {event_category:'conversion', event_label: window.location.pathname});}});`}
+          {`document.addEventListener('click', function(e){var t=e.target; if(!t) return; var el=t.closest('[data-track]'); if(!el) return; var eventName=el.getAttribute('data-track'); if(!eventName) return; if(window.gtag){window.gtag('event', eventName, {event_category:'funnel', event_label: window.location.pathname});}});`}
         </Script>
 
         <Script id="apollo-tracker" strategy="afterInteractive">

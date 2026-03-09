@@ -5,6 +5,7 @@ import {
   AlertTriangle,
   ArrowUpRight,
   BadgeCheck,
+  Calculator,
   CheckCircle2,
   Mail,
   PhoneCall,
@@ -20,6 +21,7 @@ type ContactFormState = {
   email: string
   phone: string
   message: string
+  website: string
 }
 
 type TrackPayload = Record<string, string | number | boolean>
@@ -29,6 +31,7 @@ const defaultContactForm: ContactFormState = {
   email: "",
   phone: "",
   message: "",
+  website: "",
 }
 
 const featureList = [
@@ -53,8 +56,9 @@ const trustVerticals = ["Personal Injury Law", "Family Law", "Outpatient Clinics
 
 const PAYPAL_ME_URL = "https://paypal.me/vishnuvardhanburri?locale.x=en_GB&country.x=IN"
 const DEFAULT_PAYONEER_EMAIL = "vishnuvardanbirri19@gmail.com"
+const PRODUCT_PRICE = 15000
 
-function trackStealthVaultEvent(eventName: string, payload: TrackPayload = {}) {
+function trackEvent(eventName: string, payload: TrackPayload = {}) {
   if (typeof window === "undefined") return
 
   const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag
@@ -62,9 +66,18 @@ function trackStealthVaultEvent(eventName: string, payload: TrackPayload = {}) {
   if (typeof gtag !== "function") return
 
   gtag("event", eventName, {
-    event_category: "stealth_vault",
+    event_category: "funnel",
     event_label: window.location.pathname,
+    path: window.location.pathname,
     ...payload,
+  })
+}
+
+function formatUsd(value: number) {
+  return value.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
   })
 }
 
@@ -73,6 +86,11 @@ export function StealthVaultPageClient() {
   const [contactLoading, setContactLoading] = useState(false)
   const [contactState, setContactState] = useState<"idle" | "success" | "error">("idle")
   const [contactError, setContactError] = useState("")
+
+  const [teamMembers, setTeamMembers] = useState(8)
+  const [hourlyRate, setHourlyRate] = useState(60)
+  const [hoursSavedPerMember, setHoursSavedPerMember] = useState(12)
+  const [incidentsPrevented, setIncidentsPrevented] = useState(2)
 
   const payoneerEmail = process.env.NEXT_PUBLIC_PAYONEER_EMAIL || DEFAULT_PAYONEER_EMAIL
 
@@ -84,14 +102,19 @@ export function StealthVaultPageClient() {
     return `mailto:${payoneerEmail}?subject=${subject}&body=${body}`
   }, [payoneerEmail])
 
+  const monthlyLaborSavings = Math.max(teamMembers, 0) * Math.max(hourlyRate, 0) * Math.max(hoursSavedPerMember, 0)
+  const monthlyRiskProtection = Math.max(incidentsPrevented, 0) * 1500
+  const monthlyValue = monthlyLaborSavings + monthlyRiskProtection
+  const paybackMonths = PRODUCT_PRICE / Math.max(monthlyValue, 1)
+
   useEffect(() => {
-    trackStealthVaultEvent("stealth_vault_page_view")
+    trackEvent("funnel_stealth_page_view")
   }, [])
 
   async function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    trackStealthVaultEvent("stealth_vault_contact_submit_attempt")
+    trackEvent("funnel_stealth_form_submit_attempt")
     setContactLoading(true)
     setContactState("idle")
     setContactError("")
@@ -102,7 +125,11 @@ export function StealthVaultPageClient() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(contactForm),
+        body: JSON.stringify({
+          ...contactForm,
+          source: "stealth_vault_page",
+          page: "/stealth-vault",
+        }),
       })
 
       const data = (await response.json()) as { ok?: boolean; error?: string }
@@ -110,7 +137,7 @@ export function StealthVaultPageClient() {
       if (!response.ok || !data.ok) {
         setContactState("error")
         setContactError(data.error || "Unable to send message right now.")
-        trackStealthVaultEvent("stealth_vault_contact_submit_error", {
+        trackEvent("funnel_stealth_form_submit_error", {
           error_type: "api_error",
           response_status: response.status,
         })
@@ -119,11 +146,11 @@ export function StealthVaultPageClient() {
 
       setContactForm(defaultContactForm)
       setContactState("success")
-      trackStealthVaultEvent("stealth_vault_contact_submit_success")
+      trackEvent("funnel_stealth_form_submit_success")
     } catch {
       setContactState("error")
       setContactError("Unexpected error while sending your message.")
-      trackStealthVaultEvent("stealth_vault_contact_submit_error", {
+      trackEvent("funnel_stealth_form_submit_error", {
         error_type: "unexpected_error",
       })
     } finally {
@@ -137,12 +164,12 @@ export function StealthVaultPageClient() {
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:44px_44px]" />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-200">
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-200" data-reveal>
           <BadgeCheck className="h-3.5 w-3.5 text-orange-400" />
-          Trusted by law firms & clinics across the US
+          Trusted by law firms, clinics, and advisory teams across the US
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8">
+        <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8" data-reveal>
           <div className="rounded-2xl border border-white/15 bg-white/5 p-5 shadow-[0_24px_60px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:p-7">
             <h1 className="text-balance text-[1.95rem] font-bold leading-[1.06] tracking-tight text-white sm:text-[2.55rem] lg:text-[3.1rem]">
               Stealth-Mode Internal AI Vault - 100% Private & Leak-Proof AI
@@ -155,7 +182,7 @@ export function StealthVaultPageClient() {
 
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {featureList.map((feature) => (
-                <div key={feature} className="rounded-xl border border-white/15 bg-slate-900/70 px-3 py-2.5 text-sm text-slate-200">
+                <div key={feature} className="rounded-xl border border-white/15 bg-slate-900/70 px-3 py-2.5 text-sm text-slate-200" data-reveal>
                   <p className="flex items-start gap-2">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-orange-400" />
                     <span>{feature}</span>
@@ -184,22 +211,26 @@ export function StealthVaultPageClient() {
                   href={PAYPAL_ME_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-track="stealth_vault_paypal_click_hero"
-                  onClick={() => trackStealthVaultEvent("stealth_vault_paypal_click", { source: "hero" })}
+                  data-track="funnel_stealth_cta_paypal_click_hero"
+                  onClick={() => trackEvent("funnel_stealth_cta_paypal_click", { source: "hero" })}
                 >
                   Pay $15,000 Now
                 </a>
               </Button>
 
               <Button asChild variant="outline" className="h-11 rounded-full border-white/25 bg-transparent px-6 text-sm text-white hover:bg-white/10">
-                <a href="/book" data-track="stealth_vault_book_call_click_hero" onClick={() => trackStealthVaultEvent("stealth_vault_book_call_click", { source: "hero" })}>
+                <a
+                  href="/book"
+                  data-track="funnel_stealth_cta_book_call_click_hero"
+                  onClick={() => trackEvent("funnel_stealth_cta_book_call_click", { source: "hero" })}
+                >
                   Book Setup Call
                 </a>
               </Button>
             </div>
           </div>
 
-          <aside className="grid gap-4">
+          <aside className="grid gap-4" data-reveal>
             <div className="rounded-2xl border border-orange-300/30 bg-orange-500/10 p-5 shadow-[0_20px_40px_rgba(0,0,0,0.28)]">
               <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-orange-100">
                 <ShieldCheck className="h-4 w-4" />
@@ -232,7 +263,7 @@ export function StealthVaultPageClient() {
           </aside>
         </div>
 
-        <div className="mt-8 grid gap-5 lg:grid-cols-2">
+        <div className="mt-8 grid gap-5 lg:grid-cols-2" data-reveal>
           <div className="rounded-2xl border border-white/15 bg-white/5 p-5">
             <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
               <Mail className="h-4 w-4 text-orange-400" />
@@ -244,8 +275,8 @@ export function StealthVaultPageClient() {
                 href={PAYPAL_ME_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                data-track="stealth_vault_paypal_click_payment"
-                onClick={() => trackStealthVaultEvent("stealth_vault_paypal_click", { source: "payment_block" })}
+                data-track="funnel_stealth_cta_paypal_click_payment"
+                onClick={() => trackEvent("funnel_stealth_cta_paypal_click", { source: "payment_block" })}
                 className="inline-flex w-full items-center justify-between rounded-xl border border-orange-300/35 bg-orange-500/15 px-4 py-3 text-sm font-semibold text-orange-50 transition-colors hover:bg-orange-500/25"
               >
                 <span>PayPal: Pay $15,000 Now</span>
@@ -254,8 +285,8 @@ export function StealthVaultPageClient() {
 
               <a
                 href={payoneerRequestMailto}
-                data-track="stealth_vault_payoneer_click"
-                onClick={() => trackStealthVaultEvent("stealth_vault_payoneer_click")}
+                data-track="funnel_stealth_cta_payoneer_click"
+                onClick={() => trackEvent("funnel_stealth_cta_payoneer_click")}
                 className="inline-flex w-full items-center justify-between rounded-xl border border-white/20 bg-slate-900/70 px-4 py-3 text-sm font-semibold text-slate-100 transition-colors hover:bg-slate-800"
               >
                 <span>Payoneer: {payoneerEmail}</span>
@@ -287,10 +318,27 @@ export function StealthVaultPageClient() {
             </p>
 
             <p className="mt-3 text-sm text-slate-300">
-              For customizations or questions, email <a className="underline underline-offset-2" href="mailto:hello@vishnulabs.com" data-track="stealth_vault_email_click">hello@vishnulabs.com</a>. You can also book a direct call for urgent setup planning.
+              For customizations or questions, email{" "}
+              <a className="underline underline-offset-2" href="mailto:hello@vishnulabs.com" data-track="funnel_stealth_cta_email_click">
+                hello@vishnulabs.com
+              </a>
+              . You can also book a direct call for urgent setup planning.
             </p>
 
             <form onSubmit={handleContactSubmit} className="mt-4 grid gap-3">
+              <div className="absolute -left-[9999px] top-auto h-0 w-0 overflow-hidden opacity-0" aria-hidden>
+                <label>
+                  Website
+                  <input
+                    type="text"
+                    value={contactForm.website}
+                    onChange={(event) => setContactForm((prev) => ({ ...prev, website: event.target.value }))}
+                    autoComplete="off"
+                    tabIndex={-1}
+                  />
+                </label>
+              </div>
+
               <div className="grid gap-3 sm:grid-cols-2">
                 <label className="grid gap-1.5 text-sm text-slate-300">
                   Name
@@ -339,14 +387,19 @@ export function StealthVaultPageClient() {
                 <Button
                   type="submit"
                   disabled={contactLoading}
-                  data-track="stealth_vault_contact_submit_click"
+                  data-track="funnel_stealth_form_submit_click"
                   className="h-11 rounded-full bg-orange-500 px-6 text-sm font-semibold text-white hover:bg-orange-400 disabled:opacity-70"
                 >
                   {contactLoading ? "Sending..." : "Send Request"}
                 </Button>
 
                 <Button asChild variant="outline" className="h-11 rounded-full border-white/25 bg-transparent px-6 text-sm text-white hover:bg-white/10">
-                  <a href="/book" data-track="stealth_vault_book_call_click_form" onClick={() => trackStealthVaultEvent("stealth_vault_book_call_click", { source: "form_block" })} className="inline-flex items-center gap-2">
+                  <a
+                    href="/book"
+                    data-track="funnel_stealth_cta_book_call_click_form"
+                    onClick={() => trackEvent("funnel_stealth_cta_book_call_click", { source: "form_block" })}
+                    className="inline-flex items-center gap-2"
+                  >
                     <PhoneCall className="h-4 w-4" />
                     Call / Book Meeting
                   </a>
@@ -369,7 +422,74 @@ export function StealthVaultPageClient() {
           </div>
         </div>
 
-        <div className="mt-7 rounded-2xl border border-white/15 bg-white/5 p-5 text-sm text-slate-200">
+        <div className="mt-6 rounded-2xl border border-white/15 bg-white/5 p-5" data-reveal>
+          <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
+            <Calculator className="h-4 w-4 text-orange-400" />
+            ROI Calculator (Estimate)
+          </p>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <label className="grid gap-1 text-xs text-slate-300">
+              Team members using AI
+              <input
+                type="number"
+                min={1}
+                value={teamMembers}
+                onChange={(event) => setTeamMembers(Number(event.target.value || 0))}
+                className="h-10 rounded-lg border border-white/20 bg-slate-900/70 px-3 text-sm text-white outline-none focus:border-orange-400"
+              />
+            </label>
+            <label className="grid gap-1 text-xs text-slate-300">
+              Avg hourly cost (USD)
+              <input
+                type="number"
+                min={1}
+                value={hourlyRate}
+                onChange={(event) => setHourlyRate(Number(event.target.value || 0))}
+                className="h-10 rounded-lg border border-white/20 bg-slate-900/70 px-3 text-sm text-white outline-none focus:border-orange-400"
+              />
+            </label>
+            <label className="grid gap-1 text-xs text-slate-300">
+              Hours saved / member / month
+              <input
+                type="number"
+                min={1}
+                value={hoursSavedPerMember}
+                onChange={(event) => setHoursSavedPerMember(Number(event.target.value || 0))}
+                className="h-10 rounded-lg border border-white/20 bg-slate-900/70 px-3 text-sm text-white outline-none focus:border-orange-400"
+              />
+            </label>
+            <label className="grid gap-1 text-xs text-slate-300">
+              Leak incidents prevented / month
+              <input
+                type="number"
+                min={0}
+                value={incidentsPrevented}
+                onChange={(event) => setIncidentsPrevented(Number(event.target.value || 0))}
+                className="h-10 rounded-lg border border-white/20 bg-slate-900/70 px-3 text-sm text-white outline-none focus:border-orange-400"
+              />
+            </label>
+          </div>
+
+          <div className="mt-4 grid gap-3 sm:grid-cols-3">
+            <div className="rounded-xl border border-white/15 bg-slate-900/70 p-3">
+              <p className="text-[11px] uppercase tracking-widest text-slate-400">Monthly labor savings</p>
+              <p className="mt-1 text-xl font-semibold text-white">{formatUsd(monthlyLaborSavings)}</p>
+            </div>
+            <div className="rounded-xl border border-white/15 bg-slate-900/70 p-3">
+              <p className="text-[11px] uppercase tracking-widest text-slate-400">Risk protection value</p>
+              <p className="mt-1 text-xl font-semibold text-white">{formatUsd(monthlyRiskProtection)}</p>
+            </div>
+            <div className="rounded-xl border border-white/15 bg-slate-900/70 p-3">
+              <p className="text-[11px] uppercase tracking-widest text-slate-400">Estimated payback</p>
+              <p className="mt-1 text-xl font-semibold text-white">{paybackMonths.toFixed(1)} months</p>
+            </div>
+          </div>
+          <p className="mt-3 text-xs leading-relaxed text-slate-400">
+            Estimator for planning only. Final ROI depends on workflow volume, compliance burden, current manual process, and team behavior.
+          </p>
+        </div>
+
+        <div className="mt-7 rounded-2xl border border-white/15 bg-white/5 p-5 text-sm text-slate-200" data-reveal>
           <p className="inline-flex items-start gap-2 font-semibold text-white">
             <Siren className="mt-0.5 h-4 w-4 text-orange-400" />
             Security-first teams move now, not after a leak.

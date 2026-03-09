@@ -11,23 +11,24 @@ import { ProofSection } from "@/components/proof-section"
 import { AboutSection } from "@/components/about-section"
 import { FaqSection } from "@/components/faq-section"
 import { CtaSection } from "@/components/cta-section"
-import { MobileStickyCta } from "@/components/mobile-sticky-cta"
 import { Footer } from "@/components/footer"
+import { SecurityTransparencySection } from "@/components/security-transparency-section"
 
 export default function Page() {
   return (
     <>
       <Navbar />
       <main>
-        <div className="reveal-in">
+        <div data-reveal>
           <Hero />
         </div>
-        <div className="reveal-in reveal-delay-1">
+        <div data-reveal>
           <PremiumProductsShowcase />
         </div>
-        <div className="reveal-in reveal-delay-2">
+        <div data-reveal>
           <TrustStrip />
         </div>
+        <SecurityTransparencySection />
         <ProblemSection />
         <SolutionSection />
         <AutomationRecommendationsSection />
@@ -39,7 +40,6 @@ export default function Page() {
         <CtaSection />
       </main>
       <Footer />
-      <MobileStickyCta />
     </>
   )
 }

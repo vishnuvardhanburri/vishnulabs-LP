@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useMemo, useRef, useState } from "react"
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react"
 import { MessageCircle, RotateCcw, Send, X } from "lucide-react"
 
 type ChatMessage = {
@@ -14,7 +14,17 @@ type Intent = {
   answer: string
 }
 
-const STORAGE_KEY = "vishnulabs_assistant_messages_v3"
+type AssistantLead = {
+  name: string
+  email: string
+  phone: string
+  useCase: string
+  website: string
+}
+
+type TrackPayload = Record<string, string | number | boolean>
+
+const STORAGE_KEY = "vishnulabs_assistant_messages_v4"
 
 const initialAssistantMessage: ChatMessage = {
   role: "assistant",
@@ -29,6 +39,14 @@ const quickPrompts = [
   "How fast can you go live?",
   "What happens after I say yes?",
 ]
+
+const defaultLead: AssistantLead = {
+  name: "",
+  email: "",
+  phone: "",
+  useCase: "",
+  website: "",
+}
 
 const intents: Intent[] = [
   {
@@ -195,10 +213,30 @@ function answerFor(input: string) {
   return "I can help with services, pricing, Stealth Vault security, payment, timeline, integrations, support, and ownership. Ask a specific question, or book at /book."
 }
 
+function trackAssistantEvent(eventName: string, payload: TrackPayload = {}) {
+  if (typeof window === "undefined") return
+
+  const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag
+
+  if (typeof gtag !== "function") return
+
+  gtag("event", eventName, {
+    event_category: "funnel",
+    event_label: window.location.pathname,
+    path: window.location.pathname,
+    ...payload,
+  })
+}
+
 export function LiveChatAssistant() {
   const [open, setOpen] = useState(false)
   const [input, setInput] = useState("")
   const [messages, setMessages] = useState<ChatMessage[]>([initialAssistantMessage])
+  const [leadCaptureOpen, setLeadCaptureOpen] = useState(false)
+  const [leadSubmitted, setLeadSubmitted] = useState(false)
+  const [leadLoading, setLeadLoading] = useState(false)
+  const [leadError, setLeadError] = useState("")
+  const [leadForm, setLeadForm] = useState<AssistantLead>(defaultLead)
   const listRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -222,17 +260,32 @@ export function LiveChatAssistant() {
   }, [messages])
 
   useEffect(() => {
-    const openChat = () => setOpen(true)
+    const openChat = () => {
+      setOpen(true)
+      trackAssistantEvent("funnel_live_assistant_open")
+    }
+
     window.addEventListener("open-live-chat", openChat)
     return () => window.removeEventListener("open-live-chat", openChat)
   }, [])
 
   const canSend = useMemo(() => input.trim().length > 0, [input])
 
+  const userMessageCount = useMemo(() => messages.filter((msg) => msg.role === "user").length, [messages])
+
+  useEffect(() => {
+    if (leadSubmitted || leadCaptureOpen) return
+    if (userMessageCount < 3) return
+
+    setLeadCaptureOpen(true)
+    trackAssistantEvent("funnel_live_assistant_lead_prompt_shown")
+  }, [leadCaptureOpen, leadSubmitted, userMessageCount])
+
   const sendMessage = (text: string) => {
     const trimmed = text.trim()
     if (!trimmed) return
 
+    trackAssistantEvent("funnel_live_assistant_message_sent")
     const reply = answerFor(trimmed)
     setMessages((prev) => [...prev, { role: "user", text: trimmed }, { role: "assistant", text: reply }])
     setInput("")
@@ -240,7 +293,63 @@ export function LiveChatAssistant() {
 
   const resetChat = () => {
     setMessages([initialAssistantMessage])
+    setLeadCaptureOpen(false)
+    setLeadSubmitted(false)
+    setLeadLoading(false)
+    setLeadError("")
+    setLeadForm(defaultLead)
     window.localStorage.removeItem(STORAGE_KEY)
+  }
+
+  const submitLeadCapture = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    setLeadLoading(true)
+    setLeadError("")
+    trackAssistantEvent("funnel_live_assistant_lead_submit_attempt")
+
+    try {
+      const response = await fetch("/api/contact/stealth-vault", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: leadForm.name,
+          email: leadForm.email,
+          phone: leadForm.phone,
+          message: `[Live Assistant Lead]\nUse-case: ${leadForm.useCase}`,
+          website: leadForm.website,
+          source: "live_assistant",
+          page: window.location.pathname,
+        }),
+      })
+
+      const data = (await response.json()) as { ok?: boolean; error?: string }
+
+      if (!response.ok || !data.ok) {
+        setLeadError(data.error || "Unable to submit lead now.")
+        trackAssistantEvent("funnel_live_assistant_lead_submit_error", { response_status: response.status })
+        return
+      }
+
+      setLeadSubmitted(true)
+      setLeadCaptureOpen(false)
+      setLeadForm(defaultLead)
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          text: "Thanks, details received. VishnuLabs team will contact you shortly from hello@vishnulabs.com.",
+        },
+      ])
+      trackAssistantEvent("funnel_live_assistant_lead_submit_success")
+    } catch {
+      setLeadError("Unexpected error while submitting lead.")
+      trackAssistantEvent("funnel_live_assistant_lead_submit_error", { response_status: 0 })
+    } finally {
+      setLeadLoading(false)
+    }
   }
 
   return (
@@ -286,6 +395,82 @@ export function LiveChatAssistant() {
                 {msg.text}
               </div>
             ))}
+
+            {leadCaptureOpen && !leadSubmitted ? (
+              <form onSubmit={submitLeadCapture} className="rounded-xl border border-border/60 bg-card/80 p-3">
+                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Want help fast?</p>
+                <p className="mt-1 text-xs text-muted-foreground">Share details and we will reach out with the best-fit solution.</p>
+
+                <div className="absolute -left-[9999px] top-auto h-0 w-0 overflow-hidden opacity-0" aria-hidden>
+                  <label>
+                    Website
+                    <input
+                      type="text"
+                      value={leadForm.website}
+                      onChange={(event) => setLeadForm((prev) => ({ ...prev, website: event.target.value }))}
+                      autoComplete="off"
+                      tabIndex={-1}
+                    />
+                  </label>
+                </div>
+
+                <div className="mt-2 grid gap-2">
+                  <input
+                    required
+                    value={leadForm.name}
+                    onChange={(event) => setLeadForm((prev) => ({ ...prev, name: event.target.value }))}
+                    placeholder="Name"
+                    className="h-9 rounded-lg border border-border/60 bg-background/90 px-2.5 text-xs text-foreground outline-none focus:border-primary/65"
+                  />
+                  <input
+                    required
+                    type="email"
+                    value={leadForm.email}
+                    onChange={(event) => setLeadForm((prev) => ({ ...prev, email: event.target.value }))}
+                    placeholder="Work email"
+                    className="h-9 rounded-lg border border-border/60 bg-background/90 px-2.5 text-xs text-foreground outline-none focus:border-primary/65"
+                  />
+                  <input
+                    required
+                    value={leadForm.phone}
+                    onChange={(event) => setLeadForm((prev) => ({ ...prev, phone: event.target.value }))}
+                    placeholder="Phone"
+                    className="h-9 rounded-lg border border-border/60 bg-background/90 px-2.5 text-xs text-foreground outline-none focus:border-primary/65"
+                  />
+                  <textarea
+                    required
+                    rows={3}
+                    value={leadForm.useCase}
+                    onChange={(event) => setLeadForm((prev) => ({ ...prev, useCase: event.target.value }))}
+                    placeholder="Use-case"
+                    className="rounded-lg border border-border/60 bg-background/90 px-2.5 py-2 text-xs text-foreground outline-none focus:border-primary/65"
+                  />
+                </div>
+
+                {leadError ? <p className="mt-2 text-[11px] text-destructive">{leadError}</p> : null}
+
+                <div className="mt-2 flex gap-2">
+                  <button
+                    type="submit"
+                    data-track="funnel_live_assistant_lead_submit_click"
+                    className="inline-flex h-9 items-center justify-center rounded-lg bg-foreground px-3 text-xs font-semibold text-background"
+                    disabled={leadLoading}
+                  >
+                    {leadLoading ? "Sending..." : "Submit"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setLeadCaptureOpen(false)
+                      trackAssistantEvent("funnel_live_assistant_lead_prompt_dismissed")
+                    }}
+                    className="inline-flex h-9 items-center justify-center rounded-lg border border-border/60 px-3 text-xs text-muted-foreground"
+                  >
+                    Skip
+                  </button>
+                </div>
+              </form>
+            ) : null}
           </div>
 
           <div className="border-t border-border/50 px-4 py-3">
@@ -327,8 +512,11 @@ export function LiveChatAssistant() {
 
       <button
         type="button"
-        onClick={() => setOpen((prev) => !prev)}
-        data-track="open_live_assistant"
+        onClick={() => {
+          setOpen((prev) => !prev)
+          trackAssistantEvent("funnel_live_assistant_toggle_click")
+        }}
+        data-track="funnel_live_assistant_toggle_click"
         className="tap-target fixed bottom-[calc(94px+env(safe-area-inset-bottom))] right-3 z-[55] inline-flex items-center gap-2 rounded-full border border-primary/45 bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground shadow-[0_12px_30px_rgba(249,115,22,0.26)] md:bottom-6 md:right-6"
       >
         <MessageCircle className="h-4 w-4" />

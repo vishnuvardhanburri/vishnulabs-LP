@@ -104,6 +104,7 @@ const alertLogLines = [
 ]
 
 const PAYPAL_ME_URL = "https://paypal.me/vishnuvardhanburri?locale.x=en_GB&country.x=IN"
+const DEFAULT_INFINITY_EMAIL = "vishnuvardhanburri19@gmail.com"
 const DEFAULT_PAYONEER_EMAIL = "vishnuvardhanburri19@gmail.com"
 const PRODUCT_PRICE = 15000
 
@@ -141,15 +142,35 @@ export function StealthVaultPageClient() {
   const [hoursSavedPerMember, setHoursSavedPerMember] = useState(12)
   const [incidentsPrevented, setIncidentsPrevented] = useState(2)
 
+  const infinityEmail = process.env.NEXT_PUBLIC_INFINITY_EMAIL || DEFAULT_INFINITY_EMAIL
   const payoneerEmail = process.env.NEXT_PUBLIC_PAYONEER_EMAIL || DEFAULT_PAYONEER_EMAIL
+  const infinityPaymentUrl = process.env.NEXT_PUBLIC_INFINITY_PAYMENT_URL?.trim()
+  const payoneerPaymentUrl = process.env.NEXT_PUBLIC_PAYONEER_PAYMENT_URL?.trim()
 
-  const payoneerRequestMailto = useMemo(() => {
-    const subject = encodeURIComponent("Payment Request - Stealth-Mode Internal AI Vault ($15,000)")
-    const body = encodeURIComponent(
-      "Hi VishnuLabs, we want to purchase the Stealth-Mode Internal AI Vault for $15,000. Please share the payment request and onboarding steps.",
-    )
-    return `mailto:${payoneerEmail}?subject=${subject}&body=${body}`
-  }, [payoneerEmail])
+  const paymentRequestSubject = encodeURIComponent("Payment Request - Stealth-Mode Internal AI Vault ($15,000)")
+  const paymentRequestBody = encodeURIComponent(
+    "Hi VishnuLabs, we want to purchase the Stealth-Mode Internal AI Vault for $15,000. Please share the payment request and onboarding steps.",
+  )
+
+  const infinityRequestHref = infinityPaymentUrl || `mailto:${infinityEmail}?subject=${paymentRequestSubject}&body=${paymentRequestBody}`
+  const payoneerRequestHref = payoneerPaymentUrl || `mailto:${payoneerEmail}?subject=${paymentRequestSubject}&body=${paymentRequestBody}`
+
+  const paymentRequestCopy = useMemo(
+    () =>
+      [
+        {
+          label: infinityPaymentUrl ? "Infinity: Open payment page" : `Infinity: ${infinityEmail}`,
+          href: infinityRequestHref,
+          source: "infinity",
+        },
+        {
+          label: payoneerPaymentUrl ? "Payoneer: Open payment page" : `Payoneer: ${payoneerEmail}`,
+          href: payoneerRequestHref,
+          source: "payoneer",
+        },
+      ],
+    [infinityEmail, infinityPaymentUrl, infinityRequestHref, payoneerEmail, payoneerPaymentUrl, payoneerRequestHref],
+  )
 
   const monthlyLaborSavings = Math.max(teamMembers, 0) * Math.max(hourlyRate, 0) * Math.max(hoursSavedPerMember, 0)
   const monthlyRiskProtection = Math.max(incidentsPrevented, 0) * 1500
@@ -511,23 +532,26 @@ export function StealthVaultPageClient() {
                 <ArrowUpRight className="h-4 w-4" />
               </a>
 
-              <a
-                href={payoneerRequestMailto}
-                data-track="funnel_stealth_cta_payoneer_click"
-                onClick={() => trackEvent("funnel_stealth_cta_payoneer_click")}
-                className="inline-flex w-full items-center justify-between rounded-xl border border-white/20 bg-slate-900/70 px-4 py-3 text-sm font-semibold text-slate-100 transition-colors hover:bg-slate-800"
-              >
-                <span>Payoneer: {payoneerEmail}</span>
-                <ArrowUpRight className="h-4 w-4" />
-              </a>
+              {paymentRequestCopy.map((option) => (
+                <a
+                  key={option.source}
+                  href={option.href}
+                  target={option.href.startsWith("http") ? "_blank" : undefined}
+                  rel={option.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  data-track={`funnel_stealth_cta_${option.source}_click`}
+                  onClick={() => trackEvent(`funnel_stealth_cta_${option.source}_click`)}
+                  className="inline-flex w-full items-center justify-between rounded-xl border border-white/20 bg-slate-900/70 px-4 py-3 text-sm font-semibold text-slate-100 transition-colors hover:bg-slate-800"
+                >
+                  <span>{option.label}</span>
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              ))}
             </div>
 
             <div className="mt-4 rounded-xl border border-white/15 bg-slate-900/70 p-4 text-sm text-slate-200">
               <p className="font-semibold text-white">Manual follow-up after payment:</p>
-              <p className="mt-2">
-                After payment, we manually send invoice, Loom demo, installation guide, license key, and setup call within 24 hours.
-              </p>
-              <p className="mt-2">You will also receive confirmation mail from hello@vishnulabs.com.</p>
+              <p className="mt-2">After payment, I personally send invoice, demo, guide, and key within 24 hours.</p>
+              <p className="mt-2">If any payment option gives trouble, email hello@vishnulabs.com and we will respond ASAP.</p>
               <ul className="mt-3 grid gap-1 sm:grid-cols-2">
                 {paymentDeliverables.map((item) => (
                   <li key={item} className="flex items-center gap-2 text-slate-300">

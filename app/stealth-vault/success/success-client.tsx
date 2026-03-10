@@ -106,8 +106,8 @@ export function StealthVaultSuccessClient() {
 
       <h1 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">You are in. Stealth Vault onboarding is now active.</h1>
       <p className="mt-4 text-base text-muted-foreground">
-        We have sent your receipt resources by email: license key, guide link, and Loom walkthrough. If you do not see it in 3-5 minutes,
-        check spam/promotions and then message hello@vishnulabs.com.
+        Payment is confirmed. I personally send your invoice, demo, installation guide, and license key within 24 hours. If anything looks
+        unclear, message hello@vishnulabs.com and we will respond ASAP.
       </p>
 
       <div className="mt-8 grid gap-3 sm:grid-cols-3">

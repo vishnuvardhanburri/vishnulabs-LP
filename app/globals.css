@@ -56,6 +56,7 @@
     background-image:
       radial-gradient(circle at 8% -10%, rgba(249, 115, 22, 0.16), transparent 34%),
       radial-gradient(circle at 88% -14%, rgba(251, 191, 36, 0.2), transparent 36%),
+      radial-gradient(circle at 50% 30%, rgba(15, 23, 42, 0.03), transparent 42%),
       linear-gradient(180deg, #fffcf7 0%, #fff7ec 42%, #fffdf9 100%);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -136,6 +137,94 @@
   .hero-accent {
     @apply text-primary;
   }
+
+  .section-shell {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow:
+      0 30px 80px rgba(15, 23, 42, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(18px);
+  }
+
+  .section-shell-dark {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(2, 6, 23, 0.96);
+    background-image:
+      radial-gradient(circle at top, rgba(249, 115, 22, 0.1), transparent 34%),
+      linear-gradient(180deg, rgba(2, 6, 23, 0.96) 0%, rgba(15, 23, 42, 0.94) 100%);
+    box-shadow:
+      0 36px 90px rgba(2, 6, 23, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .ambient-grid-dark {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      radial-gradient(circle at top right, rgba(249, 115, 22, 0.16), transparent 24%);
+    background-size: 42px 42px, 42px 42px, auto;
+  }
+
+  .badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .text-gradient-fire {
+    background: linear-gradient(135deg, #f97316 0%, #fb923c 34%, #fbbf24 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hover-rise-strong {
+    transition:
+      transform 360ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 360ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      border-color 360ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .hover-rise-strong:hover {
+    transform: translate3d(0, -8px, 0);
+    box-shadow:
+      0 36px 72px rgba(15, 23, 42, 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.72);
+    border-color: rgba(249, 115, 22, 0.26);
+  }
+
+  .halo-outline {
+    box-shadow:
+      0 22px 60px rgba(2, 6, 23, 0.26),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .shadow-hero-panel {
+    box-shadow:
+      0 28px 70px rgba(2, 6, 23, 0.42),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .orb-float {
+    animation: orbFloat 15s ease-in-out infinite;
+  }
+
+  .orb-float-slow {
+    animation: orbFloatSlow 19s ease-in-out infinite;
+  }
 }
 
 @keyframes revealUp {
@@ -181,6 +270,35 @@
   }
 }
 
+@keyframes orbFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(18px, -24px, 0) scale(1.06);
+  }
+}
+
+@keyframes orbFloatSlow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-20px, 18px, 0) scale(1.04);
+  }
+}
+
+@keyframes beamSweep {
+  0% {
+    transform: translate3d(-140%, 0, 0) rotate(18deg);
+  }
+  100% {
+    transform: translate3d(260%, 0, 0) rotate(18deg);
+  }
+}
+
 @keyframes marquee {
   0% {
     transform: translateX(0);
@@ -196,6 +314,25 @@
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+.beam-sweep::after {
+  content: "";
+  position: absolute;
+  inset: -35% auto auto -30%;
+  width: 45%;
+  height: 170%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  transform: rotate(18deg);
+  animation: beamSweep 8s linear infinite;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .section-shell,
+  .section-shell-dark {
+    border-radius: 1.6rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

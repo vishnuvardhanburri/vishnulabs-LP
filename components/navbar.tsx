@@ -1,16 +1,17 @@
 "use client"
 
+import Link from "next/link"
 import { useEffect, useState } from "react"
 import { ArrowUpRight, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
-  { label: "Products", href: "/#products" },
-  { label: "Services", href: "/#services" },
+  { label: "Products", href: "/products" },
+  { label: "Services", href: "/services" },
   { label: "AI Vault", href: "/stealth-vault" },
-  { label: "Industries", href: "/#industries" },
-  { label: "Proof", href: "/#proof" },
-  { label: "Pricing", href: "/#pricing" },
+  { label: "Industries", href: "/industries" },
+  { label: "Proof", href: "/proof" },
+  { label: "Pricing", href: "/pricing" },
 ]
 
 export function Navbar() {
@@ -25,17 +26,17 @@ export function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 transition-all duration-300">
-      <div className="mx-auto max-w-7xl px-4 pt-3 sm:px-6 lg:px-10">
+      <div className="mx-auto max-w-7xl px-4 pt-3.5 sm:px-6 lg:px-10">
         <div
-          className={`rounded-2xl border transition-all duration-300 ${
+          className={`rounded-[28px] border transition-all duration-300 ${
             scrolled
-              ? "border-primary/25 bg-background/92 shadow-[0_14px_36px_rgba(249,115,22,0.18)] backdrop-blur-xl"
-              : "border-border/55 bg-background/82 backdrop-blur-md"
+              ? "border-primary/15 bg-background/80 shadow-[0_22px_55px_rgba(15,23,42,0.16)] backdrop-blur-2xl"
+              : "border-white/70 bg-white/70 shadow-[0_14px_40px_rgba(15,23,42,0.08)] backdrop-blur-xl"
           }`}
         >
-          <div className="flex h-[68px] items-center justify-between px-3 sm:px-4">
-            <a href="/" className="tap-target flex items-center gap-2.5 rounded-lg px-1 py-1">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/12 shadow-[0_0_20px_rgba(249,115,22,0.28)]">
+          <div className="flex h-[70px] items-center justify-between px-3 sm:px-4">
+            <Link href="/" className="tap-target flex items-center gap-3 rounded-full px-1 py-1">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950 shadow-[0_12px_26px_rgba(15,23,42,0.18)]">
                 <img
                   src="/vishnulabs-logo-mark.svg"
                   alt="VishnuLabs V logo"
@@ -46,19 +47,19 @@ export function Navbar() {
               </div>
               <div>
                 <p className="text-[15px] font-semibold tracking-tight text-foreground">VishnuLabs</p>
-                <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Automation Systems</p>
+                <p className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Automation Systems</p>
               </div>
-            </a>
+            </Link>
 
-            <nav className="hidden items-center gap-1 md:flex" aria-label="Main navigation">
+            <nav className="hidden items-center gap-1.5 md:flex" aria-label="Main navigation">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
-                  className="rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-all hover:bg-secondary hover:text-foreground"
+                  className="rounded-full px-3.5 py-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-muted-foreground transition-all hover:bg-slate-950 hover:text-white"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </nav>
 
@@ -66,17 +67,17 @@ export function Navbar() {
               <Button
                 size="sm"
                 asChild
-                className="cta-glow gap-1.5 rounded-full bg-foreground px-5 text-background hover:bg-foreground/90"
+                className="cta-glow h-10 gap-1.5 rounded-full bg-slate-950 px-5 text-white hover:bg-slate-900"
               >
-                <a href="/book" data-track="nav_book_meeting">
+                <Link href="/book" data-track="nav_book_meeting">
                   Book Meeting
                   <ArrowUpRight className="h-3.5 w-3.5" />
-                </a>
+                </Link>
               </Button>
             </div>
 
             <button
-              className="tap-target inline-flex items-center justify-center rounded-lg text-foreground transition-colors hover:bg-secondary md:hidden"
+              className="tap-target inline-flex items-center justify-center rounded-2xl text-foreground transition-colors hover:bg-black/5 md:hidden"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
             >
@@ -86,25 +87,25 @@ export function Navbar() {
 
           {mobileOpen && (
             <nav
-              className="border-t border-border/50 bg-background/95 px-3 pb-4 pt-3 backdrop-blur-xl md:hidden"
+              className="border-t border-border/40 bg-white/92 px-3 pb-4 pt-3 backdrop-blur-xl md:hidden"
               aria-label="Mobile navigation"
             >
               <div className="flex flex-col gap-1.5">
                 {navLinks.map((link) => (
-                  <a
+                  <Link
                     key={link.href}
                     href={link.href}
-                    className="tap-target rounded-lg px-3 py-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                    className="tap-target rounded-2xl px-3 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:bg-slate-950 hover:text-white"
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 ))}
                 <div className="mt-2 border-t border-border/50 pt-3">
-                  <Button asChild className="w-full rounded-full bg-foreground text-background hover:bg-foreground/90">
-                    <a href="/book" onClick={() => setMobileOpen(false)} data-track="mobile_nav_book_meeting">
+                  <Button asChild className="w-full rounded-full bg-slate-950 text-white hover:bg-slate-900">
+                    <Link href="/book" onClick={() => setMobileOpen(false)} data-track="mobile_nav_book_meeting">
                       Book Meeting
-                    </a>
+                    </Link>
                   </Button>
                 </div>
               </div>

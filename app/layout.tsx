@@ -8,6 +8,7 @@ import { LiveChatAssistant } from "@/components/live-chat-assistant"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
 const gaId = process.env.NEXT_PUBLIC_GA_ID
+const apolloAppId = process.env.NEXT_PUBLIC_APOLLO_APP_ID
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vishnulabs.com"),
@@ -100,9 +101,11 @@ export default function RootLayout({
           {`document.addEventListener('click', function(e){var t=e.target; if(!t) return; var el=t.closest('[data-track]'); if(!el) return; var eventName=el.getAttribute('data-track'); if(!eventName) return; if(window.gtag){window.gtag('event', eventName, {event_category:'funnel', event_label: window.location.pathname});}});`}
         </Script>
 
-        <Script id="apollo-tracker" strategy="afterInteractive">
-          {`(function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"69a1402c0f6e4e000d6aec3c"})},document.head.appendChild(o)})();`}
-        </Script>
+        {apolloAppId ? (
+          <Script id="apollo-tracker" strategy="afterInteractive">
+            {`(function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"${apolloAppId}"})},document.head.appendChild(o)})();`}
+          </Script>
+        ) : null}
       </body>
     </html>
   )

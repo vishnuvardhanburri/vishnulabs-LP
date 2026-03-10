@@ -357,7 +357,7 @@ export function LiveChatAssistant() {
       {open && (
         <section
           id="chat"
-          className="fixed bottom-[calc(94px+env(safe-area-inset-bottom))] right-2 z-[60] flex w-[calc(100vw-1rem)] max-w-[390px] flex-col overflow-hidden rounded-2xl border border-border/60 bg-background/95 shadow-[0_20px_42px_rgba(249,115,22,0.2)] backdrop-blur-xl md:bottom-20 md:right-4 md:w-[390px]"
+          className="fixed bottom-[calc(94px+env(safe-area-inset-bottom))] right-2 z-[60] hidden w-[calc(100vw-1rem)] max-w-[390px] flex-col overflow-hidden rounded-2xl border border-border/60 bg-background/95 shadow-[0_20px_42px_rgba(249,115,22,0.2)] backdrop-blur-xl md:bottom-20 md:right-4 md:flex md:w-[390px]"
         >
           <header className="flex items-center justify-between border-b border-border/50 px-4 py-3">
             <div>
@@ -517,7 +517,7 @@ export function LiveChatAssistant() {
           trackAssistantEvent("funnel_live_assistant_toggle_click")
         }}
         data-track="funnel_live_assistant_toggle_click"
-        className="tap-target fixed bottom-[calc(94px+env(safe-area-inset-bottom))] right-3 z-[55] inline-flex items-center gap-2 rounded-full border border-primary/45 bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground shadow-[0_12px_30px_rgba(249,115,22,0.26)] md:bottom-6 md:right-6"
+        className="tap-target fixed bottom-[calc(94px+env(safe-area-inset-bottom))] right-3 z-[55] hidden items-center gap-2 rounded-full border border-primary/45 bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground shadow-[0_12px_30px_rgba(249,115,22,0.26)] md:bottom-6 md:right-6 md:inline-flex"
       >
         <MessageCircle className="h-4 w-4" />
         Live Assistant

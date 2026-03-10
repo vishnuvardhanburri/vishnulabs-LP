@@ -1,6 +1,16 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowRight, ArrowUpRight, CheckCircle2, ShieldCheck } from "lucide-react"
+import type { LucideIcon } from "lucide-react"
+import {
+  ArrowRight,
+  ArrowUpRight,
+  BrainCircuit,
+  Building2,
+  CalendarClock,
+  CheckCircle2,
+  MessageSquareMore,
+  ShieldCheck,
+} from "lucide-react"
 
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
@@ -27,6 +37,50 @@ const customBullets = [
   "Lead qualification and intake flows",
   "Scheduling and reminder automation",
   "Reporting, alerts, and admin handoff",
+]
+
+type AutomationPackage = {
+  bullets: string[]
+  href: string
+  icon: LucideIcon
+  note: string
+  price: string
+  title: string
+}
+
+const automationPackages: AutomationPackage[] = [
+  {
+    title: "AI Scheduling + Reminder Assistant",
+    price: "Starting at $6,500",
+    note: "Best for teams that need booking automation, reminder logic, and calendar sync with low manual overhead.",
+    href: "/automations#ai-scheduling-reminder-assistant",
+    icon: CalendarClock,
+    bullets: ["Natural language scheduling", "Google Calendar / Calendly sync", "SMS + email reminders"],
+  },
+  {
+    title: "Legal Client Intake Bot",
+    price: "Starting at $8,500",
+    note: "Built for law firms that need conversational intake, qualification, and clean structured summaries before lawyer review.",
+    href: "/automations#legal-client-intake-bot",
+    icon: MessageSquareMore,
+    bullets: ["Dynamic AI intake flow", "Document upload support", "CRM and lawyer handoff"],
+  },
+  {
+    title: "AI Legal Research Assistant",
+    price: "Starting at $9,500",
+    note: "Designed for document-heavy legal work where OCR, fact extraction, summaries, and templates save review time.",
+    href: "/automations#ai-legal-research-assistant",
+    icon: BrainCircuit,
+    bullets: ["PDF / Word ingestion", "OCR + summarization", "Template generation"],
+  },
+  {
+    title: "Real Estate Lead Nurture Bot",
+    price: "Starting at $5,500",
+    note: "Ideal for brokers and teams that need automated SMS + email follow-up until the lead replies or books.",
+    href: "/automations#real-estate-lead-nurture-bot",
+    icon: Building2,
+    bullets: ["Follow-up sequences", "Reply detection", "CRM lead tracking"],
+  },
 ]
 
 export default function PricingPage() {
@@ -111,6 +165,69 @@ export default function PricingPage() {
                   </Button>
                 </div>
               </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="pb-12 pt-8 sm:pb-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+            <div className="section-shell p-6 sm:p-8" data-reveal>
+              <div className="max-w-3xl">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">Automation pricing</p>
+                <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+                  Pricing for the new automation systems
+                </h2>
+                <p className="mt-4 text-base leading-8 text-slate-600">
+                  These are starting prices for the core automation packages. Final scope depends on integrations, branching logic,
+                  messaging volume, compliance requirements, and handoff complexity.
+                </p>
+              </div>
+
+              <div className="mt-8 grid gap-5 lg:grid-cols-2">
+                {automationPackages.map((item) => {
+                  const Icon = item.icon
+
+                  return (
+                    <article key={item.title} className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-white">
+                          <Icon className="h-5 w-5 text-orange-300" />
+                        </div>
+                        <div className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
+                          {item.price}
+                        </div>
+                      </div>
+
+                      <h3 className="mt-5 text-2xl font-semibold tracking-tight text-slate-950">{item.title}</h3>
+                      <p className="mt-3 text-sm leading-7 text-slate-600">{item.note}</p>
+
+                      <ul className="mt-5 space-y-2">
+                        {item.bullets.map((bullet) => (
+                          <li key={bullet} className="flex items-start gap-2 text-sm text-slate-700">
+                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                        <Button asChild className="h-11 rounded-full bg-slate-950 px-5 text-sm font-semibold text-white hover:bg-slate-900">
+                          <Link href="/book">
+                            Request Demo
+                            <ArrowRight className="h-4 w-4" />
+                          </Link>
+                        </Button>
+                        <Button asChild variant="outline" className="h-11 rounded-full border-slate-300 bg-white px-5 text-sm font-semibold text-slate-950 hover:bg-slate-50">
+                          <Link href={item.href}>
+                            View Details
+                            <ArrowUpRight className="h-4 w-4" />
+                          </Link>
+                        </Button>
+                      </div>
+                    </article>
+                  )
+                })}
+              </div>
             </div>
           </div>
         </section>

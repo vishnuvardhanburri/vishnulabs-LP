@@ -225,6 +225,11 @@
   .orb-float-slow {
     animation: orbFloatSlow 19s ease-in-out infinite;
   }
+
+  .app-shell-enter {
+    animation: appShellIn 440ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    will-change: opacity, transform;
+  }
 }
 
 @keyframes revealUp {
@@ -296,6 +301,17 @@
   }
   100% {
     transform: translate3d(260%, 0, 0) rotate(18deg);
+  }
+}
+
+@keyframes appShellIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0) scale(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 

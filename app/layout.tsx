@@ -78,7 +78,7 @@ export default function RootLayout({
   return (
     <html lang="en-US">
       <body className="font-sans antialiased">
-        {children}
+        <div className="app-shell-enter">{children}</div>
         <LiveChatAssistant />
         <GlobalMobileConversionBar />
         <FunnelTracker />

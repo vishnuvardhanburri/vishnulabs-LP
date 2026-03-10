@@ -13,6 +13,7 @@ import { FaqSection } from "@/components/faq-section"
 import { CtaSection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
 import { SecurityTransparencySection } from "@/components/security-transparency-section"
+import { SentinelShieldDemo } from "@/components/sentinel-shield-demo"
 
 export default function Page() {
   return (
@@ -35,6 +36,7 @@ export default function Page() {
         <ProcessSection />
         <CaseStudiesSection />
         <ProofSection />
+        <SentinelShieldDemo />
         <AboutSection />
         <FaqSection />
         <CtaSection />

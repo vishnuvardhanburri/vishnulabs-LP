@@ -1,6 +1,7 @@
 "use client"
 
 import { FormEvent, useEffect, useMemo, useState } from "react"
+import Image from "next/image"
 import {
   AlertTriangle,
   ArrowUpRight,
@@ -54,8 +55,56 @@ const paymentDeliverables = ["Invoice", "Loom demo", "Installation guide", "Lice
 
 const trustVerticals = ["Personal Injury Law", "Family Law", "Outpatient Clinics", "Mortgage Advisory"]
 
+const proofStats = [
+  {
+    label: "Air-gap status",
+    value: "100%",
+    detail: "Zero outbound network leakage across the vault environment.",
+  },
+  {
+    label: "Runtime response",
+    value: "2 sec",
+    detail: "Offline answers pulled from local knowledge and prior file memory.",
+  },
+  {
+    label: "Alert posture",
+    value: "24/7",
+    detail: "Watchdog monitors file drops, redacts, logs, and throttles alerts.",
+  },
+]
+
+const recentFindings = [
+  {
+    title: "AWS Secret Detected",
+    age: "2m ago",
+    severity: "High",
+    detail: "Masked before archive and secured inside the vault.",
+  },
+  {
+    title: "Unmasked PII Found",
+    age: "1h ago",
+    severity: "Medium",
+    detail: "SSN pattern intercepted and redacted before model access.",
+  },
+  {
+    title: "SSH Key Exposed",
+    age: "4h ago",
+    severity: "Critical",
+    detail: "Outbound risk blocked and operator notified once for the day.",
+  },
+]
+
+const alertLogLines = [
+  "[INFO] Guardian maintenance: rotating logs and verifying disk health...",
+  "[INFO] Fetching all recognizers for language en",
+  "[WARNING] SYSTEM RISK: /Users/ops/.zsh_history (Risk: 7.0)",
+  "[CRITICAL] CRITICAL LEAK BLOCKED: handover_test.txt | Risk: 10.00 | Detected: ['AWS Token', 'Secret Key', 'PII (SSN)']",
+  "[INFO] Throttling outbound alert for handover_test.txt (Already sent one today)",
+  "[INFO] Report cycle check: 0 days since last report (Goal: 1)",
+]
+
 const PAYPAL_ME_URL = "https://paypal.me/vishnuvardhanburri?locale.x=en_GB&country.x=IN"
-const DEFAULT_PAYONEER_EMAIL = "vishnuvardanbirri19@gmail.com"
+const DEFAULT_PAYONEER_EMAIL = "vishnuvardhanburri19@gmail.com"
 const PRODUCT_PRICE = 15000
 
 function trackEvent(eventName: string, payload: TrackPayload = {}) {
@@ -166,7 +215,7 @@ export function StealthVaultPageClient() {
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-200" data-reveal>
           <BadgeCheck className="h-3.5 w-3.5 text-orange-400" />
-          Trusted by law firms, clinics, and advisory teams across the US
+          Trusted by law firms & clinics across the US
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8" data-reveal>
@@ -264,6 +313,185 @@ export function StealthVaultPageClient() {
         </div>
 
         <div className="mt-8 grid gap-5 lg:grid-cols-2" data-reveal>
+          <div className="rounded-2xl border border-white/15 bg-white/5 p-5 lg:col-span-2">
+            <div className="grid gap-6 xl:grid-cols-[1.02fr_0.98fr]">
+              <article className="rounded-[28px] border border-white/12 bg-slate-900/70 p-4 sm:p-5">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-300">
+                      <ShieldCheck className="h-4 w-4 text-orange-400" />
+                      Live product proof
+                    </p>
+                    <h2 className="mt-3 text-balance text-2xl font-semibold tracking-tight text-white sm:text-[2rem]">
+                      Buyers can inspect the vault, not just hear the pitch.
+                    </h2>
+                  </div>
+                  <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-200">
+                    Real screenshots
+                  </span>
+                </div>
+
+                <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-300">
+                  Security sidebar, risk chart, recent findings, Ingest control, compliance export, and live operator prompts are shown
+                  from the actual product screens. This keeps the sales story grounded in visible proof.
+                </p>
+
+                <div className="mt-5 overflow-hidden rounded-[24px] border border-white/10 bg-black">
+                  <Image
+                    src="/marketing/sentinel-shield/final_hero_shot.png"
+                    alt="Stealth vault interface showing a high-risk intercept and local vault response"
+                    width={2940}
+                    height={1846}
+                    priority
+                    sizes="(min-width: 1280px) 50vw, 100vw"
+                    className="h-auto w-full object-cover"
+                  />
+                </div>
+
+                <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                  {proofStats.map((item) => (
+                    <div key={item.label} className="rounded-2xl border border-white/10 bg-black/40 p-4">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">{item.label}</p>
+                      <p className="mt-2 text-2xl font-semibold tracking-tight text-white">{item.value}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-300">{item.detail}</p>
+                    </div>
+                  ))}
+                </div>
+              </article>
+
+              <div className="grid gap-6">
+                <article className="rounded-[28px] border border-white/12 bg-slate-900/70 p-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-300">Security overview</p>
+                      <p className="mt-1 text-sm leading-relaxed text-slate-300">
+                        Sidebar navigation, stats, risk propagation chart, recent findings, and Ingest button remain visible.
+                      </p>
+                    </div>
+                    <span className="rounded-full border border-white/12 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-200">
+                      Dashboard
+                    </span>
+                  </div>
+
+                  <div className="mt-4 overflow-hidden rounded-[24px] border border-white/10 bg-black">
+                    <Image
+                      src="/marketing/sentinel-shield/dashboard_v1.png"
+                      alt="SentinelVault dashboard with risk chart, recent findings, sidebar, and ingest document button"
+                      width={2940}
+                      height={1846}
+                      sizes="(min-width: 1280px) 32vw, 100vw"
+                      className="h-auto w-full object-cover"
+                    />
+                  </div>
+                </article>
+
+                <article className="rounded-[28px] border border-white/12 bg-slate-900/70 p-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-300">Compliance proof</p>
+                      <p className="mt-1 text-sm leading-relaxed text-slate-300">
+                        Audit-table evidence for redacted files, risk index, archive status, and export-ready operator review.
+                      </p>
+                    </div>
+                    <span className="rounded-full border border-orange-300/20 bg-orange-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-100">
+                      Audit ready
+                    </span>
+                  </div>
+
+                  <div className="mt-4 overflow-hidden rounded-[24px] border border-white/10 bg-black">
+                    <Image
+                      src="/marketing/sentinel-shield/compliance_proof.png"
+                      alt="Compliance view with timestamped audit log export and archived file statuses"
+                      width={2940}
+                      height={1846}
+                      sizes="(min-width: 1280px) 32vw, 100vw"
+                      className="h-auto w-full object-cover"
+                    />
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-white/15 bg-white/5 p-5 lg:col-span-2">
+            <div className="grid gap-6 lg:grid-cols-[1.02fr_0.98fr]">
+              <article className="rounded-[28px] border border-white/12 bg-slate-900/70 p-4 sm:p-5">
+                <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-300">
+                  <Siren className="h-4 w-4 text-orange-400" />
+                  Proof alert logs
+                </p>
+                <h2 className="mt-3 text-balance text-2xl font-semibold tracking-tight text-white sm:text-[2rem]">
+                  Alert output that shows the vault is actually catching things.
+                </h2>
+                <p className="mt-4 text-sm leading-relaxed text-slate-300">
+                  This is the trust layer buyers need: visible leak interception, recognizer scans, throttled outbound alerts, and
+                  report-cycle logging from the running environment.
+                </p>
+
+                <div className="mt-5 overflow-hidden rounded-[24px] border border-emerald-500/25 bg-black">
+                  <Image
+                    src="/marketing/sentinel-shield/terminal_demo.png"
+                    alt="Terminal proof showing air-gapped vault status and secure offline query results"
+                    width={2940}
+                    height={1846}
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="h-auto w-full object-cover"
+                  />
+                </div>
+              </article>
+
+              <div className="grid gap-6">
+                <article className="rounded-[28px] border border-white/12 bg-slate-900/70 p-4 sm:p-5">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-300">Recent findings</p>
+                  <div className="mt-4 grid gap-3">
+                    {recentFindings.map((item) => (
+                      <div key={item.title} className="rounded-2xl border border-white/10 bg-black/45 p-4">
+                        <div className="flex items-center justify-between gap-3">
+                          <div>
+                            <p className="text-sm font-semibold text-white">{item.title}</p>
+                            <p className="mt-1 text-xs uppercase tracking-[0.2em] text-slate-400">{item.age}</p>
+                          </div>
+                          <span
+                            className={
+                              item.severity === "Critical"
+                                ? "rounded-full border border-red-400/20 bg-red-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-red-200"
+                                : item.severity === "High"
+                                  ? "rounded-full border border-orange-300/20 bg-orange-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-100"
+                                  : "rounded-full border border-amber-300/20 bg-amber-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-100"
+                            }
+                          >
+                            {item.severity}
+                          </span>
+                        </div>
+                        <p className="mt-3 text-sm leading-relaxed text-slate-300">{item.detail}</p>
+                      </div>
+                    ))}
+                  </div>
+                </article>
+
+                <article className="rounded-[28px] border border-white/12 bg-slate-900/70 p-4 sm:p-5">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-300">Runtime signal feed</p>
+                  <div className="mt-4 rounded-[24px] border border-white/10 bg-black/70 p-4 font-mono text-[12px] leading-6">
+                    {alertLogLines.map((line) => (
+                      <p
+                        key={line}
+                        className={
+                          line.includes("[CRITICAL]")
+                            ? "text-orange-300"
+                            : line.includes("[WARNING]")
+                              ? "text-amber-200"
+                              : "text-emerald-200"
+                        }
+                      >
+                        {line}
+                      </p>
+                    ))}
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
           <div className="rounded-2xl border border-white/15 bg-white/5 p-5">
             <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
               <Mail className="h-4 w-4 text-orange-400" />
@@ -295,7 +523,7 @@ export function StealthVaultPageClient() {
             </div>
 
             <div className="mt-4 rounded-xl border border-white/15 bg-slate-900/70 p-4 text-sm text-slate-200">
-              <p className="font-semibold text-white">After payment, what happens:</p>
+              <p className="font-semibold text-white">Manual follow-up after payment:</p>
               <p className="mt-2">
                 After payment, we manually send invoice, Loom demo, installation guide, license key, and setup call within 24 hours.
               </p>
@@ -498,6 +726,26 @@ export function StealthVaultPageClient() {
             Public AI tools are useful, but confidential legal and clinical workflows need an internal vault with deterministic controls.
             VishnuLabs builds the secure path so your team can keep speed without exposing sensitive data.
           </p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <Button
+              asChild
+              className="h-11 rounded-full bg-orange-500 px-6 text-sm font-semibold text-white shadow-[0_14px_35px_rgba(249,115,22,0.42)] hover:bg-orange-400"
+            >
+              <a
+                href={PAYPAL_ME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-track="funnel_stealth_cta_paypal_click_footer"
+                onClick={() => trackEvent("funnel_stealth_cta_paypal_click", { source: "footer" })}
+              >
+                Pay $15,000 Now
+              </a>
+            </Button>
+
+            <Button asChild variant="outline" className="h-11 rounded-full border-white/25 bg-transparent px-6 text-sm text-white hover:bg-white/10">
+              <a href="#vault-contact">Request custom setup</a>
+            </Button>
+          </div>
         </div>
       </div>
     </section>

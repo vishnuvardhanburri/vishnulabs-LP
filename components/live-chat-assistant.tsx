@@ -149,7 +149,7 @@ const intents: Intent[] = [
     id: "payment",
     patterns: ["payment", "paypal", "payoneer", "card", "checkout", "buy", "invoice"],
     answer:
-      "Payment options include PayPal (card/wallet) and Payoneer fallback for policy-restricted teams. After payment, VishnuLabs sends invoice, Loom demo, installation guide, license key, and setup call details.",
+      "Payment works through direct invoice and a private payment link after a quick message or booked call. Email hello@vishnulabs.com or book at /book, and VishnuLabs will send the invoice, payment link, demo, guide, and key details.",
   },
   {
     id: "contact",

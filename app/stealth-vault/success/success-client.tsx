@@ -71,7 +71,7 @@ export function StealthVaultSuccessClient() {
       <div className="rounded-xl border border-border/40 bg-card/55 p-5 text-sm text-muted-foreground">
         <p className="flex items-center gap-2 text-foreground">
           <LoaderCircle className="h-4 w-4 animate-spin text-primary" />
-          Finalizing your PayPal payment and provisioning your license...
+          Finalizing your confirmation and provisioning your license...
         </p>
       </div>
     )
@@ -84,7 +84,7 @@ export function StealthVaultSuccessClient() {
           <AlertTriangle className="mt-0.5 h-4 w-4" />
           {errorMessage || "Unable to verify payment."}
         </p>
-        <p className="mt-3 text-sm text-muted-foreground">If your PayPal account shows payment success, email hello@vishnulabs.com with your payer email and order ID.</p>
+        <p className="mt-3 text-sm text-muted-foreground">If you have already paid, email hello@vishnulabs.com with your company name and payment confirmation.</p>
       </div>
     )
   }
@@ -92,7 +92,7 @@ export function StealthVaultSuccessClient() {
   if (status === "missing") {
     return (
       <div className="rounded-xl border border-border/40 bg-card/55 p-5 text-sm text-muted-foreground">
-        <p>No PayPal order token found. Please return from checkout after payment, or retry the payment flow.</p>
+        <p>No confirmation token was found. If payment was already handled manually, email hello@vishnulabs.com and we will respond ASAP.</p>
       </div>
     )
   }

@@ -51,8 +51,6 @@ const licensePoints = [
   "Optional ongoing support after 1 month",
 ]
 
-const paymentDeliverables = ["Invoice", "Loom demo", "Installation guide", "License key", "Setup call"]
-
 const trustVerticals = ["Personal Injury Law", "Family Law", "Outpatient Clinics", "Mortgage Advisory"]
 
 const proofStats = [
@@ -103,9 +101,7 @@ const alertLogLines = [
   "[INFO] Report cycle check: 0 days since last report (Goal: 1)",
 ]
 
-const PAYPAL_ME_URL = "https://paypal.me/vishnuvardhanburri?locale.x=en_GB&country.x=IN"
-const DEFAULT_INFINITY_EMAIL = "vishnuvardhanburri19@gmail.com"
-const DEFAULT_PAYONEER_EMAIL = "vishnuvardhanburri19@gmail.com"
+const SALES_EMAIL = "hello@vishnulabs.com"
 const PRODUCT_PRICE = 15000
 
 function trackEvent(eventName: string, payload: TrackPayload = {}) {
@@ -142,34 +138,22 @@ export function StealthVaultPageClient() {
   const [hoursSavedPerMember, setHoursSavedPerMember] = useState(12)
   const [incidentsPrevented, setIncidentsPrevented] = useState(2)
 
-  const infinityEmail = process.env.NEXT_PUBLIC_INFINITY_EMAIL || DEFAULT_INFINITY_EMAIL
-  const payoneerEmail = process.env.NEXT_PUBLIC_PAYONEER_EMAIL || DEFAULT_PAYONEER_EMAIL
-  const infinityPaymentUrl = process.env.NEXT_PUBLIC_INFINITY_PAYMENT_URL?.trim()
-  const payoneerPaymentUrl = process.env.NEXT_PUBLIC_PAYONEER_PAYMENT_URL?.trim()
+  const invoiceRequestHref = useMemo(() => {
+    const subject = encodeURIComponent("Invoice Request - Stealth-Mode Internal AI Vault ($15,000)")
+    const body = encodeURIComponent(
+      "Hi VishnuLabs, we want to purchase the Stealth-Mode Internal AI Vault for $15,000. Please send the invoice and payment link. We can confirm our preferred rail on reply.",
+    )
+    return `mailto:${SALES_EMAIL}?subject=${subject}&body=${body}`
+  }, [])
 
-  const paymentRequestSubject = encodeURIComponent("Payment Request - Stealth-Mode Internal AI Vault ($15,000)")
-  const paymentRequestBody = encodeURIComponent(
-    "Hi VishnuLabs, we want to purchase the Stealth-Mode Internal AI Vault for $15,000. Please share the payment request and onboarding steps.",
-  )
-
-  const infinityRequestHref = infinityPaymentUrl || `mailto:${infinityEmail}?subject=${paymentRequestSubject}&body=${paymentRequestBody}`
-  const payoneerRequestHref = payoneerPaymentUrl || `mailto:${payoneerEmail}?subject=${paymentRequestSubject}&body=${paymentRequestBody}`
-
-  const paymentRequestCopy = useMemo(
-    () =>
-      [
-        {
-          label: infinityPaymentUrl ? "Infinity: Open payment page" : `Infinity: ${infinityEmail}`,
-          href: infinityRequestHref,
-          source: "infinity",
-        },
-        {
-          label: payoneerPaymentUrl ? "Payoneer: Open payment page" : `Payoneer: ${payoneerEmail}`,
-          href: payoneerRequestHref,
-          source: "payoneer",
-        },
-      ],
-    [infinityEmail, infinityPaymentUrl, infinityRequestHref, payoneerEmail, payoneerPaymentUrl, payoneerRequestHref],
+  const invoiceHelpPoints = useMemo(
+    () => [
+      "Direct message us for invoice and payment link",
+      "Quick book call for approval or purchasing questions",
+      "Preferred payment rail is shared privately after contact",
+      "If anything breaks, email hello@vishnulabs.com and we respond ASAP",
+    ],
+    [],
   )
 
   const monthlyLaborSavings = Math.max(teamMembers, 0) * Math.max(hourlyRate, 0) * Math.max(hoursSavedPerMember, 0)
@@ -278,13 +262,11 @@ export function StealthVaultPageClient() {
                 className="h-11 rounded-full bg-orange-500 px-6 text-sm font-semibold text-white shadow-[0_14px_35px_rgba(249,115,22,0.42)] hover:bg-orange-400"
               >
                 <a
-                  href={PAYPAL_ME_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-track="funnel_stealth_cta_paypal_click_hero"
-                  onClick={() => trackEvent("funnel_stealth_cta_paypal_click", { source: "hero" })}
+                  href={invoiceRequestHref}
+                  data-track="funnel_stealth_cta_invoice_click_hero"
+                  onClick={() => trackEvent("funnel_stealth_cta_invoice_click", { source: "hero" })}
                 >
-                  Pay $15,000 Now
+                  Request Invoice
                 </a>
               </Button>
 
@@ -516,36 +498,29 @@ export function StealthVaultPageClient() {
           <div className="rounded-2xl border border-white/15 bg-white/5 p-5">
             <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
               <Mail className="h-4 w-4 text-orange-400" />
-              Payment Options
+              Invoice & Payment
             </p>
 
             <div className="mt-4 grid gap-3">
               <a
-                href={PAYPAL_ME_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-track="funnel_stealth_cta_paypal_click_payment"
-                onClick={() => trackEvent("funnel_stealth_cta_paypal_click", { source: "payment_block" })}
+                href={invoiceRequestHref}
+                data-track="funnel_stealth_cta_invoice_click_payment"
+                onClick={() => trackEvent("funnel_stealth_cta_invoice_click", { source: "payment_block" })}
                 className="inline-flex w-full items-center justify-between rounded-xl border border-orange-300/35 bg-orange-500/15 px-4 py-3 text-sm font-semibold text-orange-50 transition-colors hover:bg-orange-500/25"
               >
-                <span>PayPal: Pay $15,000 Now</span>
+                <span>Direct message for invoice</span>
                 <ArrowUpRight className="h-4 w-4" />
               </a>
 
-              {paymentRequestCopy.map((option) => (
-                <a
-                  key={option.source}
-                  href={option.href}
-                  target={option.href.startsWith("http") ? "_blank" : undefined}
-                  rel={option.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  data-track={`funnel_stealth_cta_${option.source}_click`}
-                  onClick={() => trackEvent(`funnel_stealth_cta_${option.source}_click`)}
-                  className="inline-flex w-full items-center justify-between rounded-xl border border-white/20 bg-slate-900/70 px-4 py-3 text-sm font-semibold text-slate-100 transition-colors hover:bg-slate-800"
-                >
-                  <span>{option.label}</span>
-                  <ArrowUpRight className="h-4 w-4" />
-                </a>
-              ))}
+              <a
+                href="/book"
+                data-track="funnel_stealth_cta_book_call_click_payment"
+                onClick={() => trackEvent("funnel_stealth_cta_book_call_click", { source: "payment_block" })}
+                className="inline-flex w-full items-center justify-between rounded-xl border border-white/20 bg-slate-900/70 px-4 py-3 text-sm font-semibold text-slate-100 transition-colors hover:bg-slate-800"
+              >
+                <span>Quick book call for payment link</span>
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
             </div>
 
             <div className="mt-4 rounded-xl border border-white/15 bg-slate-900/70 p-4 text-sm text-slate-200">
@@ -553,7 +528,7 @@ export function StealthVaultPageClient() {
               <p className="mt-2">After payment, I personally send invoice, demo, guide, and key within 24 hours.</p>
               <p className="mt-2">If any payment option gives trouble, email hello@vishnulabs.com and we will respond ASAP.</p>
               <ul className="mt-3 grid gap-1 sm:grid-cols-2">
-                {paymentDeliverables.map((item) => (
+                {invoiceHelpPoints.map((item) => (
                   <li key={item} className="flex items-center gap-2 text-slate-300">
                     <CheckCircle2 className="h-3.5 w-3.5 text-orange-400" />
                     {item}
@@ -756,13 +731,11 @@ export function StealthVaultPageClient() {
               className="h-11 rounded-full bg-orange-500 px-6 text-sm font-semibold text-white shadow-[0_14px_35px_rgba(249,115,22,0.42)] hover:bg-orange-400"
             >
               <a
-                href={PAYPAL_ME_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-track="funnel_stealth_cta_paypal_click_footer"
-                onClick={() => trackEvent("funnel_stealth_cta_paypal_click", { source: "footer" })}
+                href={invoiceRequestHref}
+                data-track="funnel_stealth_cta_invoice_click_footer"
+                onClick={() => trackEvent("funnel_stealth_cta_invoice_click", { source: "footer" })}
               >
-                Pay $15,000 Now
+                Request Invoice
               </a>
             </Button>
 

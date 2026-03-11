@@ -13,7 +13,7 @@ export default function StealthVaultSuccessPage() {
           <Suspense
             fallback={
               <div className="rounded-xl border border-border/40 bg-card/55 p-5 text-sm text-muted-foreground">
-                Processing your payment confirmation...
+                Processing your confirmation...
               </div>
             }
           >

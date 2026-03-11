@@ -149,7 +149,7 @@ const intents: Intent[] = [
     id: "payment",
     patterns: ["payment", "paypal", "payoneer", "card", "checkout", "buy", "invoice"],
     answer:
-      "Payment works through direct invoice and a private payment link after a quick message or booked call. Email hello@vishnulabs.com or book at /book, and VishnuLabs will send the invoice, payment link, demo, guide, and key details.",
+      "For Stealth Vault, payment is Payoneer only. Use the tier links on /stealth-vault or email hello@vishnulabs.com for customizations. After payment, VishnuLabs manually sends the invoice, Loom demo link, guide, key, and setup-call booking within 24 hours.",
   },
   {
     id: "contact",

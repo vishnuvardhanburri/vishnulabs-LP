@@ -26,6 +26,13 @@ type ContactFormState = {
 }
 
 type TrackPayload = Record<string, string | number | boolean>
+type CountdownState = {
+  days: number
+  hours: number
+  minutes: number
+  seconds: number
+  expired: boolean
+}
 
 const defaultContactForm: ContactFormState = {
   name: "",
@@ -36,22 +43,50 @@ const defaultContactForm: ContactFormState = {
 }
 
 const featureList = [
-  "100% air-gapped & local - no data ever leaves your office",
-  "Autonomous 24/7 watchdog - auto-scans/redacts on file drop",
-  "Surgical redaction - PII/secrets masked before AI sees them",
-  "Offline secure search - simple CLI query for instant answers",
-  "Critical alerts - email/Slack on high risk (once/day max)",
-  'Monthly ROI email report - "Blocked X leaks, saved Y hours"',
-]
-
-const licensePoints = [
-  "$15,000 one-time lifetime license (firm-wide, unlimited installs/users)",
-  "Lifetime free updates every 6 months",
-  "1-month free support after delivery (fix bugs/issues from our side)",
-  "Optional ongoing support after 1 month",
+  "100% air-gapped & local – no data ever leaves your office",
+  "Autonomous 24/7 watchdog – auto-scans/redacts on file drop",
+  "Surgical redaction – PII/secrets masked before AI sees them",
+  "Offline secure search – simple CLI query for instant answers",
+  "Critical alerts – email/Slack on high risk (once/day max)",
+  'Monthly ROI email report – "Blocked X leaks, saved Y hours"',
 ]
 
 const trustVerticals = ["Personal Injury Law", "Family Law", "Outpatient Clinics", "Mortgage Advisory"]
+
+const PAYONEER_EMAIL = "vishnuvardhanburri19@gmail.com"
+const TIER_ONE_PAYMENT_HREF = `mailto:${PAYONEER_EMAIL}?subject=Sentinel%20Shield%20Payment%20-%20Tier%201%20-%20%2415%2C000`
+const TIER_TWO_PAYMENT_HREF = `mailto:${PAYONEER_EMAIL}?subject=Sentinel%20Shield%20Payment%20-%20Tier%202%20-%20%2410%2C000%20%2B%20%241%2C000%2Fmo`
+const LIMITED_OFFER_END = new Date("2026-03-31T23:59:59+05:30").getTime()
+
+const pricingTiers = [
+  {
+    name: "Tier 1 – Lifetime License",
+    eyebrow: "Recommended",
+    price: "$15,000",
+    summary: "$15,000 one-time payment",
+    ctaLabel: "Pay $15,000 Lifetime Now",
+    ctaHref: TIER_ONE_PAYMENT_HREF,
+    points: [
+      "Lifetime license (firm-wide, unlimited installs/users)",
+      "Lifetime free updates every 6 months",
+      "1-month free support after delivery (we fix bugs/issues from our side)",
+      "Optional ongoing support after 1 month",
+    ],
+  },
+  {
+    name: "Tier 2 – Lower Upfront + Monthly Support",
+    eyebrow: "Flexible",
+    price: "$10,000",
+    summary: "$10,000 one-time payment + $1,000/month maintenance & support",
+    ctaLabel: "Pay $10,000 + $1,000/mo Now",
+    ctaHref: TIER_TWO_PAYMENT_HREF,
+    points: [
+      "Same full product + lifetime updates",
+      "Ongoing priority support (we monitor, fix, keep it running)",
+      "Lower upfront cost with retained monthly maintenance",
+    ],
+  },
+]
 
 const proofStats = [
   {
@@ -127,31 +162,39 @@ function formatUsd(value: number) {
   })
 }
 
+function getCountdownState(targetTime: number): CountdownState {
+  const diff = targetTime - Date.now()
+
+  if (diff <= 0) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0, expired: true }
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24))
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24)
+  const minutes = Math.floor((diff / (1000 * 60)) % 60)
+  const seconds = Math.floor((diff / 1000) % 60)
+
+  return { days, hours, minutes, seconds, expired: false }
+}
+
 export function StealthVaultPageClient() {
   const [contactForm, setContactForm] = useState<ContactFormState>(defaultContactForm)
   const [contactLoading, setContactLoading] = useState(false)
   const [contactState, setContactState] = useState<"idle" | "success" | "error">("idle")
   const [contactError, setContactError] = useState("")
+  const [countdown, setCountdown] = useState<CountdownState>(() => getCountdownState(LIMITED_OFFER_END))
 
   const [teamMembers, setTeamMembers] = useState(8)
   const [hourlyRate, setHourlyRate] = useState(60)
   const [hoursSavedPerMember, setHoursSavedPerMember] = useState(12)
   const [incidentsPrevented, setIncidentsPrevented] = useState(2)
 
-  const invoiceRequestHref = useMemo(() => {
-    const subject = encodeURIComponent("Invoice Request - Stealth-Mode Internal AI Vault ($15,000)")
-    const body = encodeURIComponent(
-      "Hi VishnuLabs, we want to purchase the Stealth-Mode Internal AI Vault for $15,000. Please send the invoice and payment link. We can confirm our preferred rail on reply.",
-    )
-    return `mailto:${SALES_EMAIL}?subject=${subject}&body=${body}`
-  }, [])
-
-  const invoiceHelpPoints = useMemo(
+  const paymentHelpPoints = useMemo(
     () => [
-      "Direct message us for invoice and payment link",
-      "Quick book call for approval or purchasing questions",
-      "Preferred payment rail is shared privately after contact",
-      "If anything breaks, email hello@vishnulabs.com and we respond ASAP",
+      `Payoneer: Send to ${PAYONEER_EMAIL} (USD account)`,
+      "Tier 1 is the limited-time lifetime license for the next 20 days",
+      "Personal follow-up only after payment",
+      "For customizations or questions, email hello@vishnulabs.com",
     ],
     [],
   )
@@ -163,6 +206,14 @@ export function StealthVaultPageClient() {
 
   useEffect(() => {
     trackEvent("funnel_stealth_page_view")
+  }, [])
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setCountdown(getCountdownState(LIMITED_OFFER_END))
+    }, 1000)
+
+    return () => window.clearInterval(timer)
   }, [])
 
   async function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
@@ -225,14 +276,46 @@ export function StealthVaultPageClient() {
 
         <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8" data-reveal>
           <div className="rounded-2xl border border-white/15 bg-white/5 p-5 shadow-[0_24px_60px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:p-7">
+            <div className="inline-flex items-center gap-2 rounded-full border border-orange-300/25 bg-orange-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-100">
+              Limited-time lifetime license
+            </div>
             <h1 className="text-balance text-[1.95rem] font-bold leading-[1.06] tracking-tight text-white sm:text-[2.55rem] lg:text-[3.1rem]">
-              Stealth-Mode Internal AI Vault - 100% Private & Leak-Proof AI
+              Stealth-Mode Internal AI Vault – 100% Private & Leak-Proof AI
             </h1>
 
             <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-300 sm:text-base">
-              Stop data leaks from ChatGPT/Claude. Local, air-gapped AI that auto-redacts PII/secrets, remembers all files, answers
-              offline in 2 seconds. One-time $15,000 lifetime license - no monthly fees.
+              Stop data leaks from ChatGPT/Claude. Local, air-gapped AI that auto-redacts PII/secrets, remembers all files, answers offline in 2 seconds.
             </p>
+
+            <div className="mt-5 rounded-2xl border border-orange-300/25 bg-black/30 p-4">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-100">Grab offer</p>
+                  <p className="mt-1 text-sm text-slate-200">Limited-time one-time lifetime license at $15,000. Offer closes in 20 days.</p>
+                </div>
+                <span className="rounded-full border border-orange-300/25 bg-orange-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-100">
+                  Tier 1 only
+                </span>
+              </div>
+
+              <div className="mt-4 grid grid-cols-4 gap-2">
+                {[
+                  { label: "Days", value: countdown.days },
+                  { label: "Hours", value: countdown.hours },
+                  { label: "Minutes", value: countdown.minutes },
+                  { label: "Seconds", value: countdown.seconds },
+                ].map((item) => (
+                  <div key={item.label} className="rounded-xl border border-white/10 bg-slate-950/80 px-3 py-3 text-center">
+                    <p className="text-xl font-semibold tracking-tight text-white sm:text-2xl">{String(item.value).padStart(2, "0")}</p>
+                    <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">{item.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              {countdown.expired ? (
+                <p className="mt-3 text-sm text-amber-200">The limited-time lifetime-license window has ended. Contact VishnuLabs for current terms.</p>
+              ) : null}
+            </div>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {featureList.map((feature) => (
@@ -256,27 +339,27 @@ export function StealthVaultPageClient() {
               ))}
             </div>
 
-            <div className="mt-6 flex flex-wrap items-center gap-3">
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
               <Button
                 asChild
-                className="h-11 rounded-full bg-orange-500 px-6 text-sm font-semibold text-white shadow-[0_14px_35px_rgba(249,115,22,0.42)] hover:bg-orange-400"
+                className="min-h-12 rounded-2xl bg-orange-500 px-5 py-3 text-center text-sm font-semibold text-white shadow-[0_14px_35px_rgba(249,115,22,0.42)] hover:bg-orange-400"
               >
                 <a
-                  href={invoiceRequestHref}
-                  data-track="funnel_stealth_cta_invoice_click_hero"
-                  onClick={() => trackEvent("funnel_stealth_cta_invoice_click", { source: "hero" })}
+                  href={TIER_ONE_PAYMENT_HREF}
+                  data-track="funnel_stealth_cta_tier_one_click_hero"
+                  onClick={() => trackEvent("funnel_stealth_cta_tier_one_click", { source: "hero" })}
                 >
-                  Request Invoice
+                  Pay $15,000 Lifetime Now
                 </a>
               </Button>
 
-              <Button asChild variant="outline" className="h-11 rounded-full border-white/25 bg-transparent px-6 text-sm text-white hover:bg-white/10">
+              <Button asChild variant="outline" className="min-h-12 rounded-2xl border-white/25 bg-transparent px-5 py-3 text-center text-sm text-white hover:bg-white/10">
                 <a
-                  href="/book"
-                  data-track="funnel_stealth_cta_book_call_click_hero"
-                  onClick={() => trackEvent("funnel_stealth_cta_book_call_click", { source: "hero" })}
+                  href={TIER_TWO_PAYMENT_HREF}
+                  data-track="funnel_stealth_cta_tier_two_click_hero"
+                  onClick={() => trackEvent("funnel_stealth_cta_tier_two_click", { source: "hero" })}
                 >
-                  Book Setup Call
+                  Pay $10,000 + $1,000/mo Now
                 </a>
               </Button>
             </div>
@@ -296,20 +379,41 @@ export function StealthVaultPageClient() {
 
             <div className="rounded-2xl border border-white/15 bg-white/5 p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">Pricing & License</p>
-              <p className="mt-2 text-3xl font-bold tracking-tight text-white">$15,000</p>
-              <p className="text-sm text-slate-300">One-time lifetime license</p>
+              <div className="mt-4 grid gap-4">
+                {pricingTiers.map((tier, index) => (
+                  <div
+                    key={tier.name}
+                    className={
+                      index === 0
+                        ? "rounded-2xl border border-orange-300/30 bg-orange-500/10 p-4"
+                        : "rounded-2xl border border-white/12 bg-slate-900/70 p-4"
+                    }
+                  >
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <div>
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-300">{tier.eyebrow}</p>
+                        <p className="mt-2 text-lg font-semibold text-white">{tier.name}</p>
+                      </div>
+                      {index === 0 ? (
+                        <span className="rounded-full border border-orange-300/25 bg-orange-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-100">
+                          20-day offer
+                        </span>
+                      ) : null}
+                    </div>
 
-              <ul className="mt-4 space-y-2 text-sm text-slate-200">
-                {licensePoints.map((point) => (
-                  <li key={point} className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-orange-400" />
-                    <span>{point}</span>
-                  </li>
+                    <p className="mt-4 text-3xl font-bold tracking-tight text-white">{tier.price}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-slate-300">{tier.summary}</p>
+
+                    <ul className="mt-4 space-y-2 text-sm text-slate-200">
+                      {tier.points.map((point) => (
+                        <li key={point} className="flex items-start gap-2">
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-orange-400" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
-              </ul>
-
-              <div className="mt-4 rounded-xl border border-white/15 bg-slate-900/70 p-3 text-sm text-slate-200">
-                Avoid compliance penalties and reclaim associate hours. Typical buyer target is reducing manual review load by $5k-$20k/month.
               </div>
             </div>
           </aside>
@@ -498,37 +602,41 @@ export function StealthVaultPageClient() {
           <div className="rounded-2xl border border-white/15 bg-white/5 p-5">
             <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
               <Mail className="h-4 w-4 text-orange-400" />
-              Invoice & Payment
+              Payoneer Only
             </p>
+
+            <p className="mt-4 text-sm leading-relaxed text-slate-300">Payoneer: Send to vishnuvardhanburri19@gmail.com (USD account)</p>
 
             <div className="mt-4 grid gap-3">
               <a
-                href={invoiceRequestHref}
-                data-track="funnel_stealth_cta_invoice_click_payment"
-                onClick={() => trackEvent("funnel_stealth_cta_invoice_click", { source: "payment_block" })}
+                href={TIER_ONE_PAYMENT_HREF}
+                data-track="funnel_stealth_cta_tier_one_click_payment"
+                onClick={() => trackEvent("funnel_stealth_cta_tier_one_click", { source: "payment_block" })}
                 className="inline-flex w-full items-center justify-between rounded-xl border border-orange-300/35 bg-orange-500/15 px-4 py-3 text-sm font-semibold text-orange-50 transition-colors hover:bg-orange-500/25"
               >
-                <span>Direct message for invoice</span>
+                <span>Pay $15,000 Lifetime Now</span>
                 <ArrowUpRight className="h-4 w-4" />
               </a>
 
               <a
-                href="/book"
-                data-track="funnel_stealth_cta_book_call_click_payment"
-                onClick={() => trackEvent("funnel_stealth_cta_book_call_click", { source: "payment_block" })}
+                href={TIER_TWO_PAYMENT_HREF}
+                data-track="funnel_stealth_cta_tier_two_click_payment"
+                onClick={() => trackEvent("funnel_stealth_cta_tier_two_click", { source: "payment_block" })}
                 className="inline-flex w-full items-center justify-between rounded-xl border border-white/20 bg-slate-900/70 px-4 py-3 text-sm font-semibold text-slate-100 transition-colors hover:bg-slate-800"
               >
-                <span>Quick book call for payment link</span>
+                <span>Pay $10,000 + $1,000/mo Now</span>
                 <ArrowUpRight className="h-4 w-4" />
               </a>
             </div>
 
             <div className="mt-4 rounded-xl border border-white/15 bg-slate-900/70 p-4 text-sm text-slate-200">
               <p className="font-semibold text-white">Manual follow-up after payment:</p>
-              <p className="mt-2">After payment, I personally send invoice, demo, guide, and key within 24 hours.</p>
-              <p className="mt-2">If any payment option gives trouble, email hello@vishnulabs.com and we will respond ASAP.</p>
+              <p className="mt-2">
+                After payment, we manually send invoice, Loom demo link, installation guide, license key, and setup call booking within
+                24 hours. No auto-emails — personal follow-up only.
+              </p>
               <ul className="mt-3 grid gap-1 sm:grid-cols-2">
-                {invoiceHelpPoints.map((item) => (
+                {paymentHelpPoints.map((item) => (
                   <li key={item} className="flex items-center gap-2 text-slate-300">
                     <CheckCircle2 className="h-3.5 w-3.5 text-orange-400" />
                     {item}
@@ -549,7 +657,7 @@ export function StealthVaultPageClient() {
               <a className="underline underline-offset-2" href="mailto:hello@vishnulabs.com" data-track="funnel_stealth_cta_email_click">
                 hello@vishnulabs.com
               </a>
-              . You can also book a direct call for urgent setup planning.
+              .
             </p>
 
             <form onSubmit={handleContactSubmit} className="mt-4 grid gap-3">
@@ -728,19 +836,25 @@ export function StealthVaultPageClient() {
           <div className="mt-4 flex flex-wrap gap-3">
             <Button
               asChild
-              className="h-11 rounded-full bg-orange-500 px-6 text-sm font-semibold text-white shadow-[0_14px_35px_rgba(249,115,22,0.42)] hover:bg-orange-400"
+              className="min-h-12 rounded-2xl bg-orange-500 px-5 py-3 text-center text-sm font-semibold text-white shadow-[0_14px_35px_rgba(249,115,22,0.42)] hover:bg-orange-400"
             >
               <a
-                href={invoiceRequestHref}
-                data-track="funnel_stealth_cta_invoice_click_footer"
-                onClick={() => trackEvent("funnel_stealth_cta_invoice_click", { source: "footer" })}
+                href={TIER_ONE_PAYMENT_HREF}
+                data-track="funnel_stealth_cta_tier_one_click_footer"
+                onClick={() => trackEvent("funnel_stealth_cta_tier_one_click", { source: "footer" })}
               >
-                Request Invoice
+                Pay $15,000 Lifetime Now
               </a>
             </Button>
 
-            <Button asChild variant="outline" className="h-11 rounded-full border-white/25 bg-transparent px-6 text-sm text-white hover:bg-white/10">
-              <a href="#vault-contact">Request custom setup</a>
+            <Button asChild variant="outline" className="min-h-12 rounded-2xl border-white/25 bg-transparent px-5 py-3 text-center text-sm text-white hover:bg-white/10">
+              <a
+                href={TIER_TWO_PAYMENT_HREF}
+                data-track="funnel_stealth_cta_tier_two_click_footer"
+                onClick={() => trackEvent("funnel_stealth_cta_tier_two_click", { source: "footer" })}
+              >
+                Pay $10,000 + $1,000/mo Now
+              </a>
             </Button>
           </div>
         </div>

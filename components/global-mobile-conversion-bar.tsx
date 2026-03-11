@@ -15,12 +15,12 @@ export function GlobalMobileConversionBar() {
           Book Demo
         </a>
         <a
-          href="mailto:hello@vishnulabs.com?subject=Invoice%20Request%20-%20VishnuLabs&body=Hi%20VishnuLabs%2C%20please%20send%20the%20invoice%20and%20payment%20link."
-          data-track="funnel_mobile_invoice_request_click"
+          href="mailto:hello@vishnulabs.com?subject=Payment%20Question%20-%20VishnuLabs"
+          data-track="funnel_mobile_email_click"
           className="tap-target inline-flex items-center justify-center gap-2 rounded-lg border border-primary/45 bg-primary px-3 py-3 text-sm font-semibold text-primary-foreground"
         >
           <Mail className="h-4 w-4" />
-          Request Invoice
+          Email Us
         </a>
       </div>
     </div>

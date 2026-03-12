@@ -59,13 +59,13 @@ const intents: Intent[] = [
     id: "pricing",
     patterns: ["price", "pricing", "cost", "fees", "how much", "budget", "investment", "quote"],
     answer:
-      "Transparent ranges: AI Voice Receptionist starts at $4,997 one-time. Scheduling systems usually run $6,500-$9,500. Legal intake systems are usually $8,500-$15,000. Stealth-Mode Internal AI Vault is $15,000 one-time lifetime license.",
+      "Transparent ranges: AI Voice Receptionist starts at $4,997 one-time. Scheduling systems usually run $6,500-$9,500. Legal intake systems are usually $8,500-$15,000. Stealth-Mode Internal AI Vault is a $15,000 one-time lifetime launch offer for the first 100 members. Combo bundles for startups and industry teams are on /pricing.",
   },
   {
     id: "stealth_vault",
     patterns: ["vault", "stealth", "private ai", "local ai", "air gap", "air-gapped", "data leak", "secure ai"],
     answer:
-      "Stealth-Mode Internal AI Vault is a private local AI stack for confidential operations. It is air-gapped, supports redaction controls, and keeps data inside your environment. Price is $15,000 one-time lifetime license with post-delivery support.",
+      "Stealth-Mode Internal AI Vault is a private local AI stack for confidential operations. It is air-gapped, supports redaction controls, and keeps data inside your environment. The current launch offer is $15,000 one-time for the first 100 members, with post-delivery support included.",
   },
   {
     id: "vault_why_now",

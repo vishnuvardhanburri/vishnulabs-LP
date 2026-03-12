@@ -67,6 +67,7 @@ const pricingTiers = [
     ctaLabel: "Pay $15,000 Lifetime Now",
     ctaHref: TIER_ONE_PAYMENT_HREF,
     points: [
+      "Launch offer reserved for the first 100 members",
       "Lifetime license (firm-wide, unlimited installs/users)",
       "Lifetime free updates every 6 months",
       "1-month free support after delivery (we fix bugs/issues from our side)",
@@ -192,7 +193,7 @@ export function StealthVaultPageClient() {
   const paymentHelpPoints = useMemo(
     () => [
       `Payoneer: Send to ${PAYONEER_EMAIL} (USD account)`,
-      "Tier 1 is the limited-time lifetime license for the next 20 days",
+      "Tier 1 is reserved for the first 100 members or until the 20-day launch window closes",
       "Personal follow-up only after payment",
       "For customizations or questions, email hello@vishnulabs.com",
     ],
@@ -277,7 +278,7 @@ export function StealthVaultPageClient() {
         <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8" data-reveal>
           <div className="rounded-2xl border border-white/15 bg-white/5 p-5 shadow-[0_24px_60px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:p-7">
             <div className="inline-flex items-center gap-2 rounded-full border border-orange-300/25 bg-orange-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-100">
-              Limited-time lifetime license
+              Limited-time lifetime license for first 100 members
             </div>
             <h1 className="text-balance text-[1.95rem] font-bold leading-[1.06] tracking-tight text-white sm:text-[2.55rem] lg:text-[3.1rem]">
               Stealth-Mode Internal AI Vault – 100% Private & Leak-Proof AI
@@ -291,10 +292,13 @@ export function StealthVaultPageClient() {
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-100">Grab offer</p>
-                  <p className="mt-1 text-sm text-slate-200">Limited-time one-time lifetime license at $15,000. Offer closes in 20 days.</p>
+                  <p className="mt-1 text-sm text-slate-200">
+                    Limited-time one-time lifetime license at $15,000 for the first 100 members. Offer closes in 20 days or when the first
+                    100 slots are filled.
+                  </p>
                 </div>
                 <span className="rounded-full border border-orange-300/25 bg-orange-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-100">
-                  Tier 1 only
+                  First 100 only
                 </span>
               </div>
 
@@ -313,7 +317,9 @@ export function StealthVaultPageClient() {
               </div>
 
               {countdown.expired ? (
-                <p className="mt-3 text-sm text-amber-200">The limited-time lifetime-license window has ended. Contact VishnuLabs for current terms.</p>
+                <p className="mt-3 text-sm text-amber-200">
+                  The limited-time lifetime-license window has ended. Contact VishnuLabs for current terms and remaining availability.
+                </p>
               ) : null}
             </div>
 
@@ -396,7 +402,7 @@ export function StealthVaultPageClient() {
                       </div>
                       {index === 0 ? (
                         <span className="rounded-full border border-orange-300/25 bg-orange-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-100">
-                          20-day offer
+                          First 100 + 20 days
                         </span>
                       ) : null}
                     </div>

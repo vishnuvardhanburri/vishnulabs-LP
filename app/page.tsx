@@ -11,6 +11,7 @@ import {
   ChevronRight,
   CircleAlert,
   FolderLock,
+  Globe,
   LineChart,
   LockKeyhole,
   MessageSquareMore,
@@ -53,6 +54,13 @@ type Industry = {
   lead: string
   icon: LucideIcon
   outcomes: string[]
+}
+
+type PlatformCollection = {
+  title: string
+  lead: string
+  icon: LucideIcon
+  bullets: string[]
 }
 
 const heroStats: Stat[] = [
@@ -138,6 +146,27 @@ const industries: Industry[] = [
   },
 ]
 
+const platformCollections: PlatformCollection[] = [
+  {
+    title: "Website Creation",
+    lead: "Conversion-focused marketing sites, landing pages, and proof pages that match the automation story instead of feeling disconnected from it.",
+    icon: Globe,
+    bullets: ["High-conversion landing pages", "Mobile-first build quality", "Proof-driven page structure"],
+  },
+  {
+    title: "Domain Management",
+    lead: "Domain routing, DNS setup, SSL, redirects, launch support, and the small operational pieces that make a public-facing stack feel trustworthy.",
+    icon: ServerCog,
+    bullets: ["DNS and SSL setup", "Launch routing and redirects", "Operational ownership after handoff"],
+  },
+  {
+    title: "Software Solutions",
+    lead: "Internal tools, admin dashboards, workflow layers, and custom software that connect the website, automation, and team operations into one system.",
+    icon: Workflow,
+    bullets: ["Admin and ops dashboards", "Workflow-specific internal tools", "Automation-ready software layers"],
+  },
+]
+
 const proofFeed = [
   "[INFO] Loaded recognizer: SpacyRecognizer",
   "[WARNING] System risk surfaced from local history scan",
@@ -160,6 +189,9 @@ const customBuildBullets = [
   "Lead qualification and intake flows",
   "Scheduling and reminder automation",
   "Reporting, alerts, and admin handoff",
+  "Website creation and landing pages",
+  "Domain management and launch routing",
+  "Custom software solutions",
 ]
 
 export default function Page() {
@@ -499,6 +531,66 @@ export default function Page() {
                     </article>
                   )
                 })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 sm:py-24" id="platform">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+            <div className="section-shell p-6 sm:p-8" data-reveal>
+              <div className="grid gap-8 lg:grid-cols-[0.96fr_1.04fr] lg:items-start">
+                <div>
+                  <SectionHeading
+                    eyebrow="Platform Collections"
+                    title="A broader SaaS platform view, not just isolated automation."
+                    description="We keep the current automation offer intact and can also support website creation, domain management, and software solutions so the full buyer journey feels connected from public page to internal operations."
+                  />
+
+                  <div className="mt-6 rounded-[28px] border border-slate-200 bg-slate-950 p-5 text-white shadow-[0_18px_40px_rgba(15,23,42,0.16)]">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-200">Global platform view</p>
+                    <div className="mt-4 grid gap-3">
+                      {[
+                        "Public-facing website layer aligned with the same sales story",
+                        "Domain and launch control handled cleanly when deployment matters",
+                        "Custom software solutions tied to the real workflow behind the funnel",
+                      ].map((item) => (
+                        <div key={item} className="rounded-[20px] border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200">
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-3">
+                  {platformCollections.map((item, index) => {
+                    const Icon = item.icon
+
+                    return (
+                      <article
+                        key={item.title}
+                        className="section-shell hover-rise-strong h-full p-5 sm:p-6"
+                        data-reveal
+                        style={{ transitionDelay: `${index * 80}ms` }}
+                      >
+                        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-white shadow-[0_14px_30px_rgba(15,23,42,0.18)]">
+                          <Icon className="h-5 w-5 text-orange-300" />
+                        </div>
+                        <h3 className="mt-5 text-lg font-semibold text-slate-950">{item.title}</h3>
+                        <p className="mt-3 text-sm leading-7 text-slate-600">{item.lead}</p>
+
+                        <div className="mt-5 space-y-2">
+                          {item.bullets.map((bullet) => (
+                            <div key={bullet} className="rounded-[18px] border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
+                              {bullet}
+                            </div>
+                          ))}
+                        </div>
+                      </article>
+                    )
+                  })}
+                </div>
               </div>
             </div>
           </div>

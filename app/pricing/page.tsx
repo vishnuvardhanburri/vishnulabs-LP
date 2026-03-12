@@ -8,7 +8,9 @@ import {
   Building2,
   CalendarClock,
   CheckCircle2,
+  Globe,
   MessageSquareMore,
+  ServerCog,
   ShieldCheck,
 } from "lucide-react"
 
@@ -106,7 +108,22 @@ const comboOffers: ComboOffer[] = [
     bullets: [
       "Voice reception + booking flow in one scope",
       "Shared reminder and confirmation logic",
+      "Optional website creation add-on for launch-ready funnels",
       "Cleaner bundled pricing than separate builds",
+    ],
+  },
+  {
+    title: "Website + Automation Combo",
+    badge: "Web",
+    audience: "For teams that want a cleaner public-facing presence before routing traffic into AI booking, intake, or follow-up workflows.",
+    price: "From $11,500",
+    summary: "Bundle website creation, domain setup, and one core automation product so launch, lead capture, and operations work as one package.",
+    href: "/book",
+    icon: Globe,
+    bullets: [
+      "Website creation aligned to the offer",
+      "Domain management and launch support",
+      "Automation-ready forms, booking, and CTA flow",
     ],
   },
   {
@@ -130,9 +147,10 @@ const comboOffers: ComboOffer[] = [
     price: "From $21,000",
     summary: "Bundle Stealth-Mode Internal AI Vault with one automation product for a secure stack that handles both internal knowledge and external demand capture.",
     href: "/stealth-vault",
-    icon: ShieldCheck,
+    icon: ServerCog,
     bullets: [
       "Stealth Vault + one production automation",
+      "Optional website and domain support around the secure stack",
       "Private AI controls across sales and operations",
       "Best fit for compliance-heavy teams",
     ],
@@ -239,7 +257,7 @@ export default function PricingPage() {
                 </p>
               </div>
 
-              <div className="mt-8 grid gap-5 xl:grid-cols-3">
+              <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
                 {comboOffers.map((offer) => {
                   const Icon = offer.icon
 

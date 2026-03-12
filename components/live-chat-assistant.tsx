@@ -53,13 +53,19 @@ const intents: Intent[] = [
     id: "services_catalog",
     patterns: ["services", "service", "offer", "offering", "products", "what do you do", "automation list"],
     answer:
-      "Core offers: AI Voice Receptionist, AI Scheduling & Reminder System, AI Legal Intake Automation, and Stealth-Mode Internal AI Vault. We also build custom CRM, lead-nurture, and workflow automations for law, real estate, mortgage, clinics, and service teams.",
+      "Core offers: AI Voice Receptionist, AI Scheduling & Reminder System, AI Legal Intake Automation, and Stealth-Mode Internal AI Vault. We also build website systems, domain-management support, custom CRM layers, lead-nurture flows, and broader software solutions for law, real estate, mortgage, clinics, and service teams.",
   },
   {
     id: "pricing",
     patterns: ["price", "pricing", "cost", "fees", "how much", "budget", "investment", "quote"],
     answer:
-      "Transparent ranges: AI Voice Receptionist starts at $4,997 one-time. Scheduling systems usually run $6,500-$9,500. Legal intake systems are usually $8,500-$15,000. Stealth-Mode Internal AI Vault is a $15,000 one-time lifetime launch offer for the first 100 members. Combo bundles for startups and industry teams are on /pricing.",
+      "Transparent ranges: AI Voice Receptionist starts at $4,997 one-time. Scheduling systems usually run $6,500-$9,500. Legal intake systems are usually $8,500-$15,000. Stealth-Mode Internal AI Vault is a $15,000 one-time lifetime launch offer for the first 100 members. Combo bundles for startups, websites, domains, and industry teams are on /pricing.",
+  },
+  {
+    id: "platform_services",
+    patterns: ["website", "websites", "domain", "domains", "software solution", "software solutions", "platform"],
+    answer:
+      "Yes, VishnuLabs can scope website creation, domain management, and custom software solutions alongside the automation systems. The goal is a more complete SaaS-style platform view instead of isolated pieces.",
   },
   {
     id: "stealth_vault",

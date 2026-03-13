@@ -16,6 +16,7 @@ import {
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import { CustomSolutionNote } from "@/components/custom-solution-note"
 
 type ContactFormState = {
   name: string
@@ -194,6 +195,7 @@ export function StealthVaultPageClient() {
     () => [
       `Payoneer: Send to ${PAYONEER_EMAIL} (USD account)`,
       "Tier 1 is reserved for the first 100 members or until the 20-day launch window closes",
+      "Custom vault requirements available for sensitive teams",
       "Personal follow-up only after payment",
       "For customizations or questions, email hello@vishnulabs.com",
     ],
@@ -278,7 +280,7 @@ export function StealthVaultPageClient() {
         <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8" data-reveal>
           <div className="rounded-2xl border border-white/15 bg-white/5 p-5 shadow-[0_24px_60px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:p-7">
             <div className="inline-flex items-center gap-2 rounded-full border border-orange-300/25 bg-orange-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-100">
-              Limited-time lifetime license for first 100 members
+              Launch offer: first 100 members only
             </div>
             <h1 className="text-balance text-[1.95rem] font-bold leading-[1.06] tracking-tight text-white sm:text-[2.55rem] lg:text-[3.1rem]">
               Stealth-Mode Internal AI Vault – 100% Private & Leak-Proof AI
@@ -302,6 +304,20 @@ export function StealthVaultPageClient() {
                 </span>
               </div>
 
+              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                {[
+                  { label: "Launch access", value: "First 100", detail: "Tier 1 closes once 100 members secure it." },
+                  { label: "Offer window", value: "20 days", detail: "Countdown stays live until the launch window ends." },
+                  { label: "Tier 1 price", value: "$15,000", detail: "One-time lifetime license during launch only." },
+                ].map((item) => (
+                  <div key={item.label} className="rounded-2xl border border-orange-300/15 bg-orange-500/5 px-4 py-3">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-orange-100">{item.label}</p>
+                    <p className="mt-2 text-2xl font-bold tracking-tight text-white">{item.value}</p>
+                    <p className="mt-1 text-xs leading-6 text-slate-300">{item.detail}</p>
+                  </div>
+                ))}
+              </div>
+
               <div className="mt-4 grid grid-cols-4 gap-2">
                 {[
                   { label: "Days", value: countdown.days },
@@ -320,7 +336,12 @@ export function StealthVaultPageClient() {
                 <p className="mt-3 text-sm text-amber-200">
                   The limited-time lifetime-license window has ended. Contact VishnuLabs for current terms and remaining availability.
                 </p>
-              ) : null}
+              ) : (
+                <p className="mt-3 text-sm text-slate-300">
+                  Tier 1 is reserved for the <span className="font-semibold text-orange-100">first 100 members only</span>. If the first 100
+                  slots fill before the timer ends, the launch offer closes early.
+                </p>
+              )}
             </div>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -369,6 +390,10 @@ export function StealthVaultPageClient() {
                 </a>
               </Button>
             </div>
+
+            <div className="mt-6">
+              <CustomSolutionNote dark compact title="Need custom vault requirements?" />
+            </div>
           </div>
 
           <aside className="grid gap-4" data-reveal>
@@ -402,7 +427,7 @@ export function StealthVaultPageClient() {
                       </div>
                       {index === 0 ? (
                         <span className="rounded-full border border-orange-300/25 bg-orange-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-100">
-                          First 100 + 20 days
+                          First 100 members
                         </span>
                       ) : null}
                     </div>

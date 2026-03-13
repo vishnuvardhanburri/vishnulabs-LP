@@ -1,61 +1,49 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import type { LucideIcon } from "lucide-react"
-import { ArrowRight, ArrowUpRight, CalendarClock, CheckCircle2, FolderLock, Globe, Workflow } from "lucide-react"
+import { ArrowRight, ArrowUpRight, CheckCircle2, Globe, Hospital, Scale, Truck } from "lucide-react"
 
 import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
 import { Button } from "@/components/ui/button"
 
-type ProductHubCard = {
-  title: string
-  description: string
-  href: string
-  icon: LucideIcon
-  bullets: string[]
-}
-
 export const metadata: Metadata = {
-  title: "Products | VishnuLabs",
-  description: "Browse VishnuLabs products across automations, websites, custom software solutions, and private AI systems.",
+  title: "Websites | VishnuLabs",
+  description:
+    "Website creation for startups, hospitals, clinics, transport and logistics teams, moving companies, and law-service businesses.",
   alternates: {
-    canonical: "/products",
+    canonical: "/websites",
   },
 }
 
-const productHubCards: ProductHubCard[] = [
+const websiteCollections = [
   {
-    title: "AI Automations",
-    description: "Scheduling, intake, research, voice, and nurture systems built to remove repetitive ops work and improve response speed.",
-    href: "/automations",
-    icon: CalendarClock,
-    bullets: ["Voice, scheduling, intake, and nurture", "Productized flows for faster launch", "Custom variations available"],
-  },
-  {
-    title: "Websites",
-    description: "High-visibility websites and landing pages for startups, hospitals, clinics, transport teams, moving companies, and law services.",
-    href: "/websites",
+    title: "Startup Websites",
+    lead: "Fast, clean launch sites and landing pages that help new companies look credible early and convert interest into booked calls.",
     icon: Globe,
-    bullets: ["Conversion-focused page structure", "Domain management support", "Automation-ready lead capture"],
+    bullets: ["Launch pages with strong CTA structure", "Investor, product, and demo-ready sections", "Mobile-first performance and clear conversion flow"],
   },
   {
-    title: "Custom Software",
-    description: "Internal tools, dashboards, workflow layers, and custom software solutions built around the actual operational bottleneck.",
-    href: "/custom-software",
-    icon: Workflow,
-    bullets: ["Admin and ops dashboards", "Workflow-specific tools", "Connected website-to-ops systems"],
+    title: "Hospitals & Clinics",
+    lead: "High-trust websites built around appointments, patient-service clarity, and a calmer experience for busy operations teams.",
+    icon: Hospital,
+    bullets: ["Appointment and inquiry routing", "Service clarity and trust-building page structure", "Operationally clean forms and follow-up paths"],
   },
   {
-    title: "Stealth-Mode AI Vault",
-    description: "Private internal AI infrastructure with redaction, offline retrieval, and leak-proof controls for sensitive environments.",
-    href: "/stealth-vault",
-    icon: FolderLock,
-    bullets: ["Air-gapped and private", "Custom vault requirements available", "Manual onboarding and support"],
+    title: "Transport, Logistics & Moving Companies",
+    lead: "Sites designed for stronger visibility, quote capture, dispatch-ready lead handling, and clearer service positioning across local or regional coverage.",
+    icon: Truck,
+    bullets: ["Quote and booking flow for moving companies", "Coverage-area and service visibility", "Lead capture tied to ops and callback workflows"],
+  },
+  {
+    title: "Lawyers & Law Services",
+    lead: "Professional websites for firms that need authority, fast inquiry response, and cleaner handoff from public page to intake workflow.",
+    icon: Scale,
+    bullets: ["Practice-area landing pages", "Consultation booking and intake-ready CTA flow", "High-trust visibility for legal buyers"],
   },
 ]
 
-export default function ProductsPage() {
+export default function WebsitesPage() {
   return (
     <>
       <Navbar />
@@ -65,42 +53,42 @@ export default function ProductsPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
             <div className="grid items-start gap-8 lg:grid-cols-[1fr_1fr]">
               <div data-reveal>
-                <div className="badge-pill border-primary/20 bg-white/75 text-slate-700">Product hub</div>
+                <div className="badge-pill border-primary/20 bg-white/75 text-slate-700">Website systems</div>
                 <h1 className="mt-6 max-w-4xl text-balance text-[2.8rem] font-bold leading-[0.96] tracking-[-0.04em] text-slate-950 sm:text-[4.2rem]">
-                  One place to view the full VishnuLabs platform.
+                  Websites built for visibility, trust, and clean conversion.
                 </h1>
                 <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-                  Explore automations, websites, custom software solutions, and the private AI vault in a cleaner structure so buyers can
-                  move from category to detail without getting lost.
+                  VishnuLabs builds modern websites for startups, hospitals, clinics, transport and logistics teams, moving companies, and
+                  law-service businesses that need stronger credibility and cleaner lead capture.
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <Button asChild className="h-12 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white hover:bg-slate-900">
                     <Link href="/book">
-                      Book Demo
+                      Request Website Plan
                       <ArrowRight className="h-4 w-4" />
                     </Link>
                   </Button>
                   <Button asChild variant="outline" className="h-12 rounded-full border-slate-300 bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-50">
                     <Link href="/pricing">
-                      View Pricing
+                      View Combo Pricing
                       <ArrowUpRight className="h-4 w-4" />
                     </Link>
                   </Button>
                 </div>
 
                 <div className="mt-6 max-w-2xl">
-                  <CustomSolutionNote compact title="Need a custom product mix?" />
+                  <CustomSolutionNote compact title="Custom website solution available" />
                 </div>
               </div>
 
               <div className="section-shell-dark ambient-grid-dark p-6" data-reveal>
                 <div className="grid gap-4 sm:grid-cols-2">
                   {[
-                    "AI products and custom requirements in one navigation flow",
-                    "Websites and domain support for visibility-focused teams",
-                    "Custom software solutions for operational bottlenecks",
-                    "Private AI vault options for sensitive environments",
+                    "Website creation with conversion-first page structure",
+                    "Domain management, launch routing, and SSL support",
+                    "Booking, intake, and automation-ready CTA flows",
+                    "Built to feel credible on both desktop and mobile",
                   ].map((item) => (
                     <article key={item} className="rounded-[24px] border border-white/10 bg-white/5 p-5 text-sm leading-7 text-slate-200">
                       {item}
@@ -115,7 +103,7 @@ export default function ProductsPage() {
         <section className="py-20 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
             <div className="grid gap-5 lg:grid-cols-2">
-              {productHubCards.map((item, index) => {
+              {websiteCollections.map((item, index) => {
                 const Icon = item.icon
 
                 return (
@@ -129,7 +117,7 @@ export default function ProductsPage() {
                       <Icon className="h-5 w-5 text-orange-300" />
                     </div>
                     <h2 className="mt-5 text-2xl font-semibold tracking-tight text-slate-950">{item.title}</h2>
-                    <p className="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
+                    <p className="mt-3 text-sm leading-7 text-slate-600">{item.lead}</p>
                     <ul className="mt-5 space-y-2">
                       {item.bullets.map((bullet) => (
                         <li key={bullet} className="flex items-start gap-2 text-sm text-slate-700">
@@ -138,10 +126,9 @@ export default function ProductsPage() {
                         </li>
                       ))}
                     </ul>
-                    <Link href={item.href} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-slate-950 hover:text-primary">
-                      Open product page
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
+                    <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                      Custom solution available. Email hello@vishnulabs.com
+                    </p>
                   </article>
                 )
               })}

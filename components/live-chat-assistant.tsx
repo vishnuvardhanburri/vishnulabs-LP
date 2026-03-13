@@ -28,11 +28,12 @@ const STORAGE_KEY = "vishnulabs_assistant_messages_v4"
 
 const initialAssistantMessage: ChatMessage = {
   role: "assistant",
-  text: "Hi, I am VishnuLabs Assistant. Ask me about services, pricing, payment, security, timelines, support, integrations, or the Stealth Vault.",
+  text: "Hi, I am VishnuLabs Assistant. Ask me about automations, websites, custom software, pricing, payment, security, timelines, industries, or the Stealth Vault.",
 }
 
 const quickPrompts = [
   "What services do you offer?",
+  "Do you build websites too?",
   "Show pricing and package ranges",
   "What is Stealth Vault?",
   "How does payment work?",
@@ -53,13 +54,13 @@ const intents: Intent[] = [
     id: "services_catalog",
     patterns: ["services", "service", "offer", "offering", "products", "what do you do", "automation list"],
     answer:
-      "Core offers: AI Voice Receptionist, AI Scheduling & Reminder System, AI Legal Intake Automation, and Stealth-Mode Internal AI Vault. We also build website systems, domain-management support, custom CRM layers, lead-nurture flows, and broader software solutions for law, real estate, mortgage, clinics, and service teams.",
+      "Core offers: AI Voice Receptionist, AI Scheduling & Reminder System, AI Legal Intake Automation, and Stealth-Mode Internal AI Vault. We also build websites, domain-management support, custom software solutions, CRM layers, lead-nurture flows, and broader workflow systems for startups, hospitals, clinics, transport and logistics teams, moving companies, and law-service operators.",
   },
   {
     id: "pricing",
     patterns: ["price", "pricing", "cost", "fees", "how much", "budget", "investment", "quote"],
     answer:
-      "Transparent ranges: AI Voice Receptionist starts at $4,997 one-time. Scheduling systems usually run $6,500-$9,500. Legal intake systems are usually $8,500-$15,000. Stealth-Mode Internal AI Vault is a $15,000 one-time lifetime launch offer for the first 100 members. Combo bundles for startups, websites, domains, and industry teams are on /pricing.",
+      "Transparent ranges: AI Voice Receptionist starts at $4,997 one-time. Scheduling systems usually run $6,500-$9,500. Legal intake systems are usually $8,500-$15,000. Stealth-Mode Internal AI Vault is a $15,000 one-time lifetime launch offer for the first 100 members. If you are not sure what fits, email hello@vishnulabs.com for a custom package with transparent pricing.",
   },
   {
     id: "platform_services",
@@ -71,7 +72,7 @@ const intents: Intent[] = [
     id: "stealth_vault",
     patterns: ["vault", "stealth", "private ai", "local ai", "air gap", "air-gapped", "data leak", "secure ai"],
     answer:
-      "Stealth-Mode Internal AI Vault is a private local AI stack for confidential operations. It is air-gapped, supports redaction controls, and keeps data inside your environment. The current launch offer is $15,000 one-time for the first 100 members, with post-delivery support included.",
+      "Stealth-Mode Internal AI Vault is a private local AI stack for confidential operations. It is air-gapped, supports redaction controls, and keeps data inside your environment. The current launch offer is $15,000 one-time for the first 100 members, with post-delivery support included. Custom vault requirements are also available for sensitive teams.",
   },
   {
     id: "vault_why_now",
@@ -113,7 +114,19 @@ const intents: Intent[] = [
     id: "industries",
     patterns: ["industry", "industries", "who is this for", "who is it for", "best fit"],
     answer:
-      "Best fit industries: law firms, clinics, real estate, mortgage, and service businesses with inbound lead volume, intake bottlenecks, or compliance/security requirements.",
+      "Best fit industries now include startups, hospitals and clinics, transport and logistics teams, moving companies, lawyers and law services, real estate, mortgage, and service businesses with inbound lead volume or operational bottlenecks.",
+  },
+  {
+    id: "websites",
+    patterns: ["website", "websites", "landing page", "site", "web design", "domain", "domains"],
+    answer:
+      "Yes, VishnuLabs builds websites and landing pages for startups, hospitals and clinics, transport and logistics teams, moving companies, and law-service businesses. Domain management and launch support are also available.",
+  },
+  {
+    id: "custom_software",
+    patterns: ["custom software", "software", "portal", "dashboard", "internal tool", "admin tool", "custom system"],
+    answer:
+      "Yes, VishnuLabs also builds custom software solutions like admin dashboards, workflow tools, and operating-system layers that connect your website, automation, and team operations. If you are not sure what to choose, email hello@vishnulabs.com and VishnuLabs will suggest the right custom package with transparent pricing.",
   },
   {
     id: "delivery",

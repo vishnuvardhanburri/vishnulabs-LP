@@ -7,11 +7,17 @@ import { Button } from "@/components/ui/button"
 
 const navLinks = [
   { label: "Products", href: "/products" },
-  { label: "Services", href: "/services" },
+  { label: "Websites", href: "/websites" },
+  { label: "Software", href: "/custom-software" },
   { label: "AI Vault", href: "/stealth-vault" },
   { label: "Industries", href: "/industries" },
-  { label: "Proof", href: "/proof" },
   { label: "Pricing", href: "/pricing" },
+]
+
+const supportLinks = [
+  { label: "Services", href: "/services" },
+  { label: "Automations", href: "/automations" },
+  { label: "Proof", href: "/proof" },
 ]
 
 export function Navbar() {
@@ -51,19 +57,19 @@ export function Navbar() {
               </div>
             </Link>
 
-            <nav className="hidden items-center gap-1.5 md:flex" aria-label="Main navigation">
+            <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="rounded-full px-3.5 py-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-muted-foreground transition-all hover:bg-slate-950 hover:text-white"
+                  className="rounded-full px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground transition-all hover:bg-slate-950 hover:text-white xl:px-3.5 xl:text-[12px]"
                 >
                   {link.label}
                 </Link>
               ))}
             </nav>
 
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
               <Button
                 size="sm"
                 asChild
@@ -77,7 +83,7 @@ export function Navbar() {
             </div>
 
             <button
-              className="tap-target inline-flex items-center justify-center rounded-2xl text-foreground transition-colors hover:bg-black/5 md:hidden"
+              className="tap-target inline-flex items-center justify-center rounded-2xl text-foreground transition-colors hover:bg-black/5 lg:hidden"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
             >
@@ -87,7 +93,7 @@ export function Navbar() {
 
           {mobileOpen && (
             <nav
-              className="border-t border-border/40 bg-white/92 px-3 pb-4 pt-3 backdrop-blur-xl md:hidden"
+              className="border-t border-border/40 bg-white/92 px-3 pb-4 pt-3 backdrop-blur-xl lg:hidden"
               aria-label="Mobile navigation"
             >
               <div className="flex flex-col gap-1.5">
@@ -101,6 +107,21 @@ export function Navbar() {
                     {link.label}
                   </Link>
                 ))}
+                <div className="mt-2 border-t border-border/50 pt-3">
+                  <p className="px-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">More pages</p>
+                  <div className="mt-2 grid grid-cols-3 gap-2">
+                    {supportLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="rounded-2xl border border-border/40 px-3 py-2 text-center text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:bg-slate-950 hover:text-white"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
                 <div className="mt-2 border-t border-border/50 pt-3">
                   <Button asChild className="w-full rounded-full bg-slate-950 text-white hover:bg-slate-900">
                     <Link href="/book" onClick={() => setMobileOpen(false)} data-track="mobile_nav_book_meeting">

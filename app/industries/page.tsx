@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import type { LucideIcon } from "lucide-react"
-import { ArrowRight, ArrowUpRight, Building2, CheckCircle2, Home, Scale } from "lucide-react"
+import { ArrowRight, ArrowUpRight, Building2, CheckCircle2, Home, Hospital, Rocket, Scale, Truck } from "lucide-react"
 
+import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
 import { Button } from "@/components/ui/button"
@@ -17,13 +18,41 @@ type Industry = {
 
 export const metadata: Metadata = {
   title: "Industries | VishnuLabs",
-  description: "Industry-specific AI automation pages for law firms, real estate, and mortgage teams.",
+  description: "Industry-specific pages for startups, hospitals and clinics, transport and logistics, law services, real estate, and mortgage teams.",
   alternates: {
     canonical: "/industries",
   },
 }
 
 const industries: Industry[] = [
+  {
+    title: "Startups",
+    description: "Launch faster with stronger websites, lead capture, and custom software support before a bigger ops team is even needed.",
+    href: "/industries/startups",
+    icon: Rocket,
+    bullets: ["Website + automation fit", "Founder visibility", "Lean ops support"],
+  },
+  {
+    title: "Hospitals & Clinics",
+    description: "Improve appointment response, admin coordination, and service clarity without adding friction to already-busy teams.",
+    href: "/industries/hospitals-clinics",
+    icon: Hospital,
+    bullets: ["Scheduling support", "Patient-service clarity", "Ops visibility"],
+  },
+  {
+    title: "Transport & Logistics",
+    description: "Bring better visibility to moving-company and logistics inquiries, callbacks, quotes, and dispatch handoff.",
+    href: "/industries/transport-logistics",
+    icon: Truck,
+    bullets: ["Quote capture", "Moving-company visibility", "Dispatch handoff"],
+  },
+  {
+    title: "Lawyers & Law Services",
+    description: "Automate intake, consultation handling, and workflow follow-up for legal teams that need speed and professionalism together.",
+    href: "/industries/law-services",
+    icon: Scale,
+    bullets: ["Consultation coverage", "Legal workflow control", "Private AI options"],
+  },
   {
     title: "PI Law Firms",
     description: "Automate intake, call handling, and private AI workflows without exposing sensitive matter data.",
@@ -63,8 +92,9 @@ export default function IndustriesPage() {
                     Automation systems adapted to the workflow pressure of each industry.
                   </h1>
                   <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-                    Law, real estate, and mortgage teams all need fast response and cleaner operations, but the workflow details differ.
-                    These pages show where VishnuLabs fits.
+                    Startups, hospitals and clinics, transport and logistics teams, moving companies, lawyers, law services, real estate,
+                    and mortgage teams all need fast response and cleaner operations, but the workflow details differ. These pages show where
+                    VishnuLabs fits.
                   </p>
                 </div>
 
@@ -100,6 +130,10 @@ export default function IndustriesPage() {
                     <ArrowUpRight className="h-4 w-4" />
                   </Link>
                 </Button>
+              </div>
+
+              <div className="mt-8">
+                <CustomSolutionNote title="Custom industry solution available" />
               </div>
             </div>
           </div>

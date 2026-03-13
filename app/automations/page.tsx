@@ -16,6 +16,7 @@ import {
 
 import { ArchitecturePlaceholder } from "@/components/automations/architecture-placeholder"
 import { AutomationCard } from "@/components/automations/automation-card"
+import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
 import { Button } from "@/components/ui/button"
@@ -172,6 +173,10 @@ export default function AutomationsPage() {
                       <ArrowUpRight className="h-4 w-4" />
                     </Link>
                   </Button>
+                </div>
+
+                <div className="mt-6 max-w-2xl">
+                  <CustomSolutionNote compact title="Custom automation available" />
                 </div>
               </div>
 
@@ -347,6 +352,8 @@ export default function AutomationsPage() {
                             </p>
                           </article>
                         </div>
+
+                        <CustomSolutionNote dark={dark} compact title="Need a custom variation of this product?" />
                       </div>
                     </div>
                   </section>

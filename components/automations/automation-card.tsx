@@ -22,6 +22,10 @@ export function AutomationCard({ description, href, icon: Icon, title }: Automat
 
       <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">{description}</p>
 
+      <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+        Custom solution available. Email hello@vishnulabs.com
+      </p>
+
       <Link
         href={href}
         className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-950 transition hover:text-primary"

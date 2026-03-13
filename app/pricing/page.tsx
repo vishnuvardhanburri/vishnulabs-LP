@@ -17,6 +17,7 @@ import {
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
 import { Button } from "@/components/ui/button"
+import { CustomSolutionNote } from "@/components/custom-solution-note"
 
 export const metadata: Metadata = {
   title: "Pricing | VishnuLabs",
@@ -157,6 +158,33 @@ const comboOffers: ComboOffer[] = [
   },
 ]
 
+const priceComparisons = [
+  {
+    title: "Websites",
+    market: "$8,000-$35,000+",
+    ours: "From $6,500",
+    note: "Focused website builds with conversion structure, mobile polish, and domain-launch support.",
+  },
+  {
+    title: "AI Automations",
+    market: "$8,000-$30,000+",
+    ours: "From $4,997",
+    note: "Productized automations with clearer scope and faster deployment than typical agency custom work.",
+  },
+  {
+    title: "Custom Software",
+    market: "$25,000-$120,000+",
+    ours: "From $12,500",
+    note: "Smaller, focused systems for real workflow bottlenecks instead of oversized enterprise-style builds.",
+  },
+  {
+    title: "Private AI Vault",
+    market: "$30,000-$150,000+",
+    ours: "$15,000 launch offer",
+    note: "Current one-time lifetime offer for the first 100 members, with custom requirements available.",
+  },
+]
+
 export default function PricingPage() {
   return (
     <>
@@ -176,6 +204,22 @@ export default function PricingPage() {
                   The flagship offer combines private AI search, redaction, offline retrieval, risk blocking, and a clear operational story
                   for security-sensitive teams.
                 </p>
+
+                <div className="mt-5 rounded-[24px] border border-orange-300/20 bg-orange-500/10 p-4">
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-100">Launch scarcity</p>
+                      <p className="mt-2 text-lg font-semibold text-white">First 100 members only</p>
+                    </div>
+                    <span className="rounded-full border border-orange-300/20 bg-black/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-100">
+                      20-day window
+                    </span>
+                  </div>
+                  <p className="mt-3 text-sm leading-7 text-slate-200">
+                    The one-time lifetime vault license is a launch offer for the first 100 members. Once those slots are filled, Tier 1
+                    closes even if the timer still has time left.
+                  </p>
+                </div>
 
                 <div className="mt-6 grid gap-3 sm:grid-cols-2">
                   {vaultBullets.map((item) => (
@@ -239,6 +283,56 @@ export default function PricingPage() {
                   </Button>
                 </div>
               </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="pb-12 pt-8 sm:pb-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+            <div className="section-shell p-6 sm:p-8" data-reveal>
+              <div className="max-w-3xl">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">Why choose us</p>
+                <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+                  Transparent pricing, cleaner scope, and a stronger operating fit.
+                </h2>
+                <p className="mt-4 text-base leading-8 text-slate-600">
+                  Buyers should not have to guess what they are paying for. VishnuLabs keeps the pricing story clear: typical market ranges,
+                  our starting points, and what is actually included.
+                </p>
+              </div>
+
+              <div className="mt-8 grid gap-5 lg:grid-cols-2 xl:grid-cols-4">
+                {priceComparisons.map((item) => (
+                  <article key={item.title} className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+                    <p className="text-lg font-semibold tracking-tight text-slate-950">{item.title}</p>
+                    <div className="mt-5 rounded-[20px] border border-slate-200 bg-slate-50 p-4">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Typical market range</p>
+                      <p className="mt-2 text-lg font-semibold text-slate-950">{item.market}</p>
+                    </div>
+                    <div className="mt-3 rounded-[20px] border border-primary/20 bg-primary/10 p-4">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">Our pricing</p>
+                      <p className="mt-2 text-lg font-semibold text-slate-950">{item.ours}</p>
+                    </div>
+                    <p className="mt-4 text-sm leading-7 text-slate-600">{item.note}</p>
+                  </article>
+                ))}
+              </div>
+
+              <div className="mt-8 grid gap-4 md:grid-cols-3">
+                {[
+                  "Clear scope before build starts",
+                  "Direct access for custom-package questions",
+                  "Real proof and operating context, not vague promises",
+                ].map((item) => (
+                  <div key={item} className="rounded-[22px] border border-slate-200 bg-slate-50 p-4 text-sm font-medium text-slate-700">
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8">
+                <CustomSolutionNote title="Not sure which package fits?" />
+              </div>
             </div>
           </div>
         </section>

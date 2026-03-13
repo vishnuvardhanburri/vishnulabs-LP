@@ -4,6 +4,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { MobileStickyCta } from "@/components/mobile-sticky-cta"
 import { LiveChatAssistant } from "@/components/live-chat-assistant"
+import { CustomSolutionNote, customPackageMailto } from "@/components/custom-solution-note"
 
 type IndustryTemplateProps = {
   title: string
@@ -43,8 +44,8 @@ export function IndustryPageTemplate({
               </a>
             </Button>
             <Button asChild variant="outline" className="rounded-xl border-border/50 hover:bg-secondary">
-              <a href="mailto:hello@vishnulabs.com?subject=Industry%20Automation%20Plan" data-track="industry_page_email">
-                Get Automation Plan
+              <a href={customPackageMailto} data-track="industry_page_email">
+                Mail Us for Custom Package
               </a>
             </Button>
           </div>
@@ -83,6 +84,10 @@ export function IndustryPageTemplate({
               <span className="font-medium text-foreground">Investment range:</span> {investment}
             </div>
           </article>
+        </section>
+
+        <section className="mt-8">
+          <CustomSolutionNote />
         </section>
       </main>
       <Footer />

@@ -4,6 +4,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { MobileStickyCta } from "@/components/mobile-sticky-cta"
 import { LiveChatAssistant } from "@/components/live-chat-assistant"
+import { CustomSolutionNote, customPackageMailto } from "@/components/custom-solution-note"
 
 type ServiceTemplateProps = {
   title: string
@@ -47,8 +48,8 @@ export function ServicePageTemplate({
               </a>
             </Button>
             <Button asChild variant="outline" className="rounded-xl border-border/50 hover:bg-secondary">
-              <a href="mailto:hello@vishnulabs.com?subject=Service%20Scope%20Request" data-track="service_page_scope_request">
-                Request Scope
+              <a href={customPackageMailto} data-track="service_page_scope_request">
+                Mail Us for Custom Package
               </a>
             </Button>
           </div>
@@ -119,6 +120,10 @@ export function ServicePageTemplate({
               ))}
             </ul>
           </article>
+        </section>
+
+        <section className="mt-8">
+          <CustomSolutionNote />
         </section>
       </main>
       <Footer />

@@ -5,24 +5,28 @@ import {
   ArrowRight,
   ArrowUpRight,
   BadgeCheck,
-  BrainCircuit,
   CalendarClock,
   CheckCircle2,
   ChevronRight,
   CircleAlert,
   FolderLock,
   Globe,
+  Hospital,
   LineChart,
   LockKeyhole,
   MessageSquareMore,
   PhoneCall,
+  Rocket,
   ScanSearch,
+  Scale,
   ServerCog,
   ShieldCheck,
   Sparkles,
+  Truck,
   Workflow,
 } from "lucide-react"
 
+import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
 import { Button } from "@/components/ui/button"
@@ -54,6 +58,7 @@ type Industry = {
   lead: string
   icon: LucideIcon
   outcomes: string[]
+  href: string
 }
 
 type PlatformCollection = {
@@ -61,6 +66,7 @@ type PlatformCollection = {
   lead: string
   icon: LucideIcon
   bullets: string[]
+  href: string
 }
 
 const heroStats: Stat[] = [
@@ -127,22 +133,39 @@ const deliverySteps: Step[] = [
 
 const industries: Industry[] = [
   {
-    title: "Plaintiff and PI Law Firms",
-    lead: "Capture urgent inbound cases, standardize intake, and keep matter data off public AI tools.",
-    icon: ShieldCheck,
-    outcomes: ["Fast case qualification", "Leak-resistant internal search", "Follow-up automation"],
+    title: "Startups and New Ventures",
+    lead: "Launch with clearer websites, booking flow, and internal visibility without patching together too many early tools.",
+    icon: Rocket,
+    outcomes: ["Website + funnel clarity", "Lean ops support", "Custom software add-ons"],
+    href: "/industries/startups",
   },
   {
-    title: "Clinics and Patient Ops",
-    lead: "Automate scheduling and staff load while protecting sensitive records and call context.",
-    icon: BrainCircuit,
+    title: "Hospitals and Clinics",
+    lead: "Support patient-service teams with cleaner appointments, reminders, and calmer front-desk workflows.",
+    icon: Hospital,
     outcomes: ["Scheduling automation", "Sensitive data controls", "Clear escalation paths"],
+    href: "/industries/hospitals-clinics",
   },
   {
-    title: "Mortgage, Real Estate, Advisory",
+    title: "Lawyers and Law Services",
+    lead: "Capture urgent legal inquiries, standardize intake, and keep sensitive matter data under stronger control.",
+    icon: Scale,
+    outcomes: ["Fast case qualification", "Private AI options", "Follow-up automation"],
+    href: "/industries/law-services",
+  },
+  {
+    title: "Transport, Logistics, and Moving Companies",
+    lead: "Increase service visibility, quote response speed, and cleaner dispatch handoff across busy operations.",
+    icon: Truck,
+    outcomes: ["Quote capture", "Moving-company visibility", "Operational visibility"],
+    href: "/industries/transport-logistics",
+  },
+  {
+    title: "Real Estate and Mortgage",
     lead: "Move faster on lead response, qualification, and document-heavy workflows without losing precision.",
     icon: LineChart,
     outcomes: ["Lead routing", "Reminder sequences", "Operational visibility"],
+    href: "/industries/real-estate",
   },
 ]
 
@@ -152,18 +175,21 @@ const platformCollections: PlatformCollection[] = [
     lead: "Conversion-focused marketing sites, landing pages, and proof pages that match the automation story instead of feeling disconnected from it.",
     icon: Globe,
     bullets: ["High-conversion landing pages", "Mobile-first build quality", "Proof-driven page structure"],
+    href: "/websites",
   },
   {
     title: "Domain Management",
     lead: "Domain routing, DNS setup, SSL, redirects, launch support, and the small operational pieces that make a public-facing stack feel trustworthy.",
     icon: ServerCog,
     bullets: ["DNS and SSL setup", "Launch routing and redirects", "Operational ownership after handoff"],
+    href: "/websites",
   },
   {
     title: "Software Solutions",
     lead: "Internal tools, admin dashboards, workflow layers, and custom software that connect the website, automation, and team operations into one system.",
     icon: Workflow,
     bullets: ["Admin and ops dashboards", "Workflow-specific internal tools", "Automation-ready software layers"],
+    href: "/custom-software",
   },
 ]
 
@@ -228,8 +254,9 @@ export default function Page() {
                 </h1>
 
                 <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-                  VishnuLabs builds premium AI systems for voice reception, intake, scheduling, follow-up, and private internal search.
-                  The result is a cleaner pipeline, faster response time, and tighter control over sensitive data.
+                  VishnuLabs builds premium AI systems for voice reception, intake, scheduling, follow-up, websites, custom software, and
+                  private internal search. The result is a cleaner pipeline, faster response time, stronger visibility, and tighter control
+                  over sensitive data.
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -273,7 +300,7 @@ export default function Page() {
                 </div>
 
                 <div className="mt-8 flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">
-                  {["Law firms", "Clinics", "Real estate", "Mortgage advisory", "Revenue ops teams"].map((item) => (
+                  {["Startups", "Hospitals & clinics", "Law services", "Moving companies", "Revenue ops teams"].map((item) => (
                     <span key={item} className="rounded-full border border-slate-200 bg-white/70 px-3 py-1.5">
                       {item}
                     </span>
@@ -463,6 +490,10 @@ export default function Page() {
                         </Link>
                       </Button>
                     </div>
+
+                    <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                      Custom vault requirements available. Email hello@vishnulabs.com
+                    </p>
                   </div>
 
                   <div className="rounded-[28px] border border-white/10 bg-black/40 p-3 shadow-hero-panel">
@@ -507,6 +538,10 @@ export default function Page() {
                             ))}
                           </ul>
 
+                          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                            Custom solution available. Email hello@vishnulabs.com
+                          </p>
+
                           <Link
                             href={product.href}
                             className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-950 transition hover:text-primary"
@@ -544,7 +579,7 @@ export default function Page() {
                   <SectionHeading
                     eyebrow="Platform Collections"
                     title="A broader SaaS platform view, not just isolated automation."
-                    description="We keep the current automation offer intact and can also support website creation, domain management, and software solutions so the full buyer journey feels connected from public page to internal operations."
+                    description="We keep the current automation offer intact and can also support website creation, domain management, and software solutions for startups, hospitals, clinics, transport and logistics teams, moving companies, and law services."
                   />
 
                   <div className="mt-6 rounded-[28px] border border-slate-200 bg-slate-950 p-5 text-white shadow-[0_18px_40px_rgba(15,23,42,0.16)]">
@@ -554,6 +589,7 @@ export default function Page() {
                         "Public-facing website layer aligned with the same sales story",
                         "Domain and launch control handled cleanly when deployment matters",
                         "Custom software solutions tied to the real workflow behind the funnel",
+                        "Clear visibility for startups, clinics, law services, and moving companies",
                       ].map((item) => (
                         <div key={item} className="rounded-[20px] border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200">
                           {item}
@@ -587,9 +623,14 @@ export default function Page() {
                             </div>
                           ))}
                         </div>
+
+                        <Link href={item.href} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-950 hover:text-primary">
+                          Open page
+                          <ArrowRight className="h-4 w-4" />
+                        </Link>
                       </article>
-                    )
-                  })}
+                )
+              })}
                 </div>
               </div>
             </div>
@@ -782,7 +823,7 @@ export default function Page() {
             <SectionHeading
               eyebrow="Industries"
               title="Designed for operators with speed pressure and data pressure."
-              description="The layout and messaging target teams where every missed call, slow reply, or exposed document has real cost."
+              description="Built for startups, hospitals and clinics, lawyers, law services, transport and logistics teams, moving companies, real estate, and mortgage operators where visibility and response speed directly affect revenue."
             />
 
             <div className="mt-8 grid gap-5 lg:grid-cols-3">
@@ -809,9 +850,18 @@ export default function Page() {
                         </div>
                       ))}
                     </div>
+
+                    <Link href={industry.href} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-slate-950 hover:text-primary">
+                      Open industry page
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
                   </article>
                 )
               })}
+            </div>
+
+            <div className="mt-8" data-reveal>
+              <CustomSolutionNote title="Need a custom product mix?" />
             </div>
           </div>
         </section>

@@ -1,8 +1,11 @@
 import Link from "next/link"
+import { customPackageMailto } from "@/components/custom-solution-note"
 
 const serviceLinks = [
   { label: "Stealth-Mode AI Vault", href: "/stealth-vault" },
   { label: "Automations", href: "/automations" },
+  { label: "Websites", href: "/websites" },
+  { label: "Custom Software", href: "/custom-software" },
   { label: "AI Voice Receptionist", href: "/services/ai-voice-receptionist" },
   { label: "AI Scheduling & Reminder", href: "/services/ai-scheduling-reminder" },
   { label: "AI Legal Intake Automation", href: "/services/ai-legal-intake" },
@@ -10,6 +13,10 @@ const serviceLinks = [
 
 const industryLinks = [
   { label: "Industry Overview", href: "/industries" },
+  { label: "Startups", href: "/industries/startups" },
+  { label: "Hospitals & Clinics", href: "/industries/hospitals-clinics" },
+  { label: "Transport & Logistics", href: "/industries/transport-logistics" },
+  { label: "Law Services", href: "/industries/law-services" },
   { label: "PI Law Firms", href: "/industries/pi-law-firms" },
   { label: "Real Estate", href: "/industries/real-estate" },
   { label: "Mortgage", href: "/industries/mortgage" },
@@ -41,11 +48,11 @@ export function Footer() {
             </Link>
 
             <p className="mt-4 max-w-sm text-sm leading-7 text-slate-300">
-              Premium AI automation systems for voice, intake, scheduling, follow-up, and private internal AI infrastructure.
+              Premium AI automation, websites, domain management, custom software, and private internal AI infrastructure for high-trust teams.
             </p>
 
             <div className="mt-5 flex flex-wrap gap-2">
-              {["Private AI", "Voice automation", "Revenue ops", "Mobile-ready UX"].map((item) => (
+              {["Private AI", "Websites", "Custom software", "Mobile-ready UX"].map((item) => (
                 <span
                   key={item}
                   className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-300"
@@ -69,7 +76,7 @@ export function Footer() {
                   {link.label}
                 </Link>
               ))}
-              <a href="mailto:hello@vishnulabs.com" className="text-sm text-slate-300 transition-colors hover:text-white">
+              <a href={customPackageMailto} className="text-sm text-slate-300 transition-colors hover:text-white">
                 hello@vishnulabs.com
               </a>
             </div>
@@ -77,7 +84,7 @@ export function Footer() {
             <div className="mt-5 rounded-[22px] border border-white/10 bg-white/5 p-4">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Need a custom build?</p>
               <p className="mt-2 text-sm leading-6 text-slate-300">
-                Bring your workflow, lead source, or compliance problem. We will scope the system around the bottleneck.
+                Bring your workflow, website requirement, domain setup, or compliance problem. We will scope the system around the bottleneck.
               </p>
             </div>
           </div>

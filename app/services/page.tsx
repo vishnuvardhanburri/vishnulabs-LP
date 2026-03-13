@@ -3,6 +3,7 @@ import Link from "next/link"
 import type { LucideIcon } from "lucide-react"
 import { ArrowRight, ArrowUpRight, CalendarClock, CheckCircle2, MessageSquareMore, PhoneCall } from "lucide-react"
 
+import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
 import { Button } from "@/components/ui/button"
@@ -65,7 +66,7 @@ export default function ServicesPage() {
                   Start with one core automation or combine multiple systems into a single operating flow for your team.
                 </p>
 
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <Button asChild className="h-12 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white hover:bg-slate-900">
                     <Link href="/book">
                       Request Demo
@@ -79,6 +80,10 @@ export default function ServicesPage() {
                       <ArrowUpRight className="h-4 w-4" />
                     </Link>
                   </Button>
+                </div>
+
+                <div className="mt-6 max-w-2xl">
+                  <CustomSolutionNote compact title="Custom service available" />
                 </div>
               </div>
 
@@ -133,6 +138,10 @@ export default function ServicesPage() {
                   </article>
                 )
               })}
+            </div>
+
+            <div className="mt-8">
+              <CustomSolutionNote title="Need a custom service mix?" />
             </div>
           </div>
         </section>

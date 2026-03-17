@@ -5,11 +5,14 @@ import {
   ArrowRight,
   ArrowUpRight,
   BrainCircuit,
+  CarFront,
   Building2,
   CalendarClock,
   CheckCircle2,
   Globe,
   MessageSquareMore,
+  MessageCircleHeart,
+  PanelsTopLeft,
   ServerCog,
   ShieldCheck,
 } from "lucide-react"
@@ -59,6 +62,16 @@ type ComboOffer = {
   icon: LucideIcon
   price: string
   summary: string
+  title: string
+}
+
+type ProductizedOffer = {
+  audience: string
+  billing: string
+  bullets: string[]
+  icon: LucideIcon
+  note: string
+  price: string
   title: string
 }
 
@@ -185,6 +198,76 @@ const priceComparisons = [
   },
 ]
 
+const productizedOffers: ProductizedOffer[] = [
+  {
+    title: "Clinic Revenue Rescue",
+    audience: "For clinics and patient-service teams that need front-desk coverage, stronger booking flow, and cleaner follow-up without adding more manual admin.",
+    price: "Setup from $12,000",
+    billing: "$2,000-$4,000/mo retainer",
+    note: "Serious clinic-grade build for revenue rescue, appointment recovery, and day-to-day patient communication continuity.",
+    icon: MessageCircleHeart,
+    bullets: [
+      "AI receptionist",
+      "Appointment booking",
+      "Missed-call recovery",
+      "WhatsApp follow-up",
+      "Website/chat integration",
+    ],
+  },
+  {
+    title: "Dealership Lead Capture System",
+    audience: "For dealerships that need after-hours lead response, faster qualification, and tighter booking flow across sales and service demand.",
+    price: "$18,000-$30,000",
+    billing: "Optional support retainer",
+    note: "Growth-tier system for dealerships where lead speed, booking quality, and CRM visibility affect revenue directly.",
+    icon: CarFront,
+    bullets: [
+      "Test-drive booking",
+      "Service booking",
+      "Instant lead qualification",
+      "After-hours response",
+      "CRM/dashboard",
+    ],
+  },
+  {
+    title: "Premium Full-Stack Build",
+    audience: "For teams that want the website, booking flow, CRM/admin layer, AI automation, and privacy positioning built as one premium operating system.",
+    price: "$45,000-$100,000+",
+    billing: "Enterprise/private AI tier",
+    note: "Best fit for high-trust teams that need full-stack delivery quality, AI automation depth, and stronger privacy/security positioning in one scope.",
+    icon: PanelsTopLeft,
+    bullets: [
+      "Website redesign",
+      "Full-stack booking/CRM/admin panel",
+      "AI automation layer",
+      "Privacy/security positioning",
+    ],
+  },
+]
+
+const seriousPriceBands = [
+  {
+    label: "Starter systems",
+    value: "$7k-$12k",
+    detail: "Entry-point productized builds with defined scope and lighter integration complexity.",
+  },
+  {
+    label: "Growth systems",
+    value: "$15k-$30k",
+    detail: "Stronger lead handling, CRM logic, reporting, and multi-step operational automation.",
+  },
+  {
+    label: "Enterprise / private AI",
+    value: "$40k-$100k+",
+    detail: "Security-heavy or multi-surface systems with private AI, deeper integrations, and stakeholder handoff.",
+  },
+  {
+    label: "Full-stack custom + AI",
+    value: "$25k-$150k+",
+    detail: "If you want full-stack build, AI automation, deployment, and support together, we quote in this range based on scope.",
+  },
+]
+
 export default function PricingPage() {
   return (
     <>
@@ -194,7 +277,7 @@ export default function PricingPage() {
         <section className="pb-16 pt-28 sm:pt-36 lg:pb-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
             <div className="grid gap-6 lg:grid-cols-[1.02fr_0.98fr]">
-              <article className="section-shell-dark ambient-grid-dark p-6 sm:p-8" data-reveal>
+              <article className="section-shell-dark ambient-grid-dark beam-sweep p-6 sm:p-8" data-reveal>
                 <div className="badge-pill border-white/10 bg-white/5 text-slate-200">
                   <ShieldCheck className="h-3.5 w-3.5 text-orange-300" />
                   Pricing anchor
@@ -242,7 +325,7 @@ export default function PricingPage() {
                 </div>
               </article>
 
-              <article className="section-shell p-6 sm:p-8" data-reveal>
+              <article className="section-shell gradient-flow p-6 sm:p-8" data-reveal data-reveal-delay="90">
                 <div className="badge-pill border-slate-200 bg-slate-950 text-white">Custom systems</div>
                 <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl">Done-for-you automation builds starting at $4,997</h2>
                 <p className="mt-4 text-base leading-8 text-slate-600">
@@ -332,6 +415,89 @@ export default function PricingPage() {
 
               <div className="mt-8">
                 <CustomSolutionNote title="Not sure which package fits?" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="pb-12 pt-8 sm:pb-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+            <div className="section-shell p-6 sm:p-8" data-reveal>
+              <div className="max-w-3xl">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">Productized offers</p>
+                <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+                  Three serious offers with pricing that matches real business impact.
+                </h2>
+                <p className="mt-4 text-base leading-8 text-slate-600">
+                  These are not small-freelancer packages. Each offer is scoped for teams that need a real front-desk, lead-capture, or
+                  full-stack operating system with cleaner ownership and stronger execution.
+                </p>
+              </div>
+
+              <div className="mt-8 grid gap-5 xl:grid-cols-3">
+                {productizedOffers.map((offer) => {
+                  const Icon = offer.icon
+
+                  return (
+                    <article key={offer.title} className="flex h-full flex-col rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-white">
+                          <Icon className="h-5 w-5 text-orange-300" />
+                        </div>
+                        <div className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
+                          {offer.billing}
+                        </div>
+                      </div>
+
+                      <h3 className="mt-5 text-2xl font-semibold tracking-tight text-slate-950">{offer.title}</h3>
+                      <p className="mt-3 text-sm leading-7 text-slate-600">{offer.audience}</p>
+
+                      <div className="mt-4 rounded-[20px] border border-slate-200 bg-slate-50 p-4">
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Pricing</p>
+                        <p className="mt-2 text-2xl font-semibold tracking-tight text-slate-950">{offer.price}</p>
+                        <p className="mt-2 text-sm leading-7 text-slate-600">{offer.note}</p>
+                      </div>
+
+                      <ul className="mt-5 space-y-2">
+                        {offer.bullets.map((bullet) => (
+                          <li key={bullet} className="flex items-start gap-2 text-sm text-slate-700">
+                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="mt-auto grid gap-3 pt-6">
+                        <Button asChild className="h-11 w-full rounded-full bg-slate-950 px-5 text-sm font-semibold text-white hover:bg-slate-900">
+                          <Link href="/book">
+                            Request Offer Scope
+                            <ArrowRight className="h-4 w-4" />
+                          </Link>
+                        </Button>
+                        <Button asChild variant="outline" className="h-11 w-full rounded-full border-slate-300 bg-white px-5 text-sm font-semibold text-slate-950 hover:bg-slate-50">
+                          <Link href="/products">
+                            Compare With Other Products
+                            <ArrowUpRight className="h-4 w-4" />
+                          </Link>
+                        </Button>
+                      </div>
+                    </article>
+                  )
+                })}
+              </div>
+
+              <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                {seriousPriceBands.map((item) => (
+                  <article key={item.label} className="rounded-[24px] border border-slate-200 bg-slate-50 p-5">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">{item.label}</p>
+                    <p className="mt-2 text-2xl font-semibold tracking-tight text-slate-950">{item.value}</p>
+                    <p className="mt-2 text-sm leading-7 text-slate-600">{item.detail}</p>
+                  </article>
+                ))}
+              </div>
+
+              <div className="mt-8">
+                <CustomSolutionNote title="Need a custom full-stack + AI package?" />
               </div>
             </div>
           </div>

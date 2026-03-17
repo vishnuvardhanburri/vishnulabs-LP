@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import type { LucideIcon } from "lucide-react"
-import { ArrowRight, ArrowUpRight, CalendarClock, CheckCircle2, FolderLock, Globe, Workflow } from "lucide-react"
+import { ArrowRight, ArrowUpRight, CalendarClock, CarFront, CheckCircle2, FolderLock, Globe, MessageCircleHeart, PanelsTopLeft, Workflow } from "lucide-react"
 
 import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { Footer } from "@/components/footer"
@@ -14,6 +14,14 @@ type ProductHubCard = {
   href: string
   icon: LucideIcon
   bullets: string[]
+}
+
+type ProductizedOfferCard = {
+  bullets: string[]
+  icon: LucideIcon
+  lead: string
+  price: string
+  title: string
 }
 
 export const metadata: Metadata = {
@@ -52,6 +60,30 @@ const productHubCards: ProductHubCard[] = [
     href: "/stealth-vault",
     icon: FolderLock,
     bullets: ["Air-gapped and private", "Custom vault requirements available", "Manual onboarding and support"],
+  },
+]
+
+const productizedOffers: ProductizedOfferCard[] = [
+  {
+    title: "Clinic Revenue Rescue",
+    lead: "AI receptionist, booking, missed-call recovery, WhatsApp follow-up, and website/chat integration for clinics that need stronger revenue capture.",
+    price: "Setup from $12,000 + monthly retainer",
+    icon: MessageCircleHeart,
+    bullets: ["AI receptionist", "Appointment booking", "Missed-call recovery", "WhatsApp follow-up", "Website/chat integration"],
+  },
+  {
+    title: "Dealership Lead Capture System",
+    lead: "Lead handling system for dealerships that need fast qualification, booking, and after-hours response across sales and service demand.",
+    price: "$18,000-$30,000",
+    icon: CarFront,
+    bullets: ["Test-drive booking", "Service booking", "Instant lead qualification", "After-hours response", "CRM/dashboard"],
+  },
+  {
+    title: "Premium Full-Stack Build",
+    lead: "For businesses that want the redesign, booking stack, CRM/admin layer, AI automation, and privacy positioning handled as one serious build.",
+    price: "$45,000-$100,000+",
+    icon: PanelsTopLeft,
+    bullets: ["Website redesign", "Full-stack booking/CRM/admin panel", "AI automation layer", "Privacy/security positioning"],
   },
 ]
 
@@ -145,6 +177,65 @@ export default function ProductsPage() {
                   </article>
                 )
               })}
+            </div>
+          </div>
+        </section>
+
+        <section className="pb-20 sm:pb-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+            <div className="section-shell p-6 sm:p-8" data-reveal>
+              <div className="max-w-3xl">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">Productized offers</p>
+                <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+                  The offers buyers can understand quickly.
+                </h2>
+                <p className="mt-4 text-base leading-8 text-slate-600">
+                  If you want a cleaner sales story than “everything is custom,” these are the three serious packaged offers VishnuLabs can
+                  lead with before moving into deeper custom scope.
+                </p>
+              </div>
+
+              <div className="mt-8 grid gap-5 xl:grid-cols-3">
+                {productizedOffers.map((item) => {
+                  const Icon = item.icon
+
+                  return (
+                    <article key={item.title} className="flex h-full flex-col rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-white">
+                        <Icon className="h-5 w-5 text-orange-300" />
+                      </div>
+                      <h3 className="mt-5 text-2xl font-semibold tracking-tight text-slate-950">{item.title}</h3>
+                      <p className="mt-3 text-sm leading-7 text-slate-600">{item.lead}</p>
+                      <div className="mt-4 rounded-[20px] border border-primary/20 bg-primary/10 px-4 py-3 text-sm font-semibold text-slate-950">
+                        {item.price}
+                      </div>
+                      <ul className="mt-5 space-y-2">
+                        {item.bullets.map((bullet) => (
+                          <li key={bullet} className="flex items-start gap-2 text-sm text-slate-700">
+                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </article>
+                  )
+                })}
+              </div>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Button asChild className="h-12 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white hover:bg-slate-900">
+                  <Link href="/pricing">
+                    View Serious Pricing
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" className="h-12 rounded-full border-slate-300 bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-50">
+                  <Link href="/book">
+                    Book Offer Review
+                    <ArrowUpRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </section>

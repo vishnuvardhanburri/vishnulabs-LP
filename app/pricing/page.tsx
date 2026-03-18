@@ -1,26 +1,28 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import type { LucideIcon } from "lucide-react"
 import {
   ArrowRight,
   ArrowUpRight,
   BrainCircuit,
-  CarFront,
   Building2,
   CalendarClock,
+  CarFront,
   CheckCircle2,
   Globe,
-  MessageSquareMore,
   MessageCircleHeart,
+  MessageSquareMore,
   PanelsTopLeft,
   ServerCog,
   ShieldCheck,
 } from "lucide-react"
 
+import { CustomSolutionNote } from "@/components/custom-solution-note"
+import { ConfidenceRail } from "@/components/confidence-rail"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
 import { Button } from "@/components/ui/button"
-import { CustomSolutionNote } from "@/components/custom-solution-note"
 
 export const metadata: Metadata = {
   title: "Pricing | VishnuLabs",
@@ -268,6 +270,8 @@ const seriousPriceBands = [
   },
 ]
 
+const pricingSignals = ["Transparent pricing", "Productized offers", "Combo bundles", "Custom packages", "Private AI available"]
+
 export default function PricingPage() {
   return (
     <>
@@ -276,96 +280,128 @@ export default function PricingPage() {
       <main className="overflow-hidden pb-16">
         <section className="pb-16 pt-28 sm:pt-36 lg:pb-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-            <div className="grid gap-6 lg:grid-cols-[1.02fr_0.98fr]">
-              <article className="section-shell-dark ambient-grid-dark beam-sweep p-6 sm:p-8" data-reveal>
-                <div className="badge-pill border-white/10 bg-white/5 text-slate-200">
-                  <ShieldCheck className="h-3.5 w-3.5 text-orange-300" />
-                  Pricing anchor
-                </div>
-                <h1 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">$15,000 one-time lifetime vault license</h1>
-                <p className="mt-4 max-w-2xl text-base leading-8 text-slate-300">
-                  The flagship offer combines private AI search, redaction, offline retrieval, risk blocking, and a clear operational story
-                  for security-sensitive teams.
-                </p>
+            <div className="hero-shell app-shell-enter px-5 py-6 sm:px-7 sm:py-8 lg:px-10 lg:py-10" data-reveal>
+              <div className="cloud-soft left-6 top-16 hidden h-16 w-24 lg:block" />
+              <div className="cloud-soft right-20 top-24 hidden h-14 w-24 lg:block" />
+              <div className="absolute -left-14 top-14 h-48 w-48 rounded-full bg-primary/10 blur-3xl orb-float" />
+              <div className="absolute right-4 top-0 h-52 w-52 rounded-full bg-sky-300/14 blur-3xl orb-float-slow" />
 
-                <div className="mt-5 rounded-[24px] border border-orange-300/20 bg-orange-500/10 p-4">
-                  <div className="flex flex-wrap items-center justify-between gap-3">
-                    <div>
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-100">Launch scarcity</p>
-                      <p className="mt-2 text-lg font-semibold text-white">First 100 members only</p>
-                    </div>
-                    <span className="rounded-full border border-orange-300/20 bg-black/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-100">
-                      20-day window
-                    </span>
+              <div className="grid gap-6 lg:grid-cols-[1.02fr_0.98fr]">
+                <article className="section-shell-dark ambient-grid-dark beam-sweep p-6 sm:p-8" data-reveal>
+                  <div className="badge-pill border-white/10 bg-white/5 text-slate-200">
+                    <ShieldCheck className="h-3.5 w-3.5 text-sky-300" />
+                    Pricing anchor
                   </div>
-                  <p className="mt-3 text-sm leading-7 text-slate-200">
-                    The one-time lifetime vault license is a launch offer for the first 100 members. Once those slots are filled, Tier 1
-                    closes even if the timer still has time left.
+                  <h1 className="mt-4 text-balance text-3xl font-bold tracking-tight text-white sm:text-5xl">
+                    $15,000 one-time lifetime vault license
+                  </h1>
+                  <p className="mt-4 max-w-2xl text-base leading-8 text-slate-300">
+                    The flagship offer combines private AI search, redaction, offline retrieval, risk blocking, and a clear operational story
+                    for security-sensitive teams.
                   </p>
-                </div>
 
-                <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {vaultBullets.map((item) => (
-                    <div key={item} className="rounded-[22px] border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200">
-                      {item}
+                  <div className="mt-5 rounded-[24px] border border-primary/18 bg-primary/10 p-4">
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <div>
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-100">Launch scarcity</p>
+                        <p className="mt-2 text-lg font-semibold text-white">First 100 members only</p>
+                      </div>
+                      <span className="rounded-full border border-sky-300/20 bg-black/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-100">
+                        20-day window
+                      </span>
                     </div>
-                  ))}
-                </div>
+                    <p className="mt-3 text-sm leading-7 text-slate-200">
+                      The one-time lifetime vault license is a launch offer for the first 100 members. Once those slots are filled, Tier 1
+                      closes even if the timer still has time left.
+                    </p>
+                  </div>
 
-                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                  <Button asChild className="h-12 rounded-full bg-orange-500 px-6 text-sm font-semibold text-white hover:bg-orange-400">
-                    <Link href="/stealth-vault">
-                      View Offer Details
-                      <ArrowUpRight className="h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button asChild variant="outline" className="h-12 rounded-full border-white/15 bg-white/5 px-6 text-sm font-semibold text-white hover:bg-white/10">
-                    <Link href="/book">Book Buying Call</Link>
-                  </Button>
-                </div>
-              </article>
+                  <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                    {vaultBullets.map((item) => (
+                      <div key={item} className="rounded-[22px] border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
 
-              <article className="section-shell gradient-flow p-6 sm:p-8" data-reveal data-reveal-delay="90">
-                <div className="badge-pill border-slate-200 bg-slate-950 text-white">Custom systems</div>
-                <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl">Done-for-you automation builds starting at $4,997</h2>
-                <p className="mt-4 text-base leading-8 text-slate-600">
-                  Voice, intake, reminders, reporting, and workflow automation packages are scoped around business impact and operational
-                  complexity.
-                </p>
+                  <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                    <Button asChild className="cta-glow h-12 rounded-full bg-slate-950 px-6 text-sm font-semibold text-white hover:bg-slate-900">
+                      <Link href="/stealth-vault">
+                        View Offer Details
+                        <ArrowUpRight className="h-4 w-4" />
+                      </Link>
+                    </Button>
+                    <Button asChild variant="outline" className="h-12 rounded-full border-white/15 bg-white/5 px-6 text-sm font-semibold text-white hover:bg-white/10">
+                      <Link href="/book">Book Buying Call</Link>
+                    </Button>
+                  </div>
+                </article>
 
-                <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {customBullets.map((item) => (
-                    <div key={item} className="rounded-[22px] border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700">
-                      {item}
-                    </div>
-                  ))}
-                </div>
+                <article className="panel-premium hero-sky-grid overflow-hidden p-6 sm:p-8" data-reveal style={{ transitionDelay: "80ms" }}>
+                  <div className="badge-pill border-primary/10 bg-white/80 text-slate-700">Custom systems</div>
+                  <h2 className="mt-4 text-balance text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl">
+                    Done-for-you automation builds starting at $4,997
+                  </h2>
+                  <p className="mt-4 text-base leading-8 text-slate-600">
+                    Voice, intake, reminders, reporting, and workflow automation packages are scoped around business impact and operational
+                    complexity.
+                  </p>
 
-                <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                  {[
-                    { label: "Build focus", value: "Conversion" },
-                    { label: "Delivery style", value: "Systemized" },
-                    { label: "Ops fit", value: "Custom-scoped" },
-                  ].map((item) => (
-                    <div key={item.label} className="rounded-[22px] border border-slate-200 bg-slate-50 p-4">
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">{item.label}</p>
-                      <p className="mt-2 text-sm font-semibold text-slate-950">{item.value}</p>
-                    </div>
-                  ))}
-                </div>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {pricingSignals.map((item) => (
+                      <span key={item} className="soft-chip border-primary/10 text-slate-700">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
 
-                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                  <Button asChild className="h-12 rounded-full bg-slate-950 px-6 text-sm font-semibold text-white hover:bg-slate-900">
-                    <Link href="/book">
-                      Request Demo
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button asChild variant="outline" className="h-12 rounded-full border-slate-300 bg-white px-6 text-sm font-semibold text-slate-950 hover:bg-slate-50">
-                    <Link href="/automations">Compare Automations</Link>
-                  </Button>
-                </div>
-              </article>
+                  <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                    {customBullets.map((item) => (
+                      <div key={item} className="metric-float px-4 py-3 text-sm font-medium text-slate-700">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                    {[
+                      { label: "Build focus", value: "Conversion" },
+                      { label: "Delivery style", value: "Systemized" },
+                      { label: "Ops fit", value: "Custom-scoped" },
+                    ].map((item) => (
+                      <div key={item.label} className="metric-float p-4">
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">{item.label}</p>
+                        <p className="mt-2 text-sm font-semibold text-slate-950">{item.value}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                    <Button asChild className="cta-glow h-12 rounded-full bg-slate-950 px-6 text-sm font-semibold text-white hover:bg-slate-900">
+                      <Link href="/book">
+                        Request Demo
+                        <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </Button>
+                    <Button asChild variant="outline" className="h-12 rounded-full border-slate-300 bg-white px-6 text-sm font-semibold text-slate-950 hover:bg-slate-50">
+                      <Link href="/automations">Compare Automations</Link>
+                    </Button>
+                  </div>
+
+                  <div className="dashboard-stage px-3 pt-3">
+                    <Image
+                      src="/marketing/sentinel-shield/vishnulabs_sales_demo_v1_3.webp"
+                      alt="VishnuLabs sales and offer walkthrough"
+                      width={1920}
+                      height={1080}
+                      quality={100}
+                      priority
+                      sizes="(max-width: 1024px) 100vw, 38vw"
+                      className="h-full w-full rounded-[24px] object-cover object-top"
+                    />
+                  </div>
+                </article>
+              </div>
             </div>
           </div>
         </section>
@@ -385,8 +421,13 @@ export default function PricingPage() {
               </div>
 
               <div className="mt-8 grid gap-5 lg:grid-cols-2 xl:grid-cols-4">
-                {priceComparisons.map((item) => (
-                  <article key={item.title} className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+                {priceComparisons.map((item, index) => (
+                  <article
+                    key={item.title}
+                    className="metric-float hover-rise-strong p-6"
+                    data-reveal
+                    style={{ transitionDelay: `${index * 60}ms` }}
+                  >
                     <p className="text-lg font-semibold tracking-tight text-slate-950">{item.title}</p>
                     <div className="mt-5 rounded-[20px] border border-slate-200 bg-slate-50 p-4">
                       <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Typical market range</p>
@@ -407,7 +448,7 @@ export default function PricingPage() {
                   "Direct access for custom-package questions",
                   "Real proof and operating context, not vague promises",
                 ].map((item) => (
-                  <div key={item} className="rounded-[22px] border border-slate-200 bg-slate-50 p-4 text-sm font-medium text-slate-700">
+                  <div key={item} className="metric-float px-4 py-4 text-sm font-medium text-slate-700">
                     {item}
                   </div>
                 ))}
@@ -417,6 +458,16 @@ export default function PricingPage() {
                 <CustomSolutionNote title="Not sure which package fits?" />
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="pb-12 pt-4 sm:pb-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+            <ConfidenceRail
+              eyebrow="Pricing confidence"
+              title="The page should make internal approval easier, not harder."
+              subtitle="This structure is designed so founders, operators, and decision-makers can scan the range, compare options, and understand where custom scope starts without digging through vague sales copy."
+            />
           </div>
         </section>
 
@@ -435,14 +486,19 @@ export default function PricingPage() {
               </div>
 
               <div className="mt-8 grid gap-5 xl:grid-cols-3">
-                {productizedOffers.map((offer) => {
+                {productizedOffers.map((offer, index) => {
                   const Icon = offer.icon
 
                   return (
-                    <article key={offer.title} className="flex h-full flex-col rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+                    <article
+                      key={offer.title}
+                      className="metric-float hover-rise-strong beam-sweep relative flex h-full flex-col overflow-hidden p-6"
+                      data-reveal
+                      style={{ transitionDelay: `${index * 70}ms` }}
+                    >
                       <div className="flex items-start justify-between gap-4">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-white">
-                          <Icon className="h-5 w-5 text-orange-300" />
+                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-white shadow-[0_18px_36px_rgba(15,23,42,0.14)]">
+                          <Icon className="h-5 w-5 text-sky-300" />
                         </div>
                         <div className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
                           {offer.billing}
@@ -452,7 +508,7 @@ export default function PricingPage() {
                       <h3 className="mt-5 text-2xl font-semibold tracking-tight text-slate-950">{offer.title}</h3>
                       <p className="mt-3 text-sm leading-7 text-slate-600">{offer.audience}</p>
 
-                      <div className="mt-4 rounded-[20px] border border-slate-200 bg-slate-50 p-4">
+                      <div className="mt-4 rounded-[20px] border border-white/80 bg-white/76 p-4">
                         <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Pricing</p>
                         <p className="mt-2 text-2xl font-semibold tracking-tight text-slate-950">{offer.price}</p>
                         <p className="mt-2 text-sm leading-7 text-slate-600">{offer.note}</p>
@@ -487,8 +543,13 @@ export default function PricingPage() {
               </div>
 
               <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-                {seriousPriceBands.map((item) => (
-                  <article key={item.label} className="rounded-[24px] border border-slate-200 bg-slate-50 p-5">
+                {seriousPriceBands.map((item, index) => (
+                  <article
+                    key={item.label}
+                    className="metric-float hover-rise-strong p-5"
+                    data-reveal
+                    style={{ transitionDelay: `${index * 55}ms` }}
+                  >
                     <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">{item.label}</p>
                     <p className="mt-2 text-2xl font-semibold tracking-tight text-slate-950">{item.value}</p>
                     <p className="mt-2 text-sm leading-7 text-slate-600">{item.detail}</p>
@@ -518,17 +579,19 @@ export default function PricingPage() {
               </div>
 
               <div className="mt-8 grid gap-5 lg:grid-cols-2 2xl:grid-cols-4">
-                {comboOffers.map((offer) => {
+                {comboOffers.map((offer, index) => {
                   const Icon = offer.icon
 
                   return (
                     <article
                       key={offer.title}
-                      className="flex h-full flex-col rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.08)]"
+                      className="metric-float hover-rise-strong flex h-full flex-col p-6"
+                      data-reveal
+                      style={{ transitionDelay: `${index * 65}ms` }}
                     >
                       <div className="flex items-start justify-between gap-4">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-white shadow-[0_14px_30px_rgba(15,23,42,0.14)]">
-                          <Icon className="h-5 w-5 text-orange-300" />
+                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-white shadow-[0_18px_36px_rgba(15,23,42,0.14)]">
+                          <Icon className="h-5 w-5 text-sky-300" />
                         </div>
                         <div className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
                           {offer.badge}
@@ -537,13 +600,13 @@ export default function PricingPage() {
 
                       <div className="mt-5 flex items-center justify-between gap-3">
                         <h3 className="max-w-[14ch] text-2xl font-semibold tracking-tight text-slate-950">{offer.title}</h3>
-                        <div className="shrink-0 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-700">
+                        <div className="shrink-0 rounded-full border border-slate-200 bg-white/75 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-700">
                           {offer.price}
                         </div>
                       </div>
 
                       <p className="mt-4 text-sm leading-7 text-slate-600">{offer.audience}</p>
-                      <p className="mt-4 rounded-[20px] border border-slate-200 bg-slate-50 px-4 py-3 text-sm leading-7 text-slate-700">
+                      <p className="mt-4 rounded-[20px] border border-white/80 bg-white/76 px-4 py-3 text-sm leading-7 text-slate-700">
                         {offer.summary}
                       </p>
 
@@ -593,14 +656,19 @@ export default function PricingPage() {
               </div>
 
               <div className="mt-8 grid gap-5 lg:grid-cols-2">
-                {automationPackages.map((item) => {
+                {automationPackages.map((item, index) => {
                   const Icon = item.icon
 
                   return (
-                    <article key={item.title} className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+                    <article
+                      key={item.title}
+                      className="metric-float hover-rise-strong flex h-full flex-col p-6"
+                      data-reveal
+                      style={{ transitionDelay: `${index * 70}ms` }}
+                    >
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-white">
-                          <Icon className="h-5 w-5 text-orange-300" />
+                          <Icon className="h-5 w-5 text-sky-300" />
                         </div>
                         <div className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
                           {item.price}
@@ -651,7 +719,7 @@ export default function PricingPage() {
                   "QA checklist and go-live validation",
                   "Admin handoff plus post-launch support",
                 ].map((item) => (
-                  <div key={item} className="rounded-[22px] border border-slate-200 bg-white p-5 text-sm text-slate-700">
+                  <div key={item} className="metric-float px-5 py-5 text-sm text-slate-700">
                     <div className="flex items-start gap-2">
                       <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                       <span>{item}</span>

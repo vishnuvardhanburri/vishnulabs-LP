@@ -4,12 +4,12 @@ import { Calendar, Mail } from "lucide-react"
 
 export function GlobalMobileConversionBar() {
   return (
-    <div className="mobile-safe-pad fixed inset-x-0 bottom-0 z-50 border-t border-border/45 bg-background/95 px-3 pt-3 backdrop-blur-xl md:hidden">
+    <div className="mobile-safe-pad fixed inset-x-0 bottom-0 z-50 border-t border-white/75 bg-white/82 px-3 pt-3 backdrop-blur-2xl md:hidden">
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-2">
         <a
           href="/book"
           data-track="funnel_mobile_book_demo_click"
-          className="tap-target inline-flex items-center justify-center gap-2 rounded-lg bg-foreground px-3 py-3 text-sm font-semibold text-background shadow-[0_8px_22px_rgba(249,115,22,0.22)]"
+          className="tap-target inline-flex items-center justify-center gap-2 rounded-[18px] bg-slate-950 px-3 py-3 text-sm font-semibold text-white shadow-[0_14px_30px_rgba(15,23,42,0.18)]"
         >
           <Calendar className="h-4 w-4" />
           Book Demo
@@ -17,7 +17,7 @@ export function GlobalMobileConversionBar() {
         <a
           href="mailto:hello@vishnulabs.com?subject=Payment%20Question%20-%20VishnuLabs"
           data-track="funnel_mobile_email_click"
-          className="tap-target inline-flex items-center justify-center gap-2 rounded-lg border border-primary/45 bg-primary px-3 py-3 text-sm font-semibold text-primary-foreground"
+          className="tap-target inline-flex items-center justify-center gap-2 rounded-[18px] border border-slate-200 bg-white px-3 py-3 text-sm font-semibold text-slate-700 shadow-[0_12px_24px_rgba(15,23,42,0.06)]"
         >
           <Mail className="h-4 w-4" />
           Email Us

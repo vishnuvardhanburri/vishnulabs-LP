@@ -36,11 +36,11 @@ export function Navbar() {
         <div
           className={`rounded-[28px] border transition-all duration-300 ${
             scrolled
-              ? "border-primary/15 bg-background/80 shadow-[0_22px_55px_rgba(15,23,42,0.16)] backdrop-blur-2xl"
-              : "border-white/70 bg-white/70 shadow-[0_14px_40px_rgba(15,23,42,0.08)] backdrop-blur-xl"
+              ? "border-white/88 bg-white/84 shadow-[0_24px_72px_rgba(15,23,42,0.10)] backdrop-blur-2xl"
+              : "border-white/92 bg-white/74 shadow-[0_18px_60px_rgba(15,23,42,0.07)] backdrop-blur-2xl"
           }`}
         >
-          <div className="flex h-[70px] items-center justify-between px-3 sm:px-4">
+          <div className="flex h-[74px] items-center justify-between px-3 sm:px-5">
             <Link href="/" className="tap-target flex items-center gap-3 rounded-full px-1 py-1">
               <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950 shadow-[0_12px_26px_rgba(15,23,42,0.18)]">
                 <img
@@ -62,7 +62,7 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="rounded-full px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground transition-all hover:bg-slate-950 hover:text-white xl:px-3.5 xl:text-[12px]"
+                  className="nav-underline rounded-full px-3 py-2 text-[13px] font-medium tracking-[0.01em] text-slate-600 transition-all hover:bg-white/90 hover:text-slate-950 xl:px-3.5"
                 >
                   {link.label}
                 </Link>
@@ -83,7 +83,7 @@ export function Navbar() {
             </div>
 
             <button
-              className="tap-target inline-flex items-center justify-center rounded-2xl text-foreground transition-colors hover:bg-black/5 lg:hidden"
+              className="tap-target inline-flex items-center justify-center rounded-2xl text-foreground transition-colors hover:bg-slate-900/5 lg:hidden"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
             >
@@ -93,7 +93,7 @@ export function Navbar() {
 
           {mobileOpen && (
             <nav
-              className="border-t border-border/40 bg-white/92 px-3 pb-4 pt-3 backdrop-blur-xl lg:hidden"
+              className="border-t border-border/40 bg-white/94 px-3 pb-4 pt-3 backdrop-blur-2xl lg:hidden"
               aria-label="Mobile navigation"
             >
               <div className="flex flex-col gap-1.5">
@@ -101,7 +101,7 @@ export function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="tap-target rounded-2xl px-3 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:bg-slate-950 hover:text-white"
+                    className="tap-target rounded-2xl px-3 py-3 text-sm font-semibold text-slate-600 transition-colors hover:bg-slate-950 hover:text-white"
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}
@@ -114,7 +114,7 @@ export function Navbar() {
                       <Link
                         key={link.href}
                         href={link.href}
-                        className="rounded-2xl border border-border/40 px-3 py-2 text-center text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:bg-slate-950 hover:text-white"
+                        className="rounded-2xl border border-border/40 bg-white/70 px-3 py-2 text-center text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:bg-slate-950 hover:text-white"
                         onClick={() => setMobileOpen(false)}
                       >
                         {link.label}

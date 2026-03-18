@@ -1,7 +1,7 @@
 "use client"
 
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react"
-import { MessageCircle, RotateCcw, Send, X } from "lucide-react"
+import { Mail, MessageCircle, RotateCcw, Send, X } from "lucide-react"
 
 type ChatMessage = {
   role: "user" | "assistant"
@@ -28,7 +28,7 @@ const STORAGE_KEY = "vishnulabs_assistant_messages_v4"
 
 const initialAssistantMessage: ChatMessage = {
   role: "assistant",
-  text: "Hi, I am VishnuLabs Assistant. Ask me about automations, websites, custom software, pricing, payment, security, timelines, industries, or the Stealth Vault.",
+  text: "Hi, I am VishnuLabs Assistant. Ask about pricing, products, websites, custom software, security, launch scope, or the Stealth Vault.",
 }
 
 const quickPrompts = [
@@ -48,6 +48,9 @@ const defaultLead: AssistantLead = {
   useCase: "",
   website: "",
 }
+
+const fallbackMailto =
+  "mailto:hello@vishnulabs.com?subject=Need%20Help%20From%20Live%20Assistant&body=Hi%20VishnuLabs%2C%0A%0AThe%20live%20assistant%20widget%20could%20not%20send%20my%20request.%20Please%20contact%20me.%0A%0AName%3A%0AEmail%3A%0APhone%3A%0AUse-case%3A%0A"
 
 const intents: Intent[] = [
   {
@@ -347,7 +350,7 @@ export function LiveChatAssistant() {
       const data = (await response.json()) as { ok?: boolean; error?: string }
 
       if (!response.ok || !data.ok) {
-        setLeadError(data.error || "Unable to submit lead now.")
+        setLeadError(data.error || "The assistant could not send this request right now. Email us directly and we will reply quickly with the right next step.")
         trackAssistantEvent("funnel_live_assistant_lead_submit_error", { response_status: response.status })
         return
       }
@@ -364,7 +367,7 @@ export function LiveChatAssistant() {
       ])
       trackAssistantEvent("funnel_live_assistant_lead_submit_success")
     } catch {
-      setLeadError("Unexpected error while submitting lead.")
+      setLeadError("The assistant hit a temporary delivery issue. Email hello@vishnulabs.com and we will reply as soon as possible.")
       trackAssistantEvent("funnel_live_assistant_lead_submit_error", { response_status: 0 })
     } finally {
       setLeadLoading(false)
@@ -376,12 +379,12 @@ export function LiveChatAssistant() {
       {open && (
         <section
           id="chat"
-          className="fixed bottom-[calc(94px+env(safe-area-inset-bottom))] right-2 z-[60] hidden w-[calc(100vw-1rem)] max-w-[390px] flex-col overflow-hidden rounded-2xl border border-border/60 bg-background/95 shadow-[0_20px_42px_rgba(249,115,22,0.2)] backdrop-blur-xl md:bottom-20 md:right-4 md:flex md:w-[390px]"
+          className="assistant-shell assistant-enter fixed bottom-[calc(94px+env(safe-area-inset-bottom))] right-2 z-[60] hidden w-[calc(100vw-1rem)] max-w-[400px] flex-col overflow-hidden rounded-[28px] md:bottom-20 md:right-4 md:flex md:w-[400px]"
         >
           <header className="flex items-center justify-between border-b border-border/50 px-4 py-3">
             <div>
-              <p className="text-sm font-semibold text-foreground">VishnuLabs Live Assistant</p>
-              <p className="text-[11px] text-muted-foreground">Full-site product, pricing, and delivery answers</p>
+              <p className="text-base font-semibold text-foreground">VishnuLabs Live Assistant</p>
+              <p className="text-[11px] text-muted-foreground">Ask about pricing, scope, delivery, and best-fit systems</p>
             </div>
             <div className="flex items-center gap-1">
               <button
@@ -403,12 +406,12 @@ export function LiveChatAssistant() {
             </div>
           </header>
 
-          <div ref={listRef} className="max-h-[360px] space-y-3 overflow-y-auto px-4 py-3">
+          <div ref={listRef} className="max-h-[380px] space-y-3 overflow-y-auto px-4 py-3">
             {messages.map((msg, idx) => (
               <div
                 key={`${msg.role}-${idx}`}
-                className={`rounded-xl px-3 py-2 text-sm leading-relaxed ${
-                  msg.role === "assistant" ? "bg-secondary text-foreground" : "ml-10 bg-primary/15 text-foreground"
+                className={`rounded-2xl px-3 py-2.5 text-sm leading-relaxed shadow-[0_8px_20px_rgba(15,23,42,0.04)] ${
+                  msg.role === "assistant" ? "border border-white/80 bg-white/86 text-foreground" : "ml-10 bg-slate-950 text-white"
                 }`}
               >
                 {msg.text}
@@ -416,7 +419,7 @@ export function LiveChatAssistant() {
             ))}
 
             {leadCaptureOpen && !leadSubmitted ? (
-              <form onSubmit={submitLeadCapture} className="rounded-xl border border-border/60 bg-card/80 p-3">
+              <form onSubmit={submitLeadCapture} className="rounded-[24px] border border-white/80 bg-white/82 p-3 shadow-[0_12px_28px_rgba(15,23,42,0.05)]">
                 <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Want help fast?</p>
                 <p className="mt-1 text-xs text-muted-foreground">Share details and we will reach out with the best-fit solution.</p>
 
@@ -466,13 +469,25 @@ export function LiveChatAssistant() {
                   />
                 </div>
 
-                {leadError ? <p className="mt-2 text-[11px] text-destructive">{leadError}</p> : null}
+                {leadError ? (
+                  <div className="mt-3 rounded-[22px] border border-primary/12 bg-primary/5 px-3.5 py-3.5 text-[11px] leading-5 text-slate-700 shadow-[0_12px_28px_rgba(15,23,42,0.04)]">
+                    <p className="font-semibold uppercase tracking-[0.18em] text-primary">Direct contact fallback</p>
+                    <p className="mt-2">{leadError}</p>
+                    <a
+                      href={fallbackMailto}
+                      className="mt-3 inline-flex items-center gap-1 rounded-full border border-slate-300 bg-white px-3 py-1.5 text-[11px] font-semibold text-slate-950 transition-colors hover:bg-slate-100"
+                    >
+                      <Mail className="h-3.5 w-3.5" />
+                      Email us instead
+                    </a>
+                  </div>
+                ) : null}
 
                 <div className="mt-2 flex gap-2">
                   <button
                     type="submit"
                     data-track="funnel_live_assistant_lead_submit_click"
-                    className="inline-flex h-9 items-center justify-center rounded-lg bg-foreground px-3 text-xs font-semibold text-background"
+                    className="inline-flex h-9 items-center justify-center rounded-full bg-slate-950 px-3.5 text-xs font-semibold text-white shadow-[0_10px_24px_rgba(15,23,42,0.18)]"
                     disabled={leadLoading}
                   >
                     {leadLoading ? "Sending..." : "Submit"}
@@ -483,7 +498,7 @@ export function LiveChatAssistant() {
                       setLeadCaptureOpen(false)
                       trackAssistantEvent("funnel_live_assistant_lead_prompt_dismissed")
                     }}
-                    className="inline-flex h-9 items-center justify-center rounded-lg border border-border/60 px-3 text-xs text-muted-foreground"
+                    className="inline-flex h-9 items-center justify-center rounded-full border border-border/60 bg-white/70 px-3 text-xs text-muted-foreground"
                   >
                     Skip
                   </button>
@@ -499,7 +514,7 @@ export function LiveChatAssistant() {
                   key={prompt}
                   type="button"
                   onClick={() => sendMessage(prompt)}
-                  className="rounded-full border border-border/60 px-2.5 py-1 text-[11px] text-muted-foreground hover:bg-secondary hover:text-foreground"
+                  className="rounded-full border border-white/80 bg-white/72 px-2.5 py-1 text-[11px] text-muted-foreground shadow-[0_6px_16px_rgba(15,23,42,0.03)] hover:bg-secondary hover:text-foreground"
                 >
                   {prompt}
                 </button>
@@ -512,14 +527,14 @@ export function LiveChatAssistant() {
                 onKeyDown={(e) => {
                   if (e.key === "Enter") sendMessage(input)
                 }}
-                className="h-10 w-full rounded-lg border border-border/60 bg-card/80 px-3 text-sm text-foreground outline-none ring-0 placeholder:text-muted-foreground focus:border-primary/65"
+                className="h-11 w-full rounded-full border border-white/80 bg-white/84 px-4 text-sm text-foreground outline-none ring-0 placeholder:text-muted-foreground shadow-[0_8px_20px_rgba(15,23,42,0.04)] focus:border-primary/65"
                 placeholder="Ask about services, pricing, security, payment..."
               />
               <button
                 type="button"
                 onClick={() => sendMessage(input)}
                 disabled={!canSend}
-                className="tap-target inline-flex h-10 w-10 items-center justify-center rounded-lg bg-foreground text-background disabled:cursor-not-allowed disabled:opacity-50"
+                className="tap-target inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-950 text-white disabled:cursor-not-allowed disabled:opacity-50"
                 aria-label="Send message"
               >
                 <Send className="h-4 w-4" />
@@ -536,7 +551,7 @@ export function LiveChatAssistant() {
           trackAssistantEvent("funnel_live_assistant_toggle_click")
         }}
         data-track="funnel_live_assistant_toggle_click"
-        className="tap-target fixed bottom-[calc(94px+env(safe-area-inset-bottom))] right-3 z-[55] hidden items-center gap-2 rounded-full border border-primary/45 bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground shadow-[0_12px_30px_rgba(249,115,22,0.26)] md:bottom-6 md:right-6 md:inline-flex"
+        className="tap-target cta-glow fixed bottom-[calc(94px+env(safe-area-inset-bottom))] right-3 z-[55] hidden items-center gap-2 rounded-full border border-slate-900/20 bg-slate-950 px-4 py-3 text-sm font-semibold text-white md:bottom-6 md:right-6 md:inline-flex pulse-glow"
       >
         <MessageCircle className="h-4 w-4" />
         Live Assistant

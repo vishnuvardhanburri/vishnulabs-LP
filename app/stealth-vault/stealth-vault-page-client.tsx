@@ -267,19 +267,22 @@ export function StealthVaultPageClient() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-slate-950 pb-20 pt-28 text-slate-100 sm:pt-32 md:pb-24">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(249,115,22,0.26),transparent_38%),radial-gradient(circle_at_84%_12%,rgba(234,88,12,0.2),transparent_38%)]" />
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:44px_44px]" />
+    <section className="relative overflow-hidden pb-20 pt-28 sm:pt-32 md:pb-24">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(79,70,229,0.14),transparent_34%),radial-gradient(circle_at_84%_12%,rgba(96,165,250,0.16),transparent_34%),linear-gradient(180deg,rgba(248,250,255,0.96),rgba(238,244,255,0.88))]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(79,70,229,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(79,70,229,0.04)_1px,transparent_1px)] bg-[size:44px_44px]" />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-200" data-reveal>
-          <BadgeCheck className="h-3.5 w-3.5 text-orange-400" />
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/12 bg-white/82 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-700 shadow-[0_14px_30px_rgba(15,23,42,0.06)]" data-reveal>
+          <BadgeCheck className="h-3.5 w-3.5 text-sky-500" />
           Trusted by law firms & clinics across the US
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8" data-reveal>
-          <div className="rounded-2xl border border-white/15 bg-white/5 p-5 shadow-[0_24px_60px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:p-7">
-            <div className="inline-flex items-center gap-2 rounded-full border border-orange-300/25 bg-orange-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-100">
+        <div className="hero-shell app-shell-enter px-4 py-4 sm:px-5 sm:py-5 lg:px-6 lg:py-6" data-reveal>
+          <div className="cloud-soft left-5 top-12 hidden h-16 w-24 lg:block" />
+          <div className="cloud-soft right-10 top-20 hidden h-14 w-24 lg:block" />
+          <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8">
+          <div className="section-shell-dark ambient-grid-dark p-5 shadow-[0_24px_60px_rgba(0,0,0,0.2)] sm:p-7">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/12 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-100">
               Launch offer: first 100 members only
             </div>
             <h1 className="text-balance text-[1.95rem] font-bold leading-[1.06] tracking-tight text-white sm:text-[2.55rem] lg:text-[3.1rem]">
@@ -290,16 +293,16 @@ export function StealthVaultPageClient() {
               Stop data leaks from ChatGPT/Claude. Local, air-gapped AI that auto-redacts PII/secrets, remembers all files, answers offline in 2 seconds.
             </p>
 
-            <div className="mt-5 rounded-2xl border border-orange-300/25 bg-black/30 p-4">
+            <div className="mt-5 rounded-2xl border border-primary/18 bg-primary/10 p-4">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-100">Grab offer</p>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-sky-100">Grab offer</p>
                   <p className="mt-1 text-sm text-slate-200">
                     Limited-time one-time lifetime license at $15,000 for the first 100 members. Offer closes in 20 days or when the first
                     100 slots are filled.
                   </p>
                 </div>
-                <span className="rounded-full border border-orange-300/25 bg-orange-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-100">
+                <span className="rounded-full border border-sky-300/20 bg-black/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-100">
                   First 100 only
                 </span>
               </div>
@@ -310,8 +313,8 @@ export function StealthVaultPageClient() {
                   { label: "Offer window", value: "20 days", detail: "Countdown stays live until the launch window ends." },
                   { label: "Tier 1 price", value: "$15,000", detail: "One-time lifetime license during launch only." },
                 ].map((item) => (
-                  <div key={item.label} className="rounded-2xl border border-orange-300/15 bg-orange-500/5 px-4 py-3">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-orange-100">{item.label}</p>
+                  <div key={item.label} className="rounded-2xl border border-primary/12 bg-primary/8 px-4 py-3">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-sky-100">{item.label}</p>
                     <p className="mt-2 text-2xl font-bold tracking-tight text-white">{item.value}</p>
                     <p className="mt-1 text-xs leading-6 text-slate-300">{item.detail}</p>
                   </div>
@@ -338,7 +341,7 @@ export function StealthVaultPageClient() {
                 </p>
               ) : (
                 <p className="mt-3 text-sm text-slate-300">
-                  Tier 1 is reserved for the <span className="font-semibold text-orange-100">first 100 members only</span>. If the first 100
+                  Tier 1 is reserved for the <span className="font-semibold text-sky-100">first 100 members only</span>. If the first 100
                   slots fill before the timer ends, the launch offer closes early.
                 </p>
               )}
@@ -348,7 +351,7 @@ export function StealthVaultPageClient() {
               {featureList.map((feature) => (
                 <div key={feature} className="rounded-xl border border-white/15 bg-slate-900/70 px-3 py-2.5 text-sm text-slate-200" data-reveal>
                   <p className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-orange-400" />
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-sky-300" />
                     <span>{feature}</span>
                   </p>
                 </div>
@@ -359,7 +362,7 @@ export function StealthVaultPageClient() {
               {trustVerticals.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-orange-300/30 bg-orange-500/10 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-orange-100"
+                  className="rounded-full border border-primary/20 bg-primary/12 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-sky-100"
                 >
                   {item}
                 </span>
@@ -369,7 +372,7 @@ export function StealthVaultPageClient() {
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               <Button
                 asChild
-                className="min-h-12 rounded-2xl bg-orange-500 px-5 py-3 text-center text-sm font-semibold text-white shadow-[0_14px_35px_rgba(249,115,22,0.42)] hover:bg-orange-400"
+                className="min-h-12 rounded-2xl border border-white/25 bg-white px-5 py-3 text-center text-sm font-semibold text-slate-950 hover:bg-slate-100"
               >
                 <a
                   href={TIER_ONE_PAYMENT_HREF}
@@ -397,48 +400,48 @@ export function StealthVaultPageClient() {
           </div>
 
           <aside className="grid gap-4" data-reveal>
-            <div className="rounded-2xl border border-orange-300/30 bg-orange-500/10 p-5 shadow-[0_20px_40px_rgba(0,0,0,0.28)]">
-              <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-orange-100">
+            <div className="metric-float p-5">
+              <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
                 <ShieldCheck className="h-4 w-4" />
                 Why Buy Now
               </p>
-              <p className="mt-3 text-sm leading-relaxed text-orange-50">
+              <p className="mt-3 text-sm leading-relaxed text-slate-700">
                 Worried about data leaks from everyday AI usage? This is your private alternative. Keep AI speed, remove public-cloud leak
                 exposure, and keep full ownership inside your office.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-white/15 bg-white/5 p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">Pricing & License</p>
+            <div className="section-shell p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Pricing & License</p>
               <div className="mt-4 grid gap-4">
                 {pricingTiers.map((tier, index) => (
                   <div
                     key={tier.name}
                     className={
                       index === 0
-                        ? "rounded-2xl border border-orange-300/30 bg-orange-500/10 p-4"
-                        : "rounded-2xl border border-white/12 bg-slate-900/70 p-4"
+                        ? "rounded-2xl border border-primary/18 bg-primary/10 p-4"
+                        : "rounded-2xl border border-slate-200 bg-slate-50 p-4"
                     }
                   >
                     <div className="flex flex-wrap items-center justify-between gap-3">
                       <div>
-                        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-300">{tier.eyebrow}</p>
-                        <p className="mt-2 text-lg font-semibold text-white">{tier.name}</p>
+                        <p className={`text-[11px] font-semibold uppercase tracking-[0.22em] ${index === 0 ? "text-primary" : "text-slate-500"}`}>{tier.eyebrow}</p>
+                        <p className={`mt-2 text-lg font-semibold ${index === 0 ? "text-slate-950" : "text-slate-950"}`}>{tier.name}</p>
                       </div>
                       {index === 0 ? (
-                        <span className="rounded-full border border-orange-300/25 bg-orange-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-100">
+                        <span className="rounded-full border border-primary/20 bg-white/65 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
                           First 100 members
                         </span>
                       ) : null}
                     </div>
 
-                    <p className="mt-4 text-3xl font-bold tracking-tight text-white">{tier.price}</p>
-                    <p className="mt-1 text-sm leading-relaxed text-slate-300">{tier.summary}</p>
+                    <p className="mt-4 text-3xl font-bold tracking-tight text-slate-950">{tier.price}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-slate-600">{tier.summary}</p>
 
-                    <ul className="mt-4 space-y-2 text-sm text-slate-200">
+                    <ul className="mt-4 space-y-2 text-sm text-slate-700">
                       {tier.points.map((point) => (
                         <li key={point} className="flex items-start gap-2">
-                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-orange-400" />
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                           <span>{point}</span>
                         </li>
                       ))}
@@ -449,15 +452,16 @@ export function StealthVaultPageClient() {
             </div>
           </aside>
         </div>
+        </div>
 
         <div className="mt-8 grid gap-5 lg:grid-cols-2" data-reveal>
-          <div className="rounded-2xl border border-white/15 bg-white/5 p-5 lg:col-span-2">
+          <div className="section-shell p-5 lg:col-span-2">
             <div className="grid gap-6 xl:grid-cols-[1.02fr_0.98fr]">
               <article className="rounded-[28px] border border-white/12 bg-slate-900/70 p-4 sm:p-5">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
                     <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-300">
-                      <ShieldCheck className="h-4 w-4 text-orange-400" />
+                      <ShieldCheck className="h-4 w-4 text-sky-300" />
                       Live product proof
                     </p>
                     <h2 className="mt-3 text-balance text-2xl font-semibold tracking-tight text-white sm:text-[2rem]">
@@ -480,6 +484,7 @@ export function StealthVaultPageClient() {
                     alt="Stealth vault interface showing a high-risk intercept and local vault response"
                     width={2940}
                     height={1846}
+                    quality={100}
                     priority
                     sizes="(min-width: 1280px) 50vw, 100vw"
                     className="h-auto w-full object-cover"
@@ -517,6 +522,7 @@ export function StealthVaultPageClient() {
                       alt="SentinelVault dashboard with risk chart, recent findings, sidebar, and ingest document button"
                       width={2940}
                       height={1846}
+                      quality={100}
                       sizes="(min-width: 1280px) 32vw, 100vw"
                       className="h-auto w-full object-cover"
                     />
@@ -531,7 +537,7 @@ export function StealthVaultPageClient() {
                         Audit-table evidence for redacted files, risk index, archive status, and export-ready operator review.
                       </p>
                     </div>
-                    <span className="rounded-full border border-orange-300/20 bg-orange-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-100">
+                    <span className="rounded-full border border-primary/20 bg-primary/12 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-100">
                       Audit ready
                     </span>
                   </div>
@@ -542,6 +548,7 @@ export function StealthVaultPageClient() {
                       alt="Compliance view with timestamped audit log export and archived file statuses"
                       width={2940}
                       height={1846}
+                      quality={100}
                       sizes="(min-width: 1280px) 32vw, 100vw"
                       className="h-auto w-full object-cover"
                     />
@@ -551,11 +558,11 @@ export function StealthVaultPageClient() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/15 bg-white/5 p-5 lg:col-span-2">
+          <div className="section-shell p-5 lg:col-span-2">
             <div className="grid gap-6 lg:grid-cols-[1.02fr_0.98fr]">
               <article className="rounded-[28px] border border-white/12 bg-slate-900/70 p-4 sm:p-5">
                 <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-300">
-                  <Siren className="h-4 w-4 text-orange-400" />
+                  <Siren className="h-4 w-4 text-sky-300" />
                   Proof alert logs
                 </p>
                 <h2 className="mt-3 text-balance text-2xl font-semibold tracking-tight text-white sm:text-[2rem]">
@@ -572,6 +579,7 @@ export function StealthVaultPageClient() {
                     alt="Terminal proof showing air-gapped vault status and secure offline query results"
                     width={2940}
                     height={1846}
+                    quality={100}
                     sizes="(min-width: 1024px) 50vw, 100vw"
                     className="h-auto w-full object-cover"
                   />
@@ -594,7 +602,7 @@ export function StealthVaultPageClient() {
                               item.severity === "Critical"
                                 ? "rounded-full border border-red-400/20 bg-red-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-red-200"
                                 : item.severity === "High"
-                                  ? "rounded-full border border-orange-300/20 bg-orange-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-100"
+                                  ? "rounded-full border border-sky-300/20 bg-primary/12 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-100"
                                   : "rounded-full border border-amber-300/20 bg-amber-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-100"
                             }
                           >
@@ -615,7 +623,7 @@ export function StealthVaultPageClient() {
                         key={line}
                         className={
                           line.includes("[CRITICAL]")
-                            ? "text-orange-300"
+                            ? "text-sky-300"
                             : line.includes("[WARNING]")
                               ? "text-amber-200"
                               : "text-emerald-200"
@@ -630,20 +638,20 @@ export function StealthVaultPageClient() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/15 bg-white/5 p-5">
-            <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
-              <Mail className="h-4 w-4 text-orange-400" />
+          <div className="metric-float p-5">
+            <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+              <Mail className="h-4 w-4 text-primary" />
               Payoneer Only
             </p>
 
-            <p className="mt-4 text-sm leading-relaxed text-slate-300">Payoneer: Send to vishnuvardhanburri19@gmail.com (USD account)</p>
+            <p className="mt-4 text-sm leading-relaxed text-slate-700">Payoneer: Send to vishnuvardhanburri19@gmail.com (USD account)</p>
 
             <div className="mt-4 grid gap-3">
               <a
                 href={TIER_ONE_PAYMENT_HREF}
                 data-track="funnel_stealth_cta_tier_one_click_payment"
                 onClick={() => trackEvent("funnel_stealth_cta_tier_one_click", { source: "payment_block" })}
-                className="inline-flex w-full items-center justify-between rounded-xl border border-orange-300/35 bg-orange-500/15 px-4 py-3 text-sm font-semibold text-orange-50 transition-colors hover:bg-orange-500/25"
+                className="inline-flex w-full items-center justify-between rounded-xl border border-slate-900/15 bg-slate-950 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-900"
               >
                 <span>Pay $15,000 Lifetime Now</span>
                 <ArrowUpRight className="h-4 w-4" />
@@ -653,23 +661,23 @@ export function StealthVaultPageClient() {
                 href={TIER_TWO_PAYMENT_HREF}
                 data-track="funnel_stealth_cta_tier_two_click_payment"
                 onClick={() => trackEvent("funnel_stealth_cta_tier_two_click", { source: "payment_block" })}
-                className="inline-flex w-full items-center justify-between rounded-xl border border-white/20 bg-slate-900/70 px-4 py-3 text-sm font-semibold text-slate-100 transition-colors hover:bg-slate-800"
+                className="inline-flex w-full items-center justify-between rounded-xl border border-slate-200 bg-white/75 px-4 py-3 text-sm font-semibold text-slate-950 transition-colors hover:bg-white"
               >
                 <span>Pay $10,000 + $1,000/mo Now</span>
                 <ArrowUpRight className="h-4 w-4" />
               </a>
             </div>
 
-            <div className="mt-4 rounded-xl border border-white/15 bg-slate-900/70 p-4 text-sm text-slate-200">
-              <p className="font-semibold text-white">Manual follow-up after payment:</p>
+            <div className="mt-4 rounded-xl border border-slate-200 bg-white/78 p-4 text-sm text-slate-700">
+              <p className="font-semibold text-slate-950">Manual follow-up after payment:</p>
               <p className="mt-2">
                 After payment, we manually send invoice, Loom demo link, installation guide, license key, and setup call booking within
                 24 hours. No auto-emails — personal follow-up only.
               </p>
               <ul className="mt-3 grid gap-1 sm:grid-cols-2">
                 {paymentHelpPoints.map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-slate-300">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-orange-400" />
+                  <li key={item} className="flex items-center gap-2 text-slate-600">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
                     {item}
                   </li>
                 ))}
@@ -677,13 +685,13 @@ export function StealthVaultPageClient() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/15 bg-white/5 p-5" id="vault-contact">
-            <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
-              <Sparkles className="h-4 w-4 text-orange-400" />
+          <div className="section-shell p-5" id="vault-contact">
+            <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+              <Sparkles className="h-4 w-4 text-primary" />
               Customizations & Questions
             </p>
 
-            <p className="mt-3 text-sm text-slate-300">
+            <p className="mt-3 text-sm text-slate-700">
               For customizations or questions, email{" "}
               <a className="underline underline-offset-2" href="mailto:hello@vishnulabs.com" data-track="funnel_stealth_cta_email_click">
                 hello@vishnulabs.com
@@ -706,46 +714,46 @@ export function StealthVaultPageClient() {
               </div>
 
               <div className="grid gap-3 sm:grid-cols-2">
-                <label className="grid gap-1.5 text-sm text-slate-300">
+                <label className="grid gap-1.5 text-sm text-slate-700">
                   Name
                   <input
                     value={contactForm.name}
                     onChange={(event) => setContactForm((prev) => ({ ...prev, name: event.target.value }))}
                     required
-                    className="h-11 rounded-lg border border-white/20 bg-slate-900/70 px-3 text-sm text-white outline-none focus:border-orange-400"
+                    className="h-11 rounded-2xl border border-slate-200 bg-white/80 px-3 text-sm text-slate-950 outline-none focus:border-primary"
                   />
                 </label>
 
-                <label className="grid gap-1.5 text-sm text-slate-300">
+                <label className="grid gap-1.5 text-sm text-slate-700">
                   Email
                   <input
                     type="email"
                     value={contactForm.email}
                     onChange={(event) => setContactForm((prev) => ({ ...prev, email: event.target.value }))}
                     required
-                    className="h-11 rounded-lg border border-white/20 bg-slate-900/70 px-3 text-sm text-white outline-none focus:border-orange-400"
+                    className="h-11 rounded-2xl border border-slate-200 bg-white/80 px-3 text-sm text-slate-950 outline-none focus:border-primary"
                   />
                 </label>
               </div>
 
-              <label className="grid gap-1.5 text-sm text-slate-300">
+              <label className="grid gap-1.5 text-sm text-slate-700">
                 Phone
                 <input
                   value={contactForm.phone}
                   onChange={(event) => setContactForm((prev) => ({ ...prev, phone: event.target.value }))}
                   required
-                  className="h-11 rounded-lg border border-white/20 bg-slate-900/70 px-3 text-sm text-white outline-none focus:border-orange-400"
+                  className="h-11 rounded-2xl border border-slate-200 bg-white/80 px-3 text-sm text-slate-950 outline-none focus:border-primary"
                 />
               </label>
 
-              <label className="grid gap-1.5 text-sm text-slate-300">
+              <label className="grid gap-1.5 text-sm text-slate-700">
                 Message
                 <textarea
                   value={contactForm.message}
                   onChange={(event) => setContactForm((prev) => ({ ...prev, message: event.target.value }))}
                   required
                   rows={4}
-                  className="rounded-lg border border-white/20 bg-slate-900/70 px-3 py-2.5 text-sm text-white outline-none focus:border-orange-400"
+                  className="rounded-[22px] border border-slate-200 bg-white/80 px-3 py-2.5 text-sm text-slate-950 outline-none focus:border-primary"
                 />
               </label>
 
@@ -754,12 +762,12 @@ export function StealthVaultPageClient() {
                   type="submit"
                   disabled={contactLoading}
                   data-track="funnel_stealth_form_submit_click"
-                  className="h-11 rounded-full bg-orange-500 px-6 text-sm font-semibold text-white hover:bg-orange-400 disabled:opacity-70"
+                  className="cta-glow h-11 rounded-full bg-slate-950 px-6 text-sm font-semibold text-white hover:bg-slate-900 disabled:opacity-70"
                 >
                   {contactLoading ? "Sending..." : "Send Request"}
                 </Button>
 
-                <Button asChild variant="outline" className="h-11 rounded-full border-white/25 bg-transparent px-6 text-sm text-white hover:bg-white/10">
+                <Button asChild variant="outline" className="h-11 rounded-full border-slate-300 bg-white px-6 text-sm text-slate-950 hover:bg-slate-50">
                   <a
                     href="/book"
                     data-track="funnel_stealth_cta_book_call_click_form"
@@ -773,13 +781,13 @@ export function StealthVaultPageClient() {
               </div>
 
               {contactState === "success" ? (
-                <p className="rounded-lg border border-emerald-400/35 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200">
+                <p className="rounded-lg border border-emerald-400/35 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-700">
                   Message sent. VishnuLabs will reply from hello@vishnulabs.com.
                 </p>
               ) : null}
 
               {contactState === "error" ? (
-                <p className="flex items-start gap-2 rounded-lg border border-red-400/40 bg-red-500/10 px-3 py-2 text-sm text-red-200">
+                <p className="flex items-start gap-2 rounded-lg border border-red-400/40 bg-red-500/10 px-3 py-2 text-sm text-red-700">
                   <AlertTriangle className="mt-0.5 h-4 w-4" />
                   {contactError || "Request failed. Please try again."}
                 </p>
@@ -788,86 +796,86 @@ export function StealthVaultPageClient() {
           </div>
         </div>
 
-        <div className="mt-6 rounded-2xl border border-white/15 bg-white/5 p-5" data-reveal>
-          <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
-            <Calculator className="h-4 w-4 text-orange-400" />
+        <div className="section-shell mt-6 p-5" data-reveal>
+          <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+            <Calculator className="h-4 w-4 text-primary" />
             ROI Calculator (Estimate)
           </p>
           <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <label className="grid gap-1 text-xs text-slate-300">
+            <label className="grid gap-1 text-xs text-slate-600">
               Team members using AI
               <input
                 type="number"
                 min={1}
                 value={teamMembers}
                 onChange={(event) => setTeamMembers(Number(event.target.value || 0))}
-                className="h-10 rounded-lg border border-white/20 bg-slate-900/70 px-3 text-sm text-white outline-none focus:border-orange-400"
+                className="h-10 rounded-2xl border border-slate-200 bg-white/80 px-3 text-sm text-slate-950 outline-none focus:border-primary"
               />
             </label>
-            <label className="grid gap-1 text-xs text-slate-300">
+            <label className="grid gap-1 text-xs text-slate-600">
               Avg hourly cost (USD)
               <input
                 type="number"
                 min={1}
                 value={hourlyRate}
                 onChange={(event) => setHourlyRate(Number(event.target.value || 0))}
-                className="h-10 rounded-lg border border-white/20 bg-slate-900/70 px-3 text-sm text-white outline-none focus:border-orange-400"
+                className="h-10 rounded-2xl border border-slate-200 bg-white/80 px-3 text-sm text-slate-950 outline-none focus:border-primary"
               />
             </label>
-            <label className="grid gap-1 text-xs text-slate-300">
+            <label className="grid gap-1 text-xs text-slate-600">
               Hours saved / member / month
               <input
                 type="number"
                 min={1}
                 value={hoursSavedPerMember}
                 onChange={(event) => setHoursSavedPerMember(Number(event.target.value || 0))}
-                className="h-10 rounded-lg border border-white/20 bg-slate-900/70 px-3 text-sm text-white outline-none focus:border-orange-400"
+                className="h-10 rounded-2xl border border-slate-200 bg-white/80 px-3 text-sm text-slate-950 outline-none focus:border-primary"
               />
             </label>
-            <label className="grid gap-1 text-xs text-slate-300">
+            <label className="grid gap-1 text-xs text-slate-600">
               Leak incidents prevented / month
               <input
                 type="number"
                 min={0}
                 value={incidentsPrevented}
                 onChange={(event) => setIncidentsPrevented(Number(event.target.value || 0))}
-                className="h-10 rounded-lg border border-white/20 bg-slate-900/70 px-3 text-sm text-white outline-none focus:border-orange-400"
+                className="h-10 rounded-2xl border border-slate-200 bg-white/80 px-3 text-sm text-slate-950 outline-none focus:border-primary"
               />
             </label>
           </div>
 
           <div className="mt-4 grid gap-3 sm:grid-cols-3">
-            <div className="rounded-xl border border-white/15 bg-slate-900/70 p-3">
-              <p className="text-[11px] uppercase tracking-widest text-slate-400">Monthly labor savings</p>
-              <p className="mt-1 text-xl font-semibold text-white">{formatUsd(monthlyLaborSavings)}</p>
+            <div className="metric-float p-3">
+              <p className="text-[11px] uppercase tracking-widest text-slate-500">Monthly labor savings</p>
+              <p className="mt-1 text-xl font-semibold text-slate-950">{formatUsd(monthlyLaborSavings)}</p>
             </div>
-            <div className="rounded-xl border border-white/15 bg-slate-900/70 p-3">
-              <p className="text-[11px] uppercase tracking-widest text-slate-400">Risk protection value</p>
-              <p className="mt-1 text-xl font-semibold text-white">{formatUsd(monthlyRiskProtection)}</p>
+            <div className="metric-float p-3">
+              <p className="text-[11px] uppercase tracking-widest text-slate-500">Risk protection value</p>
+              <p className="mt-1 text-xl font-semibold text-slate-950">{formatUsd(monthlyRiskProtection)}</p>
             </div>
-            <div className="rounded-xl border border-white/15 bg-slate-900/70 p-3">
-              <p className="text-[11px] uppercase tracking-widest text-slate-400">Estimated payback</p>
-              <p className="mt-1 text-xl font-semibold text-white">{paybackMonths.toFixed(1)} months</p>
+            <div className="metric-float p-3">
+              <p className="text-[11px] uppercase tracking-widest text-slate-500">Estimated payback</p>
+              <p className="mt-1 text-xl font-semibold text-slate-950">{paybackMonths.toFixed(1)} months</p>
             </div>
           </div>
-          <p className="mt-3 text-xs leading-relaxed text-slate-400">
+          <p className="mt-3 text-xs leading-relaxed text-slate-500">
             Estimator for planning only. Final ROI depends on workflow volume, compliance burden, current manual process, and team behavior.
           </p>
         </div>
 
-        <div className="mt-7 rounded-2xl border border-white/15 bg-white/5 p-5 text-sm text-slate-200" data-reveal>
-          <p className="inline-flex items-start gap-2 font-semibold text-white">
-            <Siren className="mt-0.5 h-4 w-4 text-orange-400" />
+        <div className="section-shell mt-7 p-5 text-sm text-slate-700" data-reveal>
+          <p className="inline-flex items-start gap-2 font-semibold text-slate-950">
+            <Siren className="mt-0.5 h-4 w-4 text-primary" />
             Security-first teams move now, not after a leak.
           </p>
-          <p className="mt-2 leading-relaxed text-slate-300">
+          <p className="mt-2 leading-relaxed text-slate-600">
             Public AI tools are useful, but confidential legal and clinical workflows need an internal vault with deterministic controls.
             VishnuLabs builds the secure path so your team can keep speed without exposing sensitive data.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
             <Button
               asChild
-              className="min-h-12 rounded-2xl bg-orange-500 px-5 py-3 text-center text-sm font-semibold text-white shadow-[0_14px_35px_rgba(249,115,22,0.42)] hover:bg-orange-400"
+              className="min-h-12 rounded-2xl border border-slate-900/15 bg-slate-950 px-5 py-3 text-center text-sm font-semibold text-white hover:bg-slate-900"
             >
               <a
                 href={TIER_ONE_PAYMENT_HREF}
@@ -878,7 +886,7 @@ export function StealthVaultPageClient() {
               </a>
             </Button>
 
-            <Button asChild variant="outline" className="min-h-12 rounded-2xl border-white/25 bg-transparent px-5 py-3 text-center text-sm text-white hover:bg-white/10">
+            <Button asChild variant="outline" className="min-h-12 rounded-2xl border-slate-300 bg-white px-5 py-3 text-center text-sm text-slate-950 hover:bg-slate-50">
               <a
                 href={TIER_TWO_PAYMENT_HREF}
                 data-track="funnel_stealth_cta_tier_two_click_footer"

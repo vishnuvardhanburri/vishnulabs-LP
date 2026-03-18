@@ -39,7 +39,7 @@ export function CustomSolutionNote({
       <div className="flex items-start gap-3">
         <div
           className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl ${
-            dark ? "bg-orange-500/12 text-orange-200" : "bg-slate-950 text-white"
+            dark ? "bg-primary/14 text-sky-100" : "bg-slate-950 text-white"
           }`}
         >
           <Sparkles className="h-4.5 w-4.5" />
@@ -50,7 +50,7 @@ export function CustomSolutionNote({
             Not sure what you actually need yet? Go for a custom package with transparent pricing. Mail us at{" "}
             <a
               href={customPackageMailto}
-              className={`font-semibold underline underline-offset-2 ${dark ? "text-orange-200" : "text-slate-950"}`}
+              className={`font-semibold underline underline-offset-2 ${dark ? "text-sky-100" : "text-slate-950"}`}
             >
               hello@vishnulabs.com
             </a>{" "}

@@ -29,6 +29,9 @@ import {
 import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
+import { AboutSection } from "@/components/about-section"
+import { ConfidenceRail } from "@/components/confidence-rail"
+import { TrustStrip } from "@/components/trust-strip"
 import { Button } from "@/components/ui/button"
 
 type Stat = {
@@ -220,6 +223,44 @@ const customBuildBullets = [
   "Custom software solutions",
 ]
 
+const operatingLensCards = [
+  {
+    tag: "Public-facing clarity",
+    title: "Website, booking, and proof should feel like one product.",
+    body: "We connect the website story, scheduling layer, chat flows, and backend tooling so buyers are not dropped into disconnected steps.",
+  },
+  {
+    tag: "Private systems",
+    title: "Sensitive AI workflows can stay local when trust matters.",
+    body: "Law services, clinics, and high-trust operators can run redaction, secure retrieval, and internal AI without sending data into public tools.",
+  },
+  {
+    tag: "Operational depth",
+    title: "Custom software is available when the workflow is bigger than a landing page.",
+    body: "Dashboards, admin panels, CRM layers, role-based tools, and workflow engines can be scoped with the automation instead of bolted on later.",
+  },
+  {
+    tag: "Transparent ranges",
+    title: "Pricing is shown early so internal approval is easier.",
+    body: "Teams can scan starter, growth, enterprise, and custom-package lanes before discovery, then request a fitted build when needed.",
+  },
+]
+
+const heroProductLanes = [
+  {
+    title: "Voice reception",
+    detail: "24/7 intake, missed-call recovery, and booking",
+  },
+  {
+    title: "Private AI vault",
+    detail: "Local search, redaction, logs, and secure answers",
+  },
+  {
+    title: "Launch path",
+    detail: "Website, domain, software, and ops handoff",
+  },
+]
+
 export default function Page() {
   return (
     <>
@@ -228,201 +269,220 @@ export default function Page() {
       <main className="overflow-hidden pb-16">
         <section className="relative pb-14 pt-28 sm:pb-20 sm:pt-36 lg:pb-24" id="top">
           <div className="pointer-events-none absolute inset-0">
-            <div className="absolute left-[-8%] top-20 h-[320px] w-[320px] rounded-full bg-orange-500/18 blur-[120px] orb-float" />
-            <div className="absolute right-[-6%] top-10 h-[380px] w-[380px] rounded-full bg-amber-300/20 blur-[130px] orb-float-slow" />
+            <div className="absolute left-[-8%] top-20 h-[320px] w-[320px] rounded-full bg-[#4f46e5]/16 blur-[120px] orb-float" />
+            <div className="absolute right-[-6%] top-10 h-[380px] w-[380px] rounded-full bg-sky-300/18 blur-[130px] orb-float-slow" />
           </div>
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-            <div className="grid items-start gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10">
-              <div className="relative z-10" data-reveal>
-                <div className="badge-pill border-primary/20 bg-white/75 text-slate-700">
-                  <BadgeCheck className="h-3.5 w-3.5 text-primary" />
-                  Private AI systems for high-trust operators
-                </div>
+            <div className="hero-shell px-5 py-6 sm:px-7 sm:py-8 lg:px-8 lg:py-9">
+              <div className="pointer-events-none absolute inset-0 bg-grid-soft opacity-45" />
+              <div className="pointer-events-none absolute left-[38%] top-[-8%] h-44 w-44 rounded-full bg-[#4f46e5]/10 blur-3xl" />
+              <div className="pointer-events-none absolute right-[-4%] top-[8%] h-48 w-48 rounded-full bg-sky-300/12 blur-3xl" />
 
-                <a
-                  href="/stealth-vault"
-                  className="mt-4 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary transition hover:bg-primary/15"
-                >
-                  Stealth-Mode Internal AI Vault
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </a>
+              <div className="relative grid items-start gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10">
+                <div className="relative z-10" data-reveal>
+                  <div className="badge-pill border-primary/12 bg-white/82 text-slate-700">
+                    <BadgeCheck className="h-3.5 w-3.5 text-primary" />
+                    Private AI systems for high-trust operators
+                  </div>
 
-                <h1 className="mt-6 max-w-4xl text-balance text-[2.8rem] font-bold leading-[0.96] tracking-[-0.04em] text-slate-950 sm:text-[4.2rem] lg:text-[5.5rem]">
-                  Automation for teams that
-                  <span className="block text-gradient-fire">cannot afford leaks, missed calls, or sloppy ops.</span>
-                </h1>
-
-                <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-                  VishnuLabs builds premium AI systems for voice reception, intake, scheduling, follow-up, websites, custom software, and
-                  private internal search. The result is a cleaner pipeline, faster response time, stronger visibility, and tighter control
-                  over sensitive data.
-                </p>
-
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                  <Button
-                    size="lg"
-                    asChild
-                    className="cta-glow h-12 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white hover:bg-slate-900 sm:h-14 sm:px-8 sm:text-base"
+                  <a
+                    href="/stealth-vault"
+                    className="mt-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/6 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary transition hover:bg-primary/10"
                   >
-                    <Link href="/book" data-track="home_book_demo_primary">
-                      Book Live Demo
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </Button>
+                    Stealth-Mode Internal AI Vault
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </a>
 
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    asChild
-                    className="h-12 rounded-full border-slate-300/80 bg-white/75 px-7 text-sm font-semibold text-slate-900 hover:bg-white sm:h-14 sm:px-8 sm:text-base"
-                  >
-                    <Link href="/stealth-vault" data-track="home_view_vault_primary">
-                      Explore AI Vault
-                      <ArrowUpRight className="h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
+                  <h1 className="mt-6 max-w-4xl text-balance text-[2.9rem] font-bold leading-[0.94] tracking-[-0.05em] text-slate-950 sm:text-[4.3rem] lg:text-[5.5rem]">
+                    Automation systems
+                    <span className="block text-gradient-fire">that feel like a real product, not a patched workflow.</span>
+                  </h1>
 
-                <div className="mt-10 grid gap-3 sm:grid-cols-3">
-                  {heroStats.map((stat, index) => (
-                    <article
-                      key={stat.label}
-                      className="section-shell hover-rise-strong p-4 sm:p-5"
-                      data-reveal
-                      style={{ transitionDelay: `${index * 90}ms` }}
+                  <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
+                    VishnuLabs builds premium AI systems for voice reception, intake, scheduling, follow-up, websites, custom software, and
+                    private internal search. The result is a cleaner pipeline, faster response time, stronger visibility, and tighter control
+                    over sensitive data.
+                  </p>
+
+                  <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                    <Button
+                      size="lg"
+                      asChild
+                      className="cta-glow h-12 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white hover:bg-slate-900 sm:h-14 sm:px-8 sm:text-base"
                     >
-                      <p className="text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">{stat.value}</p>
-                      <p className="mt-1 text-sm font-semibold text-slate-700">{stat.label}</p>
-                      <p className="mt-2 text-sm leading-6 text-slate-500">{stat.detail}</p>
-                    </article>
-                  ))}
+                      <Link href="/book" data-track="home_book_demo_primary">
+                        Book Live Demo
+                        <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </Button>
+
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      asChild
+                      className="h-12 rounded-full border-slate-200/90 bg-white/80 px-7 text-sm font-semibold text-slate-900 hover:bg-white sm:h-14 sm:px-8 sm:text-base"
+                    >
+                      <Link href="/stealth-vault" data-track="home_view_vault_primary">
+                        Explore AI Vault
+                        <ArrowUpRight className="h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
+
+                  <div className="mt-10 grid gap-3 sm:grid-cols-3">
+                    {heroStats.map((stat, index) => (
+                      <article
+                        key={stat.label}
+                        className={`metric-float hover-rise-strong p-4 sm:p-5 ${index === 0 ? "float-card-soft" : index === 1 ? "float-card-soft float-card-delay-1" : "float-card-soft float-card-delay-2"}`}
+                        data-reveal
+                        style={{ transitionDelay: `${index * 90}ms` }}
+                      >
+                        <p className="text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">{stat.value}</p>
+                        <p className="mt-1 text-sm font-semibold text-slate-700">{stat.label}</p>
+                        <p className="mt-2 text-sm leading-6 text-slate-500">{stat.detail}</p>
+                      </article>
+                    ))}
+                  </div>
+
+                  <div className="mt-8 flex flex-wrap gap-2">
+                    {["US / UK / India-ready", "Startups", "Hospitals & clinics", "Law services", "Moving companies"].map((item) => (
+                      <span key={item} className="soft-chip">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="mt-8 flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">
-                  {["Startups", "Hospitals & clinics", "Law services", "Moving companies", "Revenue ops teams"].map((item) => (
-                    <span key={item} className="rounded-full border border-slate-200 bg-white/70 px-3 py-1.5">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="relative" data-reveal>
-                <div className="section-shell-dark ambient-grid-dark beam-sweep p-4 sm:p-6">
-                  <div className="absolute left-6 top-6 hidden items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-200 lg:flex">
-                    <Sparkles className="h-3.5 w-3.5 text-orange-400" />
-                    Sentinel vault live environment
-                  </div>
-
-                  <div className="absolute right-5 top-5 hidden rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-200 lg:block">
-                    Air-gapped by default
-                  </div>
-
-                  <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-black/55 p-2 shadow-hero-panel">
-                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-300/60 to-transparent" />
-                    <Image
-                      src="/marketing/sentinel-shield/final_hero_shot.png"
-                      alt="Sentinel Vault dashboard preview"
-                      width={1600}
-                      height={1000}
-                      priority
-                      sizes="(max-width: 1024px) 100vw, 48vw"
-                      className="h-auto w-full rounded-[22px] border border-white/10 object-cover"
-                    />
-                  </div>
-
-                  <div className="mt-4 grid gap-3 sm:grid-cols-[0.98fr_1.02fr]">
-                    <article className="rounded-[26px] border border-white/10 bg-white/5 p-3 halo-outline">
-                      <div className="overflow-hidden rounded-[20px] border border-white/10 bg-slate-900/90">
-                        <Image
-                          src="/marketing/sentinel-shield/compliance_proof.png"
-                          alt="Compliance proof dashboard"
-                          width={1200}
-                          height={900}
-                          sizes="(max-width: 640px) 100vw, 22vw"
-                          className="h-auto w-full object-cover"
-                        />
+                <div className="relative" data-reveal>
+                  <div className="dashboard-stage gradient-flow px-4 pb-4 pt-4 sm:px-5 sm:pb-5">
+                    <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+                      <div className="badge-pill border-primary/12 bg-white/88 text-slate-700">
+                        <Sparkles className="h-3.5 w-3.5 text-primary" />
+                        Sentinel vault live environment
                       </div>
-                      <div className="mt-3 flex items-center justify-between gap-3">
-                        <div>
-                          <p className="text-sm font-semibold text-white">Compliance proof</p>
-                          <p className="text-xs leading-5 text-slate-400">Audit-ready visibility without leaving the secure environment.</p>
-                        </div>
-                        <ShieldCheck className="h-5 w-5 shrink-0 text-orange-400" />
+
+                      <div className="soft-chip border-emerald-200 bg-emerald-50/90 text-emerald-700">Air-gapped by default</div>
+                    </div>
+
+                    <div className="relative overflow-hidden rounded-[30px] border border-white/85 bg-slate-950/96 p-2 shadow-hero-panel">
+                      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-300/80 to-transparent" />
+                      <Image
+                        src="/marketing/sentinel-shield/final_hero_shot.png"
+                        alt="Sentinel Vault dashboard preview"
+                        width={1600}
+                        height={1000}
+                        priority
+                        sizes="(max-width: 1024px) 100vw, 48vw"
+                        className="h-auto w-full rounded-[22px] border border-white/10 object-cover"
+                      />
+
+                      <div className="absolute left-4 top-4 hidden max-w-[220px] rounded-[22px] border border-white/70 bg-white/88 p-4 shadow-[0_18px_36px_rgba(15,23,42,0.12)] backdrop-blur-xl sm:block float-card-soft">
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">Revenue lane</p>
+                        <p className="mt-2 text-sm font-semibold text-slate-950">Calls, follow-up, and vault proof stay in one system.</p>
                       </div>
-                    </article>
 
-                    <article className="rounded-[26px] border border-white/10 bg-slate-900/85 p-5 halo-outline">
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">Operator value</p>
-                      <ul className="mt-4 space-y-3">
-                        {[
-                          "Redacts secrets and PII before AI touches the prompt",
-                          "Keeps answers searchable offline from a local knowledge base",
-                          "Blocks risky content and logs incidents for review",
-                        ].map((item) => (
-                          <li key={item} className="flex items-start gap-2 text-sm leading-6 text-slate-200">
-                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-orange-400" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </article>
-                  </div>
+                      <div className="absolute bottom-4 right-4 hidden max-w-[230px] rounded-[22px] border border-white/10 bg-slate-950/80 p-4 text-white shadow-[0_22px_44px_rgba(2,6,23,0.28)] backdrop-blur-xl lg:block float-card-soft float-card-delay-2">
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">Operator note</p>
+                        <p className="mt-2 text-sm leading-6 text-slate-200">Websites, software, automation, and private AI can be deployed as one connected operating stack.</p>
+                      </div>
+                    </div>
 
-                  <div className="absolute -left-3 bottom-10 hidden max-w-[220px] rounded-[22px] border border-white/10 bg-slate-950/85 p-4 text-white shadow-[0_16px_44px_rgba(2,6,23,0.55)] lg:block">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-200">Critical event caught</p>
-                    <p className="mt-2 text-sm leading-6 text-slate-200">
-                      Secret key, AWS token, and SSN pattern blocked before leaving the machine.
-                    </p>
+                    <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                      {heroProductLanes.map((item, index) => (
+                        <article
+                          key={item.title}
+                          className={`metric-float beam-sweep p-4 ${index === 0 ? "float-card-soft" : index === 1 ? "float-card-soft float-card-delay-1" : "float-card-soft float-card-delay-2"}`}
+                        >
+                          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">{item.title}</p>
+                          <p className="mt-2 text-sm font-semibold text-slate-950">{item.detail}</p>
+                        </article>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <TrustStrip />
+
+        <section className="py-6 sm:py-8">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+            <ConfidenceRail
+              eyebrow="How buyers read the site"
+              title="Moving proof, cleaner structure, and less agency noise."
+              subtitle="The homepage is being shaped like a premium SaaS product: one clear hero, one trust lane, and one connected system story spanning website, software, automation, and private AI."
+            />
           </div>
         </section>
 
         <section className="relative py-6 sm:py-8">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
             <div className="section-shell p-6 sm:p-8" data-reveal>
-              <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+              <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
                 <div>
-                  <div className="badge-pill border-slate-200 bg-slate-950 text-white">
-                    <LockKeyhole className="h-3.5 w-3.5 text-orange-300" />
-                    Why teams choose VishnuLabs
+                  <div className="badge-pill border-primary/12 bg-primary text-white">
+                    <LockKeyhole className="h-3.5 w-3.5 text-sky-200" />
+                    One connected system
                   </div>
                   <h2 className="mt-4 max-w-xl text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-                    Private AI control, faster lead response, and reliable delivery in one offer.
+                    A cleaner SaaS-style structure for real-world operations.
                   </h2>
                   <p className="mt-4 max-w-xl text-base leading-8 text-slate-600">
-                    Keep sensitive workflows local, answer inbound demand faster, and put automation into production with a team that
-                    treats delivery like infrastructure, not guesswork.
+                    VishnuLabs is not just pitching isolated automations. We can scope the website, booking flow, admin layer, dashboards,
+                    alerts, private AI, and launch path as one disciplined product system.
                   </p>
+
+                  <div className="mt-6 space-y-3">
+                    {[
+                      "Built for buyers in the US, UK, and India who expect a real product standard.",
+                      "Clear productized offers first, then custom packages when the workflow needs more depth.",
+                      "Custom solution available on every major offer and industry page.",
+                    ].map((item) => (
+                      <div key={item} className="flex items-start gap-2 rounded-[20px] border border-slate-200 bg-white/78 px-4 py-3 text-sm text-slate-700 shadow-[0_12px_28px_rgba(15,23,42,0.04)]">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                    <Button
+                      size="lg"
+                      asChild
+                      className="cta-glow h-12 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white hover:bg-slate-900"
+                    >
+                      <Link href="/products" data-track="home_connected_system_products">
+                        Explore Products
+                        <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </Button>
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      asChild
+                      className="h-12 rounded-full border-slate-200/90 bg-white/80 px-7 text-sm font-semibold text-slate-900 hover:bg-white"
+                    >
+                      <Link href="/pricing" data-track="home_connected_system_pricing">
+                        See Pricing Structure
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
 
-                <div className="grid gap-4 md:grid-cols-3">
-                  {[
-                    {
-                      title: "Private AI control",
-                      body: "Use local AI where privacy matters instead of pushing confidential workflows through public tools.",
-                    },
-                    {
-                      title: "Revenue capture",
-                      body: "Capture missed demand from phone calls, intake gaps, and weak follow-up before it turns into lost pipeline.",
-                    },
-                    {
-                      title: "Reliable delivery",
-                      body: "Systems are built, tested, monitored, and handed off with operational discipline.",
-                    },
-                  ].map((item, index) => (
+                <div className="grid gap-4 md:grid-cols-2">
+                  {operatingLensCards.map((item, index) => (
                     <article
                       key={item.title}
-                      className="rounded-[26px] border border-slate-200 bg-white p-5 shadow-[0_18px_40px_rgba(15,23,42,0.08)] hover-rise-strong"
+                      className={`metric-float beam-sweep min-h-[210px] p-5 sm:p-6 hover-rise-strong ${index === 0 ? "float-card-soft" : index === 1 ? "float-card-soft float-card-delay-1" : index === 2 ? "float-card-soft float-card-delay-2" : ""}`}
                       data-reveal
                       style={{ transitionDelay: `${index * 80}ms` }}
                     >
-                      <p className="text-sm font-semibold text-slate-950">{item.title}</p>
-                      <p className="mt-3 text-sm leading-7 text-slate-600">{item.body}</p>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">{item.tag}</p>
+                      <p className="mt-3 text-lg font-semibold leading-8 text-slate-950">{item.title}</p>
+                      <p className="mt-4 text-sm leading-7 text-slate-600">{item.body}</p>
                     </article>
                   ))}
                 </div>
@@ -430,6 +490,8 @@ export default function Page() {
             </div>
           </div>
         </section>
+
+        <AboutSection />
 
         <section className="py-20 sm:py-24" id="products">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
@@ -444,7 +506,7 @@ export default function Page() {
                 <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
                   <div>
                     <div className="badge-pill border-white/10 bg-white/5 text-slate-200">
-                      <ShieldCheck className="h-3.5 w-3.5 text-orange-400" />
+                          <ShieldCheck className="h-3.5 w-3.5 text-sky-300" />
                       Flagship product
                     </div>
                     <h3 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -463,7 +525,7 @@ export default function Page() {
                         "One-time lifetime license with ongoing update cadence",
                       ].map((item) => (
                         <li key={item} className="flex items-start gap-2 text-sm leading-6 text-slate-200">
-                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-orange-400" />
+                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-sky-300" />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -472,7 +534,7 @@ export default function Page() {
                     <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                       <Button
                         asChild
-                        className="h-12 rounded-full bg-orange-500 px-6 text-sm font-semibold text-white shadow-[0_16px_38px_rgba(249,115,22,0.35)] hover:bg-orange-400"
+                        className="h-12 rounded-full bg-white px-6 text-sm font-semibold text-slate-950 hover:bg-slate-100"
                       >
                         <Link href="/stealth-vault" data-track="home_featured_vault_cta">
                           View Vault Offer
@@ -502,6 +564,7 @@ export default function Page() {
                       alt="Vault dashboard walkthrough"
                       width={1500}
                       height={1100}
+                      quality={100}
                       sizes="(max-width: 1024px) 100vw, 40vw"
                       className="h-auto w-full rounded-[22px] border border-white/10 object-cover"
                     />
@@ -522,8 +585,8 @@ export default function Page() {
                     >
                       <div className="grid gap-5 sm:grid-cols-[0.9fr_1.1fr] sm:items-center">
                         <div>
-                          <div className="badge-pill border-slate-200 bg-slate-950 text-white">
-                            <Icon className="h-3.5 w-3.5 text-orange-300" />
+                          <div className="badge-pill border-primary/12 bg-primary text-white">
+                            <Icon className="h-3.5 w-3.5 text-sky-200" />
                             Productized workflow
                           </div>
                           <h3 className="mt-4 text-2xl font-bold tracking-tight text-slate-950">{product.title}</h3>
@@ -571,6 +634,34 @@ export default function Page() {
           </div>
         </section>
 
+        <section className="pb-12 pt-2 sm:pb-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+            <ConfidenceRail
+              eyebrow="Buyer confidence"
+              title="Proof, pricing, and product lanes should read clearly before the sales call."
+              subtitle="This is where trust gets won: technical proof that looks real, pricing that is easier to understand, and a structure that helps buyers pick productized scope or move into custom systems without confusion."
+              items={[
+                {
+                  title: "Productized where speed matters",
+                  detail: "Voice, intake, scheduling, and the private AI vault are visible as clear lanes instead of getting buried in generic service language.",
+                },
+                {
+                  title: "Custom where workflow complexity matters",
+                  detail: "Website creation, domain management, software, dashboards, and private AI controls can all be fitted together when the client needs more than a narrow template.",
+                },
+                {
+                  title: "Operational proof supports the pitch",
+                  detail: "Screenshots, logs, dashboards, and launch structure help buyers see a real systems company instead of just a polished front-end.",
+                },
+                {
+                  title: "Structured for global trust",
+                  detail: "The page is being tuned to feel credible and premium for US, UK, and India clients who expect a cleaner SaaS standard.",
+                },
+              ]}
+            />
+          </div>
+        </section>
+
         <section className="py-20 sm:py-24" id="platform">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
             <div className="section-shell p-6 sm:p-8" data-reveal>
@@ -583,7 +674,7 @@ export default function Page() {
                   />
 
                   <div className="mt-6 rounded-[28px] border border-slate-200 bg-slate-950 p-5 text-white shadow-[0_18px_40px_rgba(15,23,42,0.16)]">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-200">Global platform view</p>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-sky-200">Global platform view</p>
                     <div className="mt-4 grid gap-3">
                       {[
                         "Public-facing website layer aligned with the same sales story",
@@ -610,8 +701,8 @@ export default function Page() {
                         data-reveal
                         style={{ transitionDelay: `${index * 80}ms` }}
                       >
-                        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-white shadow-[0_14px_30px_rgba(15,23,42,0.18)]">
-                          <Icon className="h-5 w-5 text-orange-300" />
+                        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary text-white shadow-[0_14px_30px_rgba(79,70,229,0.24)]">
+                          <Icon className="h-5 w-5 text-sky-100" />
                         </div>
                         <h3 className="mt-5 text-lg font-semibold text-slate-950">{item.title}</h3>
                         <p className="mt-3 text-sm leading-7 text-slate-600">{item.lead}</p>
@@ -735,12 +826,12 @@ export default function Page() {
                         <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-400">Leak-block event log</p>
                         <p className="mt-1 text-sm text-slate-300">Modeled after the runtime evidence shown in your desktop proof.</p>
                       </div>
-                      <CircleAlert className="h-5 w-5 text-orange-400" />
+                      <CircleAlert className="h-5 w-5 text-sky-300" />
                     </div>
 
                     <div className="mt-4 rounded-[22px] border border-white/10 bg-black/55 p-4 font-mono text-[12px] leading-6 text-slate-200">
                       {proofFeed.map((item) => (
-                        <p key={item} className={item.includes("[CRITICAL]") ? "text-orange-300" : item.includes("[WARNING]") ? "text-amber-200" : "text-slate-300"}>
+                        <p key={item} className={item.includes("[CRITICAL]") ? "text-sky-300" : item.includes("[WARNING]") ? "text-indigo-200" : "text-slate-300"}>
                           {item}
                         </p>
                       ))}
@@ -773,8 +864,8 @@ export default function Page() {
                         data-reveal
                         style={{ transitionDelay: `${index * 75}ms` }}
                       >
-                        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-white shadow-[0_14px_30px_rgba(15,23,42,0.18)]">
-                          <Icon className="h-5 w-5 text-orange-300" />
+                        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary text-white shadow-[0_14px_30px_rgba(79,70,229,0.24)]">
+                          <Icon className="h-5 w-5 text-sky-100" />
                         </div>
                         <h3 className="mt-5 text-lg font-semibold text-slate-950">{step.title}</h3>
                         <p className="mt-3 text-sm leading-7 text-slate-600">{step.description}</p>
@@ -807,7 +898,7 @@ export default function Page() {
 
                 <Link
                   href="/book"
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-orange-200 transition hover:text-white"
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky-200 transition hover:text-white"
                   data-track="home_services_book_demo"
                 >
                   Discuss custom build
@@ -837,7 +928,7 @@ export default function Page() {
                     data-reveal
                     style={{ transitionDelay: `${index * 90}ms` }}
                   >
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-500/10 text-primary">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                       <Icon className="h-5 w-5" />
                     </div>
                     <h3 className="mt-5 text-xl font-semibold text-slate-950">{industry.title}</h3>
@@ -871,7 +962,7 @@ export default function Page() {
             <div className="grid gap-6 lg:grid-cols-[1.02fr_0.98fr]">
               <article className="section-shell-dark ambient-grid-dark p-6 sm:p-8" data-reveal>
                 <div className="badge-pill border-white/10 bg-white/5 text-slate-200">
-                  <ShieldCheck className="h-3.5 w-3.5 text-orange-400" />
+                  <ShieldCheck className="h-3.5 w-3.5 text-sky-300" />
                   Pricing anchor
                 </div>
                 <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">$15,000 one-time lifetime vault license</h2>
@@ -891,7 +982,7 @@ export default function Page() {
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <Button
                     asChild
-                    className="h-12 rounded-full bg-orange-500 px-6 text-sm font-semibold text-white shadow-[0_16px_38px_rgba(249,115,22,0.35)] hover:bg-orange-400"
+                    className="h-12 rounded-full bg-white px-6 text-sm font-semibold text-slate-950 hover:bg-slate-100"
                   >
                     <Link href="/stealth-vault" data-track="home_pricing_view_vault">
                       View Offer Details
@@ -911,8 +1002,8 @@ export default function Page() {
               </article>
 
               <article className="section-shell p-6 sm:p-8" data-reveal>
-                <div className="badge-pill border-slate-200 bg-slate-950 text-white">
-                  <MessageSquareMore className="h-3.5 w-3.5 text-orange-300" />
+                <div className="badge-pill border-primary/12 bg-primary text-white">
+                  <MessageSquareMore className="h-3.5 w-3.5 text-sky-200" />
                   Custom systems
                 </div>
                 <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">Done-for-you automation builds starting at $4,997</h2>
@@ -960,7 +1051,7 @@ export default function Page() {
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Button
                   asChild
-                  className="h-12 rounded-full bg-orange-500 px-7 text-sm font-semibold text-white shadow-[0_16px_38px_rgba(249,115,22,0.35)] hover:bg-orange-400"
+                  className="h-12 rounded-full bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-100"
                 >
                   <Link href="/book" data-track="home_final_book_demo">
                     Book Demo
@@ -1000,7 +1091,7 @@ function SectionHeading({
 }) {
   return (
     <div className="max-w-3xl">
-      <p className={`text-[11px] font-semibold uppercase tracking-[0.22em] ${dark ? "text-orange-200" : "text-primary"}`}>{eyebrow}</p>
+      <p className={`text-[11px] font-semibold uppercase tracking-[0.22em] ${dark ? "text-sky-200" : "text-primary"}`}>{eyebrow}</p>
       <h2 className={`mt-3 text-balance text-3xl font-bold tracking-tight sm:text-5xl ${dark ? "text-white" : "text-slate-950"}`}>{title}</h2>
       <p className={`mt-4 text-base leading-8 ${dark ? "text-slate-300" : "text-slate-600"}`}>{description}</p>
     </div>

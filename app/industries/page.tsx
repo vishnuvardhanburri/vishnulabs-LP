@@ -3,6 +3,7 @@ import Link from "next/link"
 import type { LucideIcon } from "lucide-react"
 import { ArrowRight, ArrowUpRight, Building2, CheckCircle2, Home, Hospital, Rocket, Scale, Truck } from "lucide-react"
 
+import { ConfidenceRail } from "@/components/confidence-rail"
 import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
@@ -84,10 +85,10 @@ export default function IndustriesPage() {
       <main className="overflow-hidden pb-16">
         <section className="pb-16 pt-28 sm:pt-36 lg:pb-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-            <div className="section-shell p-6 sm:p-8" data-reveal>
+            <div className="hero-shell app-shell-enter px-5 py-6 sm:px-7 sm:py-8 lg:px-10 lg:py-10" data-reveal>
               <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
                 <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">Industries</p>
+                  <div className="badge-pill border-primary/20 bg-white/75 text-slate-700">Industries</div>
                   <h1 className="mt-3 max-w-4xl text-balance text-[2.8rem] font-bold leading-[0.96] tracking-[-0.04em] text-slate-950 sm:text-[4rem]">
                     Automation systems adapted to the workflow pressure of each industry.
                   </h1>
@@ -103,10 +104,10 @@ export default function IndustriesPage() {
                     const Icon = industry.icon
 
                     return (
-                      <div key={industry.title} className="rounded-[24px] border border-slate-200 bg-white p-5 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+                      <div key={industry.title} className="metric-float p-5">
                         <div className="flex items-center gap-3">
                           <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-white">
-                            <Icon className="h-5 w-5 text-orange-300" />
+                            <Icon className="h-5 w-5 text-sky-300" />
                           </div>
                           <p className="text-lg font-semibold text-slate-950">{industry.title}</p>
                         </div>
@@ -139,6 +140,8 @@ export default function IndustriesPage() {
           </div>
         </section>
 
+        <ConfidenceRail />
+
         <section className="py-20 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
             <div className="grid gap-5 lg:grid-cols-3">
@@ -148,7 +151,7 @@ export default function IndustriesPage() {
                 return (
                   <article key={industry.title} className="section-shell hover-rise-strong flex h-full flex-col p-6 sm:p-7" data-reveal>
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-white">
-                      <Icon className="h-5 w-5 text-orange-300" />
+                      <Icon className="h-5 w-5 text-sky-300" />
                     </div>
                     <h2 className="mt-5 text-2xl font-semibold tracking-tight text-slate-950">{industry.title}</h2>
                     <p className="mt-3 text-sm leading-7 text-slate-600">{industry.description}</p>

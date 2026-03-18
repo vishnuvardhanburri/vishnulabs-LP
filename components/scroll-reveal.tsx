@@ -9,11 +9,22 @@ export function ScrollReveal() {
   useEffect(() => {
     if (typeof window === "undefined" || typeof IntersectionObserver === "undefined") return
 
+    const revealElement = (element: HTMLElement) => {
+      element.classList.add("is-visible")
+    }
+
+    const shouldRevealImmediately = (element: HTMLElement) => {
+      const rect = element.getBoundingClientRect()
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight
+
+      return rect.top <= viewportHeight * 0.92
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue
-          entry.target.classList.add("is-visible")
+          revealElement(entry.target as HTMLElement)
           observer.unobserve(entry.target)
         }
       },
@@ -38,11 +49,24 @@ export function ScrollReveal() {
         }
 
         element.dataset.revealBound = "true"
+
+        if (shouldRevealImmediately(element)) {
+          revealElement(element)
+          continue
+        }
+
         observer.observe(element)
       }
     }
 
     bindElements()
+
+    const fallbackTimer = window.setTimeout(() => {
+      const elements = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"))
+      for (const element of elements) {
+        revealElement(element)
+      }
+    }, 900)
 
     const mutationObserver = new MutationObserver(() => {
       bindElements()
@@ -54,6 +78,7 @@ export function ScrollReveal() {
     })
 
     return () => {
+      window.clearTimeout(fallbackTimer)
       mutationObserver.disconnect()
       observer.disconnect()
     }

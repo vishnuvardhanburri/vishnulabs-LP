@@ -1,8 +1,9 @@
 "use client"
 
 import Link from "next/link"
-import { useEffect, useState } from "react"
-import { ArrowUpRight, Menu, X } from "lucide-react"
+import { useEffect, useMemo, useRef, useState } from "react"
+import { usePathname } from "next/navigation"
+import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
@@ -21,13 +22,37 @@ const supportLinks = [
 ]
 
 export function Navbar() {
+  const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [moreOpen, setMoreOpen] = useState(false)
+  const moreRef = useRef<HTMLDivElement>(null)
+
+  const isActive = useMemo(
+    () => (href: string) => pathname === href || pathname.startsWith(`${href}/`),
+    [pathname],
+  )
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
+  useEffect(() => {
+    setMobileOpen(false)
+    setMoreOpen(false)
+  }, [pathname])
+
+  useEffect(() => {
+    const onClick = (event: MouseEvent) => {
+      if (!moreRef.current) return
+      if (moreRef.current.contains(event.target as Node)) return
+      setMoreOpen(false)
+    }
+
+    document.addEventListener("mousedown", onClick)
+    return () => document.removeEventListener("mousedown", onClick)
   }, [])
 
   return (
@@ -62,11 +87,68 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="nav-underline rounded-full px-3 py-2 text-[13px] font-medium tracking-[0.01em] text-slate-600 transition-all hover:bg-white/90 hover:text-slate-950 xl:px-3.5"
+                  aria-current={isActive(link.href) ? "page" : undefined}
+                  className={`nav-underline rounded-full px-3 py-2 text-[13px] font-medium tracking-[0.01em] transition-all xl:px-3.5 ${
+                    isActive(link.href)
+                      ? "bg-slate-950 text-white shadow-[0_10px_24px_rgba(15,23,42,0.14)]"
+                      : "text-slate-600 hover:bg-white/90 hover:text-slate-950"
+                  }`}
                 >
                   {link.label}
                 </Link>
               ))}
+
+              <div className="ml-2 hidden items-center gap-1 border-l border-slate-200/80 pl-2 xl:flex">
+                {supportLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    aria-current={isActive(link.href) ? "page" : undefined}
+                    className={`rounded-full px-3 py-2 text-[12px] font-semibold uppercase tracking-[0.14em] transition-all ${
+                      isActive(link.href)
+                        ? "bg-white text-slate-950 shadow-[0_10px_24px_rgba(15,23,42,0.10)]"
+                        : "text-slate-500 hover:bg-white/90 hover:text-slate-950"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+
+              <div className="relative ml-2 xl:hidden" ref={moreRef}>
+                <button
+                  type="button"
+                  onClick={() => setMoreOpen((prev) => !prev)}
+                  aria-expanded={moreOpen}
+                  className={`inline-flex items-center gap-1 rounded-full px-3 py-2 text-[12px] font-semibold uppercase tracking-[0.14em] transition-all ${
+                    supportLinks.some((link) => isActive(link.href)) || moreOpen
+                      ? "bg-white text-slate-950 shadow-[0_10px_24px_rgba(15,23,42,0.10)]"
+                      : "text-slate-500 hover:bg-white/90 hover:text-slate-950"
+                  }`}
+                >
+                  More
+                  <ChevronDown className={`h-3.5 w-3.5 transition-transform ${moreOpen ? "rotate-180" : ""}`} />
+                </button>
+
+                {moreOpen ? (
+                  <div className="absolute right-0 top-[calc(100%+0.55rem)] w-52 rounded-[22px] border border-white/88 bg-white/92 p-2 shadow-[0_18px_42px_rgba(15,23,42,0.12)] backdrop-blur-2xl">
+                    {supportLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        aria-current={isActive(link.href) ? "page" : undefined}
+                        className={`block rounded-2xl px-3 py-3 text-sm font-semibold transition-colors ${
+                          isActive(link.href)
+                            ? "bg-slate-950 text-white"
+                            : "text-slate-600 hover:bg-slate-950 hover:text-white"
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
             </nav>
 
             <div className="hidden lg:block">
@@ -83,6 +165,7 @@ export function Navbar() {
             </div>
 
             <button
+              type="button"
               className="tap-target inline-flex items-center justify-center rounded-2xl text-foreground transition-colors hover:bg-slate-900/5 lg:hidden"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -101,7 +184,12 @@ export function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="tap-target rounded-2xl px-3 py-3 text-sm font-semibold text-slate-600 transition-colors hover:bg-slate-950 hover:text-white"
+                    aria-current={isActive(link.href) ? "page" : undefined}
+                    className={`tap-target rounded-2xl px-3 py-3 text-sm font-semibold transition-colors ${
+                      isActive(link.href)
+                        ? "bg-slate-950 text-white"
+                        : "text-slate-600 hover:bg-slate-950 hover:text-white"
+                    }`}
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}
@@ -114,7 +202,12 @@ export function Navbar() {
                       <Link
                         key={link.href}
                         href={link.href}
-                        className="rounded-2xl border border-border/40 bg-white/70 px-3 py-2 text-center text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:bg-slate-950 hover:text-white"
+                        aria-current={isActive(link.href) ? "page" : undefined}
+                        className={`rounded-2xl border px-3 py-2 text-center text-[11px] font-semibold uppercase tracking-[0.12em] transition-colors ${
+                          isActive(link.href)
+                            ? "border-slate-950 bg-slate-950 text-white"
+                            : "border-border/40 bg-white/70 text-muted-foreground hover:bg-slate-950 hover:text-white"
+                        }`}
                         onClick={() => setMobileOpen(false)}
                       >
                         {link.label}

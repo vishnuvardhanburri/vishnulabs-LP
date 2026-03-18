@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import { ArrowUpRight, CheckCircle2, FileCheck2, Shield, Sparkles, Workflow } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -137,10 +138,10 @@ export function AboutSection() {
 
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Button size="sm" asChild className="cta-glow gap-2 rounded-full bg-slate-950 px-5 text-white hover:bg-slate-900">
-                  <a href="/book">
+                  <Link href="/book">
                     Book Live Demo
                     <ArrowUpRight className="h-3.5 w-3.5" />
-                  </a>
+                  </Link>
                 </Button>
                 <Button variant="outline" size="sm" asChild className="gap-2 rounded-full border-border/60 bg-white/80 px-5 hover:bg-secondary">
                   <a href="mailto:hello@vishnulabs.com?subject=Project%20Scope%20Request">Request Scope Doc</a>

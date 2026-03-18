@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Calendar, Mail, Rocket } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -31,10 +32,10 @@ export function CtaSection() {
                 asChild
                 className="w-full gap-2 rounded-xl bg-foreground px-8 py-6 text-base font-medium text-background hover:bg-foreground/90 sm:w-auto"
               >
-                <a href="/book" data-track="cta_book_meeting">
+                <Link href="/book" data-track="cta_book_meeting">
                   <Calendar className="h-4 w-4" />
                   Book Meeting
-                </a>
+                </Link>
               </Button>
               <Button
                 variant="outline"

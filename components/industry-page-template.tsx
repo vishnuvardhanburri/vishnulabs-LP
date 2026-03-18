@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { ArrowUpRight, CheckCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Navbar } from "@/components/navbar"
@@ -27,9 +28,9 @@ export function IndustryPageTemplate({
     <>
       <Navbar />
       <main className="mx-auto max-w-7xl px-6 pb-20 pt-32 lg:px-10">
-        <a href="/" className="text-sm text-primary hover:text-primary/80">
+        <Link href="/" className="text-sm text-primary hover:text-primary/80">
           ← Back to Home
-        </a>
+        </Link>
 
         <section className="mt-6 rounded-3xl border border-border/35 bg-card/60 p-8 md:p-10">
           <p className="text-xs uppercase tracking-widest text-primary/80">Industry Solution</p>
@@ -38,10 +39,10 @@ export function IndustryPageTemplate({
 
           <div className="mt-7 flex flex-wrap gap-3">
             <Button asChild className="gap-2 rounded-xl bg-foreground text-background hover:bg-foreground/90">
-              <a href="/book" data-track="industry_page_book_meeting">
+              <Link href="/book" data-track="industry_page_book_meeting">
                 Book Meeting
                 <ArrowUpRight className="h-4 w-4" />
-              </a>
+              </Link>
             </Button>
             <Button asChild variant="outline" className="rounded-xl border-border/50 hover:bg-secondary">
               <a href={customPackageMailto} data-track="industry_page_email">

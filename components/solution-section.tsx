@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { CalendarClock, Gavel, PhoneCall, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -99,15 +100,15 @@ export function SolutionSection() {
 
               <div className="mt-5 grid gap-2 sm:grid-cols-2">
                 <Button asChild variant="outline" className="w-full gap-2 rounded-xl border-border/55 hover:bg-secondary">
-                  <a href={offer.serviceLink} data-track={`service_details_${offer.title.toLowerCase().replace(/\s+/g, "_")}`}>
+                  <Link href={offer.serviceLink} data-track={`service_details_${offer.title.toLowerCase().replace(/\s+/g, "_")}`}>
                     Service Page
                     <ArrowUpRight className="h-4 w-4" />
-                  </a>
+                  </Link>
                 </Button>
                 <Button asChild className="w-full gap-2 rounded-xl bg-foreground text-background hover:bg-foreground/90">
-                  <a href="/book" data-track={`service_book_${offer.title.toLowerCase().replace(/\s+/g, "_")}`}>
+                  <Link href="/book" data-track={`service_book_${offer.title.toLowerCase().replace(/\s+/g, "_")}`}>
                     Book Meeting
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </article>

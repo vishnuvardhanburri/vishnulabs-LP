@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { ArrowUpRight, Calendar, CheckCircle2, Dot, ShieldCheck } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -29,13 +30,13 @@ export function Hero() {
             Enterprise-grade automation systems for US SMB teams
           </div>
 
-          <a
+          <Link
             href="/stealth-vault"
             className="mt-3 inline-flex items-center gap-2 rounded-full border border-primary/35 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary hover:bg-primary/15"
           >
             New: Private AI Vault - No Leaks
             <ArrowUpRight className="h-3.5 w-3.5" />
-          </a>
+          </Link>
 
           <h1 className="mt-6 max-w-3xl text-balance text-[2.1rem] font-bold leading-[1.03] tracking-tight text-foreground sm:text-5xl lg:text-[4rem]">
             We build AI systems that
@@ -63,10 +64,10 @@ export function Hero() {
               asChild
               className="cta-glow w-full gap-2 rounded-full bg-foreground px-8 py-6 text-base text-background hover:bg-foreground/90 sm:w-auto"
             >
-              <a href="/book" data-track="hero_book_meeting">
+              <Link href="/book" data-track="hero_book_meeting">
                 <Calendar className="h-4 w-4" />
                 Book Live Demo
-              </a>
+              </Link>
             </Button>
             <Button
               variant="outline"

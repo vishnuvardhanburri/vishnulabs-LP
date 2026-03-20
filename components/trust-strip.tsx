@@ -43,6 +43,9 @@ const trustSignals = [
 ]
 
 export function TrustStrip() {
+  const mobileTrustItems = trustItems.slice(0, 6)
+  const mobileTrustSignals = trustSignals.slice(0, 4)
+
   return (
     <section className="relative py-6 sm:py-8">
       <div className="pointer-events-none absolute inset-0 bg-grid-soft opacity-50" />
@@ -56,7 +59,26 @@ export function TrustStrip() {
           </p>
 
           <div className="mt-4 overflow-hidden rounded-[24px] border border-white/70 bg-white/72 p-2 shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
-            <div className="animate-marquee-slow flex min-w-max gap-2">
+            <div className="flex flex-wrap gap-2 md:hidden">
+              {mobileTrustItems.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-full border border-slate-200/70 bg-white/82 px-3 py-2 text-[11px] font-medium uppercase tracking-wide text-muted-foreground"
+                >
+                  {item}
+                </div>
+              ))}
+              {mobileTrustSignals.map((item) => (
+                <div
+                  key={`${item}-mobile`}
+                  className="rounded-full border border-primary/10 bg-slate-950 px-3 py-2 text-[11px] font-medium uppercase tracking-wide text-white"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+
+            <div className="hidden min-w-max gap-2 md:flex md:animate-marquee-slow">
               {[...trustItems, ...trustItems].map((item, idx) => (
                 <div
                   key={`${item}-${idx}`}
@@ -67,7 +89,7 @@ export function TrustStrip() {
               ))}
             </div>
 
-            <div className="mt-2 animate-marquee-reverse flex min-w-max gap-2">
+            <div className="mt-2 hidden min-w-max gap-2 md:flex md:animate-marquee-reverse">
               {[...trustSignals, ...trustSignals].map((item, idx) => (
                 <div
                   key={`${item}-signal-${idx}`}

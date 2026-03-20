@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import Link from "next/link"
 import type { LucideIcon } from "lucide-react"
 import {
   ArrowRight,
@@ -15,6 +14,7 @@ import {
   Workflow,
 } from "lucide-react"
 
+import { AppLink } from "@/components/app-link"
 import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { ConfidenceRail } from "@/components/confidence-rail"
 import { Footer } from "@/components/footer"
@@ -143,16 +143,16 @@ export default function ProductsPage() {
 
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                     <Button asChild className="cta-glow h-12 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white hover:bg-slate-900">
-                      <Link href="/book">
+                      <AppLink href="/book">
                         Book Demo
                         <ArrowRight className="h-4 w-4" />
-                      </Link>
+                      </AppLink>
                     </Button>
                     <Button asChild variant="outline" className="h-12 rounded-full border-slate-300 bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-50">
-                      <Link href="/pricing">
+                      <AppLink href="/pricing">
                         View Pricing
                         <ArrowUpRight className="h-4 w-4" />
-                      </Link>
+                      </AppLink>
                     </Button>
                   </div>
 
@@ -169,7 +169,7 @@ export default function ProductsPage() {
                         alt="VishnuLabs sales and product walkthrough interface"
                         width={1920}
                         height={1080}
-                        quality={100}
+                        quality={88}
                         priority
                         sizes="(max-width: 1024px) 100vw, 34vw"
                         className="h-full w-full rounded-[24px] object-cover object-top"
@@ -242,16 +242,16 @@ export default function ProductsPage() {
 
                     <div className="mt-auto flex flex-col gap-3 pt-6 sm:flex-row">
                       <Button asChild className="h-11 rounded-full bg-slate-950 px-5 text-sm font-semibold text-white hover:bg-slate-900">
-                        <Link href={item.href}>
+                        <AppLink href={item.href}>
                           Open product page
                           <ArrowRight className="h-4 w-4" />
-                        </Link>
+                        </AppLink>
                       </Button>
                       <Button asChild variant="outline" className="h-11 rounded-full border-slate-300 bg-white px-5 text-sm font-semibold text-slate-950 hover:bg-slate-50">
-                        <Link href="/book">
+                        <AppLink href="/book">
                           Book fit call
                           <ArrowUpRight className="h-4 w-4" />
-                        </Link>
+                        </AppLink>
                       </Button>
                     </div>
                   </article>
@@ -313,16 +313,16 @@ export default function ProductsPage() {
 
                       <div className="mt-auto flex flex-col gap-3 pt-6">
                         <Button asChild className="h-11 rounded-full bg-slate-950 px-5 text-sm font-semibold text-white hover:bg-slate-900">
-                          <Link href="/pricing">
+                          <AppLink href="/pricing">
                             View serious pricing
                             <ArrowRight className="h-4 w-4" />
-                          </Link>
+                          </AppLink>
                         </Button>
                         <Button asChild variant="outline" className="h-11 rounded-full border-slate-300 bg-white px-5 text-sm font-semibold text-slate-950 hover:bg-slate-50">
-                          <Link href="/book">
+                          <AppLink href="/book">
                             Book offer review
                             <ArrowUpRight className="h-4 w-4" />
-                          </Link>
+                          </AppLink>
                         </Button>
                       </div>
                     </article>
@@ -332,16 +332,16 @@ export default function ProductsPage() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button asChild className="h-12 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white hover:bg-slate-900">
-                  <Link href="/pricing">
+                  <AppLink href="/pricing">
                     View Serious Pricing
                     <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  </AppLink>
                 </Button>
                 <Button asChild variant="outline" className="h-12 rounded-full border-slate-300 bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-50">
-                  <Link href="/book">
+                  <AppLink href="/book">
                     Book Offer Review
                     <ArrowUpRight className="h-4 w-4" />
-                  </Link>
+                  </AppLink>
                 </Button>
               </div>
             </div>

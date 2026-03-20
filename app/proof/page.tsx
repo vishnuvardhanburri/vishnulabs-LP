@@ -134,7 +134,7 @@ export default function ProofPage() {
                     controls
                     muted
                     playsInline
-                    preload="metadata"
+                    preload="none"
                   >
                     Your browser does not support the video tag.
                   </video>

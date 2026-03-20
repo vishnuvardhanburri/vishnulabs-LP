@@ -67,7 +67,7 @@ export function SentinelShieldDemo() {
                 className="aspect-video w-full object-cover"
                 src="/marketing/sentinel-shield/demo-whatsapp.mp4"
                 controls
-                preload="metadata"
+                preload="none"
                 playsInline
               >
                 Your browser does not support the video tag.

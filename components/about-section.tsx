@@ -1,6 +1,6 @@
 import Image from "next/image"
-import Link from "next/link"
 import { ArrowUpRight, CheckCircle2, FileCheck2, Shield, Sparkles, Workflow } from "lucide-react"
+import { AppLink } from "@/components/app-link"
 import { Button } from "@/components/ui/button"
 
 const principles = [
@@ -63,7 +63,7 @@ export function AboutSection() {
                     src="/founder-vishnu.jpeg"
                     alt="Vishnu Vardhan Burri, founder of VishnuLabs"
                     fill
-                    quality={100}
+                    quality={88}
                     priority={false}
                     className="object-cover object-center"
                     sizes="(max-width: 1024px) 100vw, 40vw"
@@ -138,10 +138,10 @@ export function AboutSection() {
 
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Button size="sm" asChild className="cta-glow gap-2 rounded-full bg-slate-950 px-5 text-white hover:bg-slate-900">
-                  <Link href="/book">
+                  <AppLink href="/book">
                     Book Live Demo
                     <ArrowUpRight className="h-3.5 w-3.5" />
-                  </Link>
+                  </AppLink>
                 </Button>
                 <Button variant="outline" size="sm" asChild className="gap-2 rounded-full border-border/60 bg-white/80 px-5 hover:bg-secondary">
                   <a href="mailto:hello@vishnulabs.com?subject=Project%20Scope%20Request">Request Scope Doc</a>

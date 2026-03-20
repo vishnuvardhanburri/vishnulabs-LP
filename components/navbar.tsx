@@ -1,9 +1,9 @@
 "use client"
 
-import Link from "next/link"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { usePathname } from "next/navigation"
 import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react"
+import { AppLink } from "@/components/app-link"
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
@@ -66,7 +66,7 @@ export function Navbar() {
           }`}
         >
           <div className="flex h-[74px] items-center justify-between px-3 sm:px-5">
-            <Link href="/" className="tap-target flex items-center gap-3 rounded-full px-1 py-1">
+            <AppLink href="/" className="tap-target flex items-center gap-3 rounded-full px-1 py-1">
               <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950 shadow-[0_12px_26px_rgba(15,23,42,0.18)]">
                 <img
                   src="/vishnulabs-logo-mark.svg"
@@ -80,11 +80,11 @@ export function Navbar() {
                 <p className="text-[15px] font-semibold tracking-tight text-foreground">VishnuLabs</p>
                 <p className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Automation Systems</p>
               </div>
-            </Link>
+            </AppLink>
 
             <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
               {navLinks.map((link) => (
-                <Link
+                <AppLink
                   key={link.href}
                   href={link.href}
                   aria-current={isActive(link.href) ? "page" : undefined}
@@ -95,12 +95,12 @@ export function Navbar() {
                   }`}
                 >
                   {link.label}
-                </Link>
+                </AppLink>
               ))}
 
               <div className="ml-2 hidden items-center gap-1 border-l border-slate-200/80 pl-2 xl:flex">
                 {supportLinks.map((link) => (
-                  <Link
+                  <AppLink
                     key={link.href}
                     href={link.href}
                     aria-current={isActive(link.href) ? "page" : undefined}
@@ -111,7 +111,7 @@ export function Navbar() {
                     }`}
                   >
                     {link.label}
-                  </Link>
+                  </AppLink>
                 ))}
               </div>
 
@@ -133,7 +133,7 @@ export function Navbar() {
                 {moreOpen ? (
                   <div className="absolute right-0 top-[calc(100%+0.55rem)] w-52 rounded-[22px] border border-white/88 bg-white/92 p-2 shadow-[0_18px_42px_rgba(15,23,42,0.12)] backdrop-blur-2xl">
                     {supportLinks.map((link) => (
-                      <Link
+                      <AppLink
                         key={link.href}
                         href={link.href}
                         aria-current={isActive(link.href) ? "page" : undefined}
@@ -144,7 +144,7 @@ export function Navbar() {
                         }`}
                       >
                         {link.label}
-                      </Link>
+                      </AppLink>
                     ))}
                   </div>
                 ) : null}
@@ -157,10 +157,10 @@ export function Navbar() {
                 asChild
                 className="cta-glow h-10 gap-1.5 rounded-full bg-slate-950 px-5 text-white hover:bg-slate-900"
               >
-                <Link href="/book" data-track="nav_book_meeting">
+                <AppLink href="/book" data-track="nav_book_meeting">
                   Book Meeting
                   <ArrowUpRight className="h-3.5 w-3.5" />
-                </Link>
+                </AppLink>
               </Button>
             </div>
 
@@ -181,7 +181,7 @@ export function Navbar() {
             >
               <div className="flex flex-col gap-1.5">
                 {navLinks.map((link) => (
-                  <Link
+                  <AppLink
                     key={link.href}
                     href={link.href}
                     aria-current={isActive(link.href) ? "page" : undefined}
@@ -193,13 +193,13 @@ export function Navbar() {
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}
-                  </Link>
+                  </AppLink>
                 ))}
                 <div className="mt-2 border-t border-border/50 pt-3">
                   <p className="px-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">More pages</p>
                   <div className="mt-2 grid grid-cols-3 gap-2">
                     {supportLinks.map((link) => (
-                      <Link
+                      <AppLink
                         key={link.href}
                         href={link.href}
                         aria-current={isActive(link.href) ? "page" : undefined}
@@ -211,15 +211,15 @@ export function Navbar() {
                         onClick={() => setMobileOpen(false)}
                       >
                         {link.label}
-                      </Link>
+                      </AppLink>
                     ))}
                   </div>
                 </div>
                 <div className="mt-2 border-t border-border/50 pt-3">
                   <Button asChild className="w-full rounded-full bg-slate-950 text-white hover:bg-slate-900">
-                    <Link href="/book" onClick={() => setMobileOpen(false)} data-track="mobile_nav_book_meeting">
+                    <AppLink href="/book" onClick={() => setMobileOpen(false)} data-track="mobile_nav_book_meeting">
                       Book Meeting
-                    </Link>
+                    </AppLink>
                   </Button>
                 </div>
               </div>

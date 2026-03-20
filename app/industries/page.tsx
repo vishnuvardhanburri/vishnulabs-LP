@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
-import Link from "next/link"
 import type { LucideIcon } from "lucide-react"
 import { ArrowRight, ArrowUpRight, Building2, CheckCircle2, Home, Hospital, Rocket, Scale, Truck } from "lucide-react"
 
+import { AppLink } from "@/components/app-link"
 import { ConfidenceRail } from "@/components/confidence-rail"
 import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { Footer } from "@/components/footer"
@@ -120,16 +120,16 @@ export default function IndustriesPage() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button asChild className="h-12 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white hover:bg-slate-900">
-                  <Link href="/book">
+                  <AppLink href="/book">
                     Request Demo
                     <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  </AppLink>
                 </Button>
                 <Button asChild variant="outline" className="h-12 rounded-full border-slate-300 bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-50">
-                  <Link href="/automations">
+                  <AppLink href="/automations">
                     Explore Automations
                     <ArrowUpRight className="h-4 w-4" />
-                  </Link>
+                  </AppLink>
                 </Button>
               </div>
 
@@ -163,10 +163,10 @@ export default function IndustriesPage() {
                         </li>
                       ))}
                     </ul>
-                    <Link href={industry.href} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-slate-950 hover:text-primary">
+                    <AppLink href={industry.href} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-slate-950 hover:text-primary">
                       Open industry page
                       <ArrowRight className="h-4 w-4" />
-                    </Link>
+                    </AppLink>
                   </article>
                 )
               })}

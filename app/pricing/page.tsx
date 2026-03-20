@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import Link from "next/link"
 import type { LucideIcon } from "lucide-react"
 import {
   ArrowRight,
@@ -18,6 +17,7 @@ import {
   ShieldCheck,
 } from "lucide-react"
 
+import { AppLink } from "@/components/app-link"
 import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { ConfidenceRail } from "@/components/confidence-rail"
 import { Footer } from "@/components/footer"
@@ -326,13 +326,13 @@ export default function PricingPage() {
 
                   <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                     <Button asChild className="cta-glow h-12 rounded-full bg-slate-950 px-6 text-sm font-semibold text-white hover:bg-slate-900">
-                      <Link href="/stealth-vault">
+                      <AppLink href="/stealth-vault">
                         View Offer Details
                         <ArrowUpRight className="h-4 w-4" />
-                      </Link>
+                      </AppLink>
                     </Button>
                     <Button asChild variant="outline" className="h-12 rounded-full border-white/15 bg-white/5 px-6 text-sm font-semibold text-white hover:bg-white/10">
-                      <Link href="/book">Book Buying Call</Link>
+                      <AppLink href="/book">Book Buying Call</AppLink>
                     </Button>
                   </div>
                 </article>
@@ -378,13 +378,13 @@ export default function PricingPage() {
 
                   <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                     <Button asChild className="cta-glow h-12 rounded-full bg-slate-950 px-6 text-sm font-semibold text-white hover:bg-slate-900">
-                      <Link href="/book">
+                      <AppLink href="/book">
                         Request Demo
                         <ArrowRight className="h-4 w-4" />
-                      </Link>
+                      </AppLink>
                     </Button>
                     <Button asChild variant="outline" className="h-12 rounded-full border-slate-300 bg-white px-6 text-sm font-semibold text-slate-950 hover:bg-slate-50">
-                      <Link href="/automations">Compare Automations</Link>
+                      <AppLink href="/automations">Compare Automations</AppLink>
                     </Button>
                   </div>
 
@@ -394,7 +394,7 @@ export default function PricingPage() {
                       alt="VishnuLabs sales and offer walkthrough"
                       width={1920}
                       height={1080}
-                      quality={100}
+                      quality={88}
                       priority
                       sizes="(max-width: 1024px) 100vw, 38vw"
                       className="h-full w-full rounded-[24px] object-cover object-top"
@@ -525,16 +525,16 @@ export default function PricingPage() {
 
                       <div className="mt-auto grid gap-3 pt-6">
                         <Button asChild className="h-11 w-full rounded-full bg-slate-950 px-5 text-sm font-semibold text-white hover:bg-slate-900">
-                          <Link href="/book">
+                          <AppLink href="/book">
                             Request Offer Scope
                             <ArrowRight className="h-4 w-4" />
-                          </Link>
+                          </AppLink>
                         </Button>
                         <Button asChild variant="outline" className="h-11 w-full rounded-full border-slate-300 bg-white px-5 text-sm font-semibold text-slate-950 hover:bg-slate-50">
-                          <Link href="/products">
+                          <AppLink href="/products">
                             Compare With Other Products
                             <ArrowUpRight className="h-4 w-4" />
-                          </Link>
+                          </AppLink>
                         </Button>
                       </div>
                     </article>
@@ -621,16 +621,16 @@ export default function PricingPage() {
 
                       <div className="mt-auto grid gap-3 pt-6">
                         <Button asChild className="h-11 w-full rounded-full bg-slate-950 px-5 text-sm font-semibold text-white hover:bg-slate-900">
-                          <Link href="/book">
+                          <AppLink href="/book">
                             Request Combo Quote
                             <ArrowRight className="h-4 w-4" />
-                          </Link>
+                          </AppLink>
                         </Button>
                         <Button asChild variant="outline" className="h-11 w-full rounded-full border-slate-300 bg-white px-5 text-sm font-semibold text-slate-950 hover:bg-slate-50">
-                          <Link href={offer.href}>
+                          <AppLink href={offer.href}>
                             Learn More
                             <ArrowUpRight className="h-4 w-4" />
-                          </Link>
+                          </AppLink>
                         </Button>
                       </div>
                     </article>
@@ -652,6 +652,9 @@ export default function PricingPage() {
                 <p className="mt-4 text-base leading-8 text-slate-600">
                   These are starting prices for the core automation packages. Final scope depends on integrations, branching logic,
                   messaging volume, compliance requirements, and handoff complexity.
+                </p>
+                <p className="mt-3 text-sm leading-7 text-slate-500">
+                  US and UK pricing is shown in USD for fast comparison. India-specific pricing and delivery scope are quoted separately based on integrations, deployment model, support, and workflow complexity.
                 </p>
               </div>
 
@@ -689,16 +692,16 @@ export default function PricingPage() {
 
                       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                         <Button asChild className="h-11 rounded-full bg-slate-950 px-5 text-sm font-semibold text-white hover:bg-slate-900">
-                          <Link href="/book">
+                          <AppLink href="/book">
                             Request Demo
                             <ArrowRight className="h-4 w-4" />
-                          </Link>
+                          </AppLink>
                         </Button>
                         <Button asChild variant="outline" className="h-11 rounded-full border-slate-300 bg-white px-5 text-sm font-semibold text-slate-950 hover:bg-slate-50">
-                          <Link href={item.href}>
+                          <AppLink href={item.href}>
                             View Details
                             <ArrowUpRight className="h-4 w-4" />
-                          </Link>
+                          </AppLink>
                         </Button>
                       </div>
                     </article>

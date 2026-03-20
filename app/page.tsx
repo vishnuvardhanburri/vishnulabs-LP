@@ -1,5 +1,4 @@
 import Image from "next/image"
-import Link from "next/link"
 import type { LucideIcon } from "lucide-react"
 import {
   ArrowRight,
@@ -26,6 +25,7 @@ import {
   Workflow,
 } from "lucide-react"
 
+import { AppLink } from "@/components/app-link"
 import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
@@ -311,10 +311,10 @@ export default function Page() {
                       asChild
                       className="cta-glow h-12 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white hover:bg-slate-900 sm:h-14 sm:px-8 sm:text-base"
                     >
-                      <Link href="/book" data-track="home_book_demo_primary">
+                      <AppLink href="/book" data-track="home_book_demo_primary">
                         Book Live Demo
                         <ArrowRight className="h-4 w-4" />
-                      </Link>
+                      </AppLink>
                     </Button>
 
                     <Button
@@ -323,10 +323,10 @@ export default function Page() {
                       asChild
                       className="h-12 rounded-full border-slate-200/90 bg-white/80 px-7 text-sm font-semibold text-slate-900 hover:bg-white sm:h-14 sm:px-8 sm:text-base"
                     >
-                      <Link href="/stealth-vault" data-track="home_view_vault_primary">
+                      <AppLink href="/stealth-vault" data-track="home_view_vault_primary">
                         Explore AI Vault
                         <ArrowUpRight className="h-4 w-4" />
-                      </Link>
+                      </AppLink>
                     </Button>
                   </div>
 
@@ -454,10 +454,10 @@ export default function Page() {
                       asChild
                       className="cta-glow h-12 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white hover:bg-slate-900"
                     >
-                      <Link href="/products" data-track="home_connected_system_products">
+                      <AppLink href="/products" data-track="home_connected_system_products">
                         Explore Products
                         <ArrowRight className="h-4 w-4" />
-                      </Link>
+                      </AppLink>
                     </Button>
                     <Button
                       size="lg"
@@ -465,9 +465,9 @@ export default function Page() {
                       asChild
                       className="h-12 rounded-full border-slate-200/90 bg-white/80 px-7 text-sm font-semibold text-slate-900 hover:bg-white"
                     >
-                      <Link href="/pricing" data-track="home_connected_system_pricing">
+                      <AppLink href="/pricing" data-track="home_connected_system_pricing">
                         See Pricing Structure
-                      </Link>
+                      </AppLink>
                     </Button>
                   </div>
                 </div>
@@ -536,10 +536,10 @@ export default function Page() {
                         asChild
                         className="h-12 rounded-full bg-white px-6 text-sm font-semibold text-slate-950 hover:bg-slate-100"
                       >
-                        <Link href="/stealth-vault" data-track="home_featured_vault_cta">
+                        <AppLink href="/stealth-vault" data-track="home_featured_vault_cta">
                           View Vault Offer
                           <ArrowUpRight className="h-4 w-4" />
-                        </Link>
+                        </AppLink>
                       </Button>
 
                       <Button
@@ -547,9 +547,9 @@ export default function Page() {
                         variant="outline"
                         className="h-12 rounded-full border-white/15 bg-white/5 px-6 text-sm font-semibold text-white hover:bg-white/10"
                       >
-                        <Link href="/book" data-track="home_featured_vault_book">
+                        <AppLink href="/book" data-track="home_featured_vault_book">
                           Book Setup Call
-                        </Link>
+                        </AppLink>
                       </Button>
                     </div>
 
@@ -564,7 +564,7 @@ export default function Page() {
                       alt="Vault dashboard walkthrough"
                       width={1500}
                       height={1100}
-                      quality={100}
+                      quality={88}
                       sizes="(max-width: 1024px) 100vw, 40vw"
                       className="h-auto w-full rounded-[22px] border border-white/10 object-cover"
                     />
@@ -605,14 +605,14 @@ export default function Page() {
                             Custom solution available. Email hello@vishnulabs.com
                           </p>
 
-                          <Link
+                          <AppLink
                             href={product.href}
                             className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-950 transition hover:text-primary"
                             data-track={`home_product_${product.title.toLowerCase().replace(/[^a-z0-9]+/g, "_")}`}
                           >
                             {product.cta}
                             <ArrowRight className="h-4 w-4" />
-                          </Link>
+                          </AppLink>
                         </div>
 
                         <div className="overflow-hidden rounded-[24px] border border-slate-200 bg-slate-100">
@@ -715,10 +715,10 @@ export default function Page() {
                           ))}
                         </div>
 
-                        <Link href={item.href} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-950 hover:text-primary">
+                        <AppLink href={item.href} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-950 hover:text-primary">
                           Open page
                           <ArrowRight className="h-4 w-4" />
-                        </Link>
+                        </AppLink>
                       </article>
                 )
               })}
@@ -744,10 +744,10 @@ export default function Page() {
                   variant="outline"
                   className="h-12 rounded-full border-white/15 bg-white/5 px-6 text-sm font-semibold text-white hover:bg-white/10"
                 >
-                  <Link href="/book" data-track="home_proof_book_demo">
+                  <AppLink href="/book" data-track="home_proof_book_demo">
                     Book Live Walkthrough
                     <ArrowUpRight className="h-4 w-4" />
-                  </Link>
+                  </AppLink>
                 </Button>
               </div>
 
@@ -771,7 +771,7 @@ export default function Page() {
                       controls
                       muted
                       playsInline
-                      preload="metadata"
+                      preload="none"
                     >
                       Your browser does not support the video tag.
                     </video>
@@ -896,14 +896,14 @@ export default function Page() {
                   ))}
                 </div>
 
-                <Link
+                <AppLink
                   href="/book"
                   className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky-200 transition hover:text-white"
                   data-track="home_services_book_demo"
                 >
                   Discuss custom build
                   <ArrowRight className="h-4 w-4" />
-                </Link>
+                </AppLink>
               </aside>
             </div>
           </div>
@@ -942,10 +942,10 @@ export default function Page() {
                       ))}
                     </div>
 
-                    <Link href={industry.href} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-slate-950 hover:text-primary">
+                    <AppLink href={industry.href} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-slate-950 hover:text-primary">
                       Open industry page
                       <ArrowRight className="h-4 w-4" />
-                    </Link>
+                    </AppLink>
                   </article>
                 )
               })}
@@ -984,19 +984,19 @@ export default function Page() {
                     asChild
                     className="h-12 rounded-full bg-white px-6 text-sm font-semibold text-slate-950 hover:bg-slate-100"
                   >
-                    <Link href="/stealth-vault" data-track="home_pricing_view_vault">
+                    <AppLink href="/stealth-vault" data-track="home_pricing_view_vault">
                       View Offer Details
                       <ArrowUpRight className="h-4 w-4" />
-                    </Link>
+                    </AppLink>
                   </Button>
                   <Button
                     asChild
                     variant="outline"
                     className="h-12 rounded-full border-white/15 bg-white/5 px-6 text-sm font-semibold text-white hover:bg-white/10"
                   >
-                    <Link href="/book" data-track="home_pricing_book_meeting">
+                    <AppLink href="/book" data-track="home_pricing_book_meeting">
                       Book Buying Call
-                    </Link>
+                    </AppLink>
                   </Button>
                 </div>
               </article>
@@ -1053,19 +1053,19 @@ export default function Page() {
                   asChild
                   className="h-12 rounded-full bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-100"
                 >
-                  <Link href="/book" data-track="home_final_book_demo">
+                  <AppLink href="/book" data-track="home_final_book_demo">
                     Book Demo
                     <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  </AppLink>
                 </Button>
                 <Button
                   asChild
                   variant="outline"
                   className="h-12 rounded-full border-white/15 bg-white/5 px-7 text-sm font-semibold text-white hover:bg-white/10"
                 >
-                  <Link href="/stealth-vault" data-track="home_final_view_vault">
+                  <AppLink href="/stealth-vault" data-track="home_final_view_vault">
                     Review Vault Offer
-                  </Link>
+                  </AppLink>
                 </Button>
               </div>
             </div>

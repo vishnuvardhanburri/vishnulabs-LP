@@ -1,4 +1,4 @@
-import Link from "next/link"
+import { AppLink } from "@/components/app-link"
 import { customPackageMailto } from "@/components/custom-solution-note"
 
 const serviceLinks = [
@@ -37,7 +37,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-10 lg:py-14">
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.9fr]">
         <div>
-            <Link href="/" className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2.5">
+            <AppLink href="/" className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2.5">
               <img
                 src="/vishnulabs-logo-full.svg"
                 alt="VishnuLabs logo"
@@ -45,7 +45,7 @@ export function Footer() {
                 height="50"
                 className="h-auto w-[170px] object-contain"
               />
-            </Link>
+            </AppLink>
 
             <p className="mt-4 max-w-sm text-sm leading-7 text-slate-300">
               Premium AI automation, websites, domain management, custom software, and private internal AI infrastructure for high-trust teams.
@@ -72,9 +72,9 @@ export function Footer() {
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">Contact</p>
             <div className="mt-4 grid gap-2">
               {pageLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="text-sm text-slate-300 transition-colors hover:text-white">
+                <AppLink key={link.href} href={link.href} className="text-sm text-slate-300 transition-colors hover:text-white">
                   {link.label}
-                </Link>
+                </AppLink>
               ))}
               <a href={customPackageMailto} className="text-sm text-slate-300 transition-colors hover:text-white">
                 hello@vishnulabs.com
@@ -106,9 +106,9 @@ function FooterColumn({
       <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">{title}</p>
       <div className="mt-4 grid gap-2">
         {links.map((link) => (
-          <Link key={link.href} href={link.href} className="text-sm text-slate-300 transition-colors hover:text-white">
+          <AppLink key={link.href} href={link.href} className="text-sm text-slate-300 transition-colors hover:text-white">
             {link.label}
-          </Link>
+          </AppLink>
         ))}
       </div>
     </div>

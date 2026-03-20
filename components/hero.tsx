@@ -110,7 +110,7 @@ export function Hero() {
               loop
               playsInline
               controls
-              preload="metadata"
+              preload="none"
               style={{ objectPosition: "center top" }}
             >
               Your browser does not support the video tag.

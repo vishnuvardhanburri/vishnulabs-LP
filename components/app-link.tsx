@@ -8,9 +8,6 @@ type AppLinkProps = LinkProps &
     prefetch?: boolean
   }
 
-export const AppLink = forwardRef<HTMLAnchorElement, AppLinkProps>(function AppLink(
-  { prefetch = false, ...props },
-  ref,
-) {
+export const AppLink = forwardRef<HTMLAnchorElement, AppLinkProps>(function AppLink({ prefetch, ...props }, ref) {
   return <Link ref={ref} prefetch={prefetch} {...props} />
 })

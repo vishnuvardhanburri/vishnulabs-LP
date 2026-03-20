@@ -66,7 +66,7 @@ export function Navbar() {
           }`}
         >
           <div className="flex h-[74px] items-center justify-between px-3 sm:px-5">
-            <AppLink href="/" className="tap-target flex items-center gap-3 rounded-full px-1 py-1">
+            <AppLink href="/" prefetch className="tap-target flex items-center gap-3 rounded-full px-1 py-1">
               <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950 shadow-[0_12px_26px_rgba(15,23,42,0.18)]">
                 <img
                   src="/vishnulabs-logo-mark.svg"
@@ -87,6 +87,7 @@ export function Navbar() {
                 <AppLink
                   key={link.href}
                   href={link.href}
+                  prefetch
                   aria-current={isActive(link.href) ? "page" : undefined}
                   className={`nav-underline rounded-full px-3 py-2 text-[13px] font-medium tracking-[0.01em] transition-all xl:px-3.5 ${
                     isActive(link.href)
@@ -103,6 +104,7 @@ export function Navbar() {
                   <AppLink
                     key={link.href}
                     href={link.href}
+                    prefetch
                     aria-current={isActive(link.href) ? "page" : undefined}
                     className={`rounded-full px-3 py-2 text-[12px] font-semibold uppercase tracking-[0.14em] transition-all ${
                       isActive(link.href)
@@ -136,6 +138,7 @@ export function Navbar() {
                       <AppLink
                         key={link.href}
                         href={link.href}
+                        prefetch
                         aria-current={isActive(link.href) ? "page" : undefined}
                         className={`block rounded-2xl px-3 py-3 text-sm font-semibold transition-colors ${
                           isActive(link.href)
@@ -157,7 +160,7 @@ export function Navbar() {
                 asChild
                 className="cta-glow h-10 gap-1.5 rounded-full bg-slate-950 px-5 text-white hover:bg-slate-900"
               >
-                <AppLink href="/book" data-track="nav_book_meeting">
+                <AppLink href="/book" prefetch data-track="nav_book_meeting">
                   Book Meeting
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </AppLink>
@@ -184,6 +187,7 @@ export function Navbar() {
                   <AppLink
                     key={link.href}
                     href={link.href}
+                    prefetch
                     aria-current={isActive(link.href) ? "page" : undefined}
                     className={`tap-target rounded-2xl px-3 py-3 text-sm font-semibold transition-colors ${
                       isActive(link.href)
@@ -202,6 +206,7 @@ export function Navbar() {
                       <AppLink
                         key={link.href}
                         href={link.href}
+                        prefetch
                         aria-current={isActive(link.href) ? "page" : undefined}
                         className={`rounded-2xl border px-3 py-2 text-center text-[11px] font-semibold uppercase tracking-[0.12em] transition-colors ${
                           isActive(link.href)
@@ -217,7 +222,7 @@ export function Navbar() {
                 </div>
                 <div className="mt-2 border-t border-border/50 pt-3">
                   <Button asChild className="w-full rounded-full bg-slate-950 text-white hover:bg-slate-900">
-                    <AppLink href="/book" onClick={() => setMobileOpen(false)} data-track="mobile_nav_book_meeting">
+                    <AppLink href="/book" prefetch onClick={() => setMobileOpen(false)} data-track="mobile_nav_book_meeting">
                       Book Meeting
                     </AppLink>
                   </Button>

@@ -654,7 +654,9 @@ export default function PricingPage() {
                   messaging volume, compliance requirements, and handoff complexity.
                 </p>
                 <p className="mt-3 text-sm leading-7 text-slate-500">
-                  US and UK pricing is shown in USD for fast comparison. India-specific pricing and delivery scope are quoted separately based on integrations, deployment model, support, and workflow complexity.
+                  The public prices on this page are for US and UK-facing projects and are shown in USD for clear comparison. India pricing is quoted
+                  separately based on scope, integrations, deployment model, support, and workflow complexity, and can be shared in INR or USD based
+                  on client preference.
                 </p>
               </div>
 

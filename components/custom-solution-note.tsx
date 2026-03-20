@@ -16,6 +16,7 @@ const customPackageBody = encodeURIComponent(
     "Business / industry:",
     "Country / market:",
     "Need India-specific pricing or scope version? Yes / No:",
+    "Preferred quote currency for India scope: INR / USD",
     "What we need help with:",
     "Website / domain / software / automation requirements:",
     "Timeline:",
@@ -56,8 +57,9 @@ export function CustomSolutionNote({
             >
               hello@vishnulabs.com
             </a>{" "}
-            and we will recommend the right setup for your team. US / UK pricing is shown in USD. India-specific pricing and delivery scope
-            are quoted separately based on workflow depth, integrations, deployment, and support needs.
+            and we will recommend the right setup for your team. The public prices on this site are for US and UK-facing projects and are shown
+            in USD. India pricing is quoted separately based on scope, workflow depth, integrations, deployment, and support, and can be shared
+            in INR or USD depending on your preference.
           </p>
           <div className={`mt-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] ${dark ? "text-slate-400" : "text-slate-500"}`}>
             <Mail className="h-3.5 w-3.5" />

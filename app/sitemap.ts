@@ -24,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/industries/mortgage",
     "/proof",
     "/pricing",
+    "/start-protecting",
     "/services/ai-voice-receptionist",
     "/services/ai-scheduling-reminder",
     "/services/ai-legal-intake",

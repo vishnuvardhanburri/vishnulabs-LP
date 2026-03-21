@@ -58,7 +58,7 @@ export default function ProofPage() {
                     size="lg"
                     variant="outline"
                     asChild
-                    className="h-12 rounded-full border-white/14 bg-white/5 px-7 text-sm font-semibold text-white hover:bg-white/10 sm:h-14 sm:px-8 sm:text-base"
+                    className="h-12 rounded-full border-white/24 bg-white/12 px-7 text-sm font-semibold text-white hover:bg-white/18 sm:h-14 sm:px-8 sm:text-base"
                   >
                     <a href="/pricing">
                       View Pricing
@@ -68,7 +68,7 @@ export default function ProofPage() {
                 </div>
               </article>
 
-              <article className="rounded-[34px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#eff5ff_100%)] p-6 shadow-[0_18px_46px_rgba(15,23,42,0.08)] sm:p-8">
+              <article className="rounded-[34px] border border-slate-200 bg-white p-6 shadow-[0_18px_46px_rgba(15,23,42,0.10)] sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">What the buyer needs to see</p>
                 <div className="mt-5 space-y-3">
                   {trustSignals.map((item) => (
@@ -109,7 +109,7 @@ export default function ProofPage() {
               </article>
 
               <div className="grid gap-6">
-                <article className="rounded-[34px] border border-red-500/30 bg-[linear-gradient(180deg,rgba(69,10,10,1)_0%,rgba(127,29,29,0.98)_100%)] p-5 shadow-[0_18px_40px_rgba(127,29,29,0.2)]">
+                <article className="rounded-[34px] border border-red-500/36 bg-[linear-gradient(180deg,rgba(91,18,18,1)_0%,rgba(153,27,27,0.98)_100%)] p-5 shadow-[0_18px_40px_rgba(127,29,29,0.24)]">
                   <div className="flex items-center gap-3">
                     <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-red-500/18 text-red-100">
                       <CircleAlert className="h-5 w-5" />

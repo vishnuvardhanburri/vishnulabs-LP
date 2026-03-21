@@ -68,7 +68,7 @@ export default function ServicesPage() {
                     size="lg"
                     variant="outline"
                     asChild
-                    className="h-12 rounded-full border-white/18 bg-white/8 px-7 text-sm font-semibold text-white hover:bg-white/14 sm:h-14 sm:px-8 sm:text-base"
+                    className="h-12 rounded-full border-white/26 bg-white/12 px-7 text-sm font-semibold text-white hover:bg-white/18 sm:h-14 sm:px-8 sm:text-base"
                   >
                     <a href="/pricing">
                       View Pricing
@@ -78,7 +78,7 @@ export default function ServicesPage() {
                 </div>
               </article>
 
-              <article className="rounded-[34px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#eff5ff_100%)] p-6 shadow-[0_18px_46px_rgba(15,23,42,0.08)] sm:p-8">
+              <article className="rounded-[34px] border border-slate-200 bg-white p-6 shadow-[0_18px_46px_rgba(15,23,42,0.10)] sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Why this matters</p>
                 <div className="mt-5 space-y-3">
                   {serviceNotes.map((item) => (

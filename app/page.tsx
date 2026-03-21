@@ -182,7 +182,7 @@ export default function HomePage() {
 
         <section className="py-6 sm:py-8">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
-            <div className="rounded-[34px] border border-white/10 bg-white/95 p-6 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:p-8">
+            <div className="rounded-[34px] border border-white/90 bg-white p-6 shadow-[0_24px_60px_rgba(15,23,42,0.10)] sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Category</p>
               <h2 className="mt-4 max-w-4xl text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
                 Stealth Vault is the AI usage control layer between your systems and AI.
@@ -350,7 +350,7 @@ export default function HomePage() {
         <section className="py-6 sm:py-8">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
-              <article className="rounded-[34px] border border-white/10 bg-white/96 p-6 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:p-8">
+              <article className="rounded-[34px] border border-white/90 bg-white p-6 shadow-[0_24px_60px_rgba(15,23,42,0.10)] sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Trust</p>
                 <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                   No more missed risk. No more delayed response after the leak already happened.

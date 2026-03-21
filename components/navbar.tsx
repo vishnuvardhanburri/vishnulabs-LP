@@ -61,8 +61,8 @@ export function Navbar() {
         <div
           className={`rounded-[28px] border transition-all duration-300 ${
             scrolled
-              ? "border-white/88 bg-white/84 shadow-[0_24px_72px_rgba(15,23,42,0.10)] backdrop-blur-2xl"
-              : "border-white/92 bg-white/74 shadow-[0_18px_60px_rgba(15,23,42,0.07)] backdrop-blur-2xl"
+              ? "border-white/95 bg-white/92 shadow-[0_24px_72px_rgba(15,23,42,0.12)] backdrop-blur-2xl"
+              : "border-white/95 bg-white/88 shadow-[0_18px_60px_rgba(15,23,42,0.09)] backdrop-blur-2xl"
           }`}
         >
           <div className="flex h-[74px] items-center justify-between px-3 sm:px-5">
@@ -77,8 +77,8 @@ export function Navbar() {
                 />
               </div>
               <div>
-                <p className="text-[15px] font-semibold tracking-tight text-foreground">VishnuLabs</p>
-                <p className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Automation Systems</p>
+                <p className="text-[15px] font-semibold tracking-tight text-slate-950">VishnuLabs</p>
+                <p className="text-[10px] uppercase tracking-[0.22em] text-slate-500">Automation Systems</p>
               </div>
             </AppLink>
 
@@ -89,10 +89,10 @@ export function Navbar() {
                   href={link.href}
                   prefetch
                   aria-current={isActive(link.href) ? "page" : undefined}
-                  className={`nav-underline rounded-full px-3 py-2 text-[13px] font-medium tracking-[0.01em] transition-all xl:px-3.5 ${
+                  className={`nav-underline whitespace-nowrap rounded-full px-2.5 py-2 text-[12px] font-semibold tracking-[0.01em] transition-all xl:px-3 xl:text-[13px] ${
                     isActive(link.href)
                       ? "bg-slate-950 text-white shadow-[0_10px_24px_rgba(15,23,42,0.14)]"
-                      : "text-slate-600 hover:bg-white/90 hover:text-slate-950"
+                      : "text-slate-800 hover:bg-slate-100 hover:text-slate-950"
                   }`}
                 >
                   {link.label}
@@ -106,10 +106,10 @@ export function Navbar() {
                     href={link.href}
                     prefetch
                     aria-current={isActive(link.href) ? "page" : undefined}
-                    className={`rounded-full px-3 py-2 text-[12px] font-semibold uppercase tracking-[0.14em] transition-all ${
+                    className={`whitespace-nowrap rounded-full px-2.5 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] transition-all 2xl:px-3 ${
                       isActive(link.href)
                         ? "bg-white text-slate-950 shadow-[0_10px_24px_rgba(15,23,42,0.10)]"
-                        : "text-slate-500 hover:bg-white/90 hover:text-slate-950"
+                        : "text-slate-700 hover:bg-slate-100 hover:text-slate-950"
                     }`}
                   >
                     {link.label}

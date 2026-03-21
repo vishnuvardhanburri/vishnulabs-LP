@@ -72,7 +72,7 @@ export default function AutomationsPage() {
                     size="lg"
                     variant="outline"
                     asChild
-                    className="h-12 rounded-full border-white/18 bg-white/8 px-7 text-sm font-semibold text-white hover:bg-white/14 sm:h-14 sm:px-8 sm:text-base"
+                    className="h-12 rounded-full border-white/26 bg-white/12 px-7 text-sm font-semibold text-white hover:bg-white/18 sm:h-14 sm:px-8 sm:text-base"
                   >
                     <a href="/proof">
                       View Demo
@@ -82,7 +82,7 @@ export default function AutomationsPage() {
                 </div>
               </article>
 
-              <article className="rounded-[34px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#eff5ff_100%)] p-6 shadow-[0_18px_46px_rgba(15,23,42,0.08)] sm:p-8">
+              <article className="rounded-[34px] border border-slate-200 bg-white p-6 shadow-[0_18px_46px_rgba(15,23,42,0.10)] sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Why this matters</p>
                 <div className="mt-5 space-y-3">
                   {workflowReasons.map((item) => (
@@ -101,7 +101,7 @@ export default function AutomationsPage() {
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="grid gap-4 md:grid-cols-2">
               {workflowCards.map((item) => (
-                <article key={item.title} className="rounded-[28px] border border-white/90 bg-white/98 p-5 shadow-[0_16px_38px_rgba(15,23,42,0.08)] sm:p-6">
+                <article key={item.title} className="rounded-[28px] border border-white/90 bg-white p-5 shadow-[0_16px_38px_rgba(15,23,42,0.10)] sm:p-6">
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-sky-200">
                     <ShieldCheck className="h-5 w-5" />
                   </div>

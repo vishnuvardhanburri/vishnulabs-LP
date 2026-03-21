@@ -65,8 +65,8 @@ export default function ProductsPage() {
                   One product. Multiple places where AI risk shows up.
                 </h1>
                 <p className="mt-5 text-base leading-8 text-slate-300 sm:text-lg">
-                  Stealth Vault is not another AI app. It is the control layer that sits between your team, your systems, and the AI tools
-                  they already use.
+                  Stealth Vault is not another AI app. It is the control layer that sits between your team and the AI tools they already use,
+                  so no one has to choose between speed and security.
                 </p>
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -91,7 +91,7 @@ export default function ProductsPage() {
               </article>
 
               <article className="rounded-[34px] border border-white/10 bg-white/96 p-6 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:p-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Why this page exists</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Why buyers check this page</p>
                 <div className="mt-5 space-y-3">
                   {whyItMatters.map((item) => (
                     <div key={item} className="flex gap-3 rounded-[24px] border border-slate-200 bg-slate-50 px-4 py-4">
@@ -110,8 +110,12 @@ export default function ProductsPage() {
             <div className="rounded-[34px] border border-white/10 bg-white/96 p-6 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Where Stealth Vault fits</p>
               <h2 className="mt-4 max-w-4xl text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
-                The product follows AI usage wherever sensitive information can leave the company.
+                The product follows AI usage wherever private information, customer data, or credentials can slip out.
               </h2>
+              <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
+                Clients do not need a big catalog. They need to know whether the risk is in staff prompting, internal tools, customer records,
+                or API-connected workflows. This page answers that quickly.
+              </p>
 
               <div className="mt-8 grid gap-4 md:grid-cols-2">
                 {productSurfaces.map((item) => {

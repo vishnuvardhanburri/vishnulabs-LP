@@ -45,8 +45,8 @@ export default function PricingPage() {
                   Buy control before AI usage becomes a bigger problem.
                 </h1>
                 <p className="mt-5 text-base leading-8 text-slate-300 sm:text-lg">
-                  The pricing is simple on purpose. Start with a plan that matches current AI usage. Move up only when the number of users,
-                  systems, or policies expands.
+                  The pricing is simple on purpose. Start with the level of control you need now. Expand only when AI usage, systems, or
+                  policy requirements expand.
                 </p>
 
                 <div className="mt-7 space-y-3">
@@ -80,11 +80,15 @@ export default function PricingPage() {
               </article>
 
               <article className="rounded-[34px] border border-white/10 bg-white/96 p-6 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:p-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Pricing note</p>
-                <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                  Control surface, policy depth, and rollout model decide the final scope.
-                </h2>
-                <div className="mt-6 space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Pricing note</p>
+              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+                Every listed price is a starting point, not a forced final package.
+              </h2>
+              <p className="mt-4 text-base leading-8 text-slate-600">
+                Some teams need a fast first rollout. Some need deeper policy, broader coverage, or private deployment requirements. We scope
+                for fit first, then quote clearly.
+              </p>
+              <div className="mt-6 space-y-3">
                   {scopeNotes.map((item) => (
                     <div key={item} className="flex gap-3 rounded-[24px] border border-slate-200 bg-slate-50 px-4 py-4">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
@@ -112,7 +116,8 @@ export default function PricingPage() {
               </h2>
               <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
                 The first question is not whether the team should use AI. The first question is whether the company controls what enters AI in
-                the first place. That is the problem Stealth Vault is priced to solve.
+                the first place. For India teams, final pricing can be shared in INR or USD based on scope, deployment model, support needs,
+                and budget comfort. For every region, the listed plans are starting points and the final scope is confirmed together.
               </p>
             </div>
           </div>

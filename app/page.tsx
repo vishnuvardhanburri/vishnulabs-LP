@@ -80,8 +80,8 @@ export default function HomePage() {
                 </h1>
 
                 <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-                  Stealth Vault is the control layer between your systems and AI. It blocks sensitive data, secrets, and internal information
-                  from leaking into AI tools in real time.
+                  Stealth Vault puts control between your team and AI. It stops sensitive data, secrets, and internal records before they
+                  leave the company. No more blind prompting. No more silent leaks. No more hoping people remember what not to paste.
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -111,9 +111,9 @@ export default function HomePage() {
 
                 <div className="mt-8 grid gap-3 sm:grid-cols-3">
                   {[
-                    { label: "Core value", value: "Adopt AI without risking your data" },
+                    { label: "Core value", value: "Use AI without losing data control" },
                     { label: "What changes", value: "Scan. Block. Redact. Log." },
-                    { label: "Why it matters", value: "One leak is enough." },
+                    { label: "What it stops", value: "Delays, missed risk, and silent exposure" },
                   ].map((item) => (
                     <div key={item.label} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4">
                       <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">{item.label}</p>
@@ -180,7 +180,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="py-8 sm:py-10">
+        <section className="py-6 sm:py-8">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="rounded-[34px] border border-white/10 bg-white/95 p-6 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Category</p>
@@ -188,14 +188,14 @@ export default function HomePage() {
                 Stealth Vault is the AI usage control layer between your systems and AI.
               </h2>
               <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
-                Others help teams use AI. Stealth Vault controls how AI is used so sensitive data does not leave the organization without review,
-                policy, or enforcement.
+                Most companies already use AI. The real problem is control. Stealth Vault gives security, policy, and auditability before AI
+                requests leave the team.
               </p>
             </div>
           </div>
         </section>
 
-        <section className="py-8 sm:py-10">
+        <section className="py-6 sm:py-8">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="rounded-[34px] border border-white/10 bg-slate-950/94 p-6 shadow-[0_28px_90px_rgba(2,8,23,0.34)] sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Problem</p>
@@ -261,9 +261,9 @@ export default function HomePage() {
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">What changes</p>
                   <div className="mt-4 space-y-3">
                     {[
-                      "Teams can adopt AI without losing control of internal data.",
-                      "Security leaders can set policy instead of hoping staff remember it.",
-                      "Ops teams can see what was blocked, what was redacted, and why.",
+                      "Move faster without sending internal data into AI unchecked.",
+                      "Set policy once instead of relying on memory, training, or hope.",
+                      "See what was blocked, what was redacted, and what needs follow-up.",
                     ].map((item) => (
                       <div key={item} className="flex gap-3 rounded-[22px] border border-slate-200 bg-white px-4 py-4">
                         <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
@@ -277,13 +277,17 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="py-8 sm:py-10">
+        <section className="py-6 sm:py-8">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="rounded-[34px] border border-white/10 bg-white/95 p-6 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Features</p>
               <h2 className="mt-4 max-w-4xl text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
                 Everything needed to control AI usage, not just observe it.
               </h2>
+              <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
+                Built for teams that do not want another dashboard-only product. The job here is simple: catch risky requests early, enforce
+                policy clearly, and keep a usable record of what happened.
+              </p>
 
               <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                 {featureCards.map((item, index) => (
@@ -300,7 +304,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="py-8 sm:py-10">
+        <section className="py-6 sm:py-8">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
               <article className="rounded-[34px] border border-white/10 bg-slate-950/94 p-6 shadow-[0_28px_90px_rgba(2,8,23,0.34)] sm:p-8">
@@ -337,19 +341,19 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="py-8 sm:py-10" id="pricing">
+        <section className="py-6 sm:py-8" id="pricing">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <UsageControlPricing />
           </div>
         </section>
 
-        <section className="py-8 sm:py-10">
+        <section className="py-6 sm:py-8">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
               <article className="rounded-[34px] border border-white/10 bg-white/96 p-6 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Trust</p>
                 <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                  Security and control should feel mandatory, not optional.
+                  No more missed risk. No more delayed response after the leak already happened.
                 </h2>
                 <div className="mt-6 space-y-3">
                   {trustPoints.map((point) => (
@@ -364,11 +368,11 @@ export default function HomePage() {
               <article className="rounded-[34px] border border-white/10 bg-slate-950/94 p-6 shadow-[0_28px_90px_rgba(2,8,23,0.34)] sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">About</p>
                 <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                  Vishnu Labs builds control around AI usage, not just access to AI.
+                  This is the layer teams add when AI adoption becomes real and security can no longer stay informal.
                 </h2>
                 <p className="mt-4 text-base leading-8 text-slate-300">
-                  The product exists for teams that want AI adoption without the usual loss of oversight. The job is simple: prevent sensitive
-                  data from leaving the organization unchecked.
+                  Stealth Vault is for teams that need AI speed without losing control of private data, internal knowledge, or credentials.
+                  That is why the page stays simple: one problem, one layer, one clear next step.
                 </p>
               </article>
             </div>

@@ -11,7 +11,7 @@ const customPackageBody = encodeURIComponent(
   [
     "Hi VishnuLabs,",
     "",
-    "I am not fully sure which package is the right fit for us yet.",
+    "We want the right scope without delays, missed leads, or security gaps.",
     "",
     "Business / industry:",
     "Country / market:",
@@ -22,7 +22,7 @@ const customPackageBody = encodeURIComponent(
     "Timeline:",
     "Budget range:",
     "",
-    "Please suggest the best custom package and transparent pricing for our case.",
+    "Please suggest the best-fit scope and the clearest budget-friendly pricing for our case.",
   ].join("\n"),
 )
 
@@ -50,16 +50,16 @@ export function CustomSolutionNote({
         <div>
           <p className={`text-sm font-semibold ${dark ? "text-white" : "text-slate-950"}`}>{title}</p>
           <p className={`mt-2 text-sm leading-7 ${compact ? "" : "max-w-3xl"} ${dark ? "text-slate-300" : "text-slate-600"}`}>
-            Not sure what you actually need yet? Go for a custom package with transparent pricing. Mail us at{" "}
+            Not sure which scope is right yet? Mail us at{" "}
             <a
               href={customPackageMailto}
               className={`font-semibold underline underline-offset-2 ${dark ? "text-sky-100" : "text-slate-950"}`}
             >
               hello@vishnulabs.com
             </a>{" "}
-            and we will recommend the right setup for your team. The public prices on this site are for US and UK-facing projects and are shown
-            in USD. India pricing is quoted separately based on scope, workflow depth, integrations, deployment, and support, and can be shared
-            in INR or USD depending on your preference.
+            and we will recommend the right setup for your team. The public prices on this site are starting points for US and UK-facing
+            projects and are shown in USD. India pricing is quoted separately based on scope, workflow depth, integrations, deployment,
+            support, and budget comfort, and can be shared in INR or USD depending on your preference.
           </p>
           <div className={`mt-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] ${dark ? "text-slate-400" : "text-slate-500"}`}>
             <Mail className="h-3.5 w-3.5" />

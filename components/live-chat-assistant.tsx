@@ -63,7 +63,7 @@ const intents: Intent[] = [
     id: "pricing",
     patterns: ["price", "pricing", "cost", "fees", "how much", "budget", "investment", "quote"],
     answer:
-      "Transparent ranges: AI Voice Receptionist starts at $4,997 one-time. Scheduling systems usually run $6,500-$9,500. Legal intake systems are usually $8,500-$15,000. Stealth-Mode Internal AI Vault is a $15,000 one-time lifetime launch offer for the first 100 members. Public pricing on the site is shown in USD for US and UK-facing projects. India pricing is quoted separately based on scope and can be shared in INR or USD. If you are not sure what fits, email hello@vishnulabs.com for a custom package with transparent pricing.",
+      "Pricing is shown as a starting point, not a forced final package. Stealth Vault plans start from the listed product tiers, and the final quote depends on policy depth, protected systems, rollout model, and support. Public prices are shown in USD for US and UK-facing projects. India pricing is scoped separately and can be quoted in INR or USD based on workflow depth, integrations, deployment, and budget comfort. If you want the right fit without delays or unnecessary scope, email hello@vishnulabs.com for a direct recommendation.",
   },
   {
     id: "platform_services",

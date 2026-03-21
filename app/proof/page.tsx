@@ -34,11 +34,11 @@ export default function ProofPage() {
     <>
       <Navbar />
 
-      <main className="overflow-hidden bg-[linear-gradient(180deg,#07111f_0%,#0b1727_18%,#ebf3ff_44%,#f7faff_100%)] pb-20 pt-28 sm:pt-32">
+      <main className="overflow-hidden bg-[linear-gradient(180deg,#07111f_0%,#0b1727_18%,#ebf3ff_42%,#f7faff_100%)] pb-16 pt-28 sm:pb-20 sm:pt-32">
         <section className="pb-10">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
-              <article className="rounded-[34px] border border-slate-800 bg-[linear-gradient(180deg,rgba(2,8,23,0.98)_0%,rgba(15,23,42,0.96)_100%)] p-6 shadow-[0_28px_100px_rgba(2,8,23,0.38)] sm:p-8">
+              <article className="rounded-[34px] border border-slate-800 bg-[linear-gradient(180deg,rgba(2,8,23,1)_0%,rgba(15,23,42,0.98)_100%)] p-6 shadow-[0_24px_72px_rgba(2,8,23,0.38)] sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Proof</p>
                 <h1 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl">
                   If the product cannot show a blocked request clearly, the promise is weak.
@@ -68,7 +68,7 @@ export default function ProofPage() {
                 </div>
               </article>
 
-              <article className="rounded-[34px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f3f7ff_100%)] p-6 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:p-8">
+              <article className="rounded-[34px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#eff5ff_100%)] p-6 shadow-[0_18px_46px_rgba(15,23,42,0.08)] sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">What the buyer needs to see</p>
                 <div className="mt-5 space-y-3">
                   {trustSignals.map((item) => (
@@ -86,7 +86,7 @@ export default function ProofPage() {
         <section className="py-8 sm:py-10">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="grid gap-6 lg:grid-cols-[1.02fr_0.98fr]">
-              <article className="rounded-[34px] border border-slate-800 bg-[linear-gradient(180deg,rgba(2,8,23,0.98)_0%,rgba(15,23,42,0.96)_100%)] p-4 shadow-[0_28px_100px_rgba(2,8,23,0.38)] sm:p-5">
+              <article className="rounded-[34px] border border-slate-800 bg-[linear-gradient(180deg,rgba(2,8,23,1)_0%,rgba(15,23,42,0.98)_100%)] p-4 shadow-[0_24px_72px_rgba(2,8,23,0.38)] sm:p-5">
                 <div className="mb-4 flex items-center justify-between gap-3">
                   <div>
                     <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-400">Live interface</p>
@@ -109,7 +109,7 @@ export default function ProofPage() {
               </article>
 
               <div className="grid gap-6">
-                <article className="rounded-[34px] border border-red-500/30 bg-[linear-gradient(180deg,rgba(69,10,10,0.98)_0%,rgba(127,29,29,0.94)_100%)] p-5 shadow-[0_24px_60px_rgba(127,29,29,0.18)]">
+                <article className="rounded-[34px] border border-red-500/30 bg-[linear-gradient(180deg,rgba(69,10,10,1)_0%,rgba(127,29,29,0.98)_100%)] p-5 shadow-[0_18px_40px_rgba(127,29,29,0.2)]">
                   <div className="flex items-center gap-3">
                     <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-red-500/18 text-red-100">
                       <CircleAlert className="h-5 w-5" />
@@ -123,7 +123,7 @@ export default function ProofPage() {
                   <p className="mt-2 text-sm leading-7 text-red-50">Sensitive data detected before the request reached AI.</p>
                 </article>
 
-                <article className="rounded-[34px] border border-slate-800 bg-[linear-gradient(180deg,rgba(2,8,23,0.98)_0%,rgba(15,23,42,0.96)_100%)] p-5 shadow-[0_28px_100px_rgba(2,8,23,0.38)]">
+                <article className="rounded-[34px] border border-slate-800 bg-[linear-gradient(180deg,rgba(2,8,23,1)_0%,rgba(15,23,42,0.98)_100%)] p-5 shadow-[0_24px_72px_rgba(2,8,23,0.38)]">
                   <div className="flex items-center justify-between gap-3">
                     <div>
                       <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-400">Runtime log</p>

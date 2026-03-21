@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import { ArrowRight, ArrowUpRight, CheckCircle2, KeyRound, LockKeyhole, ScanSearch, ShieldAlert, ShieldCheck, Workflow } from "lucide-react"
 
 import { Footer } from "@/components/footer"
@@ -51,11 +52,11 @@ export default function ProductsPage() {
     <>
       <Navbar />
 
-      <main className="overflow-hidden bg-[linear-gradient(180deg,#07111f_0%,#0b1727_18%,#eef4ff_42%,#f7faff_100%)] pb-20 pt-28 sm:pt-32">
+      <main className="overflow-hidden bg-[linear-gradient(180deg,#07111f_0%,#0b1727_18%,#eef4ff_40%,#f7faff_100%)] pb-16 pt-28 sm:pb-20 sm:pt-32">
         <section className="pb-10">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="grid gap-6 lg:grid-cols-[0.98fr_1.02fr]">
-              <article className="rounded-[34px] border border-white/10 bg-slate-950/94 p-6 shadow-[0_28px_100px_rgba(2,8,23,0.38)] sm:p-8">
+              <article className="rounded-[34px] border border-slate-800 bg-[linear-gradient(180deg,rgba(2,8,23,1)_0%,rgba(15,23,42,0.98)_100%)] p-6 shadow-[0_24px_72px_rgba(2,8,23,0.38)] sm:p-8">
                 <div className="inline-flex items-center gap-2 rounded-full border border-sky-300/20 bg-sky-400/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-sky-100">
                   <LockKeyhole className="h-3.5 w-3.5" />
                   Product surfaces
@@ -90,11 +91,20 @@ export default function ProductsPage() {
                 </div>
               </article>
 
-              <article className="rounded-[34px] border border-white/10 bg-white/96 p-6 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:p-8">
+              <article className="rounded-[34px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#eff5ff_100%)] p-6 shadow-[0_18px_46px_rgba(15,23,42,0.08)] sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Why buyers check this page</p>
-                <div className="mt-5 space-y-3">
+                <div className="mt-5 overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-sm">
+                  <Image
+                    src="/marketing/sentinel-shield/final_hero_shot.png"
+                    alt="Stealth Vault product surface"
+                    width={1200}
+                    height={760}
+                    className="h-auto w-full object-cover"
+                  />
+                </div>
+                <div className="mt-4 space-y-3">
                   {whyItMatters.map((item) => (
-                    <div key={item} className="flex gap-3 rounded-[24px] border border-slate-200 bg-slate-50 px-4 py-4">
+                    <div key={item} className="flex gap-3 rounded-[24px] border border-slate-200 bg-white px-4 py-4 shadow-sm">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-sm leading-7 text-slate-700">{item}</p>
                     </div>
@@ -107,7 +117,7 @@ export default function ProductsPage() {
 
         <section className="py-8 sm:py-10">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
-            <div className="rounded-[34px] border border-white/10 bg-white/96 p-6 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:p-8">
+            <div className="rounded-[34px] border border-white/90 bg-white/98 p-6 shadow-[0_18px_46px_rgba(15,23,42,0.08)] sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Where Stealth Vault fits</p>
               <h2 className="mt-4 max-w-4xl text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
                 The product follows AI usage wherever private information, customer data, or credentials can slip out.

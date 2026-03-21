@@ -56,10 +56,10 @@
     position: relative;
     overflow-x: hidden;
     background-image:
-      radial-gradient(circle at 50% -12%, rgba(173, 206, 255, 0.92), rgba(173, 206, 255, 0) 34%),
-      radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0) 24%),
-      radial-gradient(circle at 90% 18%, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0) 24%),
-      linear-gradient(180deg, #d6e5fb 0%, #ecf3ff 24%, #f6f9ff 54%, #fbfdff 100%);
+      radial-gradient(circle at 50% -12%, rgba(173, 206, 255, 0.62), rgba(173, 206, 255, 0) 30%),
+      radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0) 20%),
+      radial-gradient(circle at 90% 18%, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0) 20%),
+      linear-gradient(180deg, #dce8fb 0%, #edf3fd 24%, #f6f9ff 54%, #fbfdff 100%);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -72,8 +72,8 @@
     z-index: -1;
     border-radius: 9999px;
     background: rgba(255, 255, 255, 0.82);
-    filter: blur(22px);
-    opacity: 0.88;
+    filter: blur(18px);
+    opacity: 0.54;
   }
 
   body::before {
@@ -183,13 +183,13 @@
     border-radius: 2.35rem;
     border: 1px solid rgba(255, 255, 255, 0.92);
     background:
-      radial-gradient(circle at top left, rgba(194, 219, 255, 0.28), transparent 28%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(246, 249, 255, 0.86) 100%);
+      radial-gradient(circle at top left, rgba(194, 219, 255, 0.18), transparent 24%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(246, 249, 255, 0.94) 100%);
     box-shadow:
-      0 30px 90px rgba(15, 23, 42, 0.08),
-      0 8px 18px rgba(99, 102, 241, 0.04),
+      0 24px 70px rgba(15, 23, 42, 0.07),
+      0 8px 18px rgba(99, 102, 241, 0.03),
       inset 0 1px 0 rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(22px);
+    backdrop-filter: blur(16px);
   }
 
   .section-shell::before,
@@ -281,15 +281,15 @@
     border-radius: 2.75rem;
     border: 1px solid rgba(255, 255, 255, 0.94);
     background:
-      radial-gradient(circle at top center, rgba(176, 207, 255, 0.6), transparent 34%),
-      radial-gradient(circle at left top, rgba(255, 255, 255, 0.95), transparent 28%),
-      radial-gradient(circle at right top, rgba(255, 255, 255, 0.92), transparent 24%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(241, 246, 255, 0.88) 72%, rgba(247, 250, 255, 0.94) 100%);
+      radial-gradient(circle at top center, rgba(176, 207, 255, 0.42), transparent 30%),
+      radial-gradient(circle at left top, rgba(255, 255, 255, 0.86), transparent 24%),
+      radial-gradient(circle at right top, rgba(255, 255, 255, 0.82), transparent 22%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(241, 246, 255, 0.93) 72%, rgba(247, 250, 255, 0.97) 100%);
     box-shadow:
-      0 34px 110px rgba(15, 23, 42, 0.08),
-      0 10px 26px rgba(148, 163, 184, 0.09),
+      0 28px 80px rgba(15, 23, 42, 0.07),
+      0 10px 24px rgba(148, 163, 184, 0.08),
       inset 0 1px 0 rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(28px);
+    backdrop-filter: blur(18px);
   }
 
   .metric-float {

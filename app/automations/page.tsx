@@ -43,11 +43,11 @@ export default function AutomationsPage() {
     <>
       <Navbar />
 
-      <main className="overflow-hidden bg-[linear-gradient(180deg,#07111f_0%,#0b1727_18%,#eef4ff_42%,#f7faff_100%)] pb-20 pt-28 sm:pt-32">
+      <main className="overflow-hidden bg-[linear-gradient(180deg,#07111f_0%,#0b1727_18%,#ebf3ff_42%,#f7faff_100%)] pb-20 pt-28 sm:pt-32">
         <section className="pb-10">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="grid gap-6 lg:grid-cols-[0.98fr_1.02fr]">
-              <article className="rounded-[34px] border border-white/10 bg-slate-950/94 p-6 shadow-[0_28px_100px_rgba(2,8,23,0.38)] sm:p-8">
+              <article className="rounded-[34px] border border-slate-800 bg-[linear-gradient(180deg,rgba(2,8,23,0.98)_0%,rgba(15,23,42,0.96)_100%)] p-6 shadow-[0_28px_100px_rgba(2,8,23,0.38)] sm:p-8">
                 <div className="inline-flex items-center gap-2 rounded-full border border-sky-300/20 bg-sky-400/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-sky-100">
                   <Workflow className="h-3.5 w-3.5" />
                   Protected workflows
@@ -56,7 +56,7 @@ export default function AutomationsPage() {
                 <h1 className="mt-6 text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl">
                   AI can stay in the workflow. Uncontrolled data cannot.
                 </h1>
-                <p className="mt-5 text-base leading-8 text-slate-300 sm:text-lg">
+                <p className="mt-5 text-base leading-8 text-slate-200 sm:text-lg">
                   This page is not about generic automations. It shows where Stealth Vault sits when AI becomes part of an intake flow,
                   assistant flow, search flow, or internal operational process.
                 </p>
@@ -72,7 +72,7 @@ export default function AutomationsPage() {
                     size="lg"
                     variant="outline"
                     asChild
-                    className="h-12 rounded-full border-white/14 bg-white/5 px-7 text-sm font-semibold text-white hover:bg-white/10 sm:h-14 sm:px-8 sm:text-base"
+                    className="h-12 rounded-full border-white/18 bg-white/8 px-7 text-sm font-semibold text-white hover:bg-white/14 sm:h-14 sm:px-8 sm:text-base"
                   >
                     <a href="/proof">
                       View Demo
@@ -82,11 +82,11 @@ export default function AutomationsPage() {
                 </div>
               </article>
 
-              <article className="rounded-[34px] border border-white/10 bg-white/96 p-6 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:p-8">
+              <article className="rounded-[34px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f3f7ff_100%)] p-6 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Why this matters</p>
                 <div className="mt-5 space-y-3">
                   {workflowReasons.map((item) => (
-                    <div key={item} className="flex gap-3 rounded-[24px] border border-slate-200 bg-slate-50 px-4 py-4">
+                    <div key={item} className="flex gap-3 rounded-[24px] border border-slate-200 bg-white px-4 py-4 shadow-sm">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-sm leading-7 text-slate-700">{item}</p>
                     </div>

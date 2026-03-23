@@ -31,11 +31,11 @@ export default function PricingPage() {
     <>
       <Navbar />
 
-      <main className="overflow-hidden bg-[linear-gradient(180deg,#07111f_0%,#0c1726_18%,#eaf2ff_44%,#f8fbff_100%)] pb-16 pt-28 sm:pb-20 sm:pt-32">
+      <main className="overflow-hidden bg-[linear-gradient(180deg,#07111f_0%,#0c1726_18%,#edf4ff_46%,#f8fbff_100%)] pb-14 pt-28 sm:pb-18 sm:pt-32">
         <section className="pb-10">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="grid gap-6 lg:grid-cols-[0.98fr_1.02fr]">
-              <article className="rounded-[34px] border border-slate-800 bg-[linear-gradient(180deg,rgba(2,8,23,1)_0%,rgba(15,23,42,0.98)_100%)] p-6 shadow-[0_24px_72px_rgba(2,8,23,0.38)] sm:p-8">
+              <article className="dark-panel-solid p-6 sm:p-8">
                 <div className="inline-flex items-center gap-2 rounded-full border border-sky-300/20 bg-sky-400/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-sky-100">
                   <BadgeCheck className="h-3.5 w-3.5" />
                   Pricing
@@ -79,7 +79,7 @@ export default function PricingPage() {
                 </div>
               </article>
 
-              <article className="rounded-[34px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] p-6 shadow-[0_18px_46px_rgba(15,23,42,0.10)] sm:p-8">
+              <article className="light-panel-solid p-6 sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Pricing note</p>
                 <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                   Every listed price is a starting point, not a forced final package.
@@ -109,7 +109,7 @@ export default function PricingPage() {
 
         <section className="py-8 sm:py-10">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
-            <div className="rounded-[34px] border border-white/90 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] p-6 shadow-[0_18px_46px_rgba(15,23,42,0.10)] sm:p-8">
+            <div className="light-panel-solid p-6 sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">When to talk to us</p>
               <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                 If AI usage already touches customer data, internal records, or credentials, this is not optional.

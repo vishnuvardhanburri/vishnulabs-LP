@@ -39,11 +39,11 @@ export default function ServicesPage() {
     <>
       <Navbar />
 
-      <main className="overflow-hidden bg-[linear-gradient(180deg,#07111f_0%,#0b1727_18%,#ebf3ff_40%,#f7faff_100%)] pb-16 pt-28 sm:pb-20 sm:pt-32">
+      <main className="overflow-hidden bg-[linear-gradient(180deg,#07111f_0%,#0b1727_18%,#edf4ff_44%,#f8fbff_100%)] pb-14 pt-28 sm:pb-18 sm:pt-32">
         <section className="pb-10">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="grid gap-6 lg:grid-cols-[0.98fr_1.02fr]">
-              <article className="rounded-[34px] border border-slate-800 bg-[linear-gradient(180deg,rgba(2,8,23,1)_0%,rgba(15,23,42,0.98)_100%)] p-6 shadow-[0_24px_72px_rgba(2,8,23,0.38)] sm:p-8">
+              <article className="dark-panel-solid p-6 sm:p-8">
                 <div className="inline-flex items-center gap-2 rounded-full border border-sky-300/20 bg-sky-400/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-sky-100">
                   <Settings2 className="h-3.5 w-3.5" />
                   Deployment path
@@ -78,7 +78,7 @@ export default function ServicesPage() {
                 </div>
               </article>
 
-              <article className="rounded-[34px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] p-6 shadow-[0_18px_46px_rgba(15,23,42,0.10)] sm:p-8">
+              <article className="light-panel-solid p-6 sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Why this matters</p>
                 <div className="mt-5 space-y-3">
                   {serviceNotes.map((item) => (
@@ -97,7 +97,7 @@ export default function ServicesPage() {
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="grid gap-4 md:grid-cols-3">
               {rolloutSteps.map((item) => (
-                <article key={item.title} className="rounded-[28px] border border-white/90 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] p-5 shadow-[0_16px_38px_rgba(15,23,42,0.08)] sm:p-6">
+                <article key={item.title} className="light-panel-solid p-5 sm:p-6">
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-sky-200">
                     <Workflow className="h-5 w-5" />
                   </div>
@@ -111,7 +111,7 @@ export default function ServicesPage() {
 
         <section className="py-8 sm:py-10">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
-            <div className="rounded-[34px] border border-slate-800 bg-[linear-gradient(180deg,rgba(2,8,23,1)_0%,rgba(15,23,42,0.98)_100%)] p-6 shadow-[0_24px_72px_rgba(2,8,23,0.38)] sm:p-8">
+            <div className="dark-panel-solid p-6 sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Core promise</p>
               <h2 className="mt-4 max-w-4xl text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl">
                 The team can keep using AI. The company keeps control of what enters AI.

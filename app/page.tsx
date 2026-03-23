@@ -55,6 +55,30 @@ const trustPoints = [
   "Security-first architecture from the first request",
 ]
 
+const offerCards = [
+  {
+    label: "Starter",
+    title: "See risky AI usage early",
+    price: "From $149/mo",
+    detail: "For teams that need visibility, blocking, and a clean first control layer without a long rollout.",
+    bullets: ["Basic policy enforcement", "Blocked-request visibility", "Fast first deployment"],
+  },
+  {
+    label: "Growth",
+    title: "Control real team-wide AI usage",
+    price: "From $799/mo",
+    detail: "For companies where AI is already in live workflows and policy, redaction, and audit trails must work together.",
+    bullets: ["Broader policy coverage", "Audit + logging workflows", "Production rollout support"],
+  },
+  {
+    label: "Enterprise",
+    title: "Private deployment and deeper policy",
+    price: "Custom scope",
+    detail: "For sensitive environments that need custom deployment, deeper controls, and broader internal coverage.",
+    bullets: ["Private infrastructure options", "Custom policy model", "Internal systems coverage"],
+  },
+]
+
 export default function HomePage() {
   return (
     <>
@@ -183,14 +207,97 @@ export default function HomePage() {
         <section className="py-6 sm:py-8">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="rounded-[34px] border border-white/90 bg-white p-6 shadow-[0_24px_60px_rgba(15,23,42,0.10)] sm:p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Category</p>
-              <h2 className="mt-4 max-w-4xl text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
-                Stealth Vault is the AI usage control layer between your systems and AI.
-              </h2>
-              <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
-                Most companies already use AI. The real problem is control. Stealth Vault gives security, policy, and auditability before AI
-                requests leave the team.
-              </p>
+              <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Category</p>
+                  <h2 className="mt-4 max-w-4xl text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
+                    Stealth Vault is the AI usage control layer between your systems and AI.
+                  </h2>
+                  <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
+                    Most companies already use AI. The real problem is control. Stealth Vault gives security, policy, and auditability before AI
+                    requests leave the team.
+                  </p>
+                </div>
+
+                <div className="grid gap-3 sm:grid-cols-3 lg:min-w-[430px]">
+                  {[
+                    { label: "What it protects", value: "PII, secrets, internal records" },
+                    { label: "What it changes", value: "Control before the request leaves" },
+                    { label: "How it feels", value: "Simple rollout, serious enforcement" },
+                  ].map((item) => (
+                    <div key={item.label} className="rounded-[24px] border border-slate-200 bg-slate-50 px-4 py-4">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">{item.label}</p>
+                      <p className="mt-2 text-sm font-medium leading-7 text-slate-900">{item.value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-6 sm:py-8" id="shop">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
+            <div className="rounded-[34px] border border-white/10 bg-slate-950/94 p-6 shadow-[0_28px_90px_rgba(2,8,23,0.34)] sm:p-8">
+              <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Choose the rollout path</p>
+                  <h2 className="mt-4 max-w-3xl text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl">
+                    Start with the level of control you actually need today.
+                  </h2>
+                </div>
+                <p className="max-w-xl text-sm leading-7 text-slate-300 sm:text-base">
+                  Every plan is a starting point. Scope expands when coverage, deployment depth, or policy complexity expands.
+                </p>
+              </div>
+
+              <div className="mt-8 grid gap-4 lg:grid-cols-3">
+                {offerCards.map((card, index) => (
+                  <article
+                    key={card.label}
+                    className={`rounded-[28px] border p-5 shadow-[0_18px_44px_rgba(2,8,23,0.16)] ${
+                      index === 1
+                        ? "border-sky-300/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.12)_0%,rgba(96,165,250,0.10)_100%)]"
+                        : "border-white/10 bg-white/[0.05]"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-100">
+                        {card.label}
+                      </span>
+                      <span className="text-sm font-semibold text-white">{card.price}</span>
+                    </div>
+                    <h3 className="mt-5 text-2xl font-semibold tracking-tight text-white">{card.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-slate-300">{card.detail}</p>
+                    <div className="mt-5 space-y-2.5">
+                      {card.bullets.map((item) => (
+                        <div key={item} className="flex gap-3 rounded-[18px] border border-white/10 bg-slate-950/60 px-4 py-3">
+                          <CheckCircle2 className="mt-0.5 h-4.5 w-4.5 shrink-0 text-sky-200" />
+                          <p className="text-sm leading-6 text-slate-200">{item}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                      <Button asChild className="h-11 rounded-full bg-white px-5 text-sm font-semibold text-slate-950 hover:bg-slate-100">
+                        <a href="/pricing">
+                          View Pricing
+                          <ArrowUpRight className="h-4 w-4" />
+                        </a>
+                      </Button>
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="h-11 rounded-full border-white/14 bg-white/5 px-5 text-sm font-semibold text-white hover:bg-white/10"
+                      >
+                        <a href="/book">
+                          Book Review
+                          <ArrowRight className="h-4 w-4" />
+                        </a>
+                      </Button>
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -379,13 +486,17 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="pb-6 pt-8 sm:pb-10 sm:pt-10">
+        <section className="pb-4 pt-8 sm:pb-8 sm:pt-10">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="rounded-[36px] border border-white/10 bg-slate-950 p-6 text-center shadow-[0_28px_100px_rgba(2,8,23,0.38)] sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Final CTA</p>
               <h2 className="mx-auto mt-4 max-w-3xl text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl">
                 Secure your AI usage before it becomes a risk.
               </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
+                Start with a smaller rollout if needed. Expand when policy depth, coverage, or internal AI usage expands. Every price on the
+                site is a starting point, not a forced final package.
+              </p>
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Button size="lg" asChild className="h-12 rounded-full bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-100 sm:h-14 sm:px-8 sm:text-base">
                   <a href="/book">

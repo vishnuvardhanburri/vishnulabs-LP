@@ -33,8 +33,37 @@ const pageLinks = [
 
 export function Footer() {
   return (
-    <footer className="mt-8 border-t border-white/10 bg-slate-950 text-white">
-      <div className="mx-auto max-w-7xl px-6 py-12 lg:px-10 lg:py-14">
+    <footer className="mt-6 border-t border-white/10 bg-slate-950 text-white">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-10 lg:py-12">
+        <div className="mb-8 rounded-[30px] border border-white/10 bg-white/[0.04] p-5 shadow-[0_20px_60px_rgba(2,8,23,0.16)] sm:p-6">
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-200">Need the right scope?</p>
+              <h2 className="mt-3 max-w-2xl text-balance text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                Start with the minimum control layer that removes the blind spot.
+              </h2>
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300">
+                We can scope for a lighter rollout, a broader policy layer, or a private deployment. The right fit depends on risk, not hype.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <AppLink
+                href="/pricing"
+                className="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition-colors hover:bg-slate-100"
+              >
+                View Pricing
+              </AppLink>
+              <AppLink
+                href="/book"
+                className="inline-flex items-center justify-center rounded-full border border-white/14 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+              >
+                Book Review
+              </AppLink>
+            </div>
+          </div>
+        </div>
+
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.9fr]">
         <div>
             <AppLink href="/" className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2.5">
@@ -48,11 +77,12 @@ export function Footer() {
             </AppLink>
 
             <p className="mt-4 max-w-sm text-sm leading-7 text-slate-300">
-              Premium AI automation, websites, domain management, custom software, and private internal AI infrastructure for high-trust teams.
+              Stealth Vault is the control layer between your team and AI. It helps high-trust teams adopt AI without sending internal data
+              out unchecked.
             </p>
 
             <div className="mt-5 flex flex-wrap gap-2">
-              {["Private AI", "Websites", "Custom software", "Mobile-ready UX"].map((item) => (
+              {["AI control", "Policy engine", "Audit logs", "Private rollout"].map((item) => (
                 <span
                   key={item}
                   className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-300"
@@ -82,9 +112,9 @@ export function Footer() {
             </div>
 
             <div className="mt-5 rounded-[22px] border border-white/10 bg-white/5 p-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Need a custom build?</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Need a custom scope?</p>
               <p className="mt-2 text-sm leading-6 text-slate-300">
-                Bring your workflow, website requirement, domain setup, or compliance problem. We will scope the system around the bottleneck.
+                Bring your workflow, internal surface, or compliance requirement. We will scope the right control layer around the bottleneck.
               </p>
             </div>
           </div>

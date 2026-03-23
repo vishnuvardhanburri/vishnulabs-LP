@@ -78,11 +78,11 @@ export default function ServicesPage() {
                 </div>
               </article>
 
-              <article className="rounded-[34px] border border-slate-200 bg-white p-6 shadow-[0_18px_46px_rgba(15,23,42,0.10)] sm:p-8">
+              <article className="rounded-[34px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] p-6 shadow-[0_18px_46px_rgba(15,23,42,0.10)] sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Why this matters</p>
                 <div className="mt-5 space-y-3">
                   {serviceNotes.map((item) => (
-                    <div key={item} className="flex gap-3 rounded-[24px] border border-slate-200 bg-white px-4 py-4 shadow-sm">
+                    <div key={item} className="flex gap-3 rounded-[24px] border border-slate-200 bg-slate-50 px-4 py-4 shadow-sm">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-sm leading-7 text-slate-700">{item}</p>
                     </div>
@@ -97,7 +97,7 @@ export default function ServicesPage() {
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="grid gap-4 md:grid-cols-3">
               {rolloutSteps.map((item) => (
-                <article key={item.title} className="rounded-[28px] border border-white/90 bg-white/98 p-5 shadow-[0_16px_38px_rgba(15,23,42,0.08)] sm:p-6">
+                <article key={item.title} className="rounded-[28px] border border-white/90 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] p-5 shadow-[0_16px_38px_rgba(15,23,42,0.08)] sm:p-6">
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-sky-200">
                     <Workflow className="h-5 w-5" />
                   </div>

@@ -79,7 +79,7 @@ export default function PricingPage() {
                 </div>
               </article>
 
-              <article className="rounded-[34px] border border-slate-200 bg-white p-6 shadow-[0_18px_46px_rgba(15,23,42,0.10)] sm:p-8">
+              <article className="rounded-[34px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] p-6 shadow-[0_18px_46px_rgba(15,23,42,0.10)] sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Pricing note</p>
                 <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                   Every listed price is a starting point, not a forced final package.
@@ -90,7 +90,7 @@ export default function PricingPage() {
                 </p>
                 <div className="mt-6 space-y-3">
                   {scopeNotes.map((item) => (
-                    <div key={item} className="flex gap-3 rounded-[24px] border border-slate-200 bg-white px-4 py-4 shadow-sm">
+                    <div key={item} className="flex gap-3 rounded-[24px] border border-slate-200 bg-slate-50 px-4 py-4 shadow-sm">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-sm leading-7 text-slate-700">{item}</p>
                     </div>
@@ -109,7 +109,7 @@ export default function PricingPage() {
 
         <section className="py-8 sm:py-10">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
-            <div className="rounded-[34px] border border-white/90 bg-white p-6 shadow-[0_18px_46px_rgba(15,23,42,0.10)] sm:p-8">
+            <div className="rounded-[34px] border border-white/90 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] p-6 shadow-[0_18px_46px_rgba(15,23,42,0.10)] sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">When to talk to us</p>
               <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                 If AI usage already touches customer data, internal records, or credentials, this is not optional.

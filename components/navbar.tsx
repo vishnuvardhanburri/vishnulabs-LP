@@ -6,7 +6,7 @@ import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react"
 import { AppLink } from "@/components/app-link"
 import { Button } from "@/components/ui/button"
 
-const navLinks = [
+const primaryLinks = [
   { label: "Products", href: "/products" },
   { label: "Websites", href: "/websites" },
   { label: "Software", href: "/custom-software" },
@@ -20,6 +20,8 @@ const supportLinks = [
   { label: "Automations", href: "/automations" },
   { label: "Proof", href: "/proof" },
 ]
+
+const desktopLinks = [...primaryLinks, ...supportLinks]
 
 export function Navbar() {
   const pathname = usePathname()
@@ -61,8 +63,8 @@ export function Navbar() {
         <div
           className={`rounded-[28px] border transition-all duration-300 ${
             scrolled
-              ? "border-white/95 bg-white/92 shadow-[0_24px_72px_rgba(15,23,42,0.12)] backdrop-blur-2xl"
-              : "border-white/95 bg-white/88 shadow-[0_18px_60px_rgba(15,23,42,0.09)] backdrop-blur-2xl"
+              ? "border-white/95 bg-white/96 shadow-[0_24px_72px_rgba(15,23,42,0.12)] backdrop-blur-2xl"
+              : "border-white/95 bg-white/94 shadow-[0_18px_60px_rgba(15,23,42,0.09)] backdrop-blur-2xl"
           }`}
         >
           <div className="flex h-[74px] items-center justify-between px-3 sm:px-5">
@@ -83,41 +85,22 @@ export function Navbar() {
             </AppLink>
 
             <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
-              {navLinks.map((link) => (
+              {desktopLinks.map((link) => (
                 <AppLink
                   key={link.href}
                   href={link.href}
                   prefetch
                   aria-current={isActive(link.href) ? "page" : undefined}
-                  className={`nav-underline whitespace-nowrap rounded-full px-2.5 py-2 text-[12px] font-semibold tracking-[0.01em] transition-all xl:px-3 xl:text-[13px] ${
+                  className={`nav-underline whitespace-nowrap rounded-full px-2.5 py-2 text-[12px] font-medium tracking-[0.01em] transition-all xl:px-3 xl:text-[13px] ${
                     isActive(link.href)
                       ? "bg-slate-950 text-white shadow-[0_10px_24px_rgba(15,23,42,0.14)]"
-                      : "text-slate-800 hover:bg-slate-100 hover:text-slate-950"
+                      : "text-slate-700 hover:bg-slate-100 hover:text-slate-950"
                   }`}
                 >
                   {link.label}
                 </AppLink>
               ))}
-
-              <div className="ml-2 hidden items-center gap-1 border-l border-slate-200/80 pl-2 xl:flex">
-                {supportLinks.map((link) => (
-                  <AppLink
-                    key={link.href}
-                    href={link.href}
-                    prefetch
-                    aria-current={isActive(link.href) ? "page" : undefined}
-                    className={`whitespace-nowrap rounded-full px-2.5 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] transition-all 2xl:px-3 ${
-                      isActive(link.href)
-                        ? "bg-white text-slate-950 shadow-[0_10px_24px_rgba(15,23,42,0.10)]"
-                        : "text-slate-700 hover:bg-slate-100 hover:text-slate-950"
-                    }`}
-                  >
-                    {link.label}
-                  </AppLink>
-                ))}
-              </div>
-
-              <div className="relative ml-2 xl:hidden" ref={moreRef}>
+              <div className="relative ml-2 hidden" ref={moreRef}>
                 <button
                   type="button"
                   onClick={() => setMoreOpen((prev) => !prev)}
@@ -183,7 +166,7 @@ export function Navbar() {
               aria-label="Mobile navigation"
             >
               <div className="flex flex-col gap-1.5">
-                {navLinks.map((link) => (
+                {primaryLinks.map((link) => (
                   <AppLink
                     key={link.href}
                     href={link.href}

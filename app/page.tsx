@@ -305,7 +305,7 @@ export default function HomePage() {
 
         <section className="py-6 sm:py-8">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
-            <div className="light-panel-solid rounded-[34px] p-6 sm:p-8">
+            <div className="rounded-[36px] border border-slate-200 bg-white p-6 shadow-[0_26px_70px_rgba(15,23,42,0.10)] sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Problem</p>
               <h2 className="mt-4 max-w-3xl text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
                 You do not control what your team sends to AI.
@@ -317,15 +317,18 @@ export default function HomePage() {
 
               <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
                 {problemPoints.map((item) => (
-                  <div key={item} className="rounded-[26px] border border-slate-200 bg-slate-50 p-5 shadow-sm">
+                  <div key={item} className="rounded-[26px] border border-slate-200 bg-white p-5 shadow-[0_16px_34px_rgba(15,23,42,0.06)]">
                     <CircleBlock />
                     <p className="mt-4 text-sm leading-7 text-slate-700">{item}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-6 rounded-[26px] border border-red-300/60 bg-red-50 p-5 shadow-[0_18px_40px_rgba(239,68,68,0.08)]">
+              <div className="mt-6 rounded-[26px] border border-red-300/80 bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(254,226,226,0.96)_100%)] p-5 shadow-[0_18px_40px_rgba(239,68,68,0.10)]">
                 <p className="text-xl font-semibold text-red-700 sm:text-2xl">One leak is enough.</p>
+                <p className="mt-2 text-sm leading-7 text-red-600">
+                  One exposed key, one patient record, or one internal file in the wrong prompt is enough to turn AI adoption into an avoidable incident.
+                </p>
               </div>
             </div>
           </div>
@@ -419,7 +422,7 @@ export default function HomePage() {
         <section className="py-6 sm:py-8">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
-              <article className="light-panel-solid rounded-[34px] p-6 sm:p-8">
+              <article className="rounded-[34px] border border-slate-200 bg-white p-6 shadow-[0_24px_60px_rgba(15,23,42,0.10)] sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">How it works</p>
                 <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                   Three steps. No long rollout story.
@@ -428,6 +431,18 @@ export default function HomePage() {
                   We are strongest in backend implementation, policy wiring, and record-time fixes when teams need the control layer working
                   fast and correctly.
                 </p>
+                <div className="mt-6 space-y-3">
+                  {[
+                    "Backend-heavy implementation, not surface-only setup",
+                    "Policy logic wired cleanly into the real workflow",
+                    "Record-time fixes when control gaps show up live",
+                  ].map((item) => (
+                    <div key={item} className="flex gap-3 rounded-[22px] border border-slate-200 bg-slate-50 px-4 py-3">
+                      <BadgeCheck className="mt-0.5 h-4.5 w-4.5 shrink-0 text-primary" />
+                      <p className="text-sm leading-7 text-slate-700">{item}</p>
+                    </div>
+                  ))}
+                </div>
               </article>
 
               <div className="grid gap-4 md:grid-cols-3">
@@ -468,14 +483,14 @@ export default function HomePage() {
         <section className="py-6 sm:py-8">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
-              <article className="rounded-[34px] border border-white/90 bg-white p-6 shadow-[0_24px_60px_rgba(15,23,42,0.10)] sm:p-8">
+              <article className="rounded-[34px] border border-slate-200 bg-white p-6 shadow-[0_24px_60px_rgba(15,23,42,0.10)] sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Trust</p>
                 <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                   No more missed risk. No more delayed response after the leak already happened.
                 </h2>
                 <div className="mt-6 space-y-3">
                   {trustPoints.map((point) => (
-                    <div key={point} className="flex gap-3 rounded-[24px] border border-slate-200 bg-slate-50 px-4 py-4">
+                    <div key={point} className="flex gap-3 rounded-[24px] border border-slate-200 bg-white px-4 py-4 shadow-[0_12px_28px_rgba(15,23,42,0.05)]">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-sm leading-7 text-slate-700">{point}</p>
                     </div>
@@ -483,16 +498,16 @@ export default function HomePage() {
                 </div>
               </article>
 
-              <article className="dark-panel-solid rounded-[34px] p-6 sm:p-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">About</p>
-                <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              <article className="rounded-[34px] border border-slate-200 bg-[linear-gradient(180deg,#f9fbff_0%,#f1f6ff_100%)] p-6 shadow-[0_24px_60px_rgba(15,23,42,0.10)] sm:p-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">About</p>
+                <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                   This is the layer teams add when AI adoption becomes real and security can no longer stay informal.
                 </h2>
-                <p className="mt-4 text-base leading-8 text-slate-300">
+                <p className="mt-4 text-base leading-8 text-slate-600">
                   Stealth Vault is for teams that need AI speed without losing control of private data, internal knowledge, or credentials.
-                  That is why the page stays simple: one problem, one layer, one clear next step.
+                  That is why the page stays simple: one problem, one control layer, one clear next step.
                 </p>
-                <div className="mt-6 rounded-[24px] border border-white/10 bg-white/[0.05] px-4 py-4">
+                <div className="mt-6 rounded-[24px] border border-slate-200 bg-slate-950 px-4 py-4 shadow-[0_18px_40px_rgba(15,23,42,0.16)]">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-200">Execution strength</p>
                   <p className="mt-2 text-sm leading-7 text-slate-200">
                     VishnuLabs is especially strong on backend architecture, policy enforcement, and fixing critical control gaps in record time.

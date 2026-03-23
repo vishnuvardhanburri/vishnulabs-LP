@@ -56,10 +56,10 @@
     position: relative;
     overflow-x: hidden;
     background-image:
-      radial-gradient(circle at 50% -12%, rgba(173, 206, 255, 0.34), rgba(173, 206, 255, 0) 30%),
-      radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0) 20%),
-      radial-gradient(circle at 90% 18%, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0) 20%),
-      linear-gradient(180deg, #dce8fb 0%, #edf3fd 24%, #f6f9ff 54%, #fbfdff 100%);
+      radial-gradient(circle at 50% -12%, rgba(173, 206, 255, 0.22), rgba(173, 206, 255, 0) 30%),
+      radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0) 20%),
+      radial-gradient(circle at 90% 18%, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 20%),
+      linear-gradient(180deg, #d8e4f7 0%, #e8f0fb 26%, #f3f7fd 58%, #f8fbff 100%);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -71,9 +71,9 @@
     position: fixed;
     z-index: -1;
     border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.42);
     filter: blur(14px);
-    opacity: 0.05;
+    opacity: 0.025;
   }
 
   body::before {
@@ -181,13 +181,13 @@
     position: relative;
     overflow: hidden;
     border-radius: 2.35rem;
-    border: 1px solid rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(226, 232, 240, 0.95);
     background:
-      radial-gradient(circle at top left, rgba(194, 219, 255, 0.05), transparent 24%),
-      linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(248, 251, 255, 0.998) 100%);
+      radial-gradient(circle at top left, rgba(194, 219, 255, 0.03), transparent 22%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.995) 0%, rgba(247, 250, 255, 0.992) 100%);
     box-shadow:
-      0 24px 70px rgba(15, 23, 42, 0.09),
-      0 8px 18px rgba(99, 102, 241, 0.03),
+      0 26px 80px rgba(15, 23, 42, 0.1),
+      0 8px 18px rgba(99, 102, 241, 0.02),
       inset 0 1px 0 rgba(255, 255, 255, 0.96);
     backdrop-filter: blur(16px);
   }
@@ -229,7 +229,7 @@
   }
 
   .light-panel-solid {
-    @apply rounded-[30px] border border-slate-200 bg-white shadow-[0_18px_40px_rgba(15,23,42,0.07)];
+    @apply rounded-[30px] border border-slate-200/90 bg-white shadow-[0_22px_55px_rgba(15,23,42,0.09)];
   }
 
   .dark-panel-solid {

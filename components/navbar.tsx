@@ -21,14 +21,12 @@ const supportLinks = [
   { label: "Proof", href: "/proof" },
 ]
 
-const desktopLinks = [...primaryLinks, ...supportLinks]
-
 export function Navbar() {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [moreOpen, setMoreOpen] = useState(false)
-  const moreRef = useRef<HTMLDivElement>(null)
+  const [servicesOpen, setServicesOpen] = useState(false)
+  const servicesRef = useRef<HTMLDivElement>(null)
 
   const isActive = useMemo(
     () => (href: string) => pathname === href || pathname.startsWith(`${href}/`),
@@ -43,14 +41,14 @@ export function Navbar() {
 
   useEffect(() => {
     setMobileOpen(false)
-    setMoreOpen(false)
+    setServicesOpen(false)
   }, [pathname])
 
   useEffect(() => {
     const onClick = (event: MouseEvent) => {
-      if (!moreRef.current) return
-      if (moreRef.current.contains(event.target as Node)) return
-      setMoreOpen(false)
+      if (!servicesRef.current) return
+      if (servicesRef.current.contains(event.target as Node)) return
+      setServicesOpen(false)
     }
 
     document.addEventListener("mousedown", onClick)
@@ -63,8 +61,8 @@ export function Navbar() {
         <div
           className={`rounded-[28px] border transition-all duration-300 ${
             scrolled
-              ? "border-white/95 bg-white/96 shadow-[0_24px_72px_rgba(15,23,42,0.12)] backdrop-blur-2xl"
-              : "border-white/95 bg-white/94 shadow-[0_18px_60px_rgba(15,23,42,0.09)] backdrop-blur-2xl"
+              ? "border-white/18 bg-slate-950/96 shadow-[0_24px_72px_rgba(2,8,23,0.28)] backdrop-blur-2xl"
+              : "border-white/18 bg-slate-950/94 shadow-[0_18px_60px_rgba(2,8,23,0.22)] backdrop-blur-2xl"
           }`}
         >
           <div className="flex h-[74px] items-center justify-between px-3 sm:px-5">
@@ -79,44 +77,47 @@ export function Navbar() {
                 />
               </div>
               <div>
-                <p className="text-[15px] font-semibold tracking-tight text-slate-950">VishnuLabs</p>
-                <p className="text-[10px] uppercase tracking-[0.22em] text-slate-500">Automation Systems</p>
+                <p className="text-[15px] font-semibold tracking-tight text-white">VishnuLabs</p>
+                <p className="text-[10px] uppercase tracking-[0.22em] text-slate-400">Automation Systems</p>
               </div>
             </AppLink>
 
-            <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
-              {desktopLinks.map((link) => (
+            <nav className="hidden items-center gap-1.5 lg:flex" aria-label="Main navigation">
+              {primaryLinks.map((link) => (
                 <AppLink
                   key={link.href}
                   href={link.href}
                   prefetch
                   aria-current={isActive(link.href) ? "page" : undefined}
-                  className={`nav-underline whitespace-nowrap rounded-full px-2.5 py-2 text-[12px] font-medium tracking-[0.01em] transition-all xl:px-3 xl:text-[13px] ${
+                  className={`whitespace-nowrap rounded-full px-3 py-2 text-[12px] font-medium tracking-[0.01em] transition-all xl:px-3.5 xl:text-[13px] ${
                     isActive(link.href)
-                      ? "bg-slate-950 text-white shadow-[0_10px_24px_rgba(15,23,42,0.14)]"
-                      : "text-slate-700 hover:bg-slate-100 hover:text-slate-950"
+                      ? "bg-white text-slate-950 shadow-[0_10px_24px_rgba(15,23,42,0.14)]"
+                      : "text-slate-300 hover:bg-white/8 hover:text-white"
                   }`}
                 >
                   {link.label}
                 </AppLink>
               ))}
-              <div className="relative ml-2 hidden" ref={moreRef}>
+
+              <div className="ml-2 h-7 w-px bg-white/12" />
+
+              <div className="relative" ref={servicesRef}>
                 <button
                   type="button"
-                  onClick={() => setMoreOpen((prev) => !prev)}
-                  aria-expanded={moreOpen}
+                  onClick={() => setServicesOpen((prev) => !prev)}
+                  aria-expanded={servicesOpen}
                   className={`inline-flex items-center gap-1 rounded-full px-3 py-2 text-[12px] font-semibold uppercase tracking-[0.14em] transition-all ${
-                    supportLinks.some((link) => isActive(link.href)) || moreOpen
+                    supportLinks.some((link) => isActive(link.href)) || servicesOpen
                       ? "bg-white text-slate-950 shadow-[0_10px_24px_rgba(15,23,42,0.10)]"
-                      : "text-slate-500 hover:bg-white/90 hover:text-slate-950"
+                      : "text-slate-300 hover:bg-white/8 hover:text-white"
                   }`}
                 >
-                  More
-                  <ChevronDown className={`h-3.5 w-3.5 transition-transform ${moreOpen ? "rotate-180" : ""}`} />
+                  Services
+                  <ChevronDown className={`h-3.5 w-3.5 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
                 </button>
 
-                {moreOpen ? (
-                  <div className="absolute right-0 top-[calc(100%+0.55rem)] w-52 rounded-[22px] border border-white/88 bg-white/92 p-2 shadow-[0_18px_42px_rgba(15,23,42,0.12)] backdrop-blur-2xl">
+                {servicesOpen ? (
+                  <div className="absolute right-0 top-[calc(100%+0.65rem)] w-64 rounded-[24px] border border-slate-200 bg-white p-2 shadow-[0_24px_56px_rgba(15,23,42,0.18)]">
                     {supportLinks.map((link) => (
                       <AppLink
                         key={link.href}
@@ -126,7 +127,7 @@ export function Navbar() {
                         className={`block rounded-2xl px-3 py-3 text-sm font-semibold transition-colors ${
                           isActive(link.href)
                             ? "bg-slate-950 text-white"
-                            : "text-slate-600 hover:bg-slate-950 hover:text-white"
+                            : "text-slate-700 hover:bg-slate-100 hover:text-slate-950"
                         }`}
                       >
                         {link.label}
@@ -141,7 +142,7 @@ export function Navbar() {
               <Button
                 size="sm"
                 asChild
-                className="cta-glow h-10 gap-1.5 rounded-full bg-slate-950 px-5 text-white hover:bg-slate-900"
+                className="cta-glow h-10 gap-1.5 rounded-full bg-white px-5 text-slate-950 hover:bg-slate-100"
               >
                 <AppLink href="/book" prefetch data-track="nav_book_meeting">
                   Book Meeting
@@ -152,7 +153,7 @@ export function Navbar() {
 
             <button
               type="button"
-              className="tap-target inline-flex items-center justify-center rounded-2xl text-foreground transition-colors hover:bg-slate-900/5 lg:hidden"
+              className="tap-target inline-flex items-center justify-center rounded-2xl text-white transition-colors hover:bg-white/8 lg:hidden"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
             >
@@ -162,7 +163,7 @@ export function Navbar() {
 
           {mobileOpen && (
             <nav
-              className="border-t border-border/40 bg-white/94 px-3 pb-4 pt-3 backdrop-blur-2xl lg:hidden"
+              className="border-t border-white/10 bg-slate-950/98 px-3 pb-4 pt-3 backdrop-blur-2xl lg:hidden"
               aria-label="Mobile navigation"
             >
               <div className="flex flex-col gap-1.5">
@@ -174,8 +175,8 @@ export function Navbar() {
                     aria-current={isActive(link.href) ? "page" : undefined}
                     className={`tap-target rounded-2xl px-3 py-3 text-sm font-semibold transition-colors ${
                       isActive(link.href)
-                        ? "bg-slate-950 text-white"
-                        : "text-slate-600 hover:bg-slate-950 hover:text-white"
+                        ? "bg-white text-slate-950"
+                        : "text-slate-300 hover:bg-white/8 hover:text-white"
                     }`}
                     onClick={() => setMobileOpen(false)}
                   >
@@ -183,7 +184,7 @@ export function Navbar() {
                   </AppLink>
                 ))}
                 <div className="mt-2 border-t border-border/50 pt-3">
-                  <p className="px-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">More pages</p>
+                  <p className="px-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Services</p>
                   <div className="mt-2 grid grid-cols-3 gap-2">
                     {supportLinks.map((link) => (
                       <AppLink
@@ -193,8 +194,8 @@ export function Navbar() {
                         aria-current={isActive(link.href) ? "page" : undefined}
                         className={`rounded-2xl border px-3 py-2 text-center text-[11px] font-semibold uppercase tracking-[0.12em] transition-colors ${
                           isActive(link.href)
-                            ? "border-slate-950 bg-slate-950 text-white"
-                            : "border-border/40 bg-white/70 text-muted-foreground hover:bg-slate-950 hover:text-white"
+                            ? "border-white bg-white text-slate-950"
+                            : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white"
                         }`}
                         onClick={() => setMobileOpen(false)}
                       >
@@ -204,7 +205,7 @@ export function Navbar() {
                   </div>
                 </div>
                 <div className="mt-2 border-t border-border/50 pt-3">
-                  <Button asChild className="w-full rounded-full bg-slate-950 text-white hover:bg-slate-900">
+                  <Button asChild className="w-full rounded-full bg-white text-slate-950 hover:bg-slate-100">
                     <AppLink href="/book" prefetch onClick={() => setMobileOpen(false)} data-track="mobile_nav_book_meeting">
                       Book Meeting
                     </AppLink>

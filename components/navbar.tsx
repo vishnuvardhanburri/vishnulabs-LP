@@ -8,14 +8,14 @@ import { Button } from "@/components/ui/button"
 
 const primaryLinks = [
   { label: "Products", href: "/products" },
-  { label: "Websites", href: "/websites" },
-  { label: "Software", href: "/custom-software" },
-  { label: "AI Vault", href: "/stealth-vault" },
   { label: "Industries", href: "/industries" },
   { label: "Pricing", href: "/pricing" },
 ]
 
-const supportLinks = [
+const exploreLinks = [
+  { label: "Websites", href: "/websites" },
+  { label: "Software", href: "/custom-software" },
+  { label: "AI Vault", href: "/stealth-vault" },
   { label: "Services", href: "/services" },
   { label: "Automations", href: "/automations" },
   { label: "Proof", href: "/proof" },
@@ -78,11 +78,11 @@ export function Navbar() {
               </div>
               <div>
                 <p className="text-[15px] font-semibold tracking-tight text-white">VishnuLabs</p>
-                <p className="text-[10px] uppercase tracking-[0.22em] text-slate-400">Automation Systems</p>
+                <p className="text-[10px] uppercase tracking-[0.22em] text-slate-300">Automation Systems</p>
               </div>
             </AppLink>
 
-            <nav className="hidden items-center gap-1.5 lg:flex" aria-label="Main navigation">
+            <nav className="hidden items-center gap-2 lg:flex" aria-label="Main navigation">
               {primaryLinks.map((link) => (
                 <AppLink
                   key={link.href}
@@ -107,18 +107,21 @@ export function Navbar() {
                   onClick={() => setServicesOpen((prev) => !prev)}
                   aria-expanded={servicesOpen}
                   className={`inline-flex items-center gap-1 rounded-full px-3 py-2 text-[12px] font-semibold uppercase tracking-[0.14em] transition-all ${
-                    supportLinks.some((link) => isActive(link.href)) || servicesOpen
+                    exploreLinks.some((link) => isActive(link.href)) || servicesOpen
                       ? "bg-white text-slate-950 shadow-[0_10px_24px_rgba(15,23,42,0.10)]"
                       : "text-slate-300 hover:bg-white/8 hover:text-white"
                   }`}
                 >
-                  Services
+                  Explore
                   <ChevronDown className={`h-3.5 w-3.5 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
                 </button>
 
                 {servicesOpen ? (
-                  <div className="absolute right-0 top-[calc(100%+0.65rem)] w-64 rounded-[24px] border border-slate-200 bg-white p-2 shadow-[0_24px_56px_rgba(15,23,42,0.18)]">
-                    {supportLinks.map((link) => (
+                  <div className="absolute right-0 top-[calc(100%+0.65rem)] w-[300px] rounded-[24px] border border-slate-200 bg-white p-2 shadow-[0_24px_56px_rgba(15,23,42,0.18)]">
+                    <div className="px-3 pb-2 pt-2">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Browse pages</p>
+                    </div>
+                    {exploreLinks.map((link) => (
                       <AppLink
                         key={link.href}
                         href={link.href}
@@ -184,9 +187,9 @@ export function Navbar() {
                   </AppLink>
                 ))}
                 <div className="mt-2 border-t border-border/50 pt-3">
-                  <p className="px-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Services</p>
-                  <div className="mt-2 grid grid-cols-3 gap-2">
-                    {supportLinks.map((link) => (
+                  <p className="px-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Explore</p>
+                  <div className="mt-2 grid grid-cols-2 gap-2">
+                    {exploreLinks.map((link) => (
                       <AppLink
                         key={link.href}
                         href={link.href}

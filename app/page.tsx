@@ -53,6 +53,7 @@ const trustPoints = [
   "Prevents leaks before they happen",
   "Built for AI-first teams that still need control",
   "Security-first architecture from the first request",
+  "Backend-heavy fixes shipped in record time when control gaps appear",
 ]
 
 const offerCards = [
@@ -304,23 +305,27 @@ export default function HomePage() {
 
         <section className="py-6 sm:py-8">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
-            <div className="rounded-[34px] border border-white/10 bg-slate-950/94 p-6 shadow-[0_28px_90px_rgba(2,8,23,0.34)] sm:p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Problem</p>
-              <h2 className="mt-4 max-w-3xl text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl">
+            <div className="light-panel-solid rounded-[34px] p-6 sm:p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Problem</p>
+              <h2 className="mt-4 max-w-3xl text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
                 You do not control what your team sends to AI.
               </h2>
+              <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
+                AI adoption moves faster than policy. That is when confidential records, keys, and internal notes start leaving the company
+                with no review path.
+              </p>
 
               <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
                 {problemPoints.map((item) => (
-                  <div key={item} className="rounded-[26px] border border-white/10 bg-white/[0.04] p-5">
+                  <div key={item} className="rounded-[26px] border border-slate-200 bg-slate-50 p-5 shadow-sm">
                     <CircleBlock />
-                    <p className="mt-4 text-sm leading-7 text-slate-200">{item}</p>
+                    <p className="mt-4 text-sm leading-7 text-slate-700">{item}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-6 rounded-[26px] border border-red-400/20 bg-red-500/10 p-5">
-                <p className="text-xl font-semibold text-white sm:text-2xl">One leak is enough.</p>
+              <div className="mt-6 rounded-[26px] border border-red-300/60 bg-red-50 p-5 shadow-[0_18px_40px_rgba(239,68,68,0.08)]">
+                <p className="text-xl font-semibold text-red-700 sm:text-2xl">One leak is enough.</p>
               </div>
             </div>
           </div>
@@ -414,9 +419,15 @@ export default function HomePage() {
         <section className="py-6 sm:py-8">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
-              <article className="rounded-[34px] border border-white/10 bg-slate-950/94 p-6 shadow-[0_28px_90px_rgba(2,8,23,0.34)] sm:p-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">How it works</p>
-                <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">Three steps. No long rollout story.</h2>
+              <article className="light-panel-solid rounded-[34px] p-6 sm:p-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">How it works</p>
+                <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+                  Three steps. No long rollout story.
+                </h2>
+                <p className="mt-4 max-w-xl text-base leading-8 text-slate-600">
+                  We are strongest in backend implementation, policy wiring, and record-time fixes when teams need the control layer working
+                  fast and correctly.
+                </p>
               </article>
 
               <div className="grid gap-4 md:grid-cols-3">
@@ -472,7 +483,7 @@ export default function HomePage() {
                 </div>
               </article>
 
-              <article className="rounded-[34px] border border-white/10 bg-slate-950/94 p-6 shadow-[0_28px_90px_rgba(2,8,23,0.34)] sm:p-8">
+              <article className="dark-panel-solid rounded-[34px] p-6 sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">About</p>
                 <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">
                   This is the layer teams add when AI adoption becomes real and security can no longer stay informal.
@@ -481,6 +492,12 @@ export default function HomePage() {
                   Stealth Vault is for teams that need AI speed without losing control of private data, internal knowledge, or credentials.
                   That is why the page stays simple: one problem, one layer, one clear next step.
                 </p>
+                <div className="mt-6 rounded-[24px] border border-white/10 bg-white/[0.05] px-4 py-4">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-200">Execution strength</p>
+                  <p className="mt-2 text-sm leading-7 text-slate-200">
+                    VishnuLabs is especially strong on backend architecture, policy enforcement, and fixing critical control gaps in record time.
+                  </p>
+                </div>
               </article>
             </div>
           </div>

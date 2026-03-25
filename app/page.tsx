@@ -87,9 +87,20 @@ export default function HomePage() {
 
       <main className="overflow-hidden bg-[linear-gradient(180deg,#07111f_0%,#0b1727_18%,#eef4ff_42%,#f7faff_100%)] pb-20 pt-28 sm:pt-32">
         <section className="relative pb-12">
-          <div className="pointer-events-none absolute inset-0">
-            <div className="absolute left-[-8%] top-10 h-[300px] w-[300px] rounded-full bg-sky-400/10 blur-[120px]" />
-            <div className="absolute right-[-6%] top-24 h-[280px] w-[280px] rounded-full bg-indigo-400/14 blur-[130px]" />
+          <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+            <video
+              className="h-full w-full object-cover opacity-30"
+              src="/media/stealth-vault-proof.mp4"
+              poster="/marketing/sentinel-shield/final_hero_shot.png"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,17,31,0.55)_0%,rgba(11,23,39,0.5)_35%,rgba(238,244,255,0.7)_70%,rgba(247,250,255,0.95)_100%)]" />
+            <div className="absolute left-[-8%] top-10 h-[300px] w-[300px] rounded-full bg-sky-400/12 blur-[120px]" />
+            <div className="absolute right-[-6%] top-24 h-[280px] w-[280px] rounded-full bg-indigo-400/16 blur-[130px]" />
           </div>
 
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">

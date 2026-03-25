@@ -74,7 +74,7 @@ export default function WebsitesPage() {
             <div className="hero-shell app-shell-enter px-5 py-6 sm:px-7 sm:py-8 lg:px-10 lg:py-10" data-reveal>
               <div className="grid items-start gap-8 lg:grid-cols-[1.02fr_0.98fr]">
                 <div
-                  className="rounded-[34px] border border-slate-200/90 bg-white/90 p-6 shadow-[0_22px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl sm:p-8"
+                  className="rounded-[34px] border border-slate-200/90 bg-white p-6 shadow-[0_22px_60px_rgba(15,23,42,0.08)] sm:p-8"
                   data-reveal
                   style={{ transitionDelay: "30ms" }}
                 >
@@ -95,7 +95,7 @@ export default function WebsitesPage() {
                     ))}
                   </div>
 
-                  <div className="mt-8 grid gap-3 rounded-[28px] border border-slate-200/90 bg-slate-50/90 p-4 sm:grid-cols-2">
+                  <div className="mt-8 grid gap-3 rounded-[28px] border border-slate-200/90 bg-slate-50 p-4 sm:grid-cols-2">
                     <div className="rounded-[24px] border border-slate-200/80 bg-white px-4 py-4 shadow-sm">
                       <div className="flex items-center gap-2 text-sm font-semibold text-slate-950">
                         <ShieldCheck className="h-4 w-4 text-primary" />

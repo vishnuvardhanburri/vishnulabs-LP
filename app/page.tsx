@@ -181,14 +181,16 @@ export default function HomePage() {
 
                     <div className="rounded-[24px] border border-white/10 bg-white/[0.03] p-4">
                       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Live example</p>
-                      <div className="mt-4 overflow-hidden rounded-[22px] border border-white/10">
-                        <Image
-                          src="/marketing/sentinel-shield/final_hero_shot.png"
-                          alt="Stealth Vault control interface"
-                          width={1600}
-                          height={1000}
-                          priority
+                      <div className="mt-4 overflow-hidden rounded-[22px] border border-white/10 bg-slate-950/40">
+                        <video
                           className="h-auto w-full object-cover"
+                          src="/media/stealth-vault-proof.mp4"
+                          poster="/marketing/sentinel-shield/final_hero_shot.png"
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          preload="metadata"
                         />
                       </div>
                       <div className="mt-4 rounded-[22px] border border-red-400/20 bg-red-500/10 p-4">
@@ -305,7 +307,7 @@ export default function HomePage() {
 
         <section className="py-6 sm:py-8">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
-            <div className="rounded-[36px] border border-slate-200 bg-white p-6 shadow-[0_26px_70px_rgba(15,23,42,0.10)] sm:p-8">
+            <div className="rounded-[36px] border border-slate-200 bg-white p-6 shadow-[0_26px_70px_rgba(15,23,42,0.12)] sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Problem</p>
               <h2 className="mt-4 max-w-3xl text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
                 You do not control what your team sends to AI.
@@ -324,7 +326,7 @@ export default function HomePage() {
                 ))}
               </div>
 
-              <div className="mt-6 rounded-[26px] border border-red-300/80 bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(254,226,226,0.96)_100%)] p-5 shadow-[0_18px_40px_rgba(239,68,68,0.10)]">
+              <div className="mt-6 rounded-[26px] border border-red-300 bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(254,226,226,0.98)_100%)] p-5 shadow-[0_18px_44px_rgba(239,68,68,0.14)]">
                 <p className="text-xl font-semibold text-red-700 sm:text-2xl">One leak is enough.</p>
                 <p className="mt-2 text-sm leading-7 text-red-600">
                   One exposed key, one patient record, or one internal file in the wrong prompt is enough to turn AI adoption into an avoidable incident.
@@ -394,7 +396,7 @@ export default function HomePage() {
 
         <section className="py-6 sm:py-8">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
-            <div className="rounded-[34px] border border-white/10 bg-white/95 p-6 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:p-8">
+            <div className="rounded-[34px] border border-slate-200 bg-white p-6 shadow-[0_24px_60px_rgba(15,23,42,0.10)] sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Features</p>
               <h2 className="mt-4 max-w-4xl text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
                 Everything needed to control AI usage, not just observe it.

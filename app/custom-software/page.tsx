@@ -74,7 +74,7 @@ export default function CustomSoftwarePage() {
 
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                     <Button asChild className="cta-glow h-12 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white hover:bg-slate-900">
-                      <Link href="/book">
+                      <Link href="https://cal.com/vishnuvardhanburri/15min">
                         Request Software Scope
                         <ArrowRight className="h-4 w-4" />
                       </Link>

@@ -147,7 +147,7 @@ export function Navbar() {
                 asChild
                 className="cta-glow h-10 gap-1.5 rounded-full bg-white px-5 text-slate-950 hover:bg-slate-100"
               >
-                <AppLink href="/book" prefetch data-track="nav_book_meeting">
+                <AppLink href="https://cal.com/vishnuvardhanburri/15min" prefetch data-track="nav_book_meeting">
                   Book Meeting
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </AppLink>
@@ -209,7 +209,7 @@ export function Navbar() {
                 </div>
                 <div className="mt-2 border-t border-border/50 pt-3">
                   <Button asChild className="w-full rounded-full bg-white text-slate-950 hover:bg-slate-100">
-                    <AppLink href="/book" prefetch onClick={() => setMobileOpen(false)} data-track="mobile_nav_book_meeting">
+                    <AppLink href="https://cal.com/vishnuvardhanburri/15min" prefetch onClick={() => setMobileOpen(false)} data-track="mobile_nav_book_meeting">
                       Book Meeting
                     </AppLink>
                   </Button>

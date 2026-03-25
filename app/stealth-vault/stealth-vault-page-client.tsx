@@ -769,7 +769,7 @@ export function StealthVaultPageClient() {
 
                 <Button asChild variant="outline" className="h-11 rounded-full border-slate-300 bg-white px-6 text-sm text-slate-950 hover:bg-slate-50">
                   <a
-                    href="/book"
+                    href="https://cal.com/vishnuvardhanburri/15min"
                     data-track="funnel_stealth_cta_book_call_click_form"
                     onClick={() => trackEvent("funnel_stealth_cta_book_call_click", { source: "form_block" })}
                     className="inline-flex items-center gap-2"

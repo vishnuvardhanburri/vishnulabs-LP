@@ -177,13 +177,13 @@ const intents: Intent[] = [
     id: "contact",
     patterns: ["contact", "email", "phone", "reach", "talk to team", "sales"],
     answer:
-      "Contact: hello@vishnulabs.com or book directly at /book. You can also use the live form on /stealth-vault for customization requests.",
+      "Contact: hello@vishnulabs.com or book directly at https://cal.com/vishnuvardhanburri/15min. You can also use the live form on /stealth-vault for customization requests.",
   },
   {
     id: "demo",
     patterns: ["demo", "video", "vedio", "walkthrough", "show me", "sample"],
     answer:
-      "You can book a live walkthrough at /book. Demo preview is available on the homepage and product pages. For a focused demo, share your workflow and team size in the booking form.",
+      "You can book a live walkthrough at https://cal.com/vishnuvardhanburri/15min. Demo preview is available on the homepage and product pages. For a focused demo, share your workflow and team size in the booking form.",
   },
   {
     id: "results",
@@ -232,7 +232,7 @@ function answerFor(input: string) {
     return bestIntent.answer
   }
 
-  return "I can help with services, pricing, Stealth Vault security, payment, timeline, integrations, support, and ownership. Ask a specific question, or book at /book."
+  return "I can help with services, pricing, Stealth Vault security, payment, timeline, integrations, support, and ownership. Ask a specific question, or book at https://cal.com/vishnuvardhanburri/15min."
 }
 
 function trackAssistantEvent(eventName: string, payload: TrackPayload = {}) {

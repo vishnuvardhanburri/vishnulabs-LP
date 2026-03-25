@@ -64,7 +64,7 @@ export function Hero() {
               asChild
               className="cta-glow w-full gap-2 rounded-full bg-foreground px-8 py-6 text-base text-background hover:bg-foreground/90 sm:w-auto"
             >
-              <Link href="/book" data-track="hero_book_meeting">
+              <Link href="https://cal.com/vishnuvardhanburri/15min" data-track="hero_book_meeting">
                 <Calendar className="h-4 w-4" />
                 Book Live Demo
               </Link>

@@ -49,7 +49,7 @@ const playbooks: Playbook[] = [
     whatWeAutomate: "Automated follow-ups after proposal send with next-step nudges and owner alerts.",
     value: "More proposals converted into active deal conversations.",
     range: "$5,500 to $9,000",
-    industryLink: "/book",
+    industryLink: "https://cal.com/vishnuvardhanburri/15min",
   },
   {
     title: "Client Onboarding Control Layer",
@@ -57,7 +57,7 @@ const playbooks: Playbook[] = [
     whatWeAutomate: "Onboarding checklists, kickoff scheduling, data collection, and task orchestration.",
     value: "Cleaner delivery handoff and faster time-to-value for new accounts.",
     range: "$6,500 to $12,000",
-    industryLink: "/book",
+    industryLink: "https://cal.com/vishnuvardhanburri/15min",
   },
   {
     title: "CRM Reactivation Campaign",
@@ -65,7 +65,7 @@ const playbooks: Playbook[] = [
     whatWeAutomate: "Segment-based SMS/email reactivation with interest scoring and booking handoff.",
     value: "Reopens dead pipeline opportunities without manual list work.",
     range: "$4,997 to $7,500",
-    industryLink: "/book",
+    industryLink: "https://cal.com/vishnuvardhanburri/15min",
   },
 ]
 

@@ -43,7 +43,7 @@ export function ServicePageTemplate({
 
           <div className="mt-7 flex flex-wrap gap-3">
             <Button asChild className="gap-2 rounded-xl bg-foreground text-background hover:bg-foreground/90">
-              <Link href="/book" data-track="service_page_book_meeting">
+              <Link href="https://cal.com/vishnuvardhanburri/15min" data-track="service_page_book_meeting">
                 Book Meeting
                 <ArrowUpRight className="h-4 w-4" />
               </Link>

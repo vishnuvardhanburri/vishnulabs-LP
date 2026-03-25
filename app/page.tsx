@@ -126,7 +126,7 @@ export default function HomePage() {
                     asChild
                     className="h-12 rounded-full bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-100 sm:h-14 sm:px-8 sm:text-base"
                   >
-                    <a href="/book">
+                    <a href="https://cal.com/vishnuvardhanburri/15min">
                       Start Protecting Your Data
                       <ArrowRight className="h-4 w-4" />
                     </a>
@@ -303,7 +303,7 @@ export default function HomePage() {
                         variant="outline"
                         className="h-11 rounded-full border-white/14 bg-white/5 px-5 text-sm font-semibold text-white hover:bg-white/10"
                       >
-                        <a href="/book">
+                        <a href="https://cal.com/vishnuvardhanburri/15min">
                           Book Review
                           <ArrowRight className="h-4 w-4" />
                         </a>
@@ -434,6 +434,67 @@ export default function HomePage() {
 
         <section className="py-6 sm:py-8">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
+            <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+              <article className="rounded-[34px] border border-slate-200 bg-white p-6 shadow-[0_24px_60px_rgba(15,23,42,0.10)] sm:p-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Delivery team</p>
+                <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+                  Backend-first execution with fast fixes when gaps show up.
+                </h2>
+                <p className="mt-4 max-w-xl text-base leading-8 text-slate-600">
+                  We ship the control layer where it actually lives: backend services, policy enforcement, and audit-ready logging. When a
+                  workflow breaks, we fix it quickly and document it clearly.
+                </p>
+                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                  {[
+                    "Policy wiring handled end-to-end",
+                    "Live monitoring tied to real workflows",
+                    "Fast fixes during rollout",
+                    "Clear handoff and operator notes",
+                  ].map((item) => (
+                    <div key={item} className="rounded-[20px] border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </article>
+
+              <div className="grid gap-4">
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="overflow-hidden rounded-[26px] border border-slate-200 bg-white shadow-[0_18px_44px_rgba(15,23,42,0.08)]">
+                    <Image src="/media/team-1.png" alt="VishnuLabs delivery team" width={900} height={600} className="h-full w-full object-cover" />
+                  </div>
+                  <div className="overflow-hidden rounded-[26px] border border-slate-200 bg-white shadow-[0_18px_44px_rgba(15,23,42,0.08)]">
+                    <Image src="/media/team-2.png" alt="VishnuLabs operations team" width={900} height={600} className="h-full w-full object-cover" />
+                  </div>
+                </div>
+                <div className="rounded-[26px] border border-slate-200 bg-slate-950 p-5 shadow-[0_22px_60px_rgba(2,8,23,0.25)]">
+                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Flow diagram</p>
+                  <p className="mt-3 text-base font-semibold text-white">User → Stealth Vault → AI</p>
+                  <svg className="mt-4 h-20 w-full" viewBox="0 0 520 80" role="img" aria-label="Stealth Vault flow diagram">
+                    <defs>
+                      <linearGradient id="flowLine" x1="0" x2="1" y1="0" y2="0">
+                        <stop offset="0%" stopColor="#60a5fa" />
+                        <stop offset="100%" stopColor="#818cf8" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="40" cy="40" r="18" fill="#0f172a" stroke="#60a5fa" strokeWidth="2" />
+                    <circle cx="260" cy="40" r="18" fill="#0f172a" stroke="#60a5fa" strokeWidth="2" />
+                    <circle cx="480" cy="40" r="18" fill="#0f172a" stroke="#60a5fa" strokeWidth="2" />
+                    <line x1="70" y1="40" x2="230" y2="40" stroke="url(#flowLine)" strokeWidth="3" />
+                    <line x1="290" y1="40" x2="450" y2="40" stroke="url(#flowLine)" strokeWidth="3" />
+                    <text x="40" y="70" textAnchor="middle" fill="#e2e8f0" fontSize="10">User</text>
+                    <text x="260" y="70" textAnchor="middle" fill="#e2e8f0" fontSize="10">Stealth Vault</text>
+                    <text x="480" y="70" textAnchor="middle" fill="#e2e8f0" fontSize="10">AI</text>
+                  </svg>
+                  <p className="mt-2 text-xs text-slate-300">Scan → Block → Redact → Log before requests reach AI.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-6 sm:py-8">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
               <article className="rounded-[34px] border border-slate-200 bg-white p-6 shadow-[0_24px_60px_rgba(15,23,42,0.10)] sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">How it works</p>
@@ -544,7 +605,7 @@ export default function HomePage() {
               </p>
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Button size="lg" asChild className="h-12 rounded-full bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-100 sm:h-14 sm:px-8 sm:text-base">
-                  <a href="/book">
+                  <a href="https://cal.com/vishnuvardhanburri/15min">
                     Start Protecting Your Data
                     <ArrowRight className="h-4 w-4" />
                   </a>

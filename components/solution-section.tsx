@@ -106,7 +106,7 @@ export function SolutionSection() {
                   </Link>
                 </Button>
                 <Button asChild className="w-full gap-2 rounded-xl bg-foreground text-background hover:bg-foreground/90">
-                  <Link href="/book" data-track={`service_book_${offer.title.toLowerCase().replace(/\s+/g, "_")}`}>
+                  <Link href="https://cal.com/vishnuvardhanburri/15min" data-track={`service_book_${offer.title.toLowerCase().replace(/\s+/g, "_")}`}>
                     Book Meeting
                   </Link>
                 </Button>

@@ -138,7 +138,7 @@ export function AboutSection() {
 
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Button size="sm" asChild className="cta-glow gap-2 rounded-full bg-slate-950 px-5 text-white hover:bg-slate-900">
-                  <AppLink href="/book">
+                  <AppLink href="https://cal.com/vishnuvardhanburri/15min">
                     Book Live Demo
                     <ArrowUpRight className="h-3.5 w-3.5" />
                   </AppLink>

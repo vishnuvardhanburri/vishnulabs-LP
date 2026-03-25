@@ -32,7 +32,7 @@ export function CtaSection() {
                 asChild
                 className="w-full gap-2 rounded-xl bg-foreground px-8 py-6 text-base font-medium text-background hover:bg-foreground/90 sm:w-auto"
               >
-                <Link href="/book" data-track="cta_book_meeting">
+                <Link href="https://cal.com/vishnuvardhanburri/15min" data-track="cta_book_meeting">
                   <Calendar className="h-4 w-4" />
                   Book Meeting
                 </Link>

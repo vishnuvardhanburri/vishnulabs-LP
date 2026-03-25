@@ -47,7 +47,7 @@ export function SentinelShieldDemo() {
               <ArrowUpRight className="h-4 w-4" />
             </a>
             <a
-              href="/book"
+              href="https://cal.com/vishnuvardhanburri/15min"
               data-track="funnel_sentinel_demo_book_cta"
               className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/80 px-4 py-2 text-sm font-semibold text-foreground hover:bg-secondary"
             >

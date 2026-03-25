@@ -42,7 +42,7 @@ export default function StartProtectingPage() {
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Button size="lg" asChild className="h-12 rounded-full bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-100 sm:h-14 sm:px-8 sm:text-base">
-                <a href="/book">
+                <a href="https://cal.com/vishnuvardhanburri/15min">
                   Get Instant Protection
                   <ArrowRight className="h-4 w-4" />
                 </a>
@@ -122,7 +122,7 @@ export default function StartProtectingPage() {
             <p className="mt-4 text-base leading-8 text-slate-300">Protect your data before it becomes a visible incident.</p>
             <div className="mt-7 flex justify-center">
               <Button size="lg" asChild className="h-12 rounded-full bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-100 sm:h-14 sm:px-8 sm:text-base">
-                <a href="/book">
+                <a href="https://cal.com/vishnuvardhanburri/15min">
                   Start Now
                   <ArrowRight className="h-4 w-4" />
                 </a>

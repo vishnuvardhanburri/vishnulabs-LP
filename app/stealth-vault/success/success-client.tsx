@@ -40,7 +40,7 @@ export function StealthVaultSuccessClient() {
           View installation guide
         </a>
         <a
-          href="/book"
+          href="https://cal.com/vishnuvardhanburri/15min"
           className="inline-flex items-center rounded-xl border border-border/55 px-4 py-2.5 text-sm font-medium text-foreground hover:bg-secondary"
         >
           Book setup call

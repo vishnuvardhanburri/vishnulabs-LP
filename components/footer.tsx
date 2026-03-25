@@ -25,7 +25,7 @@ const industryLinks = [
 const pageLinks = [
   { label: "Proof", href: "/proof" },
   { label: "Pricing", href: "/pricing" },
-  { label: "Book Meeting", href: "/book" },
+  { label: "Book Meeting", href: "https://cal.com/vishnuvardhanburri/15min" },
   { label: "Backup Site", href: "/backup" },
   { label: "Privacy", href: "/privacy" },
   { label: "Terms", href: "/terms" },
@@ -55,7 +55,7 @@ export function Footer() {
                 View Pricing
               </AppLink>
               <AppLink
-                href="/book"
+                href="https://cal.com/vishnuvardhanburri/15min"
                 className="inline-flex items-center justify-center rounded-full border border-white/14 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
               >
                 Book Review

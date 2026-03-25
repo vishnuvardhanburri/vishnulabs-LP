@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import type { LucideIcon } from "lucide-react"
-import { ArrowRight, ArrowUpRight, Building2, CheckCircle2, Home, Hospital, Rocket, Scale, Truck } from "lucide-react"
+import { ArrowRight, ArrowUpRight, Building2, CheckCircle2, Home, Hospital, Rocket, Scale, ShieldCheck, Truck } from "lucide-react"
 
 import { AppLink } from "@/components/app-link"
 import { ConfidenceRail } from "@/components/confidence-rail"
@@ -77,6 +77,25 @@ const industries: Industry[] = [
   },
 ]
 
+const industryHeroSignals = [
+  {
+    title: "Startup launches",
+    detail: "Lean teams that need a cleaner front-end, stronger lead routing, and early operational support.",
+  },
+  {
+    title: "Clinic operations",
+    detail: "Appointment-heavy teams that need visibility, cleaner response flow, and less manual admin drag.",
+  },
+  {
+    title: "Transport handoff",
+    detail: "Quote, callback, dispatch, and moving-company workflows that need clearer intake before teams scale.",
+  },
+  {
+    title: "Legal intake clarity",
+    detail: "Consultation, intake, and private AI paths built for firms that need speed without looking sloppy.",
+  },
+]
+
 export default function IndustriesPage() {
   return (
     <>
@@ -86,10 +105,14 @@ export default function IndustriesPage() {
         <section className="pb-16 pt-28 sm:pt-36 lg:pb-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
             <div className="hero-shell app-shell-enter px-5 py-6 sm:px-7 sm:py-8 lg:px-10 lg:py-10" data-reveal>
-              <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
-                <div>
-                  <div className="badge-pill border-primary/20 bg-white/75 text-slate-700">Industries</div>
-                  <h1 className="mt-3 max-w-4xl text-balance text-[2.8rem] font-bold leading-[0.96] tracking-[-0.04em] text-slate-950 sm:text-[4rem]">
+              <div className="grid items-start gap-8 lg:grid-cols-[1.02fr_0.98fr]">
+                <div
+                  className="rounded-[34px] border border-slate-200/90 bg-white/90 p-6 shadow-[0_22px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl sm:p-8"
+                  data-reveal
+                  style={{ transitionDelay: "30ms" }}
+                >
+                  <div className="badge-pill border-primary/20 bg-slate-50 text-slate-700">Industries</div>
+                  <h1 className="mt-6 max-w-4xl text-balance text-[2.8rem] font-bold leading-[0.96] tracking-[-0.04em] text-slate-950 sm:text-[4.1rem]">
                     Automation systems adapted to the workflow pressure of each industry.
                   </h1>
                   <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
@@ -97,44 +120,61 @@ export default function IndustriesPage() {
                     and mortgage teams all need fast response and cleaner operations, but the workflow details differ. These pages show where
                     VishnuLabs fits.
                   </p>
-                </div>
 
-                <div className="grid gap-4">
-                  {industries.map((industry) => {
-                    const Icon = industry.icon
+                  <div className="mt-7 flex flex-wrap gap-2">
+                    {["Launch-ready", "Clinic response", "Transport visibility", "Legal intake clarity"].map((item) => (
+                      <span key={item} className="soft-chip border-primary/10 bg-white text-slate-700">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
 
-                    return (
-                      <div key={industry.title} className="metric-float p-5">
-                        <div className="flex items-center gap-3">
-                          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-white">
-                            <Icon className="h-5 w-5 text-sky-300" />
-                          </div>
-                          <p className="text-lg font-semibold text-slate-950">{industry.title}</p>
-                        </div>
-                        <p className="mt-3 text-sm leading-7 text-slate-600">{industry.description}</p>
+                  <div className="mt-8 grid gap-3 rounded-[28px] border border-slate-200/90 bg-slate-50/90 p-4 sm:grid-cols-2">
+                    <div className="rounded-[24px] border border-slate-200/80 bg-white px-4 py-4 shadow-sm">
+                      <div className="flex items-center gap-2 text-sm font-semibold text-slate-950">
+                        <ShieldCheck className="h-4 w-4 text-primary" />
+                        Where we fit best
                       </div>
-                    )
-                  })}
+                      <p className="mt-2 text-sm leading-7 text-slate-600">
+                        Teams that need better intake, faster response, stronger visibility, and cleaner operations without adding process chaos.
+                      </p>
+                    </div>
+                    <div className="rounded-[24px] border border-slate-200/80 bg-white px-4 py-4 shadow-sm">
+                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Why this reads cleaner</p>
+                      <p className="mt-2 text-sm leading-7 text-slate-600">
+                        One entry page, one industry fit, one next step. Buyers can see where they belong before booking a call.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <Button asChild className="cta-glow h-12 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white hover:bg-slate-900">
+                      <AppLink href="/book">
+                        Request Demo
+                        <ArrowRight className="h-4 w-4" />
+                      </AppLink>
+                    </Button>
+                    <Button asChild variant="outline" className="h-12 rounded-full border-slate-300 bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-50">
+                      <AppLink href="/automations">
+                        Explore Automations
+                        <ArrowUpRight className="h-4 w-4" />
+                      </AppLink>
+                    </Button>
+                  </div>
+
+                  <div className="mt-6 max-w-2xl">
+                    <CustomSolutionNote compact title="Custom industry solution available" />
+                  </div>
                 </div>
-              </div>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button asChild className="h-12 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white hover:bg-slate-900">
-                  <AppLink href="/book">
-                    Request Demo
-                    <ArrowRight className="h-4 w-4" />
-                  </AppLink>
-                </Button>
-                <Button asChild variant="outline" className="h-12 rounded-full border-slate-300 bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-50">
-                  <AppLink href="/automations">
-                    Explore Automations
-                    <ArrowUpRight className="h-4 w-4" />
-                  </AppLink>
-                </Button>
-              </div>
-
-              <div className="mt-8">
-                <CustomSolutionNote title="Custom industry solution available" />
+                <div className="grid gap-4 sm:grid-cols-2" data-reveal style={{ transitionDelay: "110ms" }}>
+                  {industryHeroSignals.map((item) => (
+                    <article key={item.title} className="light-panel-solid flex min-h-[190px] flex-col p-5 sm:p-6">
+                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{item.title}</p>
+                      <p className="mt-4 text-base leading-8 text-slate-700">{item.detail}</p>
+                    </article>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

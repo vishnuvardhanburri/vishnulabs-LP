@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowRight, ArrowUpRight, CheckCircle2, Globe, Hospital, Scale, Truck } from "lucide-react"
+import { ArrowRight, ArrowUpRight, CheckCircle2, Globe, Hospital, Scale, ShieldCheck, Truck } from "lucide-react"
 
 import { ConfidenceRail } from "@/components/confidence-rail"
 import { CustomSolutionNote } from "@/components/custom-solution-note"
@@ -44,6 +44,25 @@ const websiteCollections = [
   },
 ]
 
+const websiteHeroSignals = [
+  {
+    title: "Conversion structure",
+    detail: "Pages laid out around inquiry, booking, and follow-up instead of loose brochure sections.",
+  },
+  {
+    title: "Launch routing",
+    detail: "Domain, SSL, launch flow, and page handoff handled as one release path.",
+  },
+  {
+    title: "Ops-ready CTA flow",
+    detail: "Forms, booking, intake, and automation handoff built into the page logic from day one.",
+  },
+  {
+    title: "Credibility on mobile",
+    detail: "Clean hierarchy, clear CTA placement, and fast reading on phones and laptops.",
+  },
+]
+
 export default function WebsitesPage() {
   return (
     <>
@@ -53,9 +72,13 @@ export default function WebsitesPage() {
         <section className="pb-16 pt-28 sm:pt-36 lg:pb-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
             <div className="hero-shell app-shell-enter px-5 py-6 sm:px-7 sm:py-8 lg:px-10 lg:py-10" data-reveal>
-              <div className="grid items-start gap-8 lg:grid-cols-[0.98fr_1.02fr]">
-                <div data-reveal style={{ transitionDelay: "30ms" }}>
-                  <div className="badge-pill border-primary/20 bg-white/75 text-slate-700">Website systems</div>
+              <div className="grid items-start gap-8 lg:grid-cols-[1.02fr_0.98fr]">
+                <div
+                  className="rounded-[34px] border border-slate-200/90 bg-white/90 p-6 shadow-[0_22px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl sm:p-8"
+                  data-reveal
+                  style={{ transitionDelay: "30ms" }}
+                >
+                  <div className="badge-pill border-primary/20 bg-slate-50 text-slate-700">Website systems</div>
                   <h1 className="mt-6 max-w-4xl text-balance text-[2.8rem] font-bold leading-[0.96] tracking-[-0.04em] text-slate-950 sm:text-[4.2rem]">
                     Websites built for visibility, trust, and clean conversion.
                   </h1>
@@ -66,10 +89,28 @@ export default function WebsitesPage() {
 
                   <div className="mt-7 flex flex-wrap gap-2">
                     {["Startup-ready", "Clinic trust", "Law-service clarity", "Domain + launch support"].map((item) => (
-                      <span key={item} className="soft-chip border-primary/10 text-slate-700">
+                      <span key={item} className="soft-chip border-primary/10 bg-white text-slate-700">
                         {item}
                       </span>
                     ))}
+                  </div>
+
+                  <div className="mt-8 grid gap-3 rounded-[28px] border border-slate-200/90 bg-slate-50/90 p-4 sm:grid-cols-2">
+                    <div className="rounded-[24px] border border-slate-200/80 bg-white px-4 py-4 shadow-sm">
+                      <div className="flex items-center gap-2 text-sm font-semibold text-slate-950">
+                        <ShieldCheck className="h-4 w-4 text-primary" />
+                        Why this reads cleaner
+                      </div>
+                      <p className="mt-2 text-sm leading-7 text-slate-600">
+                        Fewer loose sections. Sharper CTA placement. Stronger credibility above the fold.
+                      </p>
+                    </div>
+                    <div className="rounded-[24px] border border-slate-200/80 bg-white px-4 py-4 shadow-sm">
+                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Best fit</p>
+                      <p className="mt-2 text-sm leading-7 text-slate-600">
+                        Startup launches, clinics, moving companies, logistics teams, and legal service pages.
+                      </p>
+                    </div>
                   </div>
 
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -93,14 +134,10 @@ export default function WebsitesPage() {
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-2" data-reveal style={{ transitionDelay: "110ms" }}>
-                  {[
-                    "Website creation with conversion-first page structure",
-                    "Domain management, launch routing, and SSL support",
-                    "Booking, intake, and automation-ready CTA flows",
-                    "Built to feel credible on both desktop and mobile",
-                  ].map((item) => (
-                    <article key={item} className="metric-float p-5 text-sm leading-7 text-slate-700">
-                      {item}
+                  {websiteHeroSignals.map((item) => (
+                    <article key={item.title} className="light-panel-solid flex min-h-[190px] flex-col p-5 sm:p-6">
+                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{item.title}</p>
+                      <p className="mt-4 text-base leading-8 text-slate-700">{item.detail}</p>
                     </article>
                   ))}
                 </div>

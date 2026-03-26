@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sai Silver Dum Biryani | Link in Bio</title>
+    <meta
+      name="description"
+      content="Quick links for Sai Silver Dum Biryani including WhatsApp, menu, location, videos, and social updates."
+    />
+    <style>
+      :root {
+        --bg: #1d110c;
+        --panel: rgba(32, 19, 14, 0.82);
+        --panel-soft: rgba(255, 247, 238, 0.1);
+        --card: rgba(255, 248, 239, 0.08);
+        --card-strong: rgba(255, 176, 96, 0.14);
+        --border: rgba(255, 214, 179, 0.18);
+        --text: #fff6ee;
+        --muted: rgba(255, 240, 228, 0.74);
+        --accent: #ffb05f;
+        --accent-strong: #ff8c39;
+        --shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        color: var(--text);
+        background:
+          linear-gradient(180deg, rgba(13, 9, 8, 0.7), rgba(20, 11, 7, 0.82)),
+          radial-gradient(circle at top, rgba(255, 164, 82, 0.18), transparent 34%),
+          url("https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTJ8MHwxfHNlYXJjaHwyfHxiaXJ5YW5pfGVufDB8fHx8MTc3MzcyNTYyNXww&ixlib=rb-4.1.0&q=85")
+            center / cover fixed no-repeat;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .shell {
+        width: min(100%, 520px);
+        margin: 0 auto;
+        padding: 28px 18px 48px;
+      }
+
+      .panel {
+        overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: 30px;
+        background:
+          linear-gradient(180deg, rgba(26, 15, 10, 0.94), rgba(20, 11, 8, 0.9));
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(18px);
+      }
+
+      .hero {
+        padding: 28px 22px 22px;
+        text-align: center;
+      }
+
+      .avatar {
+        display: grid;
+        place-items: center;
+        width: 88px;
+        height: 88px;
+        margin: 0 auto 18px;
+        border-radius: 24px;
+        background:
+          linear-gradient(145deg, rgba(255, 192, 115, 0.22), rgba(255, 140, 57, 0.18));
+        border: 1px solid rgba(255, 214, 179, 0.24);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+        font-size: 2.2rem;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 2.6rem);
+        line-height: 1.04;
+        letter-spacing: -0.04em;
+      }
+
+      .tagline {
+        margin: 10px auto 0;
+        max-width: 340px;
+        color: var(--muted);
+        line-height: 1.65;
+        font-size: 0.98rem;
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .chips span {
+        padding: 9px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 214, 179, 0.16);
+        background: rgba(255, 248, 239, 0.07);
+        color: rgba(255, 241, 229, 0.88);
+        font-size: 0.86rem;
+      }
+
+      .button-stack {
+        display: grid;
+        gap: 12px;
+        padding: 0 22px 22px;
+      }
+
+      .cta {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 16px 18px;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        background: var(--card);
+        transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .cta:hover {
+        transform: translateY(-1px);
+        border-color: rgba(255, 214, 179, 0.32);
+      }
+
+      .cta--primary {
+        background: linear-gradient(135deg, #25d366, #16994a);
+        border-color: rgba(255, 255, 255, 0.18);
+        color: #ffffff;
+      }
+
+      .cta__icon {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        flex: 0 0 42px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.12);
+        font-size: 1.15rem;
+      }
+
+      .cta__copy {
+        min-width: 0;
+      }
+
+      .cta__title {
+        display: block;
+        font-weight: 800;
+        font-size: 1rem;
+      }
+
+      .cta__subtitle {
+        display: block;
+        margin-top: 3px;
+        color: rgba(255, 246, 238, 0.82);
+        font-size: 0.88rem;
+      }
+
+      .divider {
+        height: 1px;
+        margin: 4px 22px 0;
+        background: linear-gradient(90deg, transparent, rgba(255, 214, 179, 0.24), transparent);
+      }
+
+      .work-section {
+        margin: 18px 22px 0;
+        padding: 18px;
+        border-radius: 24px;
+        border: 1px solid var(--border);
+        background:
+          linear-gradient(180deg, rgba(255, 186, 122, 0.08), rgba(255, 248, 239, 0.05));
+      }
+
+      .work-section h2 {
+        margin: 0;
+        font-size: 1.22rem;
+        letter-spacing: -0.03em;
+      }
+
+      .work-section p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        line-height: 1.6;
+        font-size: 0.92rem;
+      }
+
+      .work-grid {
+        display: grid;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .work-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 13px 14px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 214, 179, 0.14);
+        background: rgba(255, 248, 239, 0.05);
+        font-size: 0.95rem;
+        transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      }
+
+      .work-link:hover {
+        transform: translateY(-1px);
+        background: rgba(255, 248, 239, 0.08);
+        border-color: rgba(255, 214, 179, 0.26);
+      }
+
+      .work-link--primary {
+        background: var(--card-strong);
+        border-color: rgba(255, 176, 96, 0.32);
+      }
+
+      .work-link__icon {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.1);
+        font-size: 1rem;
+      }
+
+      .work-link--mini {
+        justify-content: center;
+        font-size: 0.88rem;
+        color: rgba(255, 240, 228, 0.86);
+      }
+
+      .social-section {
+        padding: 18px 22px 24px;
+      }
+
+      .social-label {
+        margin: 0 0 12px;
+        color: var(--muted);
+        font-size: 0.88rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+      }
+
+      .social-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 52px;
+        padding: 12px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 214, 179, 0.14);
+        background: rgba(255, 248, 239, 0.05);
+        color: rgba(255, 242, 232, 0.92);
+        font-size: 0.92rem;
+      }
+
+      .social-link:hover {
+        border-color: rgba(255, 214, 179, 0.26);
+        background: rgba(255, 248, 239, 0.08);
+      }
+
+      .footer-note {
+        margin: 18px 0 0;
+        text-align: center;
+        color: rgba(255, 240, 228, 0.68);
+        font-size: 0.85rem;
+      }
+
+      @media (max-width: 560px) {
+        .shell {
+          padding: 16px 12px 30px;
+        }
+
+        .panel {
+          border-radius: 24px;
+        }
+
+        .hero,
+        .button-stack,
+        .social-section {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .divider {
+          margin-left: 16px;
+          margin-right: 16px;
+        }
+
+        .work-section {
+          margin-left: 16px;
+          margin-right: 16px;
+        }
+
+        .social-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel">
+        <div class="hero">
+          <div class="avatar" aria-hidden="true">🍗</div>
+          <h1>Sai Silver Dum Biryani</h1>
+          <p class="tagline">
+            Authentic Hyderabadi dum biryani, fresh daily specials, and premium
+            handi flavors from Vijayawada.
+          </p>
+          <div class="chips">
+            <span>WhatsApp Orders</span>
+            <span>Menu Book</span>
+            <span>Daily Updates</span>
+          </div>
+        </div>
+
+        <div class="button-stack">
+          <a
+            class="cta cta--primary"
+            href="https://wa.me/919666220447"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span class="cta__icon" aria-hidden="true">💬</span>
+            <span class="cta__copy">
+              <span class="cta__title">Order on WhatsApp</span>
+              <span class="cta__subtitle">Top priority for quick direct orders</span>
+            </span>
+          </a>
+
+          <a class="cta" href="tel:+918919443535">
+            <span class="cta__icon" aria-hidden="true">📞</span>
+            <span class="cta__copy">
+              <span class="cta__title">Call the Restaurant</span>
+              <span class="cta__subtitle">Speak directly for reservations and catering</span>
+            </span>
+          </a>
+
+          <a
+            class="cta"
+            href="https://saisilverdumbiryani.com/menu-book.html"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span class="cta__icon" aria-hidden="true">📖</span>
+            <span class="cta__copy">
+              <span class="cta__title">Open Menu Book</span>
+              <span class="cta__subtitle">Browse biryanis, starters, curries, and drinks</span>
+            </span>
+          </a>
+
+          <a
+            class="cta"
+            href="https://www.google.com/maps/place/Sai+Silver+Dum+Biryani/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span class="cta__icon" aria-hidden="true">📍</span>
+            <span class="cta__copy">
+              <span class="cta__title">Visit Our Location</span>
+              <span class="cta__subtitle">Get directions and customer reviews</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <section class="work-section" aria-labelledby="see-our-work-title">
+          <h2 id="see-our-work-title">See Our Work 🍗</h2>
+          <p>Watch how we prepare authentic Hyderabadi dum biryani</p>
+
+          <div class="work-grid">
+            <a
+              class="work-link work-link--primary"
+              href="https://youtube.com/@saisilverdumbiryani-b1w"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="work-link__icon" aria-hidden="true">▶</span>
+              <span>Watch Our Cooking Videos</span>
+            </a>
+
+            <a
+              class="work-link"
+              href="https://www.instagram.com/sai_silver_dum_biryani"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="work-link__icon" aria-hidden="true">📸</span>
+              <span>See Daily Biryani Updates</span>
+            </a>
+
+            <a
+              class="work-link"
+              href="https://www.facebook.com/share/1AhYKySK4V/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="work-link__icon" aria-hidden="true">👍</span>
+              <span>Check Reviews &amp; Updates</span>
+            </a>
+
+            <a
+              class="work-link work-link--mini"
+              href="https://www.threads.com/@sai_silver_dum_biryani"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="work-link__icon" aria-hidden="true">@</span>
+              <span>Follow Us on Threads</span>
+            </a>
+          </div>
+        </section>
+
+        <div class="social-section">
+          <p class="social-label">More Ways to Reach Us</p>
+          <div class="social-grid">
+            <a
+              class="social-link"
+              href="https://saisilverdumbiryani.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              🌐 Website
+            </a>
+            <a
+              class="social-link"
+              href="https://www.google.com/maps/place/Sai+Silver+Dum+Biryani/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              ⭐ Google Reviews
+            </a>
+            <a
+              class="social-link"
+              href="https://www.zomato.com/vijayawada/sai-silver-dum-biryani-auto-nagar"
+              target="_blank"
+              rel="noreferrer"
+            >
+              🍽 Zomato
+            </a>
+            <a
+              class="social-link"
+              href="https://www.swiggy.com/city/vijayawada/sai-silver-dum-biryani-mogalrajapuram-benz-circle-and-auto-nagar-rest809458"
+              target="_blank"
+              rel="noreferrer"
+            >
+              🛵 Swiggy
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <p class="footer-note">Fresh dum biryani. Clean links. Mobile-first layout.</p>
+    </main>
+  </body>
+</html>

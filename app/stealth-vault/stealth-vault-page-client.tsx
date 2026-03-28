@@ -27,13 +27,6 @@ type ContactFormState = {
 }
 
 type TrackPayload = Record<string, string | number | boolean>
-type CountdownState = {
-  days: number
-  hours: number
-  minutes: number
-  seconds: number
-  expired: boolean
-}
 
 const defaultContactForm: ContactFormState = {
   name: "",
@@ -54,10 +47,63 @@ const featureList = [
 
 const trustVerticals = ["Personal Injury Law", "Family Law", "Outpatient Clinics", "Mortgage Advisory"]
 
+const enterpriseCapabilities = [
+  {
+    title: "Real-time PII interception",
+    detail: "Presidio + 22 India-specific patterns (Aadhaar, PAN, UHID) before any AI request leaves your perimeter.",
+  },
+  {
+    title: "RBAC + JWT authentication",
+    detail: "4 roles, 18 permissions, SSO-ready access rules for operators, admins, and audit reviewers.",
+  },
+  {
+    title: "Immutable audit ledger",
+    detail: "SHA-256 hash-chained logs with tamper-evident entries for every request and policy decision.",
+  },
+  {
+    title: "DPDP 2026 compliance",
+    detail: "Data Principal rights, consent management, and DPB incident reporting support built into the workflow.",
+  },
+  {
+    title: "Automated license server",
+    detail: "SNTL keys, seat tracking, hardware lock, expiry, and controlled rollouts per site.",
+  },
+  {
+    title: "Multi-model gateway",
+    detail: "Ollama (air-gap) + GPT-4o + Claude + Gemini with policy-governed fallback paths.",
+  },
+]
+
+const complianceScorecard = [
+  {
+    label: "HIPAA",
+    detail: "PHI redaction, audit chain integrity, and breach detection readiness.",
+  },
+  {
+    label: "DPDP 2026",
+    detail: "Consent management, Data Principal rights (Sec 6-13), incident reporting (Sec 8).",
+  },
+  {
+    label: "GDPR Lite",
+    detail: "Policy accountability, data minimisation, and 72-hour breach reporting scaffolding.",
+  },
+  {
+    label: "ISO 27001 Lite",
+    detail: "Access control, audit logs, incident management, cryptographic controls.",
+  },
+]
+
+const industryPresets = [
+  "Hospital (ICU, Emergency, OPD)",
+  "IVF + fertility clinics",
+  "Law firms + legal intake",
+  "Real estate operations",
+  "Transport + logistics",
+]
+
 const PAYONEER_EMAIL = "vishnuvardhanburri19@gmail.com"
 const TIER_ONE_PAYMENT_HREF = `mailto:${PAYONEER_EMAIL}?subject=Sentinel%20Shield%20Payment%20-%20Tier%201%20-%20%2415%2C000`
 const TIER_TWO_PAYMENT_HREF = `mailto:${PAYONEER_EMAIL}?subject=Sentinel%20Shield%20Payment%20-%20Tier%202%20-%20%2410%2C000%20%2B%20%241%2C000%2Fmo`
-const LIMITED_OFFER_END = new Date("2026-03-31T23:59:59+05:30").getTime()
 
 const pricingTiers = [
   {
@@ -164,27 +210,11 @@ function formatUsd(value: number) {
   })
 }
 
-function getCountdownState(targetTime: number): CountdownState {
-  const diff = targetTime - Date.now()
-
-  if (diff <= 0) {
-    return { days: 0, hours: 0, minutes: 0, seconds: 0, expired: true }
-  }
-
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24))
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24)
-  const minutes = Math.floor((diff / (1000 * 60)) % 60)
-  const seconds = Math.floor((diff / 1000) % 60)
-
-  return { days, hours, minutes, seconds, expired: false }
-}
-
 export function StealthVaultPageClient() {
   const [contactForm, setContactForm] = useState<ContactFormState>(defaultContactForm)
   const [contactLoading, setContactLoading] = useState(false)
   const [contactState, setContactState] = useState<"idle" | "success" | "error">("idle")
   const [contactError, setContactError] = useState("")
-  const [countdown, setCountdown] = useState<CountdownState>(() => getCountdownState(LIMITED_OFFER_END))
 
   const [teamMembers, setTeamMembers] = useState(8)
   const [hourlyRate, setHourlyRate] = useState(60)
@@ -211,13 +241,6 @@ export function StealthVaultPageClient() {
     trackEvent("funnel_stealth_page_view")
   }, [])
 
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setCountdown(getCountdownState(LIMITED_OFFER_END))
-    }, 1000)
-
-    return () => window.clearInterval(timer)
-  }, [])
 
   async function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -298,8 +321,8 @@ export function StealthVaultPageClient() {
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-sky-100">Grab offer</p>
                   <p className="mt-1 text-sm text-slate-200">
-                    Limited-time one-time lifetime license at $15,000 for the first 100 members. Offer closes in 20 days or when the first
-                    100 slots are filled.
+                    Limited-time one-time lifetime license at $15,000 for the first 100 members. Offer closes once the first 100 slots are
+                    filled.
                   </p>
                 </div>
                 <span className="rounded-full border border-sky-300/20 bg-black/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-100">
@@ -310,7 +333,7 @@ export function StealthVaultPageClient() {
               <div className="mt-4 grid gap-3 sm:grid-cols-3">
                 {[
                   { label: "Launch access", value: "First 100", detail: "Tier 1 closes once 100 members secure it." },
-                  { label: "Offer window", value: "20 days", detail: "Countdown stays live until the launch window ends." },
+                  { label: "Availability", value: "Limited", detail: "First 100 members only." },
                   { label: "Tier 1 price", value: "$15,000", detail: "One-time lifetime license during launch only." },
                 ].map((item) => (
                   <div key={item.label} className="rounded-2xl border border-primary/12 bg-primary/8 px-4 py-3">
@@ -321,30 +344,10 @@ export function StealthVaultPageClient() {
                 ))}
               </div>
 
-              <div className="mt-4 grid grid-cols-4 gap-2">
-                {[
-                  { label: "Days", value: countdown.days },
-                  { label: "Hours", value: countdown.hours },
-                  { label: "Minutes", value: countdown.minutes },
-                  { label: "Seconds", value: countdown.seconds },
-                ].map((item) => (
-                  <div key={item.label} className="rounded-xl border border-white/10 bg-slate-950/80 px-3 py-3 text-center">
-                    <p className="text-xl font-semibold tracking-tight text-white sm:text-2xl">{String(item.value).padStart(2, "0")}</p>
-                    <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">{item.label}</p>
-                  </div>
-                ))}
-              </div>
-
-              {countdown.expired ? (
-                <p className="mt-3 text-sm text-amber-200">
-                  The limited-time lifetime-license window has ended. Contact VishnuLabs for current terms and remaining availability.
-                </p>
-              ) : (
-                <p className="mt-3 text-sm text-slate-300">
-                  Tier 1 is reserved for the <span className="font-semibold text-sky-100">first 100 members only</span>. If the first 100
-                  slots fill before the timer ends, the launch offer closes early.
-                </p>
-              )}
+              <p className="mt-3 text-sm text-slate-300">
+                Tier 1 is reserved for the <span className="font-semibold text-sky-100">first 100 members only</span>. Once the 100 slots
+                are filled, the launch offer closes.
+              </p>
             </div>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -452,6 +455,76 @@ export function StealthVaultPageClient() {
             </div>
           </aside>
         </div>
+        </div>
+
+        <div className="mt-8 section-shell p-6" data-reveal>
+          <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">Enterprise control layer</p>
+              <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-[2.4rem]">
+                Sentinel Shield v2 capabilities now included in Stealth Vault.
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                Your vault now includes live enforcement, immutable auditing, and compliance-ready governance features pulled from the new
+                Sentinel Shield release. This is the same control layer, packaged for security-sensitive operators.
+              </p>
+
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                {enterpriseCapabilities.map((capability) => (
+                  <div key={capability.title} className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                    <p className="text-sm font-semibold text-slate-950">{capability.title}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">{capability.detail}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Industry presets ready</p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {industryPresets.map((preset) => (
+                    <span
+                      key={preset}
+                      className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-slate-700"
+                    >
+                      {preset}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="grid gap-4">
+              <div className="rounded-[28px] border border-slate-200 bg-slate-950 p-5 text-white">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-200">Compliance scorecard</p>
+                <p className="mt-3 text-lg font-semibold">Governance proof for regulated teams.</p>
+                <div className="mt-4 space-y-3">
+                  {complianceScorecard.map((item) => (
+                    <div key={item.label} className="rounded-2xl border border-white/10 bg-white/5 p-3">
+                      <p className="text-sm font-semibold text-white">{item.label}</p>
+                      <p className="mt-1 text-sm text-slate-300">{item.detail}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-[28px] border border-slate-200 bg-white p-5 shadow-sm">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Security architecture highlights</p>
+                <ul className="mt-4 space-y-2 text-sm text-slate-700">
+                  {[
+                    "AES-256-GCM encryption with hardware-bound key derivation",
+                    "SHA-256 hash chaining on every audit entry",
+                    "YAML policy DSL with WARN / REDACT / BLOCK rules",
+                    "Air-gap mode with Ollama on localhost for offline response",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="mt-8 grid gap-5 lg:grid-cols-2" data-reveal>

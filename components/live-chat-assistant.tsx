@@ -75,7 +75,7 @@ const intents: Intent[] = [
     id: "stealth_vault",
     patterns: ["vault", "stealth", "private ai", "local ai", "air gap", "air-gapped", "data leak", "secure ai"],
     answer:
-      "Stealth-Mode Internal AI Vault is a private local AI stack for confidential operations. It is air-gapped, supports redaction controls, and keeps data inside your environment. The current launch offer is $15,000 one-time for the first 100 members, with post-delivery support included. Custom vault requirements are also available for sensitive teams.",
+      "Stealth-Mode Internal AI Vault is a private local AI stack for confidential operations. It is air-gapped, supports redaction controls, and keeps data inside your environment. Sentinel Shield v2 capabilities are included: RBAC, immutable audit ledger, compliance scorecard, license control, and multi-model routing. The current launch offer is $15,000 one-time for the first 100 members, with post-delivery support included. Custom vault requirements are also available for sensitive teams.",
   },
   {
     id: "vault_why_now",

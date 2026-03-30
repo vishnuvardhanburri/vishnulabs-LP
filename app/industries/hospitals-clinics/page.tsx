@@ -1,4 +1,5 @@
 import { IndustryPageTemplate } from "@/components/industry-page-template"
+import { testimonials } from "@/lib/testimonials"
 
 export default function HospitalsClinicsIndustryPage() {
   return (
@@ -22,6 +23,7 @@ export default function HospitalsClinicsIndustryPage() {
         "Better visibility into scheduling and follow-up operations",
       ]}
       investment="$8,500 to $16,500"
+      testimonial={testimonials.priya}
     />
   )
 }

@@ -4,11 +4,13 @@ import { ArrowRight, ArrowUpRight, CheckCircle2, KeyRound, LockKeyhole, ScanSear
 
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
+import { TestimonialCard } from "@/components/testimonial-card"
 import { Button } from "@/components/ui/button"
+import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
-  title: "Products | Stealth Vault",
-  description: "See where Stealth Vault applies: employee AI usage, internal tools, customer data, and AI-connected workflows.",
+  title: "Products | VishnuLabs",
+  description: "See where VishnuLabs applies structured backend thinking across fragile workflows, data consistency, and operational load.",
   alternates: {
     canonical: "/products",
   },
@@ -17,65 +19,65 @@ export const metadata: Metadata = {
 const productSurfaces = [
   {
     icon: ShieldAlert,
-    title: "Employee AI usage",
-    detail: "Control what staff paste into ChatGPT, Claude, and internal AI chat interfaces.",
-    bullets: ["Stop blind copy-paste risk", "See what gets blocked", "Apply policy before the request leaves"],
+    title: "Failure-prone intake points",
+    detail: "Identify where bad inputs, dropped events, and missing validation begin to destabilize the wider system.",
+    bullets: ["Stop bad data at the edge", "See where the workflow breaks", "Apply control before problems propagate"],
   },
   {
     icon: KeyRound,
-    title: "Secrets and credentials",
-    detail: "Detect tokens, keys, passwords, and internal instructions before they leave the environment.",
-    bullets: ["Catch exposed secrets early", "Block or redact by rule", "Log policy-triggered events"],
+    title: "Critical dependencies",
+    detail: "Handle credentials, integrations, and third-party services with explicit safeguards and clearer fallback behavior.",
+    bullets: ["Catch dependency risk early", "Control retries and fallback paths", "Record recovery behavior clearly"],
   },
   {
     icon: ScanSearch,
-    title: "Customer and internal data",
-    detail: "Protect PII, PHI, financial records, and internal knowledge from accidental AI exposure.",
-    bullets: ["Monitor sensitive inputs", "Redact before model access", "Keep a review trail"],
+    title: "Data consistency paths",
+    detail: "Protect customer records and internal state from inconsistent writes, duplicate events, and broken handoffs.",
+    bullets: ["Monitor data transitions", "Validate before writes", "Keep a review trail"],
   },
   {
     icon: Workflow,
-    title: "AI-connected workflows",
-    detail: "Add one control layer to internal tools, AI-powered flows, and API-connected systems.",
-    bullets: ["Protect internal apps too", "Enforce one policy set", "Scale control across surfaces"],
+    title: "Workflow execution surfaces",
+    detail: "Stabilize the internal tools, API-connected paths, and automations that teams depend on every day.",
+    bullets: ["Protect internal apps too", "Apply one operating model", "Scale control across surfaces"],
   },
 ]
 
 const collectionCards = [
   {
     icon: LockKeyhole,
-    title: "Stealth Vault core",
-    summary: "The control layer in front of AI. Detect, block, redact, and log before requests leave the company.",
+    title: "System stabilization",
+    summary: "The layer that restores validation, control, and observability before workflow issues multiply downstream.",
     cta: "/pricing",
     ctaLabel: "View pricing",
   },
   {
     icon: ShieldCheck,
-    title: "Protected intake",
-    summary: "Use AI in reception, intake, or triage without pushing raw private data straight into the model.",
+    title: "Structured intake",
+    summary: "Keep intake, reception, and routing predictable even when volume rises and edge cases appear.",
     cta: "/automations",
     ctaLabel: "See workflows",
   },
   {
     icon: Workflow,
-    title: "Protected internal search",
-    summary: "Let teams search internal knowledge with policy, redaction, and logging in front of every response.",
+    title: "Operational workflows",
+    summary: "Give teams validated workflows, cleaner state transitions, and fewer manual rescue steps.",
     cta: "/services",
     ctaLabel: "See rollout",
   },
   {
     icon: ShieldEllipsis,
-    title: "Private deployment",
-    summary: "Expand into custom policy, broader internal coverage, and more private infrastructure only when needed.",
+    title: "Scalable architecture",
+    summary: "Expand into custom deployment, broader internal coverage, and stronger infrastructure decisions only when needed.",
     cta: "https://cal.com/vishnuvardhanburri/15min",
     ctaLabel: "Book review",
   },
 ]
 
 const whyItMatters = [
-  "The leak usually happens before security teams even know AI usage is growing.",
-  "The risky action is small: one pasted record, one exposed key, one copied internal note.",
-  "Stealth Vault exists to stop that small action before it turns into a larger incident.",
+  "System failure usually starts with one weak handoff, not one dramatic outage.",
+  "The risky event is often small: one bad payload, one missed retry, one integration edge case.",
+  "VishnuLabs exists to stop that small event before it turns into a larger operational problem.",
 ]
 
 export default function ProductsPage() {
@@ -90,15 +92,15 @@ export default function ProductsPage() {
               <article className="dark-panel-solid p-6 sm:p-8">
                 <div className="inline-flex items-center gap-2 rounded-full border border-sky-300/20 bg-sky-400/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-sky-100">
                   <LockKeyhole className="h-3.5 w-3.5" />
-                  Product surfaces
+                  Coverage map
                 </div>
 
                 <h1 className="mt-6 text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-                  One control layer. Multiple places where AI risk shows up.
+                  One engineering approach. Multiple places where systems usually break down.
                 </h1>
                 <p className="mt-5 text-base leading-8 text-slate-300 sm:text-lg">
-                  This page is the fast buyer view. Start with the core product, then check where it fits: staff prompting, internal search,
-                  protected intake, credentials, or AI-connected workflows.
+                  This page is the fast buyer view. Start with the coverage area, then see where the failure is concentrated: intake,
+                  dependencies, data consistency, or workflow execution.
                 </p>
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -123,8 +125,8 @@ export default function ProductsPage() {
 
                 <div className="mt-8 grid gap-3 sm:grid-cols-2">
                   {[
-                    { label: "Core promise", value: "Use AI without staying blind to risk." },
-                    { label: "What it replaces", value: "Manual policy, memory, and trust-based prompting." },
+                    { label: "Core promise", value: "Reliable execution without constant operator rescue." },
+                    { label: "What it replaces", value: "Fragile workflows, hidden failure modes, and manual recovery." },
                   ].map((item) => (
                     <div key={item.label} className="rounded-[22px] border border-white/10 bg-white/[0.05] px-4 py-4">
                       <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">{item.label}</p>
@@ -139,7 +141,7 @@ export default function ProductsPage() {
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Quick collection view</p>
                     <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                      A cleaner product catalog for buyers who need fit fast.
+                      A clearer systems catalog for buyers who need fit fast.
                     </h2>
                   </div>
                   <div className="rounded-[22px] border border-slate-200 bg-slate-50 px-4 py-4 sm:max-w-[220px]">
@@ -151,7 +153,7 @@ export default function ProductsPage() {
                 <div className="mt-5 overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-sm">
                   <Image
                     src="/marketing/sentinel-shield/final_hero_shot.png"
-                    alt="Stealth Vault product surface"
+                    alt="VishnuLabs system coverage surface"
                     width={1200}
                     height={760}
                     className="h-auto w-full object-cover"
@@ -217,9 +219,9 @@ export default function ProductsPage() {
         <section className="py-8 sm:py-10">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="rounded-[34px] border border-white/90 bg-white/98 p-6 shadow-[0_18px_46px_rgba(15,23,42,0.08)] sm:p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Where Stealth Vault fits</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Where VishnuLabs fits</p>
               <h2 className="mt-4 max-w-4xl text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
-                The product follows AI usage wherever private information, customer data, or credentials can slip out.
+                The work follows the system wherever private information, customer data, or critical dependencies can slip out of control.
               </h2>
               <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
                 Clients do not need a big catalog. They need to know whether the risk is in staff prompting, internal tools, customer records,
@@ -227,7 +229,7 @@ export default function ProductsPage() {
               </p>
 
               <div className="mt-8 grid gap-4 md:grid-cols-2">
-                {productSurfaces.map((item) => {
+                  {productSurfaces.map((item) => {
                   const Icon = item.icon
 
                   return (
@@ -248,6 +250,10 @@ export default function ProductsPage() {
                     </article>
                   )
                 })}
+              </div>
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                <TestimonialCard testimonial={testimonials.jonas} />
+                <TestimonialCard testimonial={testimonials.noah} />
               </div>
             </div>
           </div>

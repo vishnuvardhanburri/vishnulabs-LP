@@ -6,12 +6,14 @@ import { ConfidenceRail } from "@/components/confidence-rail"
 import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
+import { TestimonialCard } from "@/components/testimonial-card"
 import { Button } from "@/components/ui/button"
+import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
   title: "Custom Software Solutions | VishnuLabs",
   description:
-    "Custom software solutions for startups, hospitals and clinics, transport and logistics teams, moving companies, and law-service operations.",
+    "Custom software systems for teams that need reliable operations, cleaner backend workflows, and scalable execution.",
   alternates: {
     canonical: "/custom-software",
   },
@@ -20,13 +22,13 @@ export const metadata: Metadata = {
 const softwareCollections = [
   {
     title: "Startup Software Solutions",
-    lead: "Internal tools, customer-facing workflow layers, and automation-ready dashboards for teams building their operating system from the ground up.",
+    lead: "Internal tools, customer-facing workflow layers, and dashboards for founders who need clarity before the process gets expensive.",
     icon: Workflow,
     bullets: ["Admin dashboards and internal tooling", "Lead-routing and ops workflow layers", "Custom product support around launch-stage teams"],
   },
   {
     title: "Hospital & Clinic Operations",
-    lead: "Software flows for appointment routing, intake coordination, reminders, admin visibility, and calmer patient-service operations.",
+    lead: "Software systems for appointment routing, intake coordination, reminders, admin visibility, and calmer patient-service operations.",
     icon: Hospital,
     bullets: ["Ops dashboards and workflow logic", "Appointment and intake coordination", "Support for sensitive operational processes"],
   },
@@ -38,7 +40,7 @@ const softwareCollections = [
   },
   {
     title: "Lawyers & Law Services",
-    lead: "Software solutions for intake, matter triage, document workflows, and admin routing where professional handling matters.",
+    lead: "Software systems for intake, matter triage, document workflows, and admin routing where professional handling matters.",
     icon: Scale,
     bullets: ["Legal intake and routing support", "Matter-status and handoff workflows", "Custom logic for law-service operations"],
   },
@@ -57,15 +59,16 @@ export default function CustomSoftwarePage() {
                 <div data-reveal style={{ transitionDelay: "30ms" }}>
                   <div className="badge-pill border-primary/20 bg-white/75 text-slate-700">Custom software solutions</div>
                   <h1 className="mt-6 max-w-4xl text-balance text-[2.8rem] font-bold leading-[0.96] tracking-[-0.04em] text-slate-950 sm:text-[4.2rem]">
-                    Software systems designed around the real workflow, not generic templates.
+                    Software systems designed around the real workflow, not generic feature lists.
                   </h1>
                   <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-                    We build custom software solutions for startups, hospitals, clinics, transport and logistics teams, moving companies,
-                    and law-service businesses that need cleaner operations, better visibility, and stronger handoff between teams.
+                    VishnuLabs builds custom systems for teams that have outgrown duct-taped operations. The focus is straightforward:
+                    remove recurring failure points, improve cross-team handoff, and leave the business with a backend that is easier to
+                    operate under load.
                   </p>
 
                   <div className="mt-7 flex flex-wrap gap-2">
-                    {["Ops dashboards", "Workflow engines", "Booking + CRM", "Private AI options"].map((item) => (
+                    {["Ops dashboards", "Workflow engines", "Booking + CRM", "Scalable backend paths"].map((item) => (
                       <span key={item} className="soft-chip border-primary/10 text-slate-700">
                         {item}
                       </span>
@@ -94,10 +97,10 @@ export default function CustomSoftwarePage() {
 
                 <div className="grid gap-4" data-reveal style={{ transitionDelay: "110ms" }}>
                   {[
-                    "Custom internal tools tied to the real ops bottleneck",
-                    "Workflow layers that connect websites, automation, and team actions",
+                    "Custom internal tools tied to the real operational bottleneck",
+                    "Workflow layers that connect websites, automations, and team actions",
                     "Visibility for admins, owners, and revenue teams",
-                    "AI Vault custom requirements available for sensitive environments",
+                    "Infrastructure decisions shaped around maintainability, not shortcuts",
                   ].map((item) => (
                     <article key={item} className="metric-float p-5 text-sm leading-7 text-slate-700">
                       {item}
@@ -143,6 +146,10 @@ export default function CustomSoftwarePage() {
                   </article>
                 )
               })}
+            </div>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <TestimonialCard testimonial={testimonials.ahmed} />
+              <TestimonialCard testimonial={testimonials.priya} />
             </div>
           </div>
         </section>

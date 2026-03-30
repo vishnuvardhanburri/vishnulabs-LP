@@ -29,10 +29,10 @@ const plans: Plan[] = [
     yearlyLabel: "$1,490/year",
     monthlyPrice: 149,
     yearlyPrice: 1490,
-    note: "For a small team that needs first control and first visibility fast.",
-    points: ["Real-time filtering", "Core secret + PII detection", "Basic audit visibility"],
-    fit: "Small teams with immediate AI usage and no policy layer yet.",
-    coverage: "Single team or first internal surface",
+    note: "For a small team that needs one unstable workflow brought under control fast.",
+    points: ["First workflow intervention", "Core validation coverage", "Basic operational visibility"],
+    fit: "Small teams with one recurring failure pattern that needs attention now.",
+    coverage: "Single workflow or first internal surface",
     deployment: "Fast first rollout",
   },
   {
@@ -41,9 +41,9 @@ const plans: Plan[] = [
     yearlyLabel: "$7,990/year",
     monthlyPrice: 799,
     yearlyPrice: 7990,
-    note: "For teams already using AI across daily work and needing policy enforcement.",
-    points: ["Policy engine", "AI request monitoring", "Centralized logs"],
-    fit: "Cross-team usage with more daily prompting and higher review needs.",
+    note: "For teams already depending on live workflows and needing stronger routing, validation, and review.",
+    points: ["Workflow enforcement", "Runtime monitoring", "Centralized logs"],
+    fit: "Cross-team usage with higher operational load and review needs.",
     coverage: "Broader internal coverage",
     deployment: "Standard production rollout",
     highlight: true,
@@ -54,19 +54,19 @@ const plans: Plan[] = [
     yearlyLabel: "$14,990/year",
     monthlyPrice: 1499,
     yearlyPrice: 14990,
-    note: "For heavier internal usage, more systems, and stricter review requirements.",
-    points: ["More protected surfaces", "Deeper controls", "Broader internal coverage"],
-    fit: "High-volume internal use with stricter policy depth.",
-    coverage: "Multiple surfaces + stricter controls",
+    note: "For heavier internal usage, more systems, and stricter operating requirements.",
+    points: ["More workflow surfaces", "Deeper controls", "Broader internal coverage"],
+    fit: "High-volume internal use with stricter reliability and review depth.",
+    coverage: "Multiple surfaces and stricter controls",
     deployment: "Deeper rollout with more review",
   },
   {
     name: "Enterprise",
     monthlyLabel: "$10K+/year",
     yearlyLabel: "$10K+/year",
-    note: "For custom policy, custom deployment, and enterprise governance requirements.",
+    note: "For custom deployment, broader system coverage, and enterprise governance requirements.",
     points: ["Custom environments", "Private rollout planning", "Annual enterprise contracting"],
-    fit: "Sensitive environments with custom policy and deployment requirements.",
+    fit: "Sensitive environments with custom deployment and governance requirements.",
     coverage: "Custom by environment and usage",
     deployment: "Private or enterprise rollout",
   },
@@ -94,7 +94,7 @@ export function UsageControlPricing() {
       <div className="flex flex-col gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Pricing</p>
-          <h3 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Choose the control layer that fits current risk.</h3>
+          <h3 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Choose the intervention depth that fits the current system risk.</h3>
           <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">{subtitle}</p>
         </div>
 
@@ -153,7 +153,7 @@ export function UsageControlPricing() {
 
             <Button asChild className="mt-6 h-11 w-full rounded-full bg-white text-slate-950 hover:bg-slate-100">
               <AppLink href="https://cal.com/vishnuvardhanburri/15min" prefetch>
-                Start Now
+                Book Review
                 <ArrowUpRight className="h-4 w-4" />
               </AppLink>
             </Button>

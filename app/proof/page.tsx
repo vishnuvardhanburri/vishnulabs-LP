@@ -4,29 +4,31 @@ import { ArrowRight, ArrowUpRight, CheckCircle2, CircleAlert, ShieldCheck, Termi
 
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
+import { TestimonialCard } from "@/components/testimonial-card"
 import { Button } from "@/components/ui/button"
+import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
-  title: "Proof | Stealth Vault",
-  description: "See blocked requests, runtime logs, and control evidence from Stealth Vault.",
+  title: "Proof | VishnuLabs",
+  description: "See how VishnuLabs presents runtime evidence, system behavior, and stabilization outcomes before asking for trust.",
   alternates: {
     canonical: "/proof",
   },
 }
 
 const proofFeed = [
-  "[INFO] Request intercepted before AI delivery",
-  "[WARNING] Sensitive pattern detected in outbound payload",
-  "[INFO] Policy match triggered: redact-and-log",
-  "[CRITICAL] Request blocked: secret + personal data detected",
-  "[INFO] Audit entry written for operator review",
-  "[INFO] Alert throttled to prevent duplicate notification noise",
+  "[INFO] Job accepted into validated processing queue",
+  "[WARNING] Retry threshold exceeded for third-party dependency",
+  "[INFO] Fallback path activated to preserve customer-facing response",
+  "[CRITICAL] Unstable payload blocked before downstream write",
+  "[INFO] Recovery event recorded for operator review",
+  "[INFO] Alert grouped to prevent duplicate operational noise",
 ]
 
 const trustSignals = [
-  "Blocked before reaching AI",
-  "Policy decision recorded",
-  "Operator review stays possible after the event",
+  "Runtime behavior is visible instead of assumed",
+  "Failure states are contained before they cascade",
+  "Operators keep a clean review trail after the event",
 ]
 
 export default function ProofPage() {
@@ -41,16 +43,16 @@ export default function ProofPage() {
               <article className="dark-panel-solid p-6 sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Proof</p>
                 <h1 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-                  If the product cannot show a blocked request clearly, the promise is weak.
+                  If the system cannot show how it behaves under stress, the promise is weak.
                 </h1>
                 <p className="mt-5 text-base leading-8 text-slate-300 sm:text-lg">
-                  This page exists for one reason: to show the control layer working before a buyer is asked to trust it.
+                  This page exists for one reason: to show the operating evidence before a buyer is asked to trust the engineering.
                 </p>
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <Button size="lg" asChild className="h-12 rounded-full bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-100 sm:h-14 sm:px-8 sm:text-base">
                     <a href="https://cal.com/vishnuvardhanburri/15min">
-                      Book Review
+                      Book Technical Review
                       <ArrowRight className="h-4 w-4" />
                     </a>
                   </Button>
@@ -90,7 +92,7 @@ export default function ProofPage() {
                 <div className="mb-4 flex items-center justify-between gap-3">
                   <div>
                     <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-400">Live interface</p>
-                    <p className="mt-1 text-sm text-slate-300">The control layer in front of AI.</p>
+                    <p className="mt-1 text-sm text-slate-300">A structured view of the system state.</p>
                   </div>
                   <span className="rounded-full border border-sky-300/20 bg-sky-400/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-100">
                     Product proof
@@ -100,7 +102,7 @@ export default function ProofPage() {
                 <div className="overflow-hidden rounded-[24px] border border-white/10">
                   <Image
                     src="/marketing/sentinel-shield/final_hero_shot.png"
-                    alt="Stealth Vault interface"
+                    alt="VishnuLabs system proof interface"
                     width={1600}
                     height={1000}
                     className="h-auto w-full object-cover"
@@ -116,11 +118,11 @@ export default function ProofPage() {
                     </div>
                     <div>
                       <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-red-100">Demo event</p>
-                      <p className="mt-1 text-lg font-semibold text-white">Input: “Send client database”</p>
+                      <p className="mt-1 text-lg font-semibold text-white">Write attempt: invalid downstream payload</p>
                     </div>
                   </div>
-                  <p className="mt-4 text-xl font-semibold text-white">Blocked</p>
-                  <p className="mt-2 text-sm leading-7 text-red-100">Sensitive data detected before the request reached AI.</p>
+                  <p className="mt-4 text-xl font-semibold text-white">Contained</p>
+                  <p className="mt-2 text-sm leading-7 text-red-100">The bad write was stopped before it created cross-system inconsistency.</p>
                 </article>
 
                 <article className="dark-panel-solid p-5">
@@ -150,6 +152,10 @@ export default function ProofPage() {
                   </div>
                 </article>
               </div>
+            </div>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <TestimonialCard testimonial={testimonials.jonas} />
+              <TestimonialCard testimonial={testimonials.noah} />
             </div>
           </div>
         </section>

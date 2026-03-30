@@ -1,4 +1,5 @@
 import { IndustryPageTemplate } from "@/components/industry-page-template"
+import { testimonials } from "@/lib/testimonials"
 
 export default function LawServicesIndustryPage() {
   return (
@@ -22,6 +23,7 @@ export default function LawServicesIndustryPage() {
         "Better visibility across legal-service operations and follow-up",
       ]}
       investment="$8,500 to $20,000"
+      testimonial={testimonials.oliver}
     />
   )
 }

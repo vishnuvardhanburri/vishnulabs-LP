@@ -6,12 +6,14 @@ import { ConfidenceRail } from "@/components/confidence-rail"
 import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
+import { TestimonialCard } from "@/components/testimonial-card"
 import { Button } from "@/components/ui/button"
+import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
   title: "Websites | VishnuLabs",
   description:
-    "Website creation for startups, hospitals, clinics, transport and logistics teams, moving companies, and law-service businesses.",
+    "Websites for teams that need clearer positioning, stronger conversion flow, and cleaner operational handoff.",
   alternates: {
     canonical: "/websites",
   },
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
 const websiteCollections = [
   {
     title: "Startup Websites",
-    lead: "Fast, clean launch sites and landing pages that help new companies look credible early and convert interest into booked calls.",
+    lead: "Launch sites and landing pages that help new companies look credible early and convert interest into qualified calls.",
     icon: Globe,
     bullets: ["Launch pages with strong CTA structure", "Investor, product, and demo-ready sections", "Mobile-first performance and clear conversion flow"],
   },
@@ -80,15 +82,15 @@ export default function WebsitesPage() {
                 >
                   <div className="badge-pill border-primary/20 bg-slate-50 text-slate-700">Website systems</div>
                   <h1 className="mt-6 max-w-4xl text-balance text-[2.8rem] font-bold leading-[0.96] tracking-[-0.04em] text-slate-950 sm:text-[4.2rem]">
-                    Websites built for visibility, trust, and clean conversion.
+                    Websites built for trust, technical credibility, and cleaner conversion paths.
                   </h1>
                   <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-                    VishnuLabs builds modern websites for startups, hospitals, clinics, transport and logistics teams, moving companies,
-                    and law-service businesses that need stronger credibility and cleaner lead capture.
+                    VishnuLabs builds modern websites for teams that need stronger positioning at the top of the funnel and cleaner routing
+                    underneath. The page has to do more than look good. It has to move the right buyer into the right next step.
                   </p>
 
                   <div className="mt-7 flex flex-wrap gap-2">
-                    {["Startup-ready", "Clinic trust", "Law-service clarity", "Domain + launch support"].map((item) => (
+                    {["Conversion structure", "Authority signals", "Operational handoff", "Domain + launch support"].map((item) => (
                       <span key={item} className="soft-chip border-primary/10 bg-white text-slate-700">
                         {item}
                       </span>
@@ -99,10 +101,10 @@ export default function WebsitesPage() {
                     <div className="rounded-[24px] border border-slate-200/80 bg-white px-4 py-4 shadow-sm">
                       <div className="flex items-center gap-2 text-sm font-semibold text-slate-950">
                         <ShieldCheck className="h-4 w-4 text-primary" />
-                        Why this reads cleaner
+                        Why this converts better
                       </div>
                       <p className="mt-2 text-sm leading-7 text-slate-600">
-                        Fewer loose sections. Sharper CTA placement. Stronger credibility above the fold.
+                        Fewer loose sections. Sharper CTA placement. Stronger technical credibility above the fold.
                       </p>
                     </div>
                     <div className="rounded-[24px] border border-slate-200/80 bg-white px-4 py-4 shadow-sm">
@@ -180,6 +182,9 @@ export default function WebsitesPage() {
                   </article>
                 )
               })}
+            </div>
+            <div className="mt-6">
+              <TestimonialCard testimonial={testimonials.sophie} />
             </div>
           </div>
         </section>

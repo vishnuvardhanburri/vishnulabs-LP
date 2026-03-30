@@ -1,4 +1,5 @@
 import { IndustryPageTemplate } from "@/components/industry-page-template"
+import { testimonials } from "@/lib/testimonials"
 
 export default function TransportLogisticsIndustryPage() {
   return (
@@ -22,6 +23,7 @@ export default function TransportLogisticsIndustryPage() {
         "Cleaner handoff from inquiry to active job or dispatch workflow",
       ]}
       investment="$9,500 to $19,500"
+      testimonial={testimonials.lukas}
     />
   )
 }

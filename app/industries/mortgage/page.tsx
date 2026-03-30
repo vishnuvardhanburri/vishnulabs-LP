@@ -1,4 +1,5 @@
 import { IndustryPageTemplate } from "@/components/industry-page-template"
+import { testimonials } from "@/lib/testimonials"
 
 export default function MortgageIndustryPage() {
   return (
@@ -22,6 +23,7 @@ export default function MortgageIndustryPage() {
         "Better operational visibility for revenue teams",
       ]}
       investment="$6,000 to $10,500"
+      testimonial={testimonials.ahmed}
     />
   )
 }

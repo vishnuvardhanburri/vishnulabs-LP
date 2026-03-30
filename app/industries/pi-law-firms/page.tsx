@@ -1,4 +1,5 @@
 import { IndustryPageTemplate } from "@/components/industry-page-template"
+import { testimonials } from "@/lib/testimonials"
 
 export default function PiLawFirmsPage() {
   return (
@@ -22,6 +23,7 @@ export default function PiLawFirmsPage() {
         "Cleaner case handoff for legal teams",
       ]}
       investment="$8,500 to $15,000"
+      testimonial={testimonials.noah}
     />
   )
 }

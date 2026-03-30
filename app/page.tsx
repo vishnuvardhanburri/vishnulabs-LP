@@ -12,71 +12,73 @@ import {
 
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
+import { TestimonialCard } from "@/components/testimonial-card"
 import { UsageControlPricing } from "@/components/usage-control-pricing"
 import { Button } from "@/components/ui/button"
+import { testimonials } from "@/lib/testimonials"
 
 const featureCards = [
   {
-    title: "Real-time filtering",
-    detail: "Inspect every request before the AI receives it.",
+    title: "Failure-point mapping",
+    detail: "Find where the workflow breaks before the problem spreads downstream.",
   },
   {
-    title: "Secret + PII detection",
-    detail: "Catch keys, personal data, and internal records automatically.",
+    title: "Data and event validation",
+    detail: "Stop bad payloads, duplicate writes, and unstable handoffs before they create cleanup work.",
   },
   {
-    title: "Policy engine",
-    detail: "Set what is allowed, blocked, redacted, or logged.",
+    title: "Workflow enforcement",
+    detail: "Define what should route, retry, alert, or halt when the system leaves the happy path.",
   },
   {
-    title: "AI request monitoring",
-    detail: "Know what your team is sending and where it goes.",
+    title: "Operational visibility",
+    detail: "See what the system is doing without relying on guesswork or inbox archaeology.",
   },
   {
-    title: "Audit logs",
-    detail: "Keep a clear record for review, follow-up, and internal control.",
+    title: "Recovery-ready logs",
+    detail: "Keep a clear record for review, follow-up, and dependable incident response.",
   },
   {
-    title: "API + internal tools protection",
-    detail: "Apply the same control layer to internal apps and AI-connected systems.",
+    title: "Scalable backend paths",
+    detail: "Build systems that can grow without requiring constant manual intervention from the team.",
   },
 ]
 
 const problemPoints = [
-  "Employees paste confidential data into ChatGPT.",
-  "API keys and internal instructions get exposed.",
-  "There is no monitoring or enforcement.",
-  "Risk stays invisible until something leaks.",
+  "Critical workflows depend on brittle automations and silent retries.",
+  "Bad data moves between services before anyone notices.",
+  "Teams are forced into manual follow-up to keep operations moving.",
+  "The system looks fine until load, edge cases, or integrations expose the weak path.",
 ]
 
 const trustPoints = [
-  "Prevents leaks before they happen",
-  "Built for AI-first teams that still need control",
-  "Security-first architecture from the first request",
-  "Backend-heavy fixes shipped in record time when control gaps appear",
+  "System behavior becomes easier to reason about",
+  "Fragile automation gets replaced with validated workflow logic",
+  "Operators regain visibility without more dashboard clutter",
+  "Backend-heavy fixes are delivered with long-term maintainability in mind",
 ]
 
 const offerCards = [
   {
     label: "Starter",
-    title: "See risky AI usage early",
+    title: "Stabilize one critical path first",
     price: "From $149/mo",
-    detail: "For teams that need visibility, blocking, and a clean first control layer without a long rollout.",
-    bullets: ["Basic policy enforcement", "Blocked-request visibility", "Fast first deployment"],
+    detail: "For teams that need one unstable workflow brought under control quickly without a long rollout.",
+    bullets: ["One workflow intervention", "Operational visibility", "Fast first deployment"],
   },
   {
     label: "Growth",
-    title: "Control real team-wide AI usage",
+    title: "Harden the workflow that the team relies on daily",
     price: "From $799/mo",
-    detail: "For companies where AI is already in live workflows and policy, redaction, and audit trails must work together.",
-    bullets: ["Broader policy coverage", "Audit + logging workflows", "Production rollout support"],
+    detail: "For companies where routing, validation, retries, and operator review need to work together in production.",
+    bullets: ["Broader workflow coverage", "Logs and recovery paths", "Production rollout support"],
   },
   {
     label: "Enterprise",
-    title: "Private deployment and deeper policy",
+    title: "Broader system coverage and deeper architecture work",
     price: "Custom scope",
-    detail: "For sensitive environments that need custom deployment, deeper controls, and broader internal coverage.",
-    bullets: ["Private infrastructure options", "Custom policy model", "Internal systems coverage"],
+    detail: "For environments that need custom deployment, deeper infrastructure decisions, and broader internal system coverage.",
+    bullets: ["Private infrastructure options", "Architecture review", "Internal systems coverage"],
   },
 ]
 
@@ -108,16 +110,16 @@ export default function HomePage() {
               <article className="rounded-[34px] border border-white/10 bg-slate-950/92 p-6 shadow-[0_30px_120px_rgba(2,8,23,0.42)] sm:p-8 lg:p-10">
                 <div className="inline-flex items-center gap-2 rounded-full border border-sky-300/20 bg-sky-400/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-sky-100">
                   <LockKeyhole className="h-3.5 w-3.5" />
-                  AI Usage Control Layer
+                  Backend stabilization
                 </div>
 
                 <h1 className="mt-6 max-w-4xl text-balance text-[2.8rem] font-semibold leading-[0.94] tracking-[-0.05em] text-white sm:text-[4.35rem] lg:text-[5.3rem]">
-                  Control what your team sends to AI before it leaves your system.
+                  Fix the backend systems that keep your team in recovery mode.
                 </h1>
 
                 <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-                  Stealth Vault puts control between your team and AI. It stops sensitive data, secrets, and internal records before they
-                  leave the company. No more blind prompting. No more silent leaks. No more hoping people remember what not to paste.
+                  VishnuLabs fixes broken backend workflows, replaces fragile automations, and builds infrastructure that holds up as usage
+                  grows. The goal is simple: fewer recurring failures, clearer system behavior, and a platform your team can trust.
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -127,7 +129,7 @@ export default function HomePage() {
                     className="h-12 rounded-full bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-100 sm:h-14 sm:px-8 sm:text-base"
                   >
                     <a href="https://cal.com/vishnuvardhanburri/15min">
-                      Start Protecting Your Data
+                      Book System Review
                       <ArrowRight className="h-4 w-4" />
                     </a>
                   </Button>
@@ -147,9 +149,9 @@ export default function HomePage() {
 
                 <div className="mt-8 grid gap-3 sm:grid-cols-3">
                   {[
-                    { label: "Core value", value: "Use AI without losing data control" },
-                    { label: "What changes", value: "Scan. Block. Redact. Log." },
-                    { label: "What it stops", value: "Delays, missed risk, and silent exposure" },
+                    { label: "Core value", value: "Reliable execution across backend workflows" },
+                    { label: "What changes", value: "Validate. Route. Recover. Observe." },
+                    { label: "What it stops", value: "Silent failures, manual rescue work, and inconsistent behavior" },
                   ].map((item) => (
                     <div key={item.label} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4">
                       <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">{item.label}</p>
@@ -164,10 +166,10 @@ export default function HomePage() {
                   <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-3">
                     <div>
                       <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-sky-200">System flow</p>
-                      <p className="mt-1 text-sm text-slate-300">Stealth Vault sits between the user and the AI.</p>
+                      <p className="mt-1 text-sm text-slate-300">A structured operating layer between input, processing, and output.</p>
                     </div>
                     <span className="rounded-full border border-sky-300/20 bg-sky-400/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-100">
-                      Control first
+                      Stability first
                     </span>
                   </div>
 
@@ -176,13 +178,13 @@ export default function HomePage() {
                       <div className="flex items-center justify-between gap-3">
                         <div>
                           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Flow</p>
-                          <p className="mt-2 text-base font-semibold text-white">User → Stealth Vault → AI</p>
+                          <p className="mt-2 text-base font-semibold text-white">Inputs → Validation → Processing → Outputs</p>
                         </div>
                         <ShieldCheck className="h-9 w-9 rounded-2xl border border-white/10 bg-sky-400/10 p-2 text-sky-200" />
                       </div>
 
                       <div className="mt-4 grid gap-3 sm:grid-cols-4">
-                        {["Detect", "Block", "Redact", "Audit"].map((item) => (
+                        {["Inspect", "Validate", "Process", "Log"].map((item) => (
                           <div key={item} className="rounded-2xl border border-white/10 bg-slate-900/80 px-3 py-3 text-center">
                             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-200">{item}</p>
                           </div>
@@ -205,15 +207,21 @@ export default function HomePage() {
                         />
                       </div>
                       <div className="mt-4 rounded-[22px] border border-red-400/20 bg-red-500/10 p-4">
-                        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-red-200">Blocked request</p>
-                        <p className="mt-3 text-base font-semibold text-white">Input: “Send client database”</p>
-                        <p className="mt-2 text-base font-semibold text-red-200">Output: Blocked</p>
-                        <p className="mt-2 text-sm leading-7 text-slate-300">Reason: Sensitive data detected before the request reached AI.</p>
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-red-200">Contained failure</p>
+                        <p className="mt-3 text-base font-semibold text-white">Invalid write detected in booking workflow</p>
+                        <p className="mt-2 text-base font-semibold text-red-200">Output: Stopped before downstream sync</p>
+                        <p className="mt-2 text-sm leading-7 text-slate-300">Reason: Validation caught the bad payload before it created cross-system inconsistency.</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </article>
+            </div>
+            <div className="mt-6">
+              <div className="rounded-[30px] border border-slate-200/80 bg-white/94 p-4 sm:p-5">
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">Trusted by teams fixing broken systems</p>
+                <TestimonialCard testimonial={testimonials.daniel} className="shadow-none" />
+              </div>
             </div>
           </div>
         </section>
@@ -225,19 +233,19 @@ export default function HomePage() {
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Category</p>
                   <h2 className="mt-4 max-w-4xl text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
-                    Stealth Vault is the AI usage control layer between your systems and AI.
+                    VishnuLabs is the team you bring in when backend behavior stops being trustworthy.
                   </h2>
                   <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
-                    Most companies already use AI. The real problem is control. Stealth Vault gives security, policy, and auditability before AI
-                    requests leave the team.
+                    Most companies do not need more tooling. They need the unstable workflow fixed properly. VishnuLabs focuses on the path
+                    between input, validation, processing, and output so the system behaves consistently again.
                   </p>
                 </div>
 
                 <div className="grid gap-3 sm:grid-cols-3 lg:min-w-[430px]">
                   {[
-                    { label: "What it protects", value: "PII, secrets, internal records" },
-                    { label: "What it changes", value: "Control before the request leaves" },
-                    { label: "How it feels", value: "Simple rollout, serious enforcement" },
+                    { label: "What gets fixed", value: "Fragile workflows, data consistency, scaling pain" },
+                    { label: "What it changes", value: "Validated execution before failures spread" },
+                    { label: "How it feels", value: "Straightforward delivery, deeper engineering" },
                   ].map((item) => (
                     <div key={item.label} className="rounded-[24px] border border-slate-200 bg-slate-50 px-4 py-4">
                       <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">{item.label}</p>
@@ -255,14 +263,14 @@ export default function HomePage() {
             <div className="rounded-[34px] border border-white/10 bg-slate-950/94 p-6 shadow-[0_28px_90px_rgba(2,8,23,0.34)] sm:p-8">
               <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Choose the rollout path</p>
-                  <h2 className="mt-4 max-w-3xl text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-                    Start with the level of control you actually need today.
-                  </h2>
-                </div>
-                <p className="max-w-xl text-sm leading-7 text-slate-300 sm:text-base">
-                  Every plan is a starting point. Scope expands when coverage, deployment depth, or policy complexity expands.
-                </p>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Choose the rollout path</p>
+                <h2 className="mt-4 max-w-3xl text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl">
+                    Start with the system depth you actually need today.
+                </h2>
+              </div>
+              <p className="max-w-xl text-sm leading-7 text-slate-300 sm:text-base">
+                  Every plan is a starting point. Scope expands when coverage, operational risk, or deployment depth expands.
+              </p>
               </div>
 
               <div className="mt-8 grid gap-4 lg:grid-cols-3">
@@ -321,11 +329,11 @@ export default function HomePage() {
             <div className="rounded-[36px] border border-slate-200 bg-white p-6 shadow-[0_26px_70px_rgba(15,23,42,0.12)] sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Problem</p>
               <h2 className="mt-4 max-w-3xl text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
-                You do not control what your team sends to AI.
+                The system is creating drag because too much depends on manual recovery.
               </h2>
               <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
-                AI adoption moves faster than policy. That is when confidential records, keys, and internal notes start leaving the company
-                with no review path.
+                Most operational pain does not look dramatic at first. It shows up as missed callbacks, inconsistent states, broken syncs,
+                and staff doing cleanup work the backend should have handled.
               </p>
 
               <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -338,10 +346,14 @@ export default function HomePage() {
               </div>
 
               <div className="mt-6 rounded-[26px] border border-red-300 bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(254,226,226,0.98)_100%)] p-5 shadow-[0_18px_44px_rgba(239,68,68,0.14)]">
-                <p className="text-xl font-semibold text-red-700 sm:text-2xl">One leak is enough.</p>
+                <p className="text-xl font-semibold text-red-700 sm:text-2xl">One weak handoff is enough.</p>
                 <p className="mt-2 text-sm leading-7 text-red-600">
-                  One exposed key, one patient record, or one internal file in the wrong prompt is enough to turn AI adoption into an avoidable incident.
+                  One missing validation rule, one unstable integration, or one silent retry loop is enough to turn normal growth into
+                  recurring operational friction.
                 </p>
+              </div>
+              <div className="mt-6">
+                <TestimonialCard testimonial={testimonials.ananya} className="shadow-none" />
               </div>
             </div>
           </div>
@@ -352,13 +364,13 @@ export default function HomePage() {
             <div className="rounded-[34px] border border-white/10 bg-white/96 p-6 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Solution</p>
               <h2 className="mt-4 max-w-4xl text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
-                Put one control layer between your systems and AI.
+                Rebuild the weak path so the system behaves predictably again.
               </h2>
 
               <div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
                 <div className="rounded-[28px] border border-slate-200 bg-slate-950 p-5">
                   <div className="grid gap-4 sm:grid-cols-[1fr_auto_1fr_auto_1fr] sm:items-center">
-                    {["User", "Stealth Vault", "AI"].map((item, index) => (
+                    {["Input", "Validation", "Processing"].map((item, index) => (
                       <div key={item} className="contents">
                         <div className="rounded-[24px] border border-white/10 bg-white/[0.04] px-4 py-5 text-center">
                           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-sky-200">{item}</p>
@@ -373,15 +385,15 @@ export default function HomePage() {
                   </div>
 
                   <div className="mt-5 rounded-[24px] border border-sky-300/16 bg-sky-400/8 p-4">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-200">Inside Stealth Vault</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-200">Inside the operating layer</p>
                     <div className="mt-4 grid gap-3 sm:grid-cols-4">
-                      {["Detect", "Block", "Redact", "Enforce"].map((item) => (
+                      {["Inspect", "Validate", "Route", "Record"].map((item) => (
                         <div key={item} className="rounded-[20px] border border-white/10 bg-slate-950 px-3 py-3 text-center text-sm font-semibold text-white">
                           {item}
                         </div>
                       ))}
                     </div>
-                    <div className="mt-3 rounded-[20px] border border-white/10 bg-slate-950 px-4 py-3 text-sm text-slate-300">Everything is logged for audit and review.</div>
+                    <div className="mt-3 rounded-[20px] border border-white/10 bg-slate-950 px-4 py-3 text-sm text-slate-300">Everything important stays visible for operators and technical review.</div>
                   </div>
                 </div>
 
@@ -389,9 +401,9 @@ export default function HomePage() {
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">What changes</p>
                   <div className="mt-4 space-y-3">
                     {[
-                      "Move faster without sending internal data into AI unchecked.",
-                      "Set policy once instead of relying on memory, training, or hope.",
-                      "See what was blocked, what was redacted, and what needs follow-up.",
+                      "Move faster because the workflow is structurally more reliable.",
+                      "Replace manual checking with validation and recovery logic that is explicit.",
+                      "See where the system stopped, recovered, or needs follow-up.",
                     ].map((item) => (
                       <div key={item} className="flex gap-3 rounded-[22px] border border-slate-200 bg-white px-4 py-4">
                         <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
@@ -410,11 +422,11 @@ export default function HomePage() {
             <div className="rounded-[34px] border border-slate-200 bg-white p-6 shadow-[0_24px_60px_rgba(15,23,42,0.10)] sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Features</p>
               <h2 className="mt-4 max-w-4xl text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
-                Everything needed to control AI usage, not just observe it.
+                Everything needed to stabilize execution, not just observe failure.
               </h2>
               <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
-                Built for teams that do not want another dashboard-only product. The job here is simple: catch risky requests early, enforce
-                policy clearly, and keep a usable record of what happened.
+                Built for teams that do not want another dashboard-only layer. The job here is simple: fix the weak path, make decisions
+                explicit, and keep a usable record of what happened when the workflow was under pressure.
               </p>
 
               <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -438,15 +450,15 @@ export default function HomePage() {
               <article className="rounded-[34px] border border-slate-200 bg-white p-6 shadow-[0_24px_60px_rgba(15,23,42,0.10)] sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Delivery team</p>
                 <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                  Backend-first execution with fast fixes when gaps show up.
+                  Backend-first execution with fast fixes when the system shows you the real issue.
                 </h2>
                 <p className="mt-4 max-w-xl text-base leading-8 text-slate-600">
-                  We ship the control layer where it actually lives: backend services, policy enforcement, and audit-ready logging. When a
-                  workflow breaks, we fix it quickly and document it clearly.
+                  We work where reliability actually lives: backend services, workflow validation, and observability. When a workflow breaks,
+                  we fix it quickly and document it clearly.
                 </p>
                 <div className="mt-6 grid gap-3 sm:grid-cols-2">
                   {[
-                    "Policy wiring handled end-to-end",
+                    "Validation logic handled end-to-end",
                     "Live monitoring tied to real workflows",
                     "Fast fixes during rollout",
                     "Clear handoff and operator notes",
@@ -473,8 +485,8 @@ export default function HomePage() {
                 </div>
                 <div className="rounded-[26px] border border-slate-200 bg-slate-950 p-5 shadow-[0_22px_60px_rgba(2,8,23,0.25)]">
                   <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Flow diagram</p>
-                  <p className="mt-3 text-base font-semibold text-white">User → Stealth Vault → AI</p>
-                  <svg className="mt-4 h-20 w-full" viewBox="0 0 520 80" role="img" aria-label="Stealth Vault flow diagram">
+                  <p className="mt-3 text-base font-semibold text-white">Input → Validation → Processing → Output</p>
+                  <svg className="mt-4 h-20 w-full" viewBox="0 0 520 80" role="img" aria-label="System workflow diagram">
                     <defs>
                       <linearGradient id="flowLine" x1="0" x2="1" y1="0" y2="0">
                         <stop offset="0%" stopColor="#60a5fa" />
@@ -486,11 +498,11 @@ export default function HomePage() {
                     <circle cx="480" cy="40" r="18" fill="#0f172a" stroke="#60a5fa" strokeWidth="2" />
                     <line x1="70" y1="40" x2="230" y2="40" stroke="url(#flowLine)" strokeWidth="3" />
                     <line x1="290" y1="40" x2="450" y2="40" stroke="url(#flowLine)" strokeWidth="3" />
-                    <text x="40" y="70" textAnchor="middle" fill="#e2e8f0" fontSize="10">User</text>
-                    <text x="260" y="70" textAnchor="middle" fill="#e2e8f0" fontSize="10">Stealth Vault</text>
-                    <text x="480" y="70" textAnchor="middle" fill="#e2e8f0" fontSize="10">AI</text>
+                    <text x="40" y="70" textAnchor="middle" fill="#e2e8f0" fontSize="10">Input</text>
+                    <text x="260" y="70" textAnchor="middle" fill="#e2e8f0" fontSize="10">Validation</text>
+                    <text x="480" y="70" textAnchor="middle" fill="#e2e8f0" fontSize="10">Processing</text>
                   </svg>
-                  <p className="mt-2 text-xs text-slate-300">Scan → Block → Redact → Log before requests reach AI.</p>
+                  <p className="mt-2 text-xs text-slate-300">Inspect → Validate → Route → Log before failures reach customers.</p>
                 </div>
               </div>
             </div>
@@ -503,17 +515,17 @@ export default function HomePage() {
               <article className="rounded-[34px] border border-slate-200 bg-white p-6 shadow-[0_24px_60px_rgba(15,23,42,0.10)] sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">How it works</p>
                 <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                  Three steps. No long rollout story.
+                  Three steps. No long sales theater.
                 </h2>
                 <p className="mt-4 max-w-xl text-base leading-8 text-slate-600">
-                  We are strongest in backend implementation, policy wiring, and record-time fixes when teams need the control layer working
+                  We are strongest in backend implementation, workflow redesign, and record-time fixes when teams need the system working
                   fast and correctly.
                 </p>
                 <div className="mt-6 space-y-3">
                   {[
                     "Backend-heavy implementation, not surface-only setup",
-                    "Policy logic wired cleanly into the real workflow",
-                    "Record-time fixes when control gaps show up live",
+                    "Validation logic wired cleanly into the real workflow",
+                    "Fast fixes when failure points show up live",
                   ].map((item) => (
                     <div key={item} className="flex gap-3 rounded-[22px] border border-slate-200 bg-slate-50 px-4 py-3">
                       <BadgeCheck className="mt-0.5 h-4.5 w-4.5 shrink-0 text-primary" />
@@ -528,17 +540,17 @@ export default function HomePage() {
                   {
                     step: "01",
                     title: "Connect systems",
-                    detail: "Put Stealth Vault between the user, your internal tools, and the AI endpoint.",
+                    detail: "Map where the workflow breaks and define the operating path that needs to be stabilized first.",
                   },
                   {
                     step: "02",
-                    title: "Define policies",
-                    detail: "Choose what must be blocked, redacted, logged, or allowed.",
+                    title: "Define controls",
+                    detail: "Choose what must validate, retry, alert, or halt before bad state moves any further.",
                   },
                   {
                     step: "03",
-                    title: "Monitor and enforce",
-                    detail: "See request activity, blocked actions, and policy outcomes in one place.",
+                    title: "Monitor behavior",
+                    detail: "See system activity, recovery events, and operator action points in one place.",
                   },
                 ].map((item) => (
                   <article key={item.step} className="rounded-[28px] border border-slate-200 bg-white p-5 shadow-[0_18px_44px_rgba(15,23,42,0.08)]">
@@ -564,7 +576,7 @@ export default function HomePage() {
               <article className="rounded-[34px] border border-slate-200 bg-white p-6 shadow-[0_24px_60px_rgba(15,23,42,0.10)] sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Trust</p>
                 <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                  No more missed risk. No more delayed response after the leak already happened.
+                  No more guessing where the workflow failed. No more delayed response after the damage is already visible.
                 </h2>
                 <div className="mt-6 space-y-3">
                   {trustPoints.map((point) => (
@@ -579,16 +591,16 @@ export default function HomePage() {
               <article className="rounded-[34px] border border-slate-200 bg-[linear-gradient(180deg,#f9fbff_0%,#f1f6ff_100%)] p-6 shadow-[0_24px_60px_rgba(15,23,42,0.10)] sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">About</p>
                 <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                  This is the layer teams add when AI adoption becomes real and security can no longer stay informal.
+                  This is the team you call when the system needs engineering depth, not another quick patch.
                 </h2>
                 <p className="mt-4 text-base leading-8 text-slate-600">
-                  Stealth Vault is for teams that need AI speed without losing control of private data, internal knowledge, or credentials.
-                  That is why the page stays simple: one problem, one control layer, one clear next step.
+                  VishnuLabs is for teams that need reliable execution without overengineering. That is why the page stays simple: one
+                  problem, one stabilization path, one clear next step.
                 </p>
                 <div className="mt-6 rounded-[24px] border border-slate-200 bg-slate-950 px-4 py-4 shadow-[0_18px_40px_rgba(15,23,42,0.16)]">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-200">Execution strength</p>
                   <p className="mt-2 text-sm leading-7 text-slate-200">
-                    VishnuLabs is especially strong on backend architecture, policy enforcement, and fixing critical control gaps in record time.
+                    VishnuLabs is especially strong on backend architecture, workflow reliability, and fixing critical control gaps in record time.
                   </p>
                 </div>
               </article>
@@ -598,19 +610,23 @@ export default function HomePage() {
 
         <section className="pb-4 pt-8 sm:pb-8 sm:pt-10">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
+            <div className="mb-6 grid gap-4 md:grid-cols-2">
+              <TestimonialCard testimonial={testimonials.rachel} />
+              <TestimonialCard testimonial={testimonials.ethan} />
+            </div>
             <div className="rounded-[36px] border border-white/10 bg-slate-950 p-6 text-center shadow-[0_28px_100px_rgba(2,8,23,0.38)] sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Final CTA</p>
               <h2 className="mx-auto mt-4 max-w-3xl text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-                Secure your AI usage before it becomes a risk.
+                Fix the unstable system before it costs more than a proper rebuild.
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
-                Start with a smaller rollout if needed. Expand when policy depth, coverage, or internal AI usage expands. Every price on the
-                site is a starting point, not a forced final package.
+                Start with a smaller engagement if needed. Expand when workflow depth, infrastructure coverage, or operator needs expand.
+                Every price on the site is a starting point, not a forced final package.
               </p>
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Button size="lg" asChild className="h-12 rounded-full bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-100 sm:h-14 sm:px-8 sm:text-base">
                   <a href="https://cal.com/vishnuvardhanburri/15min">
-                    Start Protecting Your Data
+                    Book System Review
                     <ArrowRight className="h-4 w-4" />
                   </a>
                 </Button>

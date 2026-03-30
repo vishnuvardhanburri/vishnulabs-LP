@@ -3,11 +3,13 @@ import { ArrowRight, ArrowUpRight, CheckCircle2, Settings2, ShieldCheck, Workflo
 
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
+import { TestimonialCard } from "@/components/testimonial-card"
 import { Button } from "@/components/ui/button"
+import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
-  title: "Services | Stealth Vault",
-  description: "See how Stealth Vault is deployed: connect systems, define policy, monitor and enforce.",
+  title: "Services | VishnuLabs",
+  description: "See how VishnuLabs stabilizes systems, replaces fragile automations, and restores operational control.",
   alternates: {
     canonical: "/services",
   },
@@ -16,22 +18,22 @@ export const metadata: Metadata = {
 const rolloutSteps = [
   {
     title: "Connect systems",
-    detail: "Place Stealth Vault between the user, the internal surface, and the AI endpoint.",
+    detail: "Map the current workflow, isolate breakpoints, and put control around the unstable handoff.",
   },
   {
-    title: "Define policies",
-    detail: "Choose what must be allowed, blocked, redacted, and logged before AI usage expands further.",
+    title: "Define operating rules",
+    detail: "Set validation, routing, retries, and escalation logic so the workflow behaves consistently under pressure.",
   },
   {
-    title: "Monitor and enforce",
-    detail: "See activity, blocked requests, and policy outcomes in one control layer.",
+    title: "Monitor and harden",
+    detail: "Track system behavior, resolve hidden failure modes, and leave the team with a workflow that is easier to reason about.",
   },
 ]
 
 const serviceNotes = [
-  "The product is standard. The deployment shape changes by environment.",
-  "Some teams need a browser-level control path. Others need API or internal tool protection.",
-  "The job stays the same in every case: prevent sensitive data from leaving unchecked.",
+  "We start with the failure pattern, not a pre-selected stack.",
+  "Some teams need backend stabilization. Others need brittle automation replaced with workflow logic that actually holds.",
+  "The goal stays the same in every environment: restore control, consistency, and operator visibility.",
 ]
 
 export default function ServicesPage() {
@@ -46,21 +48,22 @@ export default function ServicesPage() {
               <article className="dark-panel-solid p-6 sm:p-8">
                 <div className="inline-flex items-center gap-2 rounded-full border border-sky-300/20 bg-sky-400/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-sky-100">
                   <Settings2 className="h-3.5 w-3.5" />
-                  Deployment path
+                  Systems delivery
                 </div>
 
                 <h1 className="mt-6 text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-                  The rollout is simple. The control stays strict.
+                  We fix the part of the system that keeps failing in production.
                 </h1>
                 <p className="mt-5 text-base leading-8 text-slate-200 sm:text-lg">
-                  This page is not about selling custom services. It shows how Stealth Vault gets connected, how policy is defined, and how
-                  enforcement is kept visible after launch.
+                  VishnuLabs steps in when backend workflows are unpredictable, automations require constant supervision, or infrastructure
+                  decisions are starting to slow the team down. The structure stays straightforward: identify the failure mode, stabilize
+                  the path, and leave behind a system that behaves consistently.
                 </p>
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <Button size="lg" asChild className="h-12 rounded-full bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-100 sm:h-14 sm:px-8 sm:text-base">
                     <a href="https://cal.com/vishnuvardhanburri/15min">
-                      Start Protecting Your Data
+                      Book System Review
                       <ArrowRight className="h-4 w-4" />
                     </a>
                   </Button>
@@ -86,7 +89,10 @@ export default function ServicesPage() {
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-sm leading-7 text-slate-700">{item}</p>
                     </div>
-                  ))}
+                ))}
+                </div>
+                <div className="mt-5 grid gap-3">
+                  <TestimonialCard testimonial={testimonials.lukas} className="shadow-none" />
                 </div>
               </article>
             </div>
@@ -114,17 +120,17 @@ export default function ServicesPage() {
             <div className="dark-panel-solid p-6 sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Core promise</p>
               <h2 className="mt-4 max-w-4xl text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-                The team can keep using AI. The company keeps control of what enters AI.
+                Reliable execution comes from cleaner architecture, not more operator effort.
               </h2>
               <p className="mt-4 max-w-3xl text-base leading-8 text-slate-200">
-                AI adoption does not have to stop. What has to stop is sensitive data entering those requests without policy, logging, or
-                enforcement in front of it.
+                We do not optimize for surface-level speed. We remove failure points, rebuild the weak handoff, and make the system easier
+                to operate when load, edge cases, and business pressure increase at the same time.
               </p>
               <div className="mt-7 grid gap-3 md:grid-cols-3">
                 {[
-                  "Control before the request leaves",
-                  "Policy before the habit spreads",
-                  "Logs before the incident is disputed",
+                  "Validation before bad data propagates",
+                  "Structure before manual work piles up",
+                  "Visibility before incidents become expensive",
                 ].map((item) => (
                   <div key={item} className="rounded-[24px] border border-white/12 bg-slate-900/70 px-4 py-4 text-sm text-slate-100">
                     <div className="flex gap-2">
@@ -133,6 +139,9 @@ export default function ServicesPage() {
                     </div>
                   </div>
                 ))}
+              </div>
+              <div className="mt-6">
+                <TestimonialCard testimonial={testimonials.michael} intent="dark" className="shadow-none" />
               </div>
             </div>
           </div>

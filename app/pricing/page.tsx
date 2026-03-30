@@ -3,26 +3,28 @@ import { ArrowRight, ArrowUpRight, BadgeCheck, CheckCircle2, ShieldCheck } from 
 
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
+import { TestimonialCard } from "@/components/testimonial-card"
 import { UsageControlPricing } from "@/components/usage-control-pricing"
 import { Button } from "@/components/ui/button"
+import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
-  title: "Pricing | Stealth Vault",
-  description: "Pricing for Stealth Vault, the AI usage control layer that blocks sensitive data before it reaches AI.",
+  title: "Pricing | VishnuLabs",
+  description: "Pricing for system stabilization, workflow reliability, and backend-focused execution without changing the delivery model.",
   alternates: {
     canonical: "/pricing",
   },
 }
 
 const pricingReasons = [
-  "Start small without opening a blind spot.",
-  "Move into broader control only when usage expands.",
-  "Keep policy, logs, and enforcement in one layer.",
+  "Start with the failure pattern that needs to be contained first.",
+  "Expand scope only when system coverage or workflow complexity expands.",
+  "Keep reliability work visible instead of buried in vague implementation promises.",
 ]
 
 const scopeNotes = [
-  "Starter, Growth, and Pro are standard product plans.",
-  "Enterprise is quoted when deployment, policy, or coverage is custom.",
+  "Starter, Growth, and Pro remain standard packages.",
+  "Enterprise is quoted when the environment, workflow depth, or operational risk is custom.",
   "Annual billing includes 2 months free on Starter, Growth, and Pro.",
 ]
 
@@ -42,11 +44,11 @@ export default function PricingPage() {
                 </div>
 
                 <h1 className="mt-6 text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-                  Buy control before AI usage becomes a bigger problem.
+                  Buy reliability before recurring failures become a larger cost.
                 </h1>
                 <p className="mt-5 text-base leading-8 text-slate-300 sm:text-lg">
-                  The pricing is simple on purpose. Start with the level of control you need now. Expand only when AI usage, systems, or
-                  policy requirements expand.
+                  The pricing stays simple on purpose. Start with the level of intervention you need now. Expand only when system coverage,
+                  workflow depth, or operational complexity expands.
                 </p>
 
                 <div className="mt-7 space-y-3">
@@ -61,7 +63,7 @@ export default function PricingPage() {
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <Button size="lg" asChild className="h-12 rounded-full bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-100 sm:h-14 sm:px-8 sm:text-base">
                     <a href="https://cal.com/vishnuvardhanburri/15min">
-                      Start Now
+                      Book Review
                       <ArrowRight className="h-4 w-4" />
                     </a>
                   </Button>
@@ -85,8 +87,8 @@ export default function PricingPage() {
                   Every listed price is a starting point, not a forced final package.
                 </h2>
                 <p className="mt-4 text-base leading-8 text-slate-700">
-                  Start with the level of control you need now. If AI usage expands, policy depth expands, or deployment gets more private,
-                  the scope expands with it. We quote that clearly before anything moves.
+                  Start with the level of intervention you need now. If usage expands, infrastructure gets more sensitive, or the workflow
+                  requires broader coverage, the scope expands with it. We quote that clearly before anything moves.
                 </p>
                 <div className="mt-6 space-y-3">
                   {scopeNotes.map((item) => (
@@ -109,15 +111,20 @@ export default function PricingPage() {
 
         <section className="py-8 sm:py-10">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
+            <div className="mb-6 grid gap-4 md:grid-cols-2">
+              <TestimonialCard testimonial={testimonials.rachel} />
+              <TestimonialCard testimonial={testimonials.ethan} />
+            </div>
             <div className="light-panel-solid p-6 sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">When to talk to us</p>
               <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                If AI usage already touches customer data, internal records, or credentials, this is not optional.
+                If the workflow already touches revenue, customer records, or operational handoff, this is not optional.
               </h2>
               <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
-                The first question is not whether the team should use AI. The first question is whether the company controls what enters AI in
-                the first place. For India teams, final pricing can be shared in INR or USD based on scope, deployment model, support needs,
-                and budget comfort. For every region, the listed plans are starting points and the final scope is confirmed together.
+                The first question is not whether the team can keep shipping. The first question is whether the underlying system is behaving
+                consistently enough to support that growth. For India teams, final pricing can be shared in INR or USD based on scope,
+                deployment model, support needs, and budget comfort. For every region, the listed plans are starting points and the final
+                scope is confirmed together.
               </p>
             </div>
           </div>

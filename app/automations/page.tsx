@@ -3,11 +3,13 @@ import { ArrowRight, ArrowUpRight, CheckCircle2, ShieldCheck, Workflow } from "l
 
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
+import { TestimonialCard } from "@/components/testimonial-card"
 import { Button } from "@/components/ui/button"
+import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
-  title: "Automations | Stealth Vault",
-  description: "Protected workflows and AI-connected operations controlled through Stealth Vault.",
+  title: "Automations | VishnuLabs",
+  description: "Workflow systems that replace brittle automations with reliable execution paths and clearer operational control.",
   alternates: {
     canonical: "/automations",
   },
@@ -15,27 +17,27 @@ export const metadata: Metadata = {
 
 const workflowCards = [
   {
-    title: "Protected intake flows",
-    detail: "Use AI on inbound information without sending raw sensitive data straight into the model.",
+    title: "Intake systems that hold up",
+    detail: "Replace fragile form-to-spreadsheet chains with validated intake logic and clean routing.",
   },
   {
-    title: "Protected internal search",
-    detail: "Let teams query internal knowledge with policy, redaction, and logging in front of the response layer.",
+    title: "Workflow logic with operator visibility",
+    detail: "Keep the team informed on what ran, what failed, and what needs intervention before customers feel it.",
   },
   {
-    title: "Protected assistant workflows",
-    detail: "Connect AI-driven internal flows while keeping request monitoring and enforcement in one place.",
+    title: "Assistant workflows with guardrails",
+    detail: "Use automation where it helps, but keep routing, validation, and fallbacks explicit.",
   },
   {
-    title: "Protected operational tools",
-    detail: "Apply the same control layer to internal dashboards, API calls, and AI-connected tools.",
+    title: "Operational tools that stay predictable",
+    detail: "Stabilize internal dashboards, API-connected tools, and notification paths that currently require constant checking.",
   },
 ]
 
 const workflowReasons = [
-  "The company may still want AI in the workflow.",
-  "The missing piece is control over what enters the workflow.",
-  "Stealth Vault makes those workflows usable without staying blind to risk.",
+  "Most automation problems are architecture problems in disguise.",
+  "A workflow is not reliable if one missed event breaks the next three steps.",
+  "The goal is consistent execution, not just fewer clicks.",
 ]
 
 export default function AutomationsPage() {
@@ -50,21 +52,21 @@ export default function AutomationsPage() {
               <article className="dark-panel-solid p-6 sm:p-8">
                 <div className="inline-flex items-center gap-2 rounded-full border border-sky-300/20 bg-sky-400/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-sky-100">
                   <Workflow className="h-3.5 w-3.5" />
-                  Protected workflows
+                  Workflow stabilization
                 </div>
 
                 <h1 className="mt-6 text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-                  AI can stay in the workflow. Uncontrolled data cannot.
+                  We replace brittle automation with workflows that keep running cleanly.
                 </h1>
                 <p className="mt-5 text-base leading-8 text-slate-200 sm:text-lg">
-                  This page is not about generic automations. It shows where Stealth Vault sits when AI becomes part of an intake flow,
-                  assistant flow, search flow, or internal operational process.
+                  This page is about operational reliability. VishnuLabs rebuilds the workflow when scheduling, routing, reminders, or
+                  internal automations keep failing quietly and pulling the team back into manual work.
                 </p>
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <Button size="lg" asChild className="h-12 rounded-full bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-100 sm:h-14 sm:px-8 sm:text-base">
                     <a href="https://cal.com/vishnuvardhanburri/15min">
-                      Start Protecting Your Data
+                      Book Workflow Review
                       <ArrowRight className="h-4 w-4" />
                     </a>
                   </Button>
@@ -90,7 +92,10 @@ export default function AutomationsPage() {
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <p className="text-sm leading-7 text-slate-700">{item}</p>
                     </div>
-                  ))}
+                ))}
+                </div>
+                <div className="mt-5">
+                  <TestimonialCard testimonial={testimonials.james} className="shadow-none" />
                 </div>
               </article>
             </div>
@@ -109,6 +114,9 @@ export default function AutomationsPage() {
                   <p className="mt-3 text-sm leading-7 text-slate-600">{item.detail}</p>
                 </article>
               ))}
+            </div>
+            <div className="mt-6">
+              <TestimonialCard testimonial={testimonials.carlos} className="shadow-none" />
             </div>
           </div>
         </section>

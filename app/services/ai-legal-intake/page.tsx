@@ -1,10 +1,11 @@
 import { ServicePageTemplate } from "@/components/service-page-template"
+import { testimonials } from "@/lib/testimonials"
 
 export default function AiLegalIntakePage() {
   return (
     <ServicePageTemplate
       title="AI Legal Intake Automation"
-      subtitle="A legal intake workflow that captures leads 24/7, asks structured case questions, qualifies urgency, and routes actionable summaries to your legal team."
+      subtitle="A legal intake system that replaces inconsistent first-touch handling with structured qualification, better urgency routing, and cleaner case summaries."
       forWho={[
         "Personal injury firms with high inquiry volume",
         "Immigration and family practices handling repetitive intake",
@@ -29,6 +30,7 @@ export default function AiLegalIntakePage() {
       ]}
       timeline="6 to 9 days"
       price="$8,500 to $15,000"
+      testimonial={testimonials.michael}
     />
   )
 }

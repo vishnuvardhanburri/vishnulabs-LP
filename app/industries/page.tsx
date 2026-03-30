@@ -8,7 +8,9 @@ import { ConfidenceRail } from "@/components/confidence-rail"
 import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
+import { TestimonialCard } from "@/components/testimonial-card"
 import { Button } from "@/components/ui/button"
+import { testimonials } from "@/lib/testimonials"
 
 type Industry = {
   bullets: string[]
@@ -20,7 +22,7 @@ type Industry = {
 
 export const metadata: Metadata = {
   title: "Industries | VishnuLabs",
-  description: "Industry-specific pages for startups, hospitals and clinics, transport and logistics, law services, real estate, and mortgage teams.",
+  description: "Industry-specific pages for teams that need stronger system consistency, cleaner workflows, and more dependable execution.",
   alternates: {
     canonical: "/industries",
   },
@@ -29,7 +31,7 @@ export const metadata: Metadata = {
 const industries: Industry[] = [
   {
     title: "Startups",
-    description: "Launch faster with stronger websites, lead capture, and custom software support before a bigger ops team is even needed.",
+    description: "Launch faster with stronger websites, cleaner lead capture, and internal systems that can grow without breaking early.",
     href: "/industries/startups",
     icon: Rocket,
     bullets: ["Website + automation fit", "Founder visibility", "Lean ops support"],
@@ -50,17 +52,17 @@ const industries: Industry[] = [
   },
   {
     title: "Lawyers & Law Services",
-    description: "Automate intake, consultation handling, and workflow follow-up for legal teams that need speed and professionalism together.",
+    description: "Stabilize intake, consultation handling, and workflow follow-up for legal teams that need speed and professionalism together.",
     href: "/industries/law-services",
     icon: Scale,
-    bullets: ["Consultation coverage", "Legal workflow control", "Private AI options"],
+    bullets: ["Consultation coverage", "Legal workflow control", "Private system options"],
   },
   {
     title: "PI Law Firms",
-    description: "Automate intake, call handling, and private AI workflows without exposing sensitive matter data.",
+    description: "Stabilize intake, call handling, and private workflows without exposing sensitive matter data or losing operational clarity.",
     href: "/industries/pi-law-firms",
     icon: Scale,
-    bullets: ["Case qualification", "Private AI support", "Follow-up automation"],
+    bullets: ["Case qualification", "Private workflow support", "Follow-up automation"],
   },
   {
     title: "Real Estate",
@@ -93,7 +95,7 @@ const industryHeroSignals = [
   },
   {
     title: "Legal intake clarity",
-    detail: "Consultation, intake, and private AI paths built for firms that need speed without looking sloppy.",
+    detail: "Consultation, intake, and private workflow paths built for firms that need speed without looking sloppy.",
   },
 ]
 
@@ -114,12 +116,12 @@ export default function IndustriesPage() {
                 >
                   <div className="badge-pill border-primary/20 bg-slate-50 text-slate-700">Industries</div>
                   <h1 className="mt-6 max-w-4xl text-balance text-[2.8rem] font-bold leading-[0.96] tracking-[-0.04em] text-slate-950 sm:text-[4.1rem]">
-                    Automation systems adapted to the workflow pressure of each industry.
+                    Backend thinking adapted to the workflow pressure of each industry.
                   </h1>
                   <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
                     Startups, hospitals and clinics, transport and logistics teams, moving companies, lawyers, law services, real estate,
-                    and mortgage teams all need fast response and cleaner operations, but the workflow details differ. These pages show where
-                    VishnuLabs fits.
+                    and mortgage teams all need fast response and cleaner operations, but the failure modes differ. These pages show where
+                    VishnuLabs fits and what needs to be stabilized first.
                   </p>
 
                   <div className="mt-7 flex flex-wrap gap-2">
@@ -190,13 +192,13 @@ export default function IndustriesPage() {
                   One control layer. Any industry workflow.
                 </h2>
                 <p className="mt-4 max-w-xl text-base leading-8 text-slate-600">
-                  The same flow protects each industry: intake and staff requests pass through Stealth Vault before AI touches them. That is
-                  how you keep speed without losing control.
+                  The same flow supports each industry: intake and staff requests pass through validation before downstream systems write
+                  new state. That is how you keep speed without losing control.
                 </p>
                 <div className="mt-6 rounded-[26px] border border-slate-200 bg-slate-950 p-5 shadow-[0_22px_60px_rgba(2,8,23,0.25)]">
                   <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Flow diagram</p>
-                  <p className="mt-3 text-base font-semibold text-white">User → Stealth Vault → AI</p>
-                  <svg className="mt-4 h-20 w-full" viewBox="0 0 520 80" role="img" aria-label="Stealth Vault flow diagram">
+                  <p className="mt-3 text-base font-semibold text-white">Input → Validation → Processing → Output</p>
+                  <svg className="mt-4 h-20 w-full" viewBox="0 0 520 80" role="img" aria-label="Industry workflow diagram">
                     <defs>
                       <linearGradient id="flowLineIndustry" x1="0" x2="1" y1="0" y2="0">
                         <stop offset="0%" stopColor="#60a5fa" />
@@ -208,11 +210,11 @@ export default function IndustriesPage() {
                     <circle cx="480" cy="40" r="18" fill="#0f172a" stroke="#60a5fa" strokeWidth="2" />
                     <line x1="70" y1="40" x2="230" y2="40" stroke="url(#flowLineIndustry)" strokeWidth="3" />
                     <line x1="290" y1="40" x2="450" y2="40" stroke="url(#flowLineIndustry)" strokeWidth="3" />
-                    <text x="40" y="70" textAnchor="middle" fill="#e2e8f0" fontSize="10">User</text>
-                    <text x="260" y="70" textAnchor="middle" fill="#e2e8f0" fontSize="10">Stealth Vault</text>
-                    <text x="480" y="70" textAnchor="middle" fill="#e2e8f0" fontSize="10">AI</text>
+                    <text x="40" y="70" textAnchor="middle" fill="#e2e8f0" fontSize="10">Input</text>
+                    <text x="260" y="70" textAnchor="middle" fill="#e2e8f0" fontSize="10">Validation</text>
+                    <text x="480" y="70" textAnchor="middle" fill="#e2e8f0" fontSize="10">Processing</text>
                   </svg>
-                  <p className="mt-2 text-xs text-slate-300">Detect → Block → Redact → Log before requests reach AI.</p>
+                  <p className="mt-2 text-xs text-slate-300">Inspect → Validate → Route → Log before failures reach customers.</p>
                 </div>
               </article>
 
@@ -262,6 +264,11 @@ export default function IndustriesPage() {
                   </article>
                 )
               })}
+            </div>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              <TestimonialCard testimonial={testimonials.oliver} />
+              <TestimonialCard testimonial={testimonials.omar} />
+              <TestimonialCard testimonial={testimonials.sophie} />
             </div>
           </div>
         </section>

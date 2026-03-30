@@ -2,7 +2,7 @@ import { AppLink } from "@/components/app-link"
 import { customPackageMailto } from "@/components/custom-solution-note"
 
 const serviceLinks = [
-  { label: "Stealth-Mode AI Vault", href: "/stealth-vault" },
+  { label: "Stealth Vault", href: "/stealth-vault" },
   { label: "Automations", href: "/automations" },
   { label: "Websites", href: "/websites" },
   { label: "Custom Software", href: "/custom-software" },
@@ -40,10 +40,11 @@ export function Footer() {
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-200">Need the right scope?</p>
               <h2 className="mt-3 max-w-2xl text-balance text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                Start with the minimum control layer that removes the blind spot.
+                Start with the smallest intervention that removes the recurring failure.
               </h2>
               <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300">
-                We can scope for a lighter rollout, a broader policy layer, or a private deployment. The right fit depends on risk, not hype.
+                We can scope a lighter rollout, a broader system intervention, or a private deployment path. The right fit depends on the
+                operational bottleneck, not hype.
               </p>
             </div>
 
@@ -77,12 +78,12 @@ export function Footer() {
             </AppLink>
 
             <p className="mt-4 max-w-sm text-sm leading-7 text-slate-300">
-              Stealth Vault is the control layer between your team and AI. It helps high-trust teams adopt AI without sending internal data
-              out unchecked.
+              VishnuLabs helps teams regain control of backend workflows, replace fragile automations, and build infrastructure that behaves
+              reliably under real operating pressure.
             </p>
 
             <div className="mt-5 flex flex-wrap gap-2">
-              {["AI control", "Policy engine", "Audit logs", "Private rollout"].map((item) => (
+              {["Backend systems", "Workflow reliability", "Operational visibility", "Scalable infrastructure"].map((item) => (
                 <span
                   key={item}
                   className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-300"
@@ -114,7 +115,8 @@ export function Footer() {
             <div className="mt-5 rounded-[22px] border border-white/10 bg-white/5 p-4">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Need a custom scope?</p>
               <p className="mt-2 text-sm leading-6 text-slate-300">
-                Bring your workflow, internal surface, or compliance requirement. We will scope the right control layer around the bottleneck.
+                Bring your workflow, internal surface, or operational bottleneck. We will scope the right intervention around the part of
+                the system that keeps failing.
               </p>
             </div>
           </div>

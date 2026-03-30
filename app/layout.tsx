@@ -12,17 +12,17 @@ const apolloAppId = process.env.NEXT_PUBLIC_APOLLO_APP_ID
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vishnulabs.com"),
-  title: "VishnuLabs | AI Automation Agency for Revenue Ops",
+  title: "VishnuLabs | Backend Systems, Workflow Reliability, and Scalable Infrastructure",
   description:
-    "VishnuLabs builds premium AI voice, intake, scheduling, and follow-up automation systems for law firms, real estate, and service businesses.",
+    "VishnuLabs fixes broken backend systems, replaces fragile automations, and builds infrastructure that behaves reliably as usage grows.",
   keywords: [
-    "AI automation agency",
-    "AI voice receptionist",
-    "legal intake automation",
-    "real estate automation",
-    "revenue operations automation",
-    "AI vault for law firms",
-    "private AI for clinics",
+    "backend systems",
+    "workflow reliability",
+    "automation stabilization",
+    "scalable infrastructure",
+    "backend architecture",
+    "system consistency",
+    "operations engineering",
   ],
   alternates: {
     canonical: "/",
@@ -39,16 +39,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "VishnuLabs | AI Automation Agency",
-    description: "Production-grade AI automation for inbound calls, lead qualification, and consultation booking.",
+    title: "VishnuLabs | Backend Systems and Workflow Reliability",
+    description: "Fix broken workflows, stabilize backend behavior, and build infrastructure that keeps operating cleanly under load.",
     type: "website",
     url: "https://vishnulabs.com",
     siteName: "VishnuLabs",
   },
   twitter: {
     card: "summary_large_image",
-    title: "VishnuLabs | AI Automation Agency",
-    description: "AI voice, intake, scheduling, and private AI vault systems for US SMB teams.",
+    title: "VishnuLabs | Backend Systems and Workflow Reliability",
+    description: "Fix broken workflows, stabilize backend behavior, and build infrastructure that keeps operating cleanly under load.",
   },
 }
 
@@ -72,7 +72,7 @@ export default function RootLayout({
     logo: "https://vishnulabs.com/vishnulabs-logo-mark.svg",
     areaServed: "US",
     description:
-      "VishnuLabs builds AI voice, intake, scheduling, follow-up, and private internal AI vault systems for law firms, real estate teams, and service businesses.",
+      "VishnuLabs fixes broken backend systems, replaces fragile automations, and builds infrastructure that behaves reliably as usage grows.",
   }
 
   return (

@@ -2,10 +2,7 @@ import type { Metadata, Viewport } from "next"
 import Script from "next/script"
 
 import "./globals.css"
-import { FunnelTracker } from "@/components/funnel-tracker"
-import { GlobalMobileConversionBar } from "@/components/global-mobile-conversion-bar"
-import { LiveChatAssistant } from "@/components/live-chat-assistant"
-import { ScrollReveal } from "@/components/scroll-reveal"
+import { LeadCaptureProvider } from "@/components/home/lead-capture-provider"
 
 const gaId = process.env.NEXT_PUBLIC_GA_ID
 const apolloAppId = process.env.NEXT_PUBLIC_APOLLO_APP_ID
@@ -53,7 +50,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#f7f9fe",
+  themeColor: "#050816",
   width: "device-width",
   initialScale: 1,
 }
@@ -78,11 +75,9 @@ export default function RootLayout({
   return (
     <html lang="en-US">
       <body className="font-sans antialiased">
-        <div className="app-shell-enter">{children}</div>
-        <LiveChatAssistant />
-        <GlobalMobileConversionBar />
-        <FunnelTracker />
-        <ScrollReveal />
+        <LeadCaptureProvider>
+          <div className="app-shell-enter">{children}</div>
+        </LeadCaptureProvider>
 
         <Script id="organization-jsonld" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify(organizationLd)}

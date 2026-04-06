@@ -8,11 +8,15 @@ import { ArrowRight, ArrowUpRight, Sparkles } from "lucide-react"
 
 import { CaseStudySection } from "@/components/home/case-study-section"
 import { FinalCtaSection } from "@/components/home/final-cta-section"
+import { HowWeWorkSection } from "@/components/home/how-we-work-section"
 import { MagneticButton } from "@/components/home/magnetic-button"
 import { PricingSection } from "@/components/home/pricing-section"
 import { ReviewsSection } from "@/components/home/reviews-section"
+import { SentinelSection } from "@/components/home/sentinel-section"
 import { SmoothScroll } from "@/components/home/smooth-scroll"
+import { SystemsBuiltSection } from "@/components/home/systems-built-section"
 import { SystemFlowSection } from "@/components/home/system-flow-section"
+import { VisualProofSection } from "@/components/home/visual-proof-section"
 
 const particleLayout = [
   { left: "10%", top: "16%", size: 10, delay: 0 },
@@ -153,23 +157,22 @@ export function LandingPage() {
                   className="inline-flex items-center gap-2 rounded-full border border-cyan-400/18 bg-cyan-400/10 px-4 py-2 text-[11px] uppercase tracking-[0.26em] text-cyan-200"
                 >
                   <Sparkles className="h-3.5 w-3.5" />
-                  Stop losing leads
+                  Protect every opportunity
                 </motion.div>
 
                 <motion.h1
                   variants={revealChild}
                   className="mt-7 max-w-[11ch] font-heading text-[56px] font-bold leading-[0.92] tracking-[-0.055em] text-white md:text-[68px] xl:text-[72px]"
                 >
-                  Fix your broken intake systems and convert more clients
+                  Stop losing high-value clients due to broken systems
                 </motion.h1>
 
                 <motion.p variants={revealChild} className="mt-5 max-w-xl text-[20px] leading-9 text-white/82 md:text-[22px]">
-                  If leads are coming in but not converting, your system is broken.
+                  We build backend systems that capture, follow up, and convert every opportunity.
                 </motion.p>
 
                 <motion.p variants={revealChild} className="mt-6 max-w-2xl text-[17px] leading-8 text-white/70 md:text-[18px]">
-                  We fix the parts of your lead flow that cost you calls,
-                  clients, and momentum.
+                  We help businesses capture demand, respond instantly, and convert reliably without broken handoffs.
                 </motion.p>
 
                 <motion.div variants={revealChild} className="mt-9">
@@ -188,9 +191,9 @@ export function LandingPage() {
 
                 <motion.div variants={revealChild} className="mt-10 grid gap-4 sm:grid-cols-3">
                   {[
-                    { label: "What changes", value: "More leads become booked calls" },
-                    { label: "What improves", value: "Faster follow-up and cleaner handoffs" },
-                    { label: "What stops", value: "Dropped leads and missed chances" },
+                    { label: "What we build", value: "Systems that capture and route demand cleanly" },
+                    { label: "What improves", value: "Faster response and more reliable follow-up" },
+                    { label: "What stops", value: "Lost leads, missed inquiries, and broken workflows" },
                   ].map((item) => (
                     <div key={item.label} className="rounded-[24px] border border-white/10 bg-white/[0.04] p-5 backdrop-blur-xl">
                       <p className="text-[11px] uppercase tracking-[0.24em] text-white/40">{item.label}</p>
@@ -272,7 +275,7 @@ export function LandingPage() {
                     />
 
                     <div className="absolute inset-x-5 top-5 rounded-full border border-white/10 bg-black/30 px-4 py-3 text-[11px] uppercase tracking-[0.26em] text-cyan-200 backdrop-blur-md">
-                      Clearer lead flow
+                      Protected demand flow
                     </div>
 
                     <motion.div
@@ -282,12 +285,12 @@ export function LandingPage() {
                     >
                       <p className="text-[11px] uppercase tracking-[0.24em] text-white/44">System state</p>
                       <p className="mt-3 font-heading text-[28px] font-semibold leading-tight text-white">
-                        More of your best leads reach the right person
-                        and get a response on time.
+                        More high-value inquiries reach the right team
+                        and keep moving without friction.
                       </p>
                       <p className="mt-4 max-w-md text-sm leading-7 text-white/68">
-                        One clean flow replaces missed follow-ups,
-                        slow handoffs, and hidden gaps.
+                        One clean backend system replaces missed follow-ups,
+                        slow replies, and hidden workflow breaks.
                       </p>
                     </motion.div>
                   </div>
@@ -297,7 +300,11 @@ export function LandingPage() {
           </section>
 
           <CaseStudySection />
+          <SystemsBuiltSection />
+          <HowWeWorkSection />
           <SystemFlowSection />
+          <VisualProofSection />
+          <SentinelSection />
           <ReviewsSection />
           <PricingSection />
           <FinalCtaSection />

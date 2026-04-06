@@ -1,0 +1,69 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { ArrowUpRight, ShieldCheck } from "lucide-react"
+
+import { MagneticButton } from "@/components/home/magnetic-button"
+import { sentinelFeatures } from "@/components/home/site-data"
+
+export function SentinelSection() {
+  return (
+    <section className="px-5 pb-24">
+      <div className="mx-auto max-w-[1200px] rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-8 backdrop-blur-xl md:px-8 md:py-10">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.45 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="grid gap-8 xl:grid-cols-[0.95fr_1.05fr]"
+        >
+          <div className="max-w-3xl">
+            <p className="inline-flex rounded-full border border-cyan-400/18 bg-cyan-400/10 px-4 py-2 text-[11px] uppercase tracking-[0.24em] text-cyan-200">
+              Sentinel
+            </p>
+            <h2 className="mt-6 font-heading text-[40px] font-semibold leading-[0.98] tracking-[-0.04em] text-white md:text-[52px]">
+              Sentinel — System Monitoring & Protection
+            </h2>
+            <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/68">
+              Sentinel is not standalone software. It is the protection layer we deploy so no lead, workflow, or data goes missing.
+            </p>
+            <p className="mt-4 max-w-2xl text-[16px] leading-8 text-white/60">
+              Sentinel monitors your workflows, catches failures, and helps ensure every opportunity keeps moving.
+            </p>
+          </div>
+
+          <div className="rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.025))] p-6 shadow-[0_24px_90px_rgba(3,10,24,0.24)] backdrop-blur-2xl">
+            <div className="flex items-center gap-3">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-cyan-300/20 bg-cyan-400/10">
+                <ShieldCheck className="h-5 w-5 text-cyan-200" />
+              </span>
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/72">Protection layer</p>
+                <p className="mt-1 text-sm leading-6 text-white/60">Built into the system we deliver</p>
+              </div>
+            </div>
+
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              {sentinelFeatures.map((feature) => (
+                <div
+                  key={feature}
+                  className="rounded-[24px] border border-white/10 bg-black/18 px-4 py-5 text-[15px] leading-7 text-white/72"
+                >
+                  {feature}
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8">
+              <MagneticButton href="https://cal.com/vishnuvardhanburri/15min" captureAudit trackingSource="sentinel_cta">
+                Get Free System Audit
+                <ArrowUpRight className="h-4 w-4" />
+              </MagneticButton>
+              <p className="mt-3 text-sm leading-7 text-white/54">We&apos;ll show exactly what&apos;s broken in 15 minutes.</p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}

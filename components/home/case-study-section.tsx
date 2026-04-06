@@ -1,30 +1,14 @@
 "use client"
 
 import { useEffect, useMemo, useRef, useState } from "react"
+import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { ArrowUpRight } from "lucide-react"
 
 import { MagneticButton } from "@/components/home/magnetic-button"
-
-const caseStudies = [
-  {
-    problem: "Leads were coming in, but slow follow-ups meant too many warm prospects went cold before anyone replied.",
-    fix: "Built a faster intake path with instant checks and timed follow-up so every qualified lead got a response.",
-    result: "+42% booked calls",
-  },
-  {
-    problem: "Appointment demand looked healthy, but broken reminders and weak confirmation flows were driving expensive no-shows.",
-    fix: "Reworked the reminder sequence and booking checks so clients stayed engaged all the way to the calendar.",
-    result: "-60% no-shows",
-  },
-  {
-    problem: "Sales teams were manually sorting inbound requests because routing rules were inconsistent across channels.",
-    fix: "Unified the lead path and automated assignment so each inquiry reached the right person without delay.",
-    result: "3.1x faster response",
-  },
-]
+import { homepageCaseStudies } from "@/components/home/site-data"
 
 const sectionReveal = {
   hidden: {},
@@ -84,7 +68,7 @@ export function CaseStudySection() {
   }, [])
 
   return (
-    <section id="case-studies" ref={sectionRef} className="px-5 pb-24">
+    <section id="case-studies" ref={sectionRef} className="px-5 pb-24 pt-6">
       <div className="mx-auto max-w-[1200px] rounded-[40px] border border-white/10 bg-white/[0.035] px-6 py-8 backdrop-blur-xl md:px-8 md:py-10">
         <motion.div
           initial={{ opacity: 0, y: 28 }}
@@ -100,8 +84,7 @@ export function CaseStudySection() {
             Proof that the right fixes lead to more booked calls.
           </h2>
           <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/68">
-            These examples show what happens when slow follow-up,
-            missed handoffs, and messy lead flow are fixed.
+            See the result first, then the problem we fixed to get there.
           </p>
         </motion.div>
 
@@ -112,9 +95,9 @@ export function CaseStudySection() {
           viewport={{ once: true, amount: 0.2 }}
           className="mt-10 grid gap-5 xl:grid-cols-3"
         >
-          {caseStudies.map((study) => (
+          {homepageCaseStudies.map((study) => (
             <motion.article
-              key={study.result}
+              key={study.slug}
               data-case-card
               variants={cardReveal}
               whileHover={{ y: -8, scale: 1.0125 }}
@@ -126,29 +109,36 @@ export function CaseStudySection() {
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.12),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.1),transparent_30%)]" />
               </div>
 
-              <div className="relative grid gap-8 xl:grid-cols-[1.2fr_0.8fr] xl:items-end">
-                <div>
-                  <div className="rounded-[24px] border border-white/8 bg-black/18 p-4">
-                    <p className="text-[11px] uppercase tracking-[0.24em] text-white/38">Problem</p>
-                    <p className="mt-3 text-[15px] leading-7 text-white/76">{study.problem}</p>
-                  </div>
-
-                  <div className="mt-4 rounded-[24px] border border-white/8 bg-black/18 p-4">
-                    <p className="text-[11px] uppercase tracking-[0.24em] text-white/38">Fix</p>
-                    <p className="mt-3 text-[15px] leading-7 text-white/76">{study.fix}</p>
-                  </div>
-                </div>
-
-                <div className="rounded-[28px] border border-white/8 bg-[linear-gradient(180deg,rgba(34,211,238,0.08),rgba(255,255,255,0.03))] p-5 xl:min-h-[220px]">
+              <div className="relative">
+                <p className="text-center text-[11px] uppercase tracking-[0.28em] text-cyan-200/70">{study.eyebrow}</p>
+                <div className="mt-5 rounded-[28px] border border-cyan-300/16 bg-[linear-gradient(180deg,rgba(34,211,238,0.08),rgba(255,255,255,0.02))] px-5 py-6 text-center shadow-[0_0_60px_rgba(34,211,238,0.08)]">
                   <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/76">Result</p>
-                  <div className="mt-5">
+                  <div className="mt-4 flex justify-center">
                     <ResultCounter result={study.result} />
                   </div>
-                  <p className="mt-4 inline-flex items-center gap-2 text-sm text-white/56">
-                    Outcome delivered
-                    <ArrowUpRight className="h-4 w-4 text-cyan-200" />
-                  </p>
+                  <p className="mt-2 text-sm leading-6 text-white/54">{study.timeframe}</p>
+                  <p className="mt-3 text-sm leading-6 text-white/48">{study.microProof}</p>
                 </div>
+
+                <div className="mt-5 rounded-[24px] border border-white/8 bg-black/18 p-4">
+                  <p className="text-[11px] uppercase tracking-[0.24em] text-white/38">Problem</p>
+                  <p className="mt-3 text-[15px] leading-7 text-white/62">{study.problem}</p>
+                </div>
+
+                <div className="mt-4 rounded-[24px] border border-white/8 bg-black/18 p-4">
+                  <p className="text-[11px] uppercase tracking-[0.24em] text-white/38">Fix</p>
+                  <p className="mt-3 text-[15px] leading-7 text-white/62">{study.fix}</p>
+                </div>
+
+                <p className="mt-4 text-center text-sm leading-6 text-white/46">{study.summary}</p>
+
+                <Link
+                  href="/case-studies"
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-cyan-100 transition hover:text-white"
+                >
+                  View full case study breakdown
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
               </div>
             </motion.article>
           ))}
@@ -200,12 +190,12 @@ function ResultCounter({ result }: { result: string }) {
 
   return (
     <div ref={ref}>
-      <p className="font-heading text-[54px] font-semibold leading-[0.9] tracking-[-0.05em] text-white md:text-[72px]">
+      <p className="font-heading text-[72px] font-semibold leading-[0.82] tracking-[-0.06em] text-white drop-shadow-[0_0_24px_rgba(165,243,252,0.18)] md:text-[92px]">
         <span className="text-cyan-200">{parsed.prefix}</span>
         {display.toFixed(parsed.decimals)}
         <span className="text-cyan-200">{parsed.suffix}</span>
       </p>
-      <p className="mt-3 text-[15px] leading-7 text-white/72">{parsed.label}</p>
+      <p className="mt-2 text-[15px] leading-6 text-white/72">{parsed.label}</p>
     </div>
   )
 }

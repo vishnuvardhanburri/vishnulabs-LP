@@ -5,23 +5,7 @@ import { motion } from "framer-motion"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
-const reviews = [
-  { name: "Jordan M.", role: "Founder, B2B SaaS", rating: 5, text: "We stopped losing qualified leads in the gaps between form fills and follow-up." },
-  { name: "Elena R.", role: "Operations Lead, Legal Intake Team", rating: 5, text: "The system became easier to trust, and our response times improved almost immediately." },
-  { name: "Marcus T.", role: "Growth Director, Service Business", rating: 5, text: "More leads reached the right rep faster, and bookings became much more consistent." },
-  { name: "Priya S.", role: "Founder, Health Services Platform", rating: 5, text: "We finally had a clean path from inquiry to appointment without manual patching." },
-  { name: "Nina K.", role: "COO, Marketplace Startup", rating: 5, text: "The handoff issues were fixed, and our team stopped spending hours sorting broken entries." },
-  { name: "David L.", role: "Head of Growth, SaaS Company", rating: 5, text: "The flow feels stable now. We can scale campaigns without worrying the backend will break." },
-  { name: "Rachel P.", role: "Operations Manager, Home Services", rating: 5, text: "No-shows dropped because reminders and confirmations finally worked the way they should." },
-  { name: "Aman V.", role: "Founder, Booking Platform", rating: 5, text: "We went from messy handoffs to a system that feels organized and dependable." },
-  { name: "Sarah D.", role: "Revenue Lead, Agency", rating: 5, text: "The biggest improvement was clarity. Everyone knew where leads were and what happened next." },
-  { name: "Lucas B.", role: "Product Lead, SaaS Team", rating: 5, text: "We saw a visible lift in conversions after cleaning up the intake and follow-up process." },
-  { name: "Megan H.", role: "Director, Clinic Operations", rating: 5, text: "Our staff no longer had to chase avoidable issues because the system handled them upfront." },
-  { name: "Omar F.", role: "Founder, Local Services Brand", rating: 5, text: "The difference was immediate: cleaner lead quality, faster handoffs, and more booked calls." },
-  { name: "Sophia W.", role: "COO, Startup Studio", rating: 5, text: "It feels like an established system now, not a stack of fragile follow-up tools." },
-  { name: "Kevin J.", role: "Sales Ops Lead, B2B Platform", rating: 5, text: "The team regained confidence because the path from lead to meeting finally became predictable." },
-  { name: "Anika C.", role: "Founder, Professional Services Firm", rating: 5, text: "We needed consistency more than new tools, and that is exactly what got delivered." },
-]
+import { reviews } from "@/components/home/site-data"
 
 const sectionReveal = {
   hidden: {},

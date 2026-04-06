@@ -1,145 +1,165 @@
 export const navItems = [
-  { label: "Problem", href: "#problem" },
-  { label: "System Flow", href: "#flow" },
-  { label: "Services", href: "#services" },
-  { label: "Case Studies", href: "#cases" },
+  { label: "Case Studies", href: "#case-studies" },
+  { label: "System Flow", href: "#system-flow" },
+  { label: "Systems", href: "#systems-built" },
+  { label: "How We Work", href: "#how-we-work" },
   { label: "Reviews", href: "#reviews" },
   { label: "Pricing", href: "#pricing" },
 ]
 
-export const trustMetrics = [
-  { value: 40, prefix: "+", suffix: "%", label: "Lift in qualified intake conversion" },
-  { value: 60, prefix: "-", suffix: "%", label: "Reduction in no-shows after follow-up repair" },
-  { value: 3.2, prefix: "", suffix: "x", label: "Faster lead response routing for ops teams" },
-  { value: 99.2, prefix: "", suffix: "%", label: "Workflow completion reliability after rebuild" },
-]
-
-export const problemTimeline = [
+export const homepageCaseStudies = [
   {
-    title: "Leads arrive with no structure",
-    detail: "Forms, calls, and ads feed different systems, so contact data lands incomplete from the first touch.",
+    slug: "legal-intake-bookings",
+    eyebrow: "B2B SaaS (Lead Gen Funnel)",
+    title: "How we increased booked calls by 42%",
+    result: "+42% booked calls",
+    timeframe: "in 14 days",
+    problem: "Demo requests cooled off while reps waited to reply.",
+    fix: "Added instant response and automated follow-ups.",
+    microProof: "System rebuilt in 7 days",
+    summary: "Leads stopped sitting between teams, and booked consultations rose within eight weeks.",
+    before: ["Slow replies after form fills", "Duplicate records across tools", "Manual lead sorting"],
+    after: ["Immediate lead checks", "Clear owner assignment", "Follow-up that runs on time"],
+    flow: ["Lead captured", "Lead checked", "Assigned fast", "Follow-up sent", "Call booked"],
+    metrics: [
+      { value: "+42%", label: "Booked calls" },
+      { value: "-60%", label: "Missed follow-ups" },
+    ],
   },
   {
-    title: "Validation breaks silently",
-    detail: "Duplicate records, bad fields, and missing ownership create gaps that nobody sees until follow-up slips.",
+    slug: "home-services-no-show-recovery",
+    eyebrow: "Home Services (Inbound Leads)",
+    title: "How we cut no-shows by 60%",
+    result: "-60% no-shows",
+    timeframe: "within 2 weeks",
+    problem: "Booked jobs slipped when reminders stopped going out.",
+    fix: "Set up reminder automation and tighter confirmations.",
+    microProof: "Fully automated pipeline",
+    summary: "Sales reps stopped rescuing appointments by hand, and more booked jobs actually showed up.",
+    before: ["Reminder sequence failed silently", "Last-minute cancellations", "Manual rescue work for staff"],
+    after: ["Reliable reminders", "Clear confirmation steps", "Escalation before a no-show happens"],
+    flow: ["Appointment created", "Reminder sequence", "Confirmation check", "Fallback alert", "Visit kept"],
+    metrics: [
+      { value: "-60%", label: "No-shows" },
+      { value: "+31%", label: "Kept appointments" },
+    ],
   },
   {
-    title: "Follow-up never fires correctly",
-    detail: "Reminders, routing, and SMS flows drift out of sync, leaving high-intent leads sitting untouched.",
-  },
-  {
-    title: "Revenue leaks compound",
-    detail: "Teams start patching manually, reporting gets noisy, and growth stalls because the intake path is unreliable.",
-  },
-]
-
-export const systemFlow = [
-  {
-    title: "Lead",
-    caption: "Capture from ads, forms, calls, and referrals",
-    tooltip: "Every source is normalized so one broken input does not poison the rest of the pipeline.",
-  },
-  {
-    title: "Validate",
-    caption: "Check data quality, intent, and fit before routing",
-    tooltip: "Validation rules stop duplicates, incomplete records, and bad enrichment before they trigger downstream work.",
-  },
-  {
-    title: "Route",
-    caption: "Assign by market, urgency, or team capacity",
-    tooltip: "Routing logic keeps handoffs deterministic so leads reach the right owner without manual sorting.",
-  },
-  {
-    title: "Follow-up",
-    caption: "Trigger reminders, outreach, and escalation paths",
-    tooltip: "Follow-up is sequenced around response windows so no lead depends on one person remembering the next step.",
-  },
-  {
-    title: "Booked",
-    caption: "Push clean conversions into calendars and CRM",
-    tooltip: "Booked outcomes are logged with auditability so the team can trust reporting and attribution.",
-  },
-]
-
-export const services = [
-  {
-    title: "Intake System Rebuilds",
-    result: "Repair broken lead capture, qualification, and routing flows so demand turns into booked conversations.",
-  },
-  {
-    title: "Automation Recovery",
-    result: "Replace brittle follow-up sequences with production-ready workflows that keep running without babysitting.",
-  },
-  {
-    title: "Revenue Ops Engineering",
-    result: "Connect CRM, scheduling, messaging, and reporting systems into one reliable operating loop.",
-  },
-  {
-    title: "Embedded Delivery",
-    result: "Partner from idea to deployment when your team needs senior execution without building an internal platform group.",
+    slug: "saas-response-speed",
+    eyebrow: "B2B Sales Team (Inbound Routing)",
+    title: "How we made follow-up 3.1x faster",
+    result: "3.1x faster response",
+    timeframe: "after system rebuild",
+    problem: "Good inbound leads stalled in a messy handoff queue.",
+    fix: "Introduced instant routing with one clear next step.",
+    microProof: "Deployed in 1 week",
+    summary: "The team responded faster, trusted the pipeline again, and stopped losing good leads in the gaps.",
+    before: ["Different handoffs by channel", "Unclear owner for new demos", "Slow first response times"],
+    after: ["One clear path for every source", "Instant owner assignment", "Consistent speed to first reply"],
+    flow: ["Lead captured", "Intent checked", "Owner assigned", "Follow-up sent", "Demo booked"],
+    metrics: [
+      { value: "3.1x", label: "Faster first response" },
+      { value: "+24%", label: "Qualified demos" },
+    ],
   },
 ]
 
-export const caseStudies = [
-  {
-    title: "Legal intake team",
-    problem: "Inbound leads were split across forms and calls, creating duplicate records and long response gaps.",
-    fix: "Unified intake capture, added validation gates, and rebuilt routing with automated reminders.",
-    result: "+42% qualified consult bookings in 8 weeks",
-    value: 42,
-  },
-  {
-    title: "Home services operator",
-    problem: "Sales reps were manually chasing missed appointments because confirmation flows kept failing.",
-    fix: "Introduced reliable sequencing across booking, reminder, and reschedule logic with fallback alerts.",
-    result: "-58% no-shows after system relaunch",
-    value: 58,
-  },
-  {
-    title: "B2B SaaS growth team",
-    problem: "High-intent demos were leaking due to poor lead scoring and inconsistent handoff rules.",
-    fix: "Added source-aware scoring, assignment rules, and clear CRM lifecycle states.",
-    result: "3.1x faster first-response execution",
-    value: 3.1,
-  },
+export const reviews = [
+  { name: "Jordan M.", role: "Founder, B2B SaaS", rating: 5, text: "We stopped losing qualified leads in the gaps between form fills and follow-up." },
+  { name: "Elena R.", role: "Operations Lead, Legal Intake Team", rating: 5, text: "The system became easier to trust, and our response times improved almost immediately." },
+  { name: "Marcus T.", role: "Growth Director, Service Business", rating: 5, text: "More leads reached the right rep faster, and bookings became much more consistent." },
+  { name: "Priya S.", role: "Founder, Health Services Platform", rating: 5, text: "We finally had a clean path from inquiry to appointment without manual patching." },
+  { name: "Nina K.", role: "COO, Marketplace Startup", rating: 5, text: "The handoff issues were fixed, and our team stopped spending hours sorting broken entries." },
+  { name: "David L.", role: "Head of Growth, SaaS Company", rating: 5, text: "The flow feels stable now. We can scale campaigns without worrying the backend will break." },
+  { name: "Rachel P.", role: "Operations Manager, Home Services", rating: 5, text: "No-shows dropped because reminders and confirmations finally worked the way they should." },
+  { name: "Aman V.", role: "Founder, Booking Platform", rating: 5, text: "We went from messy handoffs to a system that feels organized and dependable." },
+  { name: "Sarah D.", role: "Revenue Lead, Agency", rating: 5, text: "The biggest improvement was clarity. Everyone knew where leads were and what happened next." },
+  { name: "Lucas B.", role: "Product Lead, SaaS Team", rating: 5, text: "We saw a visible lift in conversions after cleaning up the intake and follow-up process." },
+  { name: "Megan H.", role: "Director, Clinic Operations", rating: 5, text: "Our staff no longer had to chase avoidable issues because the system handled them upfront." },
+  { name: "Omar F.", role: "Founder, Local Services Brand", rating: 5, text: "The difference was immediate: cleaner lead quality, faster handoffs, and more booked calls." },
+  { name: "Sophia W.", role: "COO, Startup Studio", rating: 5, text: "It feels like an established system now, not a stack of fragile follow-up tools." },
+  { name: "Kevin J.", role: "Sales Ops Lead, B2B Platform", rating: 5, text: "The team regained confidence because the path from lead to meeting finally became predictable." },
+  { name: "Anika C.", role: "Founder, Professional Services Firm", rating: 5, text: "We needed consistency more than new tools, and that is exactly what got delivered." },
 ]
-
-export const reviews = Array.from({ length: 15 }, (_, index) => ({
-  name: `Placeholder Client ${String(index + 1).padStart(2, "0")}`,
-  company: [
-    "Series A SaaS",
-    "Legal Services Group",
-    "Healthcare Intake Team",
-    "Marketplace Operator",
-    "Home Services Brand",
-  ][index % 5],
-  quote: [
-    "The intake path finally behaves predictably, and our team is not rescuing leads by hand anymore.",
-    "We now have one clear system for routing and follow-up instead of several brittle automations glued together.",
-    "The biggest change was trust. Reporting is cleaner, handoffs are faster, and the workflow no longer drifts.",
-  ][index % 3],
-}))
 
 export const pricingTiers = [
   {
     name: "Starter",
-    price: "$4,000/mo",
+    price: "$4,000",
+    term: "/ month",
     hours: "40 hours",
-    audience: "For teams fixing one unstable funnel, follow-up path, or intake workflow.",
-    outcome: "Stabilize the highest-leverage bottleneck and get a reliable operating baseline fast.",
+    audience: "For small systems, fixes, and early-stage setups.",
+    outcome: "Get the core system stable fast so leads stop leaking through broken handoffs.",
   },
   {
     name: "Growth",
-    price: "$8,000/mo",
+    price: "$8,000",
+    term: "/ month",
     hours: "80 hours",
-    audience: "For companies rebuilding full automation pipelines across lead capture, routing, and booking.",
-    outcome: "Connect the full conversion path so marketing demand turns into clean, trackable pipeline.",
+    audience: "For full lead pipelines and growing systems.",
+    outcome: "Build the full path from first contact to booked call with faster follow-up and fewer missed leads.",
+    featured: true,
   },
   {
     name: "Scale",
-    price: "$12,000/mo",
+    price: "$12,000",
+    term: "/ month",
     hours: "120 hours",
-    audience: "For operators who need ongoing system ownership, rollout support, and deeper implementation capacity.",
-    outcome: "Ship and maintain production systems from idea to deployment without relying on fragile patchwork.",
+    audience: "For ongoing system ownership and complex workflows.",
+    outcome: "Move faster with senior implementation support across the systems your revenue depends on most.",
   },
+]
+
+export const systemsWeBuild = [
+  {
+    title: "Lead Intake System",
+    description: "Capture every inquiry cleanly so the right leads are ready to act on immediately.",
+  },
+  {
+    title: "Automated Follow-up System",
+    description: "Keep leads warm with timely outreach that does not depend on manual chasing.",
+  },
+  {
+    title: "Scheduling & Reminder System",
+    description: "Turn interest into attended calls with reminders and confirmations that hold up.",
+  },
+  {
+    title: "CRM Sync & Routing System",
+    description: "Send each lead to the right person with one clear source of truth.",
+  },
+  {
+    title: "Conversion Tracking System",
+    description: "Show where leads convert, where they stall, and what needs attention next.",
+  },
+]
+
+export const howWeWorkSteps = [
+  {
+    step: "01",
+    title: "Audit",
+    description: "We review where leads enter, where they stall, and what is costing you booked calls.",
+  },
+  {
+    step: "02",
+    title: "Identify failure points",
+    description: "We isolate the gaps that break follow-up, handoffs, and conversion visibility.",
+  },
+  {
+    step: "03",
+    title: "Build system",
+    description: "We rebuild the path so every lead moves cleanly from inquiry to booked call.",
+  },
+  {
+    step: "04",
+    title: "Optimize performance",
+    description: "We keep improving the flow until the system is easier to trust and easier to scale.",
+  },
+]
+
+export const visualProofLayers = [
+  { label: "Lead sources", state: "Forms, calls, ads" },
+  { label: "Lead checks", state: "Usable details only" },
+  { label: "Routing", state: "Right person fast" },
+  { label: "Follow-up", state: "Reminders on time" },
+  { label: "Booked call", state: "Tracked outcome" },
 ]

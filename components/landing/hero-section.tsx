@@ -17,20 +17,6 @@ const HeroCanvas = dynamic(() => import("@/components/landing/hero-canvas").then
   ),
 })
 
-const reveal = {
-  hidden: { opacity: 0, y: 28, filter: "blur(12px)" },
-  show: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: {
-      delay: index * 0.08,
-      duration: 0.9,
-      ease: [0.19, 1, 0.22, 1],
-    },
-  }),
-}
-
 function HeroVisualFallback() {
   return (
     <div className="absolute inset-0">
@@ -149,33 +135,24 @@ export function HeroSection() {
     <section ref={sectionRef} className="relative min-h-screen px-5 py-24 sm:px-6 sm:py-28 lg:px-10 lg:py-32">
       <div className="mx-auto flex min-h-[88vh] max-w-7xl flex-col rounded-[2rem] border border-white/10 bg-white/[0.03] px-5 py-6 shadow-[0_30px_120px_rgba(0,0,0,0.55)] backdrop-blur-xl sm:px-8 lg:px-10 lg:py-10">
         <div className="grid flex-1 items-center gap-12 py-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-8">
-          <motion.div
-            ref={copyRef}
-            initial="hidden"
-            animate="show"
-            className="relative z-10 max-w-3xl"
-          >
-            <motion.div custom={0} variants={reveal} className="inline-flex items-center gap-2 rounded-full border border-sky-400/20 bg-sky-400/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-200">
+          <div ref={copyRef} className="relative z-10 max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-sky-400/20 bg-sky-400/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-200">
               <ShieldCheck className="h-3.5 w-3.5" />
               Backend Stabilization
-            </motion.div>
+            </div>
 
-            <motion.h1
-              custom={1}
-              variants={reveal}
-              className="mt-8 max-w-4xl text-balance font-sans text-[2.9rem] font-semibold leading-[0.92] tracking-[-0.06em] text-white sm:text-[4.25rem] lg:text-[5.5rem]"
-            >
+            <h1 className="mt-8 max-w-4xl text-balance font-sans text-[2.9rem] font-semibold leading-[0.92] tracking-[-0.06em] text-white sm:text-[4.25rem] lg:text-[5.5rem]">
               Backend Systems,
               <span className="block bg-[linear-gradient(90deg,#e879f9_0%,#60a5fa_48%,#c084fc_100%)] bg-clip-text text-transparent">
                 Workflow Reliability
               </span>
-            </motion.h1>
+            </h1>
 
-            <motion.p custom={2} variants={reveal} className="mt-6 max-w-2xl text-lg leading-8 text-zinc-400">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300">
               Fix broken workflows, stabilize brittle automations, and rebuild the systems that revenue depends on.
-            </motion.p>
+            </p>
 
-            <motion.div custom={3} variants={reveal} className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <MagneticButton
                 href="/book"
                 className="group px-6 py-3 text-sm shadow-[0_0_0_1px_rgba(255,255,255,0.15),0_20px_80px_rgba(56,189,248,0.2)]"
@@ -190,9 +167,9 @@ export function HeroSection() {
                 <Play className="h-4 w-4" />
                 View System Flow
               </a>
-            </motion.div>
+            </div>
 
-            <motion.div custom={4} variants={reveal} className="mt-10 grid gap-4 sm:grid-cols-3">
+            <div className="mt-10 grid gap-4 sm:grid-cols-3">
               {[
                 { label: "Failure mode", value: "Dropped handoffs" },
                 { label: "Priority", value: "Reliable execution" },
@@ -203,14 +180,11 @@ export function HeroSection() {
                   <p className="mt-2 text-sm font-medium text-zinc-100">{item.value}</p>
                 </div>
               ))}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
-          <motion.div
+          <div
             ref={visualRef}
-            initial={{ opacity: 0, y: 28, filter: "blur(12px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ delay: 0.28, duration: 1.1, ease: [0.19, 1, 0.22, 1] }}
             className="relative h-[28rem] overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_40px_120px_rgba(0,0,0,0.45)] sm:h-[34rem] lg:h-[40rem]"
           >
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(236,72,153,0.15),transparent_24%),radial-gradient(circle_at_top_right,rgba(59,130,246,0.16),transparent_26%),radial-gradient(circle_at_bottom,rgba(139,92,246,0.16),transparent_30%)]" />
@@ -229,7 +203,7 @@ export function HeroSection() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

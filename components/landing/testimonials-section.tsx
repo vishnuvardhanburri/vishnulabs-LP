@@ -21,7 +21,7 @@ export function TestimonialsSection() {
     <section className="px-5 pb-28 pt-24 sm:px-6 lg:px-10">
       <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl md:p-8">
         <div className="max-w-3xl">
-          <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-500">Trust</p>
+          <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-300">Trust</p>
           <h2 className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
             Trusted when reliability matters more than another tool.
           </h2>

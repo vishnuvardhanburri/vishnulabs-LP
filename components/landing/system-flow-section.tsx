@@ -12,11 +12,11 @@ export function SystemFlowSection() {
     <section id="system-flow" className="relative px-5 py-24 sm:px-6 lg:px-10">
       <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl md:p-8">
         <div className="max-w-3xl">
-          <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-500">System Flow</p>
+          <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-300">System Flow</p>
           <h2 className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
             Input to output, without silent failure in the middle.
           </h2>
-          <p className="mt-4 text-lg leading-8 text-zinc-400">
+          <p className="mt-4 text-lg leading-8 text-zinc-300">
             Replace hidden breakpoints with a controlled sequence your team can trust.
           </p>
         </div>
@@ -36,10 +36,10 @@ export function SystemFlowSection() {
                     <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] text-sky-200">
                       <Icon className="h-5 w-5" />
                     </div>
-                    {index < nodes.length - 1 ? <ArrowRight className="hidden h-4 w-4 text-zinc-600 lg:block" /> : null}
+                    {index < nodes.length - 1 ? <ArrowRight className="hidden h-4 w-4 text-zinc-400 lg:block" /> : null}
                   </div>
                   <p className="mt-6 text-2xl font-semibold text-white">{node.label}</p>
-                  <p className="mt-3 text-sm leading-7 text-zinc-400">{node.detail}</p>
+                  <p className="mt-3 text-sm leading-7 text-zinc-300">{node.detail}</p>
                 </div>
               </div>
             )

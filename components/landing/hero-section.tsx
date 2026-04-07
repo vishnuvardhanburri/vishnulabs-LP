@@ -1,12 +1,6 @@
-"use client"
-
-import { useEffect, useRef } from "react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { ArrowRight, Play, ShieldCheck, Workflow } from "lucide-react"
 
-import { MagneticButton } from "@/components/home/magnetic-button"
-import { useIsMobile } from "@/components/ui/use-mobile"
+import { AppLink } from "@/components/app-link"
 
 function HeroVisualFallback() {
   return (
@@ -20,41 +14,11 @@ function HeroVisualFallback() {
 }
 
 export function HeroSection() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const copyRef = useRef<HTMLDivElement>(null)
-  const visualRef = useRef<HTMLDivElement>(null)
-  const isMobile = useIsMobile()
-
-  useEffect(() => {
-    if (isMobile || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return
-    }
-
-    gsap.registerPlugin(ScrollTrigger)
-
-    const ctx = gsap.context(() => {
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "bottom top+=120",
-          scrub: 1.1,
-        },
-      })
-
-      timeline
-        .to(copyRef.current, { yPercent: -10, opacity: 0.92, force3D: true }, 0)
-        .to(visualRef.current, { yPercent: -16, scale: 0.96, force3D: true }, 0)
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [isMobile])
-
   return (
-    <section ref={sectionRef} className="relative min-h-screen px-5 py-24 sm:px-6 sm:py-28 lg:px-10 lg:py-32">
+    <section className="relative min-h-screen px-5 py-24 sm:px-6 sm:py-28 lg:px-10 lg:py-32">
       <div className="mx-auto flex min-h-[88vh] max-w-7xl flex-col rounded-[2rem] border border-white/10 bg-white/[0.03] px-5 py-6 shadow-[0_30px_120px_rgba(0,0,0,0.55)] backdrop-blur-xl sm:px-8 lg:px-10 lg:py-10">
         <div className="grid flex-1 items-center gap-12 py-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-8">
-          <div ref={copyRef} className="relative z-10 max-w-3xl">
+          <div className="relative z-10 max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-sky-400/20 bg-sky-400/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-200">
               <ShieldCheck className="h-3.5 w-3.5" />
               Backend Stabilization
@@ -72,13 +36,13 @@ export function HeroSection() {
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <MagneticButton
+              <AppLink
                 href="/book"
-                className="group px-6 py-3 text-sm shadow-[0_0_0_1px_rgba(255,255,255,0.15),0_20px_80px_rgba(56,189,248,0.2)]"
+                className="glow-button group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-black shadow-[0_0_0_1px_rgba(255,255,255,0.15),0_20px_80px_rgba(56,189,248,0.2)]"
               >
                 Book System Review
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </MagneticButton>
+              </AppLink>
               <a
                 href="#system-flow"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/[0.08]"
@@ -89,13 +53,13 @@ export function HeroSection() {
             </div>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-3">
-              {[
-                { label: "Failure mode", value: "Dropped handoffs" },
-                { label: "Priority", value: "Reliable execution" },
-                { label: "Fit", value: "Revenue-critical ops" },
-              ].map((item) => (
-                <div key={item.label} className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-4 backdrop-blur-md">
-                  <p className="text-[10px] uppercase tracking-[0.24em] text-zinc-500">{item.label}</p>
+                {[
+                  { label: "Failure mode", value: "Dropped handoffs" },
+                  { label: "Priority", value: "Reliable execution" },
+                  { label: "Fit", value: "Revenue-critical ops" },
+                ].map((item) => (
+                  <div key={item.label} className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-4 backdrop-blur-md">
+                  <p className="text-[10px] uppercase tracking-[0.24em] text-zinc-300">{item.label}</p>
                   <p className="mt-2 text-sm font-medium text-zinc-100">{item.value}</p>
                 </div>
               ))}
@@ -103,7 +67,6 @@ export function HeroSection() {
           </div>
 
           <div
-            ref={visualRef}
             className="relative h-[28rem] overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_40px_120px_rgba(0,0,0,0.45)] sm:h-[34rem] lg:h-[40rem]"
           >
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(236,72,153,0.15),transparent_24%),radial-gradient(circle_at_top_right,rgba(59,130,246,0.16),transparent_26%),radial-gradient(circle_at_bottom,rgba(139,92,246,0.16),transparent_30%)]" />
@@ -117,7 +80,7 @@ export function HeroSection() {
                   <Workflow className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">Operating model</p>
+                  <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-300">Operating model</p>
                   <p className="mt-1 text-sm text-zinc-200">Input control, validation, orchestration, clean outputs.</p>
                 </div>
               </div>

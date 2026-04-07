@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation"
 import { ArrowUpRight, Menu, X } from "lucide-react"
 import { AppLink } from "@/components/app-link"
 import { useLeadCapture } from "@/components/home/lead-capture-provider"
-import { MagneticButton } from "@/components/home/magnetic-button"
+import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -82,10 +82,10 @@ export function Navbar() {
             </nav>
 
             <div className="hidden lg:block">
-              <MagneticButton href="/book" captureAudit trackingSource="nav_cta" className="h-10 px-5 py-2.5 text-sm">
+              <AuditCtaButton trackingSource="nav_cta" className="h-10 px-5 py-2.5 text-sm">
                 Get Free System Audit
                 <ArrowUpRight className="h-3.5 w-3.5" />
-              </MagneticButton>
+              </AuditCtaButton>
             </div>
 
             <button
@@ -121,20 +121,15 @@ export function Navbar() {
                   </AppLink>
                 ))}
                 <div className="mt-2 border-t border-border/50 pt-3">
-                  <AppLink
-                    href="/book"
-                    prefetch
-                    onClick={(event) => {
-                      event.preventDefault()
-                      setMobileOpen(false)
-                      openLeadCapture("mobile_nav_cta")
-                    }}
-                    className="glow-button inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-black"
+                  <AuditCtaButton
+                    onClick={() => setMobileOpen(false)}
+                    className="w-full px-5 py-3 text-sm"
+                    trackingSource="mobile_nav_cta"
                     data-track="mobile_nav_cta"
                   >
                     Get Free System Audit
                     <ArrowUpRight className="h-3.5 w-3.5" />
-                  </AppLink>
+                  </AuditCtaButton>
                 </div>
               </div>
             </nav>

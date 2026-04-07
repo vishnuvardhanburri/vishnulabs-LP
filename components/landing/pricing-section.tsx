@@ -15,12 +15,12 @@ export function PricingSection() {
       <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl md:p-8">
         <div className="flex flex-col gap-4 border-b border-white/10 pb-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
-            <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-500">Pricing</p>
+            <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-300">Pricing</p>
             <h2 className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
               Clear pricing for teams that need stable systems.
             </h2>
           </div>
-          <p className="max-w-xl text-base leading-8 text-zinc-400">
+          <p className="max-w-xl text-base leading-8 text-zinc-300">
             Pick the level of control you need now. Expand only when the system earns it.
           </p>
         </div>
@@ -45,11 +45,11 @@ export function PricingSection() {
               ) : null}
 
               <div className="relative">
-                <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">{plan.name}</p>
+                <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-300">{plan.name}</p>
                 <p className="mt-6 bg-[linear-gradient(90deg,#ffffff_0%,#c4b5fd_38%,#7dd3fc_100%)] bg-clip-text text-5xl font-semibold tracking-[-0.06em] text-transparent">
                   {plan.price}
                 </p>
-                <p className="mt-4 min-h-[84px] text-sm leading-7 text-zinc-400">{plan.detail}</p>
+                <p className="mt-4 min-h-[84px] text-sm leading-7 text-zinc-300">{plan.detail}</p>
                 {plan.highlight ? (
                   <AppLink
                     href="/book"

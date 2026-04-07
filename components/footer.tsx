@@ -2,7 +2,7 @@ import Image from "next/image"
 
 import { AppLink } from "@/components/app-link"
 import { customPackageMailto } from "@/components/custom-solution-note"
-import { MagneticButton } from "@/components/home/magnetic-button"
+import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 
 const serviceLinks = [
   { label: "Sentinel", href: "/sentinel" },
@@ -60,14 +60,12 @@ export function Footer() {
               >
                 View Pricing
               </AppLink>
-              <MagneticButton
-                href="/book"
-                captureAudit
+              <AuditCtaButton
                 trackingSource="footer_book_review"
                 className="border border-white/12 bg-white/[0.04] px-5 py-3 text-sm text-white transition-colors hover:bg-white/[0.08]"
               >
                 Book Review
-              </MagneticButton>
+              </AuditCtaButton>
             </div>
           </div>
         </div>

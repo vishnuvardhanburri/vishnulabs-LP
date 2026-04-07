@@ -1,6 +1,3 @@
-"use client"
-
-import { motion } from "framer-motion"
 import { ArrowRight, Database, ShieldCheck, Sparkles, Workflow } from "lucide-react"
 
 const nodes = [
@@ -29,12 +26,8 @@ export function SystemFlowSection() {
             const Icon = node.icon
 
             return (
-              <motion.div
+              <div
                 key={node.label}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ delay: index * 0.08, duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
                 className="relative rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.3)]"
               >
                 <div className="absolute inset-0 rounded-[1.75rem] bg-[radial-gradient(circle_at_top,rgba(96,165,250,0.12),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(217,70,239,0.1),transparent_30%)]" />
@@ -48,7 +41,7 @@ export function SystemFlowSection() {
                   <p className="mt-6 text-2xl font-semibold text-white">{node.label}</p>
                   <p className="mt-3 text-sm leading-7 text-zinc-400">{node.detail}</p>
                 </div>
-              </motion.div>
+              </div>
             )
           })}
         </div>

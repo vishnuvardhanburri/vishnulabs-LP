@@ -1,9 +1,6 @@
-"use client"
-
-import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 
-import { MagneticButton } from "@/components/home/magnetic-button"
+import { AppLink } from "@/components/app-link"
 
 const plans = [
   { name: "Starter", price: "$149", detail: "For teams cleaning up one fragile workflow.", highlight: false },
@@ -30,14 +27,9 @@ export function PricingSection() {
 
         <div className="mt-8 grid gap-4 lg:grid-cols-4">
           {plans.map((plan, index) => (
-            <motion.article
+            <article
               key={plan.name}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              whileHover={{ y: -10, scale: 1.018 }}
-              transition={{ delay: index * 0.06, duration: 0.75, ease: [0.19, 1, 0.22, 1] }}
-              className={`group relative overflow-hidden rounded-[1.75rem] border p-5 shadow-[0_24px_80px_rgba(0,0,0,0.3)] backdrop-blur-md ${
+              className={`group relative overflow-hidden rounded-[1.75rem] border p-5 shadow-[0_24px_80px_rgba(0,0,0,0.3)] backdrop-blur-md transition-transform duration-300 hover:-translate-y-2 hover:scale-[1.018] ${
                 plan.highlight
                   ? "border-sky-300/40 bg-white/[0.1]"
                   : "border-white/10 bg-white/[0.04]"
@@ -59,26 +51,24 @@ export function PricingSection() {
                 </p>
                 <p className="mt-4 min-h-[84px] text-sm leading-7 text-zinc-400">{plan.detail}</p>
                 {plan.highlight ? (
-                  <MagneticButton
+                  <AppLink
                     href="/book"
-                    className="mt-8 px-4 py-2 text-sm shadow-[0_18px_50px_rgba(56,189,248,0.18)]"
+                    className="mt-8 inline-flex items-center gap-2 rounded-full border border-sky-300/30 bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(186,230,253,0.92))] px-4 py-2 text-sm font-semibold text-zinc-950 shadow-[0_18px_50px_rgba(56,189,248,0.18)] transition-transform duration-300 hover:scale-[1.03]"
                   >
                     Book System Review
                     <ArrowUpRight className="h-4 w-4" />
-                  </MagneticButton>
+                  </AppLink>
                 ) : (
-                  <a
-                  href="/book"
-                  className={`mt-8 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-all ${
-                    "border border-white/12 bg-white/[0.04] text-sky-200 hover:bg-white/[0.08] hover:text-white"
-                  }`}
-                >
-                  Book System Review
-                  <ArrowUpRight className="h-4 w-4" />
-                  </a>
+                  <AppLink
+                    href="/book"
+                    className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-sky-200 transition-all hover:bg-white/[0.08] hover:text-white"
+                  >
+                    Book System Review
+                    <ArrowUpRight className="h-4 w-4" />
+                  </AppLink>
                 )}
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
       </div>

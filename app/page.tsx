@@ -1,10 +1,8 @@
-import dynamic from "next/dynamic"
-
-const HeroSection = dynamic(() => import("@/components/landing/hero-section").then((module) => module.HeroSection))
-const SystemFlowSection = dynamic(() => import("@/components/landing/system-flow-section").then((module) => module.SystemFlowSection))
-const IntentLinksSection = dynamic(() => import("@/components/landing/intent-links-section").then((module) => module.IntentLinksSection))
-const PricingSection = dynamic(() => import("@/components/landing/pricing-section").then((module) => module.PricingSection))
-const TestimonialsSection = dynamic(() => import("@/components/landing/testimonials-section").then((module) => module.TestimonialsSection))
+import { HeroSection } from "@/components/landing/hero-section"
+import { IntentLinksSection } from "@/components/landing/intent-links-section"
+import { PricingSection } from "@/components/landing/pricing-section"
+import { SystemFlowSection } from "@/components/landing/system-flow-section"
+import { TestimonialsSection } from "@/components/landing/testimonials-section"
 
 export default function HomePage() {
   return (

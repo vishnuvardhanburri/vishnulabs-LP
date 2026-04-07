@@ -1,7 +1,3 @@
-"use client"
-
-import { motion } from "framer-motion"
-
 const testimonials = [
   {
     quote: "They identified the weak handoff, rebuilt the flow, and the system finally behaved the way the business needed.",
@@ -20,25 +16,6 @@ const testimonials = [
   },
 ]
 
-const containerVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.08,
-    },
-  },
-}
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 28, filter: "blur(10px)" },
-  show: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.75, ease: [0.19, 1, 0.22, 1] },
-  },
-}
-
 export function TestimonialsSection() {
   return (
     <section className="px-5 pb-28 pt-24 sm:px-6 lg:px-10">
@@ -50,20 +27,11 @@ export function TestimonialsSection() {
           </h2>
         </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3"
-        >
+        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {testimonials.map((item, index) => (
-            <motion.article
+            <article
               key={item.author}
-              variants={cardVariants}
-              whileHover={{ y: -10, scale: 1.018 }}
-              transition={{ duration: 0.4, ease: [0.19, 1, 0.22, 1], delay: index * 0.02 }}
-              className="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.3)] backdrop-blur-md"
+              className="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.3)] backdrop-blur-md transition-transform duration-300 hover:-translate-y-2 hover:scale-[1.018]"
             >
               <div className="pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">
                 <div className="absolute inset-0 rounded-[1.75rem] bg-[radial-gradient(circle_at_top_left,rgba(96,165,250,0.16),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(217,70,239,0.18),transparent_30%)]" />
@@ -87,9 +55,9 @@ export function TestimonialsSection() {
                   </p>
                 </div>
               </div>
-            </motion.article>
+            </article>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   )

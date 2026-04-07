@@ -2,7 +2,7 @@ import { AppLink } from "@/components/app-link"
 import { customPackageMailto } from "@/components/custom-solution-note"
 
 const serviceLinks = [
-  { label: "Stealth Vault", href: "/stealth-vault" },
+  { label: "Sentinel", href: "/sentinel" },
   { label: "Automations", href: "/automations" },
   { label: "Websites", href: "/websites" },
   { label: "Custom Software", href: "/custom-software" },
@@ -25,6 +25,7 @@ const industryLinks = [
 const pageLinks = [
   { label: "Proof", href: "/proof" },
   { label: "Pricing", href: "/pricing" },
+  { label: "Sentinel FAQ", href: "/sentinel/faq" },
   { label: "Book Meeting", href: "https://cal.com/vishnuvardhanburri/15min" },
   { label: "Backup Site", href: "/backup" },
   { label: "Privacy", href: "/privacy" },

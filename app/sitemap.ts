@@ -12,8 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/book",
     "/backup",
     "/services",
-    "/stealth-vault",
-    "/stealth-vault/guide",
     "/industries",
     "/industries/startups",
     "/industries/hospitals-clinics",
@@ -26,7 +24,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/pricing",
     "/sentinel",
     "/sentinel/faq",
-    "/start-protecting",
     "/services/ai-voice-receptionist",
     "/services/ai-scheduling-reminder",
     "/services/ai-legal-intake",
@@ -38,6 +35,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${siteUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: route === "/" ? "daily" : "weekly",
-    priority: route === "/" ? 1 : route === "/stealth-vault" || route === "/sentinel" ? 0.9 : 0.7,
+    priority: route === "/" ? 1 : route === "/sentinel" ? 0.9 : 0.7,
   }))
 }

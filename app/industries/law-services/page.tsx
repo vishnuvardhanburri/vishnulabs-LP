@@ -15,7 +15,7 @@ export default function LawServicesIndustryPage() {
         "Website support for practice visibility and consultation capture",
         "AI intake, scheduling, and follow-up automation",
         "Custom software support for routing and admin handoff",
-        "AI Vault custom requirements available for sensitive legal workflows",
+        "Sentinel available for legal teams handling sensitive client data",
       ]}
       outcomes={[
         "Higher consultation coverage and cleaner inquiry handling",

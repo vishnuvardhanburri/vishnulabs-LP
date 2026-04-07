@@ -1,12 +1,11 @@
 # VishnuLabs Website
 
-Production website for VishnuLabs (Next.js + Tailwind) with automation services, demo content, and commerce flow for the Stealth Vault offer.
+Production website for VishnuLabs (Next.js + Tailwind) with services, Sentinel product pages, lead capture flows, and enterprise marketing surfaces.
 
 ## Stack
 - Next.js (App Router)
 - React + TypeScript
 - Tailwind CSS
-- PayPal Checkout (card + PayPal wallet)
 - Resend (transactional emails)
 
 ## Local Setup
@@ -24,48 +23,38 @@ npm run build
 npm run start
 ```
 
-## Stealth Vault Flow
-### Page routes
-- `/stealth-vault`
-- `/stealth-vault/success`
-- `/stealth-vault/guide`
-- `/guides/stealth-vault-installation-guide.pdf`
+## Core Conversion Flows
+### Homepage system audit
+- `POST /api/contact/system-audit`
+- Stores audit leads, emails the team, and sends an auto-response.
 
-### API routes
-- `POST /api/checkout/stealth-vault`
-- `POST /api/checkout/stealth-vault/capture`
-- `POST /api/contact/stealth-vault`
-
-### Checkout behavior
-1. User fills company/email/phone/business type on `/stealth-vault`.
-2. Payment redirects to PayPal Checkout for `$15,000` (PayPal wallet/card supported by PayPal).
-3. User returns to `/stealth-vault/success` and capture API finalizes payment.
-4. After capture:
-   - Customer email with license key + Loom link + installation guide PDF link.
-   - Internal notification to `hello@vishnulabs.com`.
-5. Customization form sends request to `hello@vishnulabs.com`.
+### Sentinel lead capture
+- `POST /api/sentinel/lead`
+- Stores Sentinel leads, tags intent, emails the team, and sends an auto-response.
 
 ## Required Environment Variables
 Use `.env.example`.
 
 Critical vars:
-- `PAYPAL_ENV`
-- `PAYPAL_CLIENT_ID`
-- `PAYPAL_CLIENT_SECRET`
 - `RESEND_API_KEY`
 - `RESEND_FROM_EMAIL`
 - `NEXT_PUBLIC_SITE_URL`
 
 Optional:
-- `NEXT_PUBLIC_PAYONEER_PAYMENT_URL`
-- `NEXT_PUBLIC_PAYONEER_EMAIL`
-- `STEALTH_VAULT_LOOM_URL`
-- `STEALTH_VAULT_GUIDE_URL`
-- `STEALTH_VAULT_LICENSE_SALT`
+- `SYSTEM_AUDIT_EMAIL`
+- `SYSTEM_AUDIT_CALENDAR_URL`
+- `NEXT_PUBLIC_SYSTEM_AUDIT_CALENDAR_URL`
+- `SENTINEL_LEADS_EMAIL`
+- `SYSTEM_AUDIT_CALENDAR_URL`
+- `SENTINEL_CALENDAR_URL`
+- `NEXT_PUBLIC_SENTINEL_CALENDAR_URL`
+- `NOTION_TOKEN`
+- `NOTION_LEADS_DATABASE_ID`
+- `AIRTABLE_TOKEN`
+- `AIRTABLE_BASE_ID`
+- `AIRTABLE_TABLE_NAME`
 
 ## Notes
-- Homepage hero includes a new badge linking to `/stealth-vault`.
-- Navbar/Footer include Stealth Vault navigation.
-- Payoneer is included as alternate payment path:
-  - primary: `NEXT_PUBLIC_PAYONEER_PAYMENT_URL`
-  - fallback: mail request to `vishnuvardanbirri19@gmail.com`
+- Homepage and Sentinel pages use modal lead capture instead of redirect-first flows.
+- Sentinel lives at `/sentinel` with FAQ at `/sentinel/faq`.
+- The repo contains both service-led and product-led conversion paths.

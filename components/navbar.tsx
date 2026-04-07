@@ -15,7 +15,7 @@ const primaryLinks = [
 const exploreLinks = [
   { label: "Websites", href: "/websites" },
   { label: "Software", href: "/custom-software" },
-  { label: "AI Vault", href: "/stealth-vault" },
+  { label: "Sentinel", href: "/sentinel" },
   { label: "Services", href: "/services" },
   { label: "Automations", href: "/automations" },
   { label: "Proof", href: "/proof" },

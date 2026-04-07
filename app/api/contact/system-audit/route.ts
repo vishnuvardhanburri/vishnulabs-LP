@@ -109,7 +109,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: storageResult.error }, { status: 500 })
   }
 
-  const toAddress = process.env.SYSTEM_AUDIT_EMAIL || process.env.STEALTH_VAULT_SALES_EMAIL || "hello@vishnulabs.com"
+  const toAddress = process.env.SYSTEM_AUDIT_EMAIL || "hello@vishnulabs.com"
   const calendarLink = process.env.SYSTEM_AUDIT_CALENDAR_URL || "https://cal.com/vishnuvardhanburri/15min"
 
   const internalHtml = `

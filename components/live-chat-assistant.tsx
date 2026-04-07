@@ -28,14 +28,14 @@ const STORAGE_KEY = "vishnulabs_assistant_messages_v4"
 
 const initialAssistantMessage: ChatMessage = {
   role: "assistant",
-  text: "Hi, I am VishnuLabs Assistant. Ask about pricing, products, websites, custom software, security, launch scope, or the Stealth Vault.",
+  text: "Hi, I am VishnuLabs Assistant. Ask about pricing, services, Sentinel, websites, custom software, security, or rollout scope.",
 }
 
 const quickPrompts = [
   "What services do you offer?",
   "Do you build websites too?",
   "Show pricing and package ranges",
-  "What is Stealth Vault?",
+  "What is Sentinel?",
   "How does payment work?",
   "How fast can you go live?",
   "What happens after I say yes?",
@@ -57,13 +57,13 @@ const intents: Intent[] = [
     id: "services_catalog",
     patterns: ["services", "service", "offer", "offering", "products", "what do you do", "automation list"],
     answer:
-      "Core offers: AI Voice Receptionist, AI Scheduling & Reminder System, AI Legal Intake Automation, and Stealth-Mode Internal AI Vault. We also build websites, domain-management support, custom software solutions, CRM layers, lead-nurture flows, and broader workflow systems for startups, hospitals, clinics, transport and logistics teams, moving companies, and law-service operators.",
+      "Core offers: backend system builds, intake and follow-up automation, scheduling systems, custom software, and Sentinel for AI data protection and governance. We also build websites, CRM-connected workflows, and internal tools for teams with real operating pressure.",
   },
   {
     id: "pricing",
     patterns: ["price", "pricing", "cost", "fees", "how much", "budget", "investment", "quote"],
     answer:
-      "Pricing is shown as a starting point, not a forced final package. Stealth Vault plans start from the listed product tiers, and the final quote depends on policy depth, protected systems, rollout model, and support. Public prices are shown in USD for US and UK-facing projects. India pricing is scoped separately and can be quoted in INR or USD based on workflow depth, integrations, deployment, and budget comfort. If you want the right fit without delays or unnecessary scope, email hello@vishnulabs.com for a direct recommendation.",
+      "Pricing is scoped around system complexity, rollout depth, and compliance requirements. Services and Sentinel are both positioned for teams with real workflows, not lightweight experimentation. If you want the right fit fast, email hello@vishnulabs.com or book directly.",
   },
   {
     id: "platform_services",
@@ -72,10 +72,10 @@ const intents: Intent[] = [
       "Yes, VishnuLabs can scope website creation, domain management, and custom software solutions alongside the automation systems. The goal is a more complete SaaS-style platform view instead of isolated pieces.",
   },
   {
-    id: "stealth_vault",
-    patterns: ["vault", "stealth", "private ai", "local ai", "air gap", "air-gapped", "data leak", "secure ai"],
+    id: "sentinel",
+    patterns: ["sentinel", "data leak", "compliance", "governance", "secure ai", "ai security", "ai risk"],
     answer:
-      "Stealth-Mode Internal AI Vault is a private local AI stack for confidential operations. It is air-gapped, supports redaction controls, and keeps data inside your environment. Sentinel Shield v2 capabilities are included: RBAC, immutable audit ledger, compliance scorecard, license control, and multi-model routing. The current launch offer is $15,000 one-time for the first 100 members, with post-delivery support included. Custom vault requirements are also available for sensitive teams.",
+      "Sentinel is the AI data protection and governance platform. It intercepts AI interactions, blocks or redacts sensitive data, logs activity, and gives teams control before data leaves the system.",
   },
   {
     id: "vault_why_now",
@@ -165,19 +165,19 @@ const intents: Intent[] = [
     id: "support",
     patterns: ["support", "maintenance", "after launch", "post launch", "issue", "help"],
     answer:
-      "Support is included post-launch for stabilization. For Stealth Vault, one month support is included, and ongoing support can be added based on scope.",
+      "Support is included for stabilization after launch. Ongoing support can be scoped based on the workflow, deployment depth, and operating requirements.",
   },
   {
     id: "payment",
     patterns: ["payment", "paypal", "payoneer", "card", "checkout", "buy", "invoice"],
     answer:
-      "For Stealth Vault, payment is Payoneer only. Use the tier links on /stealth-vault or email hello@vishnulabs.com for customizations. After payment, VishnuLabs manually sends the invoice, Loom demo link, guide, key, and setup-call booking within 24 hours.",
+      "VishnuLabs uses direct scoped engagements, invoices, and product deployment agreements based on the work. For Sentinel or services, book first and the next commercial step is handled directly.",
   },
   {
     id: "contact",
     patterns: ["contact", "email", "phone", "reach", "talk to team", "sales"],
     answer:
-      "Contact: hello@vishnulabs.com or book directly at https://cal.com/vishnuvardhanburri/15min. You can also use the live form on /stealth-vault for customization requests.",
+      "Contact: hello@vishnulabs.com or book directly at https://cal.com/vishnuvardhanburri/15min. You can also use the live form here to send your details.",
   },
   {
     id: "demo",
@@ -232,7 +232,7 @@ function answerFor(input: string) {
     return bestIntent.answer
   }
 
-  return "I can help with services, pricing, Stealth Vault security, payment, timeline, integrations, support, and ownership. Ask a specific question, or book at https://cal.com/vishnuvardhanburri/15min."
+  return "I can help with services, Sentinel, pricing, timelines, integrations, support, and rollout scope. Ask a specific question, or book at https://cal.com/vishnuvardhanburri/15min."
 }
 
 function trackAssistantEvent(eventName: string, payload: TrackPayload = {}) {
@@ -331,7 +331,7 @@ export function LiveChatAssistant() {
     trackAssistantEvent("funnel_live_assistant_lead_submit_attempt")
 
     try {
-      const response = await fetch("/api/contact/stealth-vault", {
+      const response = await fetch("/api/contact/system-audit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -340,7 +340,7 @@ export function LiveChatAssistant() {
           name: leadForm.name,
           email: leadForm.email,
           phone: leadForm.phone,
-          message: `[Live Assistant Lead]\nUse-case: ${leadForm.useCase}`,
+          problem: `Live assistant inquiry: ${leadForm.useCase}`,
           website: leadForm.website,
           source: "live_assistant",
           page: window.location.pathname,

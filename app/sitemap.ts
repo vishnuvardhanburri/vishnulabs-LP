@@ -24,6 +24,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/industries/mortgage",
     "/proof",
     "/pricing",
+    "/sentinel",
+    "/sentinel/faq",
     "/start-protecting",
     "/services/ai-voice-receptionist",
     "/services/ai-scheduling-reminder",
@@ -36,6 +38,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${siteUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: route === "/" ? "daily" : "weekly",
-    priority: route === "/" ? 1 : route === "/stealth-vault" ? 0.9 : 0.7,
+    priority: route === "/" ? 1 : route === "/stealth-vault" || route === "/sentinel" ? 0.9 : 0.7,
   }))
 }

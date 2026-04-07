@@ -101,12 +101,12 @@ export function FaqPageClient() {
         <div className="orb-float absolute left-[-12rem] top-[10rem] h-[24rem] w-[24rem] rounded-full bg-fuchsia-500/10 blur-[150px] mix-blend-screen" />
         <div className="orb-float-slow absolute right-[-10rem] top-[18rem] h-[22rem] w-[22rem] rounded-full bg-sky-500/12 blur-[150px] mix-blend-screen" />
       </div>
-      <section className="reveal-in mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-12 text-center shadow-[0_24px_90px_rgba(3,10,24,0.24)] backdrop-blur-xl md:px-10 md:py-16">
-        <p className="text-[11px] uppercase tracking-[0.28em] text-cyan-200/70">Sentinel FAQ</p>
+      <section className="cinema-section-shell reveal-in mx-auto max-w-5xl px-6 py-12 text-center shadow-[0_24px_90px_rgba(3,10,24,0.24)] md:px-10 md:py-16">
+        <p className="section-kicker text-[11px] uppercase">Sentinel FAQ</p>
         <h1 className="mt-6 text-balance font-heading text-5xl font-semibold leading-[0.94] tracking-[-0.05em] text-white md:text-7xl">
           Sentinel — Questions & Answers
         </h1>
-        <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-white/68">
+        <p className="section-support-copy mx-auto mt-5 max-w-3xl text-lg leading-8">
           Everything you need to understand how Sentinel protects your systems and data.
         </p>
         <button
@@ -123,14 +123,14 @@ export function FaqPageClient() {
         {faqGroups.map((group, groupIndex) => (
           <div
             key={group.title}
-            className={`reveal-in rounded-[36px] border border-white/10 bg-white/[0.03] px-6 py-8 backdrop-blur-xl md:px-8 md:py-10 ${
+            className={`cinema-section-shell reveal-in rounded-[36px] px-6 py-8 md:px-8 md:py-10 ${
               groupIndex % 2 === 0 ? "float-card-soft" : "float-card-soft float-card-delay-1"
             }`}
             style={{ animationDelay: `${groupIndex * 0.12}s` }}
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/70">FAQ Section</p>
+                <p className="section-kicker text-[11px] uppercase">FAQ Section</p>
                 <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">{group.title}</h2>
               </div>
             </div>
@@ -155,7 +155,7 @@ export function FaqPageClient() {
         ))}
       </section>
 
-      <section className="reveal-in mx-auto mt-8 max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-12 text-center shadow-[0_24px_90px_rgba(3,10,24,0.22)] backdrop-blur-xl md:px-10 md:py-14">
+      <section className="cinema-section-shell reveal-in mx-auto mt-8 max-w-5xl px-6 py-12 text-center shadow-[0_24px_90px_rgba(3,10,24,0.22)] md:px-10 md:py-14">
         <h2 className="text-balance text-3xl font-semibold tracking-tight text-white md:text-5xl">
           Still unsure if Sentinel is needed?
         </h2>

@@ -101,7 +101,7 @@ export function PricingSection() {
 
   return (
     <section id="pricing" ref={sectionRef} className="px-5 pb-24">
-      <div className="mx-auto max-w-[1200px] rounded-[40px] border border-white/10 bg-white/[0.035] px-6 py-8 backdrop-blur-xl md:px-8 md:py-10">
+      <div className="cinema-section-shell mx-auto max-w-[1200px] px-6 py-8 md:px-8 md:py-10">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -109,13 +109,13 @@ export function PricingSection() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl"
         >
-          <p className="inline-flex rounded-full border border-cyan-400/18 bg-cyan-400/10 px-4 py-2 text-[11px] uppercase tracking-[0.24em] text-cyan-200">
+          <p className="section-kicker inline-flex rounded-full border border-cyan-400/18 bg-cyan-400/10 px-4 py-2 text-[11px] uppercase">
             Pricing
           </p>
           <h2 className="mt-6 font-heading text-[40px] font-semibold leading-[0.98] tracking-[-0.04em] text-white md:text-[52px]">
             Flexible Engineering Retainers
           </h2>
-          <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/82">
+          <p className="section-support-copy mt-5 max-w-2xl text-[17px] leading-8">
             Partner with us to build and fix revenue-critical systems.
           </p>
         </motion.div>
@@ -134,10 +134,10 @@ export function PricingSection() {
               variants={cardReveal}
               whileHover={{ y: -8, scale: 1.05 }}
               transition={{ duration: 0.32, ease: [0.2, 1, 0.3, 1] }}
-              className={`group relative overflow-hidden rounded-[34px] border p-6 backdrop-blur-2xl ${
+              className={`cinema-card cinema-card-hover group rounded-[34px] p-6 ${
                 plan.featured
                   ? "xl:-my-3 xl:px-7 xl:py-9 border-cyan-300/30 bg-[linear-gradient(180deg,rgba(34,211,238,0.14),rgba(255,255,255,0.04))] shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_0_90px_rgba(34,211,238,0.16)]"
-                  : "border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.028))] shadow-[0_20px_80px_rgba(3,10,24,0.26)]"
+                  : "bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.028))] shadow-[0_20px_80px_rgba(3,10,24,0.26)]"
               }`}
             >
               <div className="pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">
@@ -171,8 +171,8 @@ export function PricingSection() {
 
                 <p className="mt-8 text-[15px] leading-7 text-white/84">{plan.audience}</p>
 
-                <div className="mt-6 rounded-[24px] border border-white/8 bg-black/20 p-4">
-                  <p className="text-[11px] uppercase tracking-[0.24em] text-white/64">Expected outcome</p>
+                <div className="cinema-card mt-6 rounded-[24px] bg-black/20 p-4">
+                  <p className="section-kicker text-[11px] uppercase">Expected outcome</p>
                   <p className="mt-3 text-[15px] leading-7 text-cyan-100">{plan.outcome}</p>
                 </div>
 
@@ -201,7 +201,7 @@ export function PricingSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.45 }}
           transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-10 rounded-[32px] border border-white/10 bg-black/22 px-6 py-7 backdrop-blur-xl md:flex md:items-center md:justify-between"
+          className="cinema-card mt-10 rounded-[32px] bg-black/22 px-6 py-7 md:flex md:items-center md:justify-between"
         >
           <div className="max-w-2xl">
             <p className="font-heading text-[28px] font-semibold leading-tight text-white">Need a custom setup? We support enterprise engagements.</p>

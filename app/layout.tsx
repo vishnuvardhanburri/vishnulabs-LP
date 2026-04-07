@@ -10,17 +10,17 @@ const apolloAppId = process.env.NEXT_PUBLIC_APOLLO_APP_ID
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vishnulabs.com"),
-  title: "VishnuLabs | Backend Systems, Workflow Reliability, and Scalable Infrastructure",
+  title: "VishnuLabs | Fix Missed Leads, No-Shows, and AI Data Leaks",
   description:
-    "VishnuLabs fixes broken backend systems, replaces fragile automations, and builds infrastructure that behaves reliably as usage grows.",
+    "VishnuLabs fixes intake systems, follow-up breakdowns, clinic no-shows, and AI data leak exposure for teams handling real demand and sensitive data.",
   keywords: [
-    "backend systems",
-    "workflow reliability",
-    "automation stabilization",
-    "scalable infrastructure",
-    "backend architecture",
-    "system consistency",
-    "operations engineering",
+    "law firm intake system",
+    "reduce clinic no shows",
+    "real estate lead follow up",
+    "ai data leak prevention",
+    "ai data protection platform",
+    "lead follow up system",
+    "system audit",
   ],
   alternates: {
     canonical: "/",
@@ -37,16 +37,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "VishnuLabs | Backend Systems and Workflow Reliability",
-    description: "Fix broken workflows, stabilize backend behavior, and build infrastructure that keeps operating cleanly under load.",
+    title: "VishnuLabs | Fix Missed Leads, No-Shows, and AI Data Leaks",
+    description: "Fix intake breakdowns, follow-up delays, no-shows, and AI data exposure with systems built for real operating pressure.",
     type: "website",
     url: "https://vishnulabs.com",
     siteName: "VishnuLabs",
   },
   twitter: {
     card: "summary_large_image",
-    title: "VishnuLabs | Backend Systems and Workflow Reliability",
-    description: "Fix broken workflows, stabilize backend behavior, and build infrastructure that keeps operating cleanly under load.",
+    title: "VishnuLabs | Fix Missed Leads, No-Shows, and AI Data Leaks",
+    description: "Fix intake breakdowns, follow-up delays, no-shows, and AI data exposure with systems built for real operating pressure.",
   },
 }
 
@@ -70,7 +70,7 @@ export default function RootLayout({
     logo: "https://vishnulabs.com/vishnulabs-logo-mark.svg",
     areaServed: "US",
     description:
-      "VishnuLabs fixes broken backend systems, replaces fragile automations, and builds infrastructure that behaves reliably as usage grows.",
+      "VishnuLabs fixes intake systems, follow-up breakdowns, clinic no-shows, and AI data leak exposure for teams handling real demand and sensitive data.",
   }
 
   return (

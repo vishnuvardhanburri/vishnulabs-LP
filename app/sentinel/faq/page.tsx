@@ -1,7 +1,5 @@
 import type { Metadata } from "next"
 
-import { Footer } from "@/components/footer"
-import { Navbar } from "@/components/navbar"
 import { SentinelLeadCaptureProvider } from "@/components/sentinel/lead-capture-provider"
 import { FaqPageClient } from "@/app/sentinel/faq/faq-page-client"
 
@@ -15,12 +13,8 @@ export const metadata: Metadata = {
 
 export default function SentinelFaqPage() {
   return (
-    <>
-      <Navbar />
-      <SentinelLeadCaptureProvider>
-        <FaqPageClient />
-      </SentinelLeadCaptureProvider>
-      <Footer />
-    </>
+    <SentinelLeadCaptureProvider>
+      <FaqPageClient />
+    </SentinelLeadCaptureProvider>
   )
 }

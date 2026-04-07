@@ -3,6 +3,7 @@ import Script from "next/script"
 
 import "./globals.css"
 import { LeadCaptureProvider } from "@/components/home/lead-capture-provider"
+import { AppShell } from "@/components/layout/app-shell"
 
 const gaId = process.env.NEXT_PUBLIC_GA_ID
 const apolloAppId = process.env.NEXT_PUBLIC_APOLLO_APP_ID
@@ -76,7 +77,9 @@ export default function RootLayout({
     <html lang="en-US">
       <body className="font-sans antialiased">
         <LeadCaptureProvider>
-          <div className="app-shell-enter">{children}</div>
+          <AppShell>
+            <div className="app-shell-enter">{children}</div>
+          </AppShell>
         </LeadCaptureProvider>
 
         <Script id="organization-jsonld" type="application/ld+json" strategy="afterInteractive">

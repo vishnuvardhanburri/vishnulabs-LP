@@ -2,8 +2,6 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import { ArrowRight, ArrowUpRight, CheckCircle2, KeyRound, LockKeyhole, ScanSearch, ShieldAlert, ShieldCheck, ShieldEllipsis, Workflow } from "lucide-react"
 
-import { Footer } from "@/components/footer"
-import { Navbar } from "@/components/navbar"
 import { TestimonialCard } from "@/components/testimonial-card"
 import { Button } from "@/components/ui/button"
 import { testimonials } from "@/lib/testimonials"
@@ -82,9 +80,6 @@ const whyItMatters = [
 
 export default function ProductsPage() {
   return (
-    <>
-      <Navbar />
-
       <main className="overflow-hidden bg-[linear-gradient(180deg,#07111f_0%,#0b1727_18%,#edf4ff_40%,#f8fbff_100%)] pb-12 pt-28 sm:pb-16 sm:pt-32">
         <section className="pb-10">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
@@ -259,8 +254,5 @@ export default function ProductsPage() {
           </div>
         </section>
       </main>
-
-      <Footer />
-    </>
   )
 }

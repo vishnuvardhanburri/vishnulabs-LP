@@ -4,8 +4,6 @@ import { ArrowRight, ArrowUpRight, CheckCircle2, Hospital, Scale, Truck, Workflo
 
 import { ConfidenceRail } from "@/components/confidence-rail"
 import { CustomSolutionNote } from "@/components/custom-solution-note"
-import { Footer } from "@/components/footer"
-import { Navbar } from "@/components/navbar"
 import { TestimonialCard } from "@/components/testimonial-card"
 import { Button } from "@/components/ui/button"
 import { testimonials } from "@/lib/testimonials"
@@ -48,9 +46,6 @@ const softwareCollections = [
 
 export default function CustomSoftwarePage() {
   return (
-    <>
-      <Navbar />
-
       <main className="overflow-hidden pb-16">
         <section className="pb-16 pt-28 sm:pt-36 lg:pb-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
@@ -154,8 +149,5 @@ export default function CustomSoftwarePage() {
           </div>
         </section>
       </main>
-
-      <Footer />
-    </>
   )
 }

@@ -4,8 +4,6 @@ import { ArrowRight, ArrowUpRight, CheckCircle2, Globe, Hospital, Scale, ShieldC
 
 import { ConfidenceRail } from "@/components/confidence-rail"
 import { CustomSolutionNote } from "@/components/custom-solution-note"
-import { Footer } from "@/components/footer"
-import { Navbar } from "@/components/navbar"
 import { TestimonialCard } from "@/components/testimonial-card"
 import { Button } from "@/components/ui/button"
 import { testimonials } from "@/lib/testimonials"
@@ -67,9 +65,6 @@ const websiteHeroSignals = [
 
 export default function WebsitesPage() {
   return (
-    <>
-      <Navbar />
-
       <main className="overflow-hidden pb-16">
         <section className="pb-16 pt-28 sm:pt-36 lg:pb-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
@@ -189,8 +184,5 @@ export default function WebsitesPage() {
           </div>
         </section>
       </main>
-
-      <Footer />
-    </>
   )
 }

@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 import { AppLink } from "@/components/app-link"
 import { customPackageMailto } from "@/components/custom-solution-note"
 
@@ -34,16 +36,16 @@ const pageLinks = [
 
 export function Footer() {
   return (
-    <footer className="mt-6 border-t border-white/10 bg-slate-950 text-white">
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-10 lg:py-12">
-        <div className="mb-8 rounded-[30px] border border-white/10 bg-white/[0.04] p-5 shadow-[0_20px_60px_rgba(2,8,23,0.16)] sm:p-6">
+    <footer className="mt-8 border-t border-white/10 bg-[#060606]/90 text-white">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-10 lg:py-16">
+        <div className="mb-10 rounded-[30px] border border-white/10 bg-white/[0.04] p-6 shadow-[0_24px_90px_rgba(2,8,23,0.22)] backdrop-blur-xl sm:p-7">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-200">Need the right scope?</p>
               <h2 className="mt-3 max-w-2xl text-balance text-2xl font-semibold tracking-tight text-white sm:text-3xl">
                 Start with the smallest intervention that removes the recurring failure.
               </h2>
-              <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300">
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-zinc-400">
                 We can scope a lighter rollout, a broader system intervention, or a private deployment path. The right fit depends on the
                 operational bottleneck, not hype.
               </p>
@@ -52,13 +54,13 @@ export function Footer() {
             <div className="flex flex-col gap-3 sm:flex-row">
               <AppLink
                 href="/pricing"
-                className="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition-colors hover:bg-slate-100"
+                className="inline-flex items-center justify-center rounded-full border border-sky-300/30 bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(186,230,253,0.92))] px-5 py-3 text-sm font-semibold text-zinc-950 shadow-[0_0_0_1px_rgba(255,255,255,0.15),0_20px_80px_rgba(56,189,248,0.18)] transition-transform duration-300 hover:scale-[1.03]"
               >
                 View Pricing
               </AppLink>
               <AppLink
                 href="https://cal.com/vishnuvardhanburri/15min"
-                className="inline-flex items-center justify-center rounded-full border border-white/14 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/[0.08]"
               >
                 Book Review
               </AppLink>
@@ -66,56 +68,56 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.9fr]">
-        <div>
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.9fr]">
+          <div>
             <AppLink href="/" className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2.5">
-              <img
+              <Image
                 src="/vishnulabs-logo-full.svg"
                 alt="VishnuLabs logo"
-                width="170"
-                height="50"
+                width={170}
+                height={50}
                 className="h-auto w-[170px] object-contain"
               />
             </AppLink>
 
-            <p className="mt-4 max-w-sm text-sm leading-7 text-slate-300">
+            <p className="mt-5 max-w-sm text-sm leading-7 text-zinc-400">
               VishnuLabs helps teams regain control of backend workflows, replace fragile automations, and build infrastructure that behaves
               reliably under real operating pressure.
             </p>
 
-            <div className="mt-5 flex flex-wrap gap-2">
+            <div className="mt-6 flex flex-wrap gap-2">
               {["Backend systems", "Workflow reliability", "Operational visibility", "Scalable infrastructure"].map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-300"
+                  className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-400"
                 >
                   {item}
                 </span>
               ))}
             </div>
 
-            <p className="mt-6 text-xs text-slate-500">&copy; {new Date().getFullYear()} VishnuLabs. All rights reserved.</p>
+            <p className="mt-8 text-xs text-zinc-500">&copy; {new Date().getFullYear()} VishnuLabs. All rights reserved.</p>
           </div>
 
           <FooterColumn title="Services" links={serviceLinks} />
           <FooterColumn title="Industries" links={industryLinks} />
 
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">Contact</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500">Contact</p>
             <div className="mt-4 grid gap-2">
               {pageLinks.map((link) => (
-                <AppLink key={link.href} href={link.href} className="text-sm text-slate-300 transition-colors hover:text-white">
+                <AppLink key={link.href} href={link.href} className="text-sm text-zinc-400 transition-colors hover:text-white">
                   {link.label}
                 </AppLink>
               ))}
-              <a href={customPackageMailto} className="text-sm text-slate-300 transition-colors hover:text-white">
+              <a href={customPackageMailto} className="text-sm text-zinc-400 transition-colors hover:text-white">
                 hello@vishnulabs.com
               </a>
             </div>
 
-            <div className="mt-5 rounded-[22px] border border-white/10 bg-white/5 p-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Need a custom scope?</p>
-              <p className="mt-2 text-sm leading-6 text-slate-300">
+            <div className="mt-6 rounded-[22px] border border-white/10 bg-white/5 p-4 backdrop-blur-md">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">Need a custom scope?</p>
+              <p className="mt-2 text-sm leading-6 text-zinc-400">
                 Bring your workflow, internal surface, or operational bottleneck. We will scope the right intervention around the part of
                 the system that keeps failing.
               </p>
@@ -136,10 +138,10 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">{title}</p>
+      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500">{title}</p>
       <div className="mt-4 grid gap-2">
         {links.map((link) => (
-          <AppLink key={link.href} href={link.href} className="text-sm text-slate-300 transition-colors hover:text-white">
+          <AppLink key={link.href} href={link.href} className="text-sm text-zinc-400 transition-colors hover:text-white">
             {link.label}
           </AppLink>
         ))}

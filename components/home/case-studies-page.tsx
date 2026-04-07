@@ -15,6 +15,10 @@ export function CaseStudiesPage() {
 
       <div className="relative min-h-screen overflow-hidden bg-[#050816] px-5 pb-24 pt-32 text-white md:pt-36">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.12),transparent_24%),radial-gradient(circle_at_80%_10%,rgba(168,85,247,0.1),transparent_18%)]" />
+        <div className="pointer-events-none absolute inset-0">
+          <div className="orb-float absolute left-[-14rem] top-[10rem] h-[24rem] w-[24rem] rounded-full bg-fuchsia-500/10 blur-[150px] mix-blend-screen" />
+          <div className="orb-float-slow absolute right-[-10rem] top-[18rem] h-[22rem] w-[22rem] rounded-full bg-sky-500/12 blur-[150px] mix-blend-screen" />
+        </div>
 
         <header className="fixed inset-x-0 top-0 z-50">
           <div className="mx-auto flex max-w-[1200px] items-center justify-between px-5 py-5">
@@ -83,7 +87,7 @@ export function CaseStudiesPage() {
                       </h2>
                       <p className="mt-5 max-w-[56ch] text-[16px] leading-8 text-white/78">{study.problem}</p>
 
-                      <div className="mt-6 rounded-[28px] border border-white/10 bg-black/18 p-5">
+                      <div className="float-card-soft mt-6 rounded-[28px] border border-white/10 bg-black/18 p-5 transition-all duration-500 hover:-translate-y-1 hover:bg-black/24">
                         <p className="text-[11px] uppercase tracking-[0.24em] text-white/62">System</p>
                         <div className="mt-4 grid gap-3">
                           {study.system.map((item) => (
@@ -96,11 +100,11 @@ export function CaseStudiesPage() {
                     </div>
 
                     <div className="grid gap-6">
-                      <div className="rounded-[32px] border border-cyan-300/14 bg-[linear-gradient(180deg,rgba(34,211,238,0.08),rgba(255,255,255,0.025))] p-6 shadow-[0_0_80px_rgba(34,211,238,0.08)]">
+                      <div className="float-card-soft rounded-[32px] border border-cyan-300/14 bg-[linear-gradient(180deg,rgba(34,211,238,0.08),rgba(255,255,255,0.025))] p-6 shadow-[0_0_80px_rgba(34,211,238,0.08)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_100px_rgba(34,211,238,0.12)]">
                         <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/76">Result</p>
                         <div className="mt-5 grid gap-4 md:grid-cols-3">
                           {study.results.map((item) => (
-                            <div key={item} className="min-h-[132px] rounded-[24px] border border-white/10 bg-black/18 p-4">
+                            <div key={item} className="rounded-[24px] border border-white/10 bg-black/18 p-4 transition-all duration-500 hover:-translate-y-1 hover:bg-black/24 md:min-h-[132px]">
                               <CaseStudyMetric metric={item} />
                             </div>
                           ))}
@@ -112,11 +116,11 @@ export function CaseStudiesPage() {
                         </div>
                       </div>
 
-                      <div className="rounded-[32px] border border-white/10 bg-black/18 p-6">
+                      <div className="float-card-soft rounded-[32px] border border-white/10 bg-black/18 p-6 transition-all duration-500 hover:-translate-y-1 hover:bg-black/24">
                         <p className="text-[11px] uppercase tracking-[0.24em] text-white/62">System flow</p>
                         <div className="mt-5 grid gap-3 md:grid-cols-5">
                           {(support?.flow ?? []).map((step) => (
-                            <div key={step} className="rounded-[22px] border border-white/10 bg-white/[0.03] px-4 py-4 text-[14px] leading-6 text-white/82">
+                            <div key={step} className="rounded-[22px] border border-white/10 bg-white/[0.03] px-4 py-4 text-[14px] leading-6 text-white/82 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.05]">
                               {step}
                             </div>
                           ))}
@@ -124,7 +128,7 @@ export function CaseStudiesPage() {
                       </div>
 
                       <div className="grid gap-4 md:grid-cols-2">
-                        <div className="rounded-[28px] border border-red-400/12 bg-red-500/[0.04] p-5">
+                        <div className="float-card-soft rounded-[28px] border border-red-400/12 bg-red-500/[0.04] p-5 transition-all duration-500 hover:-translate-y-1 hover:bg-red-500/[0.06]">
                           <p className="text-[11px] uppercase tracking-[0.24em] text-red-200/76">Before</p>
                           <div className="mt-4 grid gap-3">
                             {(support?.before ?? []).map((item) => (
@@ -135,7 +139,7 @@ export function CaseStudiesPage() {
                           </div>
                         </div>
 
-                        <div className="rounded-[28px] border border-cyan-300/14 bg-cyan-400/[0.05] p-5">
+                        <div className="float-card-soft float-card-delay-1 rounded-[28px] border border-cyan-300/14 bg-cyan-400/[0.05] p-5 transition-all duration-500 hover:-translate-y-1 hover:bg-cyan-400/[0.07]">
                           <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/76">After</p>
                           <div className="mt-4 grid gap-3">
                             {(support?.after ?? []).map((item) => (

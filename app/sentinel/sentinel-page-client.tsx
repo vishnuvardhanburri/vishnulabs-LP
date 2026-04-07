@@ -91,53 +91,64 @@ export function SentinelPageClient() {
   const { openSentinelLeadCapture } = useSentinelLeadCapture()
 
   return (
-    <main className="bg-black text-white">
+    <main className="relative overflow-hidden bg-black text-white">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="orb-float absolute left-[-14rem] top-[8rem] h-[26rem] w-[26rem] rounded-full bg-fuchsia-500/10 blur-[150px] mix-blend-screen" />
+        <div className="orb-float-slow absolute right-[-10rem] top-[24rem] h-[24rem] w-[24rem] rounded-full bg-sky-500/12 blur-[150px] mix-blend-screen" />
+        <div className="orb-float absolute bottom-[16rem] left-1/2 h-[22rem] w-[22rem] -translate-x-1/2 rounded-full bg-violet-500/10 blur-[170px] mix-blend-screen [animation-delay:2s]" />
+      </div>
       <section className="px-5 pb-24 pt-36 text-center md:pt-40">
-        <div className="mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-12 shadow-[0_24px_90px_rgba(3,10,24,0.28)] backdrop-blur-xl md:px-10 md:py-16">
-          <p className="text-[11px] uppercase tracking-[0.28em] text-cyan-200/70">AI Data Protection & Governance Platform</p>
-          <h1 className="mt-6 text-balance font-heading text-5xl font-semibold leading-[0.94] tracking-[-0.05em] text-white md:text-7xl">
+        <div className="reveal-in mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-12 shadow-[0_24px_90px_rgba(3,10,24,0.28)] backdrop-blur-xl md:px-10 md:py-16">
+          <p className="reveal-in text-[11px] uppercase tracking-[0.28em] text-cyan-200/70">AI Data Protection & Governance Platform</p>
+          <h1 className="reveal-in reveal-delay-1 mt-6 text-balance font-heading text-5xl font-semibold leading-[0.94] tracking-[-0.05em] text-white md:text-7xl">
             Prevent data leaks and enforce AI compliance before it happens
           </h1>
-          <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-white/68">
+          <p className="reveal-in reveal-delay-1 mx-auto mt-5 max-w-3xl text-lg leading-8 text-white/68">
             Prevent data leaks, enforce compliance, and control every AI interaction before it leaves your system.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-base leading-8 text-white/62">
+          <p className="reveal-in reveal-delay-2 mx-auto mt-4 max-w-3xl text-base leading-8 text-white/62">
             This is not for teams experimenting with AI. This is for teams already using AI with real data and need control.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-base leading-8 text-white/56">
+          <p className="reveal-in reveal-delay-2 mx-auto mt-4 max-w-3xl text-base leading-8 text-white/56">
             Most organizations are already leaking sensitive data through AI tools without realizing it.
           </p>
-          <p className="mt-4 text-sm leading-7 text-cyan-100/80">Supports HIPAA, GDPR, DPDP-ready workflows</p>
-          <p className="mt-2 text-sm leading-7 text-white/52">Built for teams handling sensitive client and patient data</p>
+          <p className="reveal-in reveal-delay-2 mt-4 text-sm leading-7 text-cyan-100/80">Supports HIPAA, GDPR, DPDP-ready workflows</p>
+          <p className="reveal-in reveal-delay-2 mt-2 text-sm leading-7 text-white/52">Built for teams handling sensitive client and patient data</p>
           <button
             type="button"
             onClick={() => openSentinelLeadCapture("ASSESSMENT", "sentinel_hero")}
-            className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-black transition hover:bg-slate-100"
+            className="reveal-in reveal-delay-3 mt-8 inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-black transition duration-500 hover:-translate-y-0.5 hover:bg-slate-100"
           >
             Request Sentinel Demo & Risk Assessment
           </button>
           <button
             type="button"
             onClick={() => openSentinelLeadCapture("PILOT", "sentinel_hero_pilot")}
-            className="mt-3 inline-flex items-center justify-center rounded-full border border-white/14 bg-white/[0.04] px-7 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.08]"
+            className="reveal-in reveal-delay-3 mt-3 inline-flex items-center justify-center rounded-full border border-white/14 bg-white/[0.04] px-7 py-3 text-sm font-semibold text-white transition duration-500 hover:-translate-y-0.5 hover:bg-white/[0.08]"
           >
             Start Pilot Deployment
           </button>
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm leading-7 text-white/54">
+          <div className="reveal-in reveal-delay-3 mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm leading-7 text-white/54">
             <span>Used in environments handling legal, medical, and financial data</span>
             <span className="hidden h-1 w-1 rounded-full bg-white/20 md:inline-block" />
             <span>Supports HIPAA, GDPR, DPDP-ready workflows</span>
           </div>
-          <p className="mt-4 text-sm leading-7 text-white/54">Start with a demo + evaluation before full deployment</p>
+          <p className="reveal-in reveal-delay-3 mt-4 text-sm leading-7 text-white/54">Start with a demo + evaluation before full deployment</p>
         </div>
       </section>
 
       <section className="px-5 pb-24">
-        <div className="mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-xl md:px-8 md:py-12">
+        <div className="reveal-in mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-xl md:px-8 md:py-12">
           <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">AI is leaking sensitive data, silently</h2>
           <ul className="mt-8 grid gap-4 text-base leading-8 text-white/72 md:grid-cols-2">
-            {problemPoints.map((item) => (
-              <li key={item} className="rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-4">
+            {problemPoints.map((item, index) => (
+              <li
+                key={item}
+                className={`rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-4 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.05] ${
+                  index % 2 === 0 ? "float-card-soft" : "float-card-soft float-card-delay-1"
+                }`}
+                style={{ animationDelay: `${index * 0.22}s` }}
+              >
                 {item}
               </li>
             ))}
@@ -148,15 +159,20 @@ export function SentinelPageClient() {
       </section>
 
       <section className="px-5 pb-24">
-        <div className="mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-xl md:px-8 md:py-12">
+        <div className="reveal-in mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-xl md:px-8 md:py-12">
           <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">Not for everyone</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {[
               "Not for early-stage teams without real workflows",
               "Not for teams without sensitive data",
               "Not for experimentation use cases",
-            ].map((item) => (
-              <div key={item} className="rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-5 text-base leading-8 text-white/68">
+            ].map((item, index) => (
+              <div
+                key={item}
+                className={`rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-5 text-base leading-8 text-white/68 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.05] ${
+                  index === 0 ? "float-card-soft" : index === 1 ? "float-card-soft float-card-delay-1" : "float-card-soft float-card-delay-2"
+                }`}
+              >
                 {item}
               </div>
             ))}
@@ -168,16 +184,16 @@ export function SentinelPageClient() {
       </section>
 
       <section className="px-5 pb-24">
-        <div className="mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-xl md:px-8 md:py-12">
+        <div className="reveal-in mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-xl md:px-8 md:py-12">
           <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">What this looks like in the real world</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
-            <div className="rounded-[24px] border border-red-400/12 bg-red-500/[0.04] px-5 py-5">
+            <div className="float-card-soft rounded-[24px] border border-red-400/12 bg-red-500/[0.04] px-5 py-5 transition-all duration-500 hover:-translate-y-1 hover:bg-red-500/[0.06]">
               <p className="text-[11px] uppercase tracking-[0.24em] text-red-200/76">Without Sentinel</p>
               <p className="mt-4 text-base leading-8 text-white/72">
                 An employee pastes client data into ChatGPT. No visibility. No control. No audit trail.
               </p>
             </div>
-            <div className="rounded-[24px] border border-cyan-300/12 bg-cyan-400/[0.04] px-5 py-5">
+            <div className="float-card-soft float-card-delay-1 rounded-[24px] border border-cyan-300/12 bg-cyan-400/[0.04] px-5 py-5 transition-all duration-500 hover:-translate-y-1 hover:bg-cyan-400/[0.06]">
               <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/76">With Sentinel</p>
               <p className="mt-4 text-base leading-8 text-white/72">
                 Sentinel intercepts, blocks, logs, and alerts instantly before sensitive data leaves the system.
@@ -188,7 +204,7 @@ export function SentinelPageClient() {
       </section>
 
       <section className="px-5 pb-24">
-        <div className="mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 text-center backdrop-blur-xl md:px-8 md:py-12">
+        <div className="reveal-in mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 text-center backdrop-blur-xl md:px-8 md:py-12">
           <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">How Sentinel Works</h2>
           <p className="mt-6 text-lg leading-8 text-white/68">User Input → Scan → Redact → Policy Check → Route → Log</p>
           <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-white/56">
@@ -198,11 +214,17 @@ export function SentinelPageClient() {
       </section>
 
       <section className="px-5 pb-24">
-        <div className="mx-auto max-w-6xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-xl md:px-8 md:py-12">
+        <div className="reveal-in mx-auto max-w-6xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-xl md:px-8 md:py-12">
           <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">How it works</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
             {processSteps.map((step, index) => (
-              <div key={step.title} className="rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-5">
+              <div
+                key={step.title}
+                className={`rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-5 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.05] ${
+                  index % 2 === 0 ? "float-card-soft" : "float-card-soft float-card-delay-1"
+                }`}
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
                 <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/70">0{index + 1}</p>
                 <p className="mt-4 text-xl font-semibold text-white">{step.title}</p>
                 <p className="mt-3 text-base leading-8 text-white/64">{step.detail}</p>
@@ -213,11 +235,17 @@ export function SentinelPageClient() {
       </section>
 
       <section className="px-5 pb-24">
-        <div className="mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-xl md:px-8 md:py-12">
+        <div className="reveal-in mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-xl md:px-8 md:py-12">
           <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">Core Features</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {features.map((feature) => (
-              <div key={feature} className="rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-5 text-base leading-8 text-white/72">
+            {features.map((feature, index) => (
+              <div
+                key={feature}
+                className={`rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-5 text-base leading-8 text-white/72 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.05] ${
+                  index % 2 === 0 ? "float-card-soft" : "float-card-soft float-card-delay-1"
+                }`}
+                style={{ animationDelay: `${index * 0.18}s` }}
+              >
                 {feature}
               </div>
             ))}
@@ -226,13 +254,13 @@ export function SentinelPageClient() {
       </section>
 
       <section className="px-5 pb-24">
-        <div className="mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-xl md:px-8 md:py-12">
+        <div className="reveal-in mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-xl md:px-8 md:py-12">
           <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/70">Sentinel case study</p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white md:text-5xl">
             Blocked sensitive client data from leaving AI tools
           </h2>
             <div className="mt-8 grid gap-4 md:grid-cols-[0.9fr_1.1fr]">
-              <div className="rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-5">
+              <div className="float-card-soft rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-5 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.05]">
                 <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/70">Context</p>
                 <p className="mt-3 text-base leading-8 text-white/72">Law Firm (AI Governance System)</p>
                 <p className="mt-6 text-[11px] uppercase tracking-[0.24em] text-white/42">Problem</p>
@@ -244,7 +272,7 @@ export function SentinelPageClient() {
                 Sentinel intercepts prompts, redacts sensitive data, and logs all activity before anything leaves the system.
               </p>
             </div>
-            <div className="rounded-[24px] border border-cyan-300/12 bg-cyan-400/[0.04] px-5 py-5">
+            <div className="float-card-soft float-card-delay-1 rounded-[24px] border border-cyan-300/12 bg-cyan-400/[0.04] px-5 py-5 transition-all duration-500 hover:-translate-y-1 hover:bg-cyan-400/[0.06]">
               <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/70">Result</p>
               <div className="mt-4 grid gap-3">
                 <div className="rounded-[20px] border border-white/10 bg-black/18 px-4 py-4 text-2xl font-semibold text-white">
@@ -257,7 +285,7 @@ export function SentinelPageClient() {
                 <p className="mt-5 text-base leading-8 text-white/60">Deployed in 3 weeks</p>
               </div>
             </div>
-            <div className="mt-6 rounded-[24px] border border-white/10 bg-black/18 px-5 py-5">
+            <div className="float-card-soft mt-6 rounded-[24px] border border-white/10 bg-black/18 px-5 py-5 transition-all duration-500 hover:-translate-y-1">
               <p className="text-base leading-8 text-white/72">
                 “Before Sentinel, we had zero visibility into how AI was being used with client data. Now everything is controlled and logged.”
               </p>
@@ -268,14 +296,19 @@ export function SentinelPageClient() {
               </p>
             </div>
           </div>
-        </section>
+      </section>
 
       <section className="px-5 pb-24">
-        <div className="mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-xl md:px-8 md:py-12">
+        <div className="reveal-in mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-xl md:px-8 md:py-12">
           <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">Who this is for</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {industries.map((industry) => (
-              <div key={industry.title} className="rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-5">
+            {industries.map((industry, index) => (
+              <div
+                key={industry.title}
+                className={`rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-5 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.05] ${
+                  index === 0 ? "float-card-soft" : index === 1 ? "float-card-soft float-card-delay-1" : "float-card-soft float-card-delay-2"
+                }`}
+              >
                 <p className="text-xl font-semibold text-white">{industry.title}</p>
                 <p className="mt-3 text-base leading-8 text-white/64">{industry.detail}</p>
               </div>
@@ -292,10 +325,10 @@ export function SentinelPageClient() {
       </section>
 
       <section className="px-5 pb-24">
-        <div className="mx-auto max-w-6xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 text-center backdrop-blur-xl md:px-8 md:py-12">
+        <div className="reveal-in mx-auto max-w-6xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 text-center backdrop-blur-xl md:px-8 md:py-12">
           <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">Flexible Deployment Model</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            <div className="rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-6">
+            <div className="float-card-soft rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-6 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.05]">
               <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/70">Platform License (annual)</p>
               <div className="mt-4 grid gap-3">
                 {licensePricing.map((plan) => (
@@ -308,7 +341,7 @@ export function SentinelPageClient() {
               </div>
             </div>
 
-            <div className="rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-6 text-left">
+            <div className="float-card-soft float-card-delay-1 rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-6 text-left transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.05]">
               <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/70">Pilot Deployment (2–3 weeks)</p>
               <p className="mt-4 text-3xl font-semibold text-white">$5K–$10K</p>
               <p className="mt-4 text-base leading-8 text-white/64">
@@ -321,7 +354,7 @@ export function SentinelPageClient() {
               </div>
             </div>
 
-            <div className="rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-6 text-left">
+            <div className="float-card-soft float-card-delay-2 rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-6 text-left transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.05]">
               <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/70">Custom Deployment (one-time)</p>
               <p className="mt-4 text-3xl font-semibold text-white">$10K–$50K+</p>
               <div className="mt-4 grid gap-2 text-base leading-8 text-white/64">
@@ -332,7 +365,7 @@ export function SentinelPageClient() {
               </div>
             </div>
 
-            <div className="rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-6 text-left">
+            <div className="float-card-soft float-card-delay-1 rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-6 text-left transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.05]">
               <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/70">Enterprise (custom)</p>
               <p className="mt-4 text-3xl font-semibold text-white">Custom</p>
               <p className="mt-4 text-base leading-8 text-white/64">
@@ -358,11 +391,17 @@ export function SentinelPageClient() {
       </section>
 
       <section className="px-5 pb-24">
-        <div className="mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-xl md:px-8 md:py-12">
+        <div className="reveal-in mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-xl md:px-8 md:py-12">
           <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">Common questions</h2>
           <div className="mt-8 grid gap-4">
-            {faqItems.map((item) => (
-              <div key={item.question} className="rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-5">
+            {faqItems.map((item, index) => (
+              <div
+                key={item.question}
+                className={`rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-5 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.05] ${
+                  index % 2 === 0 ? "float-card-soft" : "float-card-soft float-card-delay-1"
+                }`}
+                style={{ animationDelay: `${index * 0.16}s` }}
+              >
                 <p className="text-xl font-semibold text-white">{item.question}</p>
                 <p className="mt-3 text-base leading-8 text-white/64">{item.answer}</p>
               </div>
@@ -372,7 +411,7 @@ export function SentinelPageClient() {
       </section>
 
       <section className="px-5 pb-24 text-center">
-        <div className="mx-auto mb-8 max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-12 shadow-[0_24px_90px_rgba(3,10,24,0.18)] backdrop-blur-xl md:px-10 md:py-14">
+        <div className="reveal-in mx-auto mb-8 max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-12 shadow-[0_24px_90px_rgba(3,10,24,0.18)] backdrop-blur-xl md:px-10 md:py-14">
           <p className="text-[11px] uppercase tracking-[0.28em] text-cyan-200/70">Entry offer</p>
           <h2 className="mt-6 text-balance text-3xl font-semibold tracking-tight text-white md:text-5xl">
             Start with a Sentinel Risk Assessment
@@ -397,15 +436,20 @@ export function SentinelPageClient() {
             </button>
           </div>
           <div className="mx-auto mt-8 grid max-w-4xl gap-4 md:grid-cols-3">
-            {["Map AI usage across team", "Identify data leak points", "Show how Sentinel would prevent them"].map((item) => (
-              <div key={item} className="rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-5 text-base leading-8 text-white/72">
+            {["Map AI usage across team", "Identify data leak points", "Show how Sentinel would prevent them"].map((item, index) => (
+              <div
+                key={item}
+                className={`rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-5 text-base leading-8 text-white/72 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.05] ${
+                  index === 0 ? "float-card-soft" : index === 1 ? "float-card-soft float-card-delay-1" : "float-card-soft float-card-delay-2"
+                }`}
+              >
                 {item}
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-12 shadow-[0_24px_90px_rgba(3,10,24,0.22)] backdrop-blur-xl md:px-10 md:py-14">
+        <div className="reveal-in reveal-delay-1 mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-12 shadow-[0_24px_90px_rgba(3,10,24,0.22)] backdrop-blur-xl md:px-10 md:py-14">
           <h2 className="text-balance text-3xl font-semibold tracking-tight text-white md:text-5xl">
             If you&apos;re handling sensitive data, you already have exposure risk.
           </h2>

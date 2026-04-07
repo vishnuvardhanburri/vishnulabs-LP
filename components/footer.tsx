@@ -39,7 +39,7 @@ export function Footer() {
   return (
     <footer className="mt-8 border-t border-white/10 bg-[#060606]/90 text-white">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-10 lg:py-16">
-        <div className="mb-10 rounded-[30px] border border-white/10 bg-white/[0.04] p-6 shadow-[0_24px_90px_rgba(2,8,23,0.22)] backdrop-blur-xl sm:p-7">
+        <div className="float-card-soft mb-10 rounded-[30px] border border-white/10 bg-white/[0.04] p-6 shadow-[0_24px_90px_rgba(2,8,23,0.22)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 sm:p-7">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-200">Need the right scope?</p>
@@ -72,7 +72,7 @@ export function Footer() {
 
         <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.9fr]">
           <div>
-            <AppLink href="/" prefetch className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2.5 transition-colors hover:bg-white/[0.08]">
+            <AppLink href="/" prefetch className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2.5 transition-all duration-500 hover:-translate-y-0.5 hover:bg-white/[0.08]">
               <Image
                 src="/vishnulabs-logo-full.svg"
                 alt="VishnuLabs logo"
@@ -91,7 +91,7 @@ export function Footer() {
               {["Backend systems", "Workflow reliability", "Operational visibility", "Scalable infrastructure"].map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-300"
+                  className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-300 transition-colors duration-500 hover:bg-white/[0.08]"
                 >
                   {item}
                 </span>
@@ -122,7 +122,7 @@ export function Footer() {
               </a>
             </div>
 
-            <div className="mt-6 rounded-[22px] border border-white/10 bg-white/5 p-4 backdrop-blur-md">
+            <div className="float-card-soft mt-6 rounded-[22px] border border-white/10 bg-white/5 p-4 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.07]">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-300">Need a custom scope?</p>
               <p className="mt-2 text-sm leading-6 text-zinc-300">
                 Bring your workflow, internal surface, or operational bottleneck. We will scope the right intervention around the part of

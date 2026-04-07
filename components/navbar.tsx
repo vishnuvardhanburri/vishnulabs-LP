@@ -37,7 +37,7 @@ export function Navbar() {
   }, [pathname])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-black/30 backdrop-blur-md transition-all duration-500">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-black/30 backdrop-blur-md transition-all duration-700">
       <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-10">
         <div
           className={`rounded-[28px] border transition-all duration-500 ${
@@ -47,8 +47,8 @@ export function Navbar() {
           }`}
         >
           <div className="flex h-[74px] items-center justify-between px-3 sm:px-5">
-            <AppLink href="/" prefetch className="tap-target flex items-center gap-3 rounded-full px-1 py-1">
-              <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] shadow-[0_12px_26px_rgba(0,0,0,0.18)]">
+            <AppLink href="/" prefetch className="tap-target flex items-center gap-3 rounded-full px-1 py-1 transition-transform duration-500 hover:-translate-y-0.5">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] shadow-[0_12px_26px_rgba(0,0,0,0.18)] transition-all duration-500 hover:border-sky-300/20 hover:bg-white/[0.06]">
                 <Image
                   src="/vishnulabs-logo-mark.svg"
                   alt="VishnuLabs V logo"
@@ -70,10 +70,10 @@ export function Navbar() {
                   href={link.href}
                   prefetch
                   aria-current={isActive(link.href) ? "page" : undefined}
-                  className={`whitespace-nowrap rounded-full px-3 py-2 text-[12px] font-medium tracking-[0.01em] transition-all xl:px-3.5 xl:text-[13px] ${
+                  className={`whitespace-nowrap rounded-full px-3 py-2 text-[12px] font-medium tracking-[0.01em] transition-all duration-500 xl:px-3.5 xl:text-[13px] ${
                     isActive(link.href)
                       ? "bg-white text-zinc-950 shadow-[0_10px_24px_rgba(255,255,255,0.08)]"
-                      : "text-zinc-200 hover:bg-white/8 hover:text-white hover:drop-shadow-[0_0_12px_rgba(125,211,252,0.28)]"
+                      : "text-zinc-200 hover:-translate-y-0.5 hover:bg-white/8 hover:text-white hover:drop-shadow-[0_0_12px_rgba(125,211,252,0.28)]"
                   }`}
                 >
                   {link.label}

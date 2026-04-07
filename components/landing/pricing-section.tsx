@@ -12,15 +12,15 @@ const plans = [
 export function PricingSection() {
   return (
     <section className="px-5 py-24 sm:px-6 lg:px-10 xl:py-28">
-      <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl md:p-8">
+      <div className="reveal-in mx-auto max-w-7xl rounded-[2rem] border border-white/12 bg-white/[0.05] p-6 backdrop-blur-xl md:p-8">
         <div className="flex flex-col gap-4 border-b border-white/10 pb-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
-            <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-300">Pricing</p>
+            <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-200">Pricing</p>
             <h2 className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
               Clear pricing for teams that need stable systems.
             </h2>
           </div>
-          <p className="max-w-xl text-base leading-8 text-zinc-300">
+          <p className="max-w-xl text-base leading-8 text-zinc-200">
             Pick the level of control you need now. Expand only when the system earns it.
           </p>
         </div>
@@ -29,11 +29,14 @@ export function PricingSection() {
           {plans.map((plan, index) => (
             <article
               key={plan.name}
-              className={`group relative overflow-hidden rounded-[1.75rem] border p-5 shadow-[0_24px_80px_rgba(0,0,0,0.3)] backdrop-blur-md transition-transform duration-300 hover:-translate-y-2 hover:scale-[1.018] ${
+              className={`group relative overflow-hidden rounded-[1.75rem] border p-5 shadow-[0_24px_80px_rgba(0,0,0,0.3)] backdrop-blur-md transition-transform duration-500 hover:-translate-y-2 hover:scale-[1.018] ${
                 plan.highlight
-                  ? "border-sky-300/40 bg-white/[0.1]"
-                  : "border-white/10 bg-white/[0.04]"
+                    ? "border-sky-300/40 bg-white/[0.12] float-card-soft"
+                  : index % 2 === 0
+                    ? "border-white/12 bg-white/[0.06] float-card-soft"
+                    : "border-white/12 bg-white/[0.06] float-card-soft float-card-delay-1"
               }`}
+              style={{ animationDelay: `${index * 0.28}s` }}
             >
               <div className="pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">
                 <div className="absolute inset-0 rounded-[1.75rem] bg-[radial-gradient(circle_at_top,rgba(96,165,250,0.16),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(217,70,239,0.16),transparent_32%)]" />
@@ -45,11 +48,11 @@ export function PricingSection() {
               ) : null}
 
               <div className="relative">
-                <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-300">{plan.name}</p>
+                <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-200">{plan.name}</p>
                 <p className="mt-6 bg-[linear-gradient(90deg,#ffffff_0%,#c4b5fd_38%,#7dd3fc_100%)] bg-clip-text text-5xl font-semibold tracking-[-0.06em] text-transparent">
                   {plan.price}
                 </p>
-                <p className="mt-4 min-h-[84px] text-sm leading-7 text-zinc-300">{plan.detail}</p>
+                <p className="mt-4 min-h-[84px] text-sm leading-7 text-zinc-100">{plan.detail}</p>
                 {plan.highlight ? (
                   <AppLink
                     href="/book"

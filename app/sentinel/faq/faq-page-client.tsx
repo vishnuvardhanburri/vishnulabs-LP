@@ -96,8 +96,12 @@ export function FaqPageClient() {
   const { openSentinelLeadCapture } = useSentinelLeadCapture()
 
   return (
-    <main className="bg-black px-5 pb-24 pt-36 text-white md:pt-40">
-      <section className="mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-12 text-center shadow-[0_24px_90px_rgba(3,10,24,0.24)] backdrop-blur-xl md:px-10 md:py-16">
+    <main className="relative overflow-hidden bg-black px-5 pb-24 pt-36 text-white md:pt-40">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="orb-float absolute left-[-12rem] top-[10rem] h-[24rem] w-[24rem] rounded-full bg-fuchsia-500/10 blur-[150px] mix-blend-screen" />
+        <div className="orb-float-slow absolute right-[-10rem] top-[18rem] h-[22rem] w-[22rem] rounded-full bg-sky-500/12 blur-[150px] mix-blend-screen" />
+      </div>
+      <section className="reveal-in mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-12 text-center shadow-[0_24px_90px_rgba(3,10,24,0.24)] backdrop-blur-xl md:px-10 md:py-16">
         <p className="text-[11px] uppercase tracking-[0.28em] text-cyan-200/70">Sentinel FAQ</p>
         <h1 className="mt-6 text-balance font-heading text-5xl font-semibold leading-[0.94] tracking-[-0.05em] text-white md:text-7xl">
           Sentinel — Questions & Answers
@@ -116,10 +120,13 @@ export function FaqPageClient() {
       </section>
 
       <section className="mx-auto mt-8 max-w-5xl grid gap-6">
-        {faqGroups.map((group) => (
+        {faqGroups.map((group, groupIndex) => (
           <div
             key={group.title}
-            className="rounded-[36px] border border-white/10 bg-white/[0.03] px-6 py-8 backdrop-blur-xl md:px-8 md:py-10"
+            className={`reveal-in rounded-[36px] border border-white/10 bg-white/[0.03] px-6 py-8 backdrop-blur-xl md:px-8 md:py-10 ${
+              groupIndex % 2 === 0 ? "float-card-soft" : "float-card-soft float-card-delay-1"
+            }`}
+            style={{ animationDelay: `${groupIndex * 0.12}s` }}
           >
             <div className="flex items-start justify-between gap-4">
               <div>
@@ -148,7 +155,7 @@ export function FaqPageClient() {
         ))}
       </section>
 
-      <section className="mx-auto mt-8 max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-12 text-center shadow-[0_24px_90px_rgba(3,10,24,0.22)] backdrop-blur-xl md:px-10 md:py-14">
+      <section className="reveal-in mx-auto mt-8 max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-12 text-center shadow-[0_24px_90px_rgba(3,10,24,0.22)] backdrop-blur-xl md:px-10 md:py-14">
         <h2 className="text-balance text-3xl font-semibold tracking-tight text-white md:text-5xl">
           Still unsure if Sentinel is needed?
         </h2>

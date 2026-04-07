@@ -19,9 +19,9 @@ const testimonials = [
 export function TestimonialsSection() {
   return (
     <section className="px-5 pb-28 pt-24 sm:px-6 lg:px-10">
-      <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl md:p-8">
+      <div className="reveal-in mx-auto max-w-7xl rounded-[2rem] border border-white/12 bg-white/[0.05] p-6 backdrop-blur-xl md:p-8">
         <div className="max-w-3xl">
-          <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-300">Trust</p>
+          <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-200">Trust</p>
           <h2 className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
             Trusted when reliability matters more than another tool.
           </h2>
@@ -31,7 +31,10 @@ export function TestimonialsSection() {
           {testimonials.map((item, index) => (
             <article
               key={item.author}
-              className="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.3)] backdrop-blur-md transition-transform duration-300 hover:-translate-y-2 hover:scale-[1.018]"
+              className={`group relative overflow-hidden rounded-[1.75rem] border border-white/12 bg-white/[0.07] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.3)] backdrop-blur-md transition-transform duration-500 hover:-translate-y-2 hover:scale-[1.018] ${
+                index === 0 ? "float-card-soft" : index === 1 ? "float-card-soft float-card-delay-1" : "float-card-soft float-card-delay-2"
+              }`}
+              style={{ animationDelay: `${index * 0.32}s` }}
             >
               <div className="pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">
                 <div className="absolute inset-0 rounded-[1.75rem] bg-[radial-gradient(circle_at_top_left,rgba(96,165,250,0.16),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(217,70,239,0.18),transparent_30%)]" />
@@ -46,7 +49,7 @@ export function TestimonialsSection() {
                   <span className="pt-3 text-sm tracking-[0.28em] text-sky-200">★★★★★</span>
                 </div>
 
-                <p className="mt-3 text-lg leading-8 text-zinc-300">{item.quote}</p>
+                <p className="mt-3 text-lg leading-8 text-zinc-100">{item.quote}</p>
 
                 <div className="mt-8 border-t border-white/10 pt-5">
                   <p className="text-base font-medium text-white">{item.author}</p>

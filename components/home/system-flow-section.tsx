@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { ArrowRight, ArrowUpRight } from "lucide-react"
 
 import { MagneticButton } from "@/components/home/magnetic-button"
+import { useIsMobile } from "@/components/ui/use-mobile"
 
 const steps = [
   { title: "Lead", desc: "Incoming data", tooltip: "New demand enters the system from forms, ads, calls, or referrals." },
@@ -17,6 +18,7 @@ const steps = [
 ]
 
 export function SystemFlowSection() {
+  const isMobile = useIsMobile()
   const sectionRef = useRef<HTMLElement>(null)
   const lineRefs = useRef<Array<HTMLDivElement | null>>([])
   const nodeRefs = useRef<Array<HTMLDivElement | null>>([])
@@ -24,7 +26,8 @@ export function SystemFlowSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || isMobile) {
+      setActiveIndex(steps.length - 1)
       return
     }
 
@@ -80,11 +83,12 @@ export function SystemFlowSection() {
     }, sectionRef)
 
     return () => ctx.revert()
-  }, [])
+  }, [isMobile])
 
   return (
     <section id="system-flow" ref={sectionRef} className="px-5 pb-24">
-      <div className="mx-auto max-w-[1200px] overflow-hidden rounded-[40px] border border-white/10 bg-white/[0.035] px-6 py-8 backdrop-blur-xl md:px-8 md:py-10">
+      <div className="relative mx-auto max-w-[1200px] overflow-hidden rounded-[40px] border border-white/10 bg-white/[0.035] px-6 py-8 backdrop-blur-xl md:px-8 md:py-10">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_20%_0%,rgba(104,171,255,0.1),transparent_35%),radial-gradient(circle_at_80%_0%,rgba(123,102,255,0.08),transparent_32%)]" />
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -168,7 +172,7 @@ export function SystemFlowSection() {
                 initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.8, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: isMobile ? 0.55 : 0.8, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
                 className={`rounded-[26px] border bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.03))] p-5 backdrop-blur-xl ${
                   activeIndex >= index ? "border-cyan-300/24" : "border-white/10"
                 }`}

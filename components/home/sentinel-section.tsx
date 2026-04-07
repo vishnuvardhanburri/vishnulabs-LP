@@ -9,7 +9,8 @@ import { sentinelFeatures } from "@/components/home/site-data"
 export function SentinelSection() {
   return (
     <section className="px-5 pb-24">
-      <div className="mx-auto max-w-[1200px] rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-8 backdrop-blur-xl md:px-8 md:py-10">
+      <div className="relative mx-auto max-w-[1200px] rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-8 backdrop-blur-xl md:px-8 md:py-10">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_16%_0%,rgba(123,102,255,0.12),transparent_34%),radial-gradient(circle_at_84%_0%,rgba(104,171,255,0.12),transparent_30%)]" />
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -32,7 +33,11 @@ export function SentinelSection() {
             </p>
           </div>
 
-          <div className="rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.025))] p-6 shadow-[0_24px_90px_rgba(3,10,24,0.24)] backdrop-blur-2xl">
+          <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.025))] p-6 shadow-[0_24px_90px_rgba(3,10,24,0.24)] backdrop-blur-2xl">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_82%_18%,rgba(104,171,255,0.12),transparent_18%),radial-gradient(circle_at_18%_78%,rgba(123,102,255,0.1),transparent_20%)]" />
+            <div className="pointer-events-none absolute right-10 top-10 h-24 w-24 rounded-full border border-cyan-300/12 bg-white/[0.03] shadow-[0_0_30px_rgba(104,171,255,0.12)]" />
+            <div className="pointer-events-none absolute bottom-10 right-20 h-14 w-14 rounded-full border border-fuchsia-300/12 bg-white/[0.02] shadow-[0_0_22px_rgba(191,123,255,0.1)]" />
+            <div className="pointer-events-none absolute left-10 top-24 h-px w-28 bg-[linear-gradient(90deg,rgba(104,171,255,0),rgba(104,171,255,0.7),rgba(104,171,255,0))]" />
             <div className="flex items-center gap-3">
               <span className="flex h-11 w-11 items-center justify-center rounded-full border border-cyan-300/20 bg-cyan-400/10">
                 <ShieldCheck className="h-5 w-5 text-cyan-200" />

@@ -8,7 +8,10 @@ import { MagneticButton } from "@/components/home/magnetic-button"
 export function FinalCtaSection() {
   return (
     <section className="px-5 pb-24">
-      <div className="mx-auto max-w-[1200px] rounded-[40px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.028))] px-6 py-10 shadow-[0_24px_90px_rgba(3,10,24,0.28)] backdrop-blur-2xl md:px-8 md:py-12">
+      <div className="relative mx-auto max-w-[1200px] overflow-hidden rounded-[40px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.028))] px-6 py-10 shadow-[0_24px_90px_rgba(3,10,24,0.28)] backdrop-blur-2xl md:px-8 md:py-12">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(123,102,255,0.12),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(104,171,255,0.12),transparent_24%)]" />
+        <div className="pointer-events-none absolute left-[8%] top-[28%] h-px w-36 bg-[linear-gradient(90deg,rgba(104,171,255,0),rgba(104,171,255,0.75),rgba(104,171,255,0))]" />
+        <div className="pointer-events-none absolute right-[10%] bottom-[30%] h-px w-28 bg-[linear-gradient(90deg,rgba(191,123,255,0),rgba(191,123,255,0.65),rgba(191,123,255,0))]" />
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}

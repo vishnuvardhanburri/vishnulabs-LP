@@ -39,15 +39,15 @@ const features = [
 const industries = [
   {
     title: "Law Firms",
-    detail: "Protect client data and keep confidential case information out of ungoverned AI usage.",
+    detail: "Protect confidential case data and keep it out of uncontrolled AI usage.",
   },
   {
     title: "Healthcare",
-    detail: "Protect patient data and support HIPAA-ready AI controls across clinical workflows.",
+    detail: "Protect patient data and keep AI usage inside controlled workflows.",
   },
   {
     title: "Enterprises",
-    detail: "Prevent internal leaks and control how teams use AI with sensitive business data.",
+    detail: "Prevent internal leaks and control AI usage around sensitive business data.",
   },
 ]
 
@@ -72,6 +72,9 @@ export function SentinelPageClient() {
           </h1>
           <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-white/68">
             Prevent data leaks, enforce compliance, and control every AI interaction before it leaves your system.
+          </p>
+          <p className="mx-auto mt-4 max-w-3xl text-base leading-8 text-white/62">
+            This is not for teams experimenting with AI. This is for teams already using AI with real data and need control.
           </p>
           <p className="mx-auto mt-4 max-w-3xl text-base leading-8 text-white/56">
             Most organizations are already leaking sensitive data through AI tools without realizing it.
@@ -111,7 +114,28 @@ export function SentinelPageClient() {
               </li>
             ))}
           </ul>
+          <p className="mt-6 text-base leading-8 text-white/60">Most teams don&apos;t realize where data is leaking until it&apos;s too late.</p>
           <p className="mt-6 text-base leading-8 text-white/52">One unnoticed data leak can cost more than Sentinel itself.</p>
+        </div>
+      </section>
+
+      <section className="px-5 pb-24">
+        <div className="mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-xl md:px-8 md:py-12">
+          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">Not for everyone</h2>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {[
+              "Not for early-stage teams without real workflows",
+              "Not for teams without sensitive data",
+              "Not for experimentation use cases",
+            ].map((item) => (
+              <div key={item} className="rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-5 text-base leading-8 text-white/68">
+                {item}
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-base leading-8 text-white/60">
+            Sentinel is built for teams handling real client, patient, or operational data.
+          </p>
         </div>
       </section>
 
@@ -312,7 +336,7 @@ export function SentinelPageClient() {
             Start with a Sentinel Risk Assessment
           </h2>
           <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-white/64">
-            We evaluate your current AI usage and identify where data exposure risks exist.
+            We evaluate your current AI usage and identify where exposure risk exists.
           </p>
           <div className="mx-auto mt-8 flex max-w-4xl flex-col gap-3 sm:flex-row sm:justify-center">
             <button
@@ -341,10 +365,10 @@ export function SentinelPageClient() {
 
         <div className="mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-12 shadow-[0_24px_90px_rgba(3,10,24,0.22)] backdrop-blur-xl md:px-10 md:py-14">
           <h2 className="text-balance text-3xl font-semibold tracking-tight text-white md:text-5xl">
-            Know where your system is exposed
+            If you&apos;re handling sensitive data, you already have exposure risk.
           </h2>
           <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-white/64">
-            This is the control layer that helps prevent costly leaks, compliance failures, and unsafe AI usage before they happen.
+            Sentinel prevents costly leaks, compliance failures, and unsafe AI usage before they spread.
           </p>
           <button
             type="button"

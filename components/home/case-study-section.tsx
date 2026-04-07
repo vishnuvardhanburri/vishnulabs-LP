@@ -84,7 +84,7 @@ export function CaseStudySection() {
             Proof that the right fixes lead to more booked calls.
           </h2>
           <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/68">
-            See the result first, then the problem we fixed to get there.
+            These systems were already generating demand. They were losing it in execution.
           </p>
         </motion.div>
 

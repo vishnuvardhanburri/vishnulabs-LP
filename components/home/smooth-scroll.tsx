@@ -4,17 +4,20 @@ import { useEffect } from "react"
 import Lenis from "lenis"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useIsMobile } from "@/components/ui/use-mobile"
 
 export function SmoothScroll() {
+  const isMobile = useIsMobile()
+
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || isMobile) {
       return
     }
 
     gsap.registerPlugin(ScrollTrigger)
 
     const lenis = new Lenis({
-      duration: 1.15,
+      duration: 1.05,
       smoothWheel: true,
       gestureOrientation: "vertical",
     })
@@ -34,7 +37,7 @@ export function SmoothScroll() {
       window.cancelAnimationFrame(rafId)
       lenis.destroy()
     }
-  }, [])
+  }, [isMobile])
 
   return null
 }

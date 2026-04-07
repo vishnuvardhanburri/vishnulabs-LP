@@ -1,22 +1,26 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import dynamic from "next/dynamic"
 import { motion } from "framer-motion"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { ArrowRight, ArrowUpRight, Sparkles } from "lucide-react"
 
-import { CaseStudySection } from "@/components/home/case-study-section"
-import { FinalCtaSection } from "@/components/home/final-cta-section"
-import { HowWeWorkSection } from "@/components/home/how-we-work-section"
 import { MagneticButton } from "@/components/home/magnetic-button"
-import { PricingSection } from "@/components/home/pricing-section"
-import { ReviewsSection } from "@/components/home/reviews-section"
-import { SentinelSection } from "@/components/home/sentinel-section"
 import { SmoothScroll } from "@/components/home/smooth-scroll"
-import { SystemsBuiltSection } from "@/components/home/systems-built-section"
-import { SystemFlowSection } from "@/components/home/system-flow-section"
-import { VisualProofSection } from "@/components/home/visual-proof-section"
+import { BackgroundVideo } from "@/components/ui/background-video"
+import { useIsMobile } from "@/components/ui/use-mobile"
+
+const CaseStudySection = dynamic(() => import("@/components/home/case-study-section").then((module) => module.CaseStudySection))
+const SystemsBuiltSection = dynamic(() => import("@/components/home/systems-built-section").then((module) => module.SystemsBuiltSection))
+const HowWeWorkSection = dynamic(() => import("@/components/home/how-we-work-section").then((module) => module.HowWeWorkSection))
+const SystemFlowSection = dynamic(() => import("@/components/home/system-flow-section").then((module) => module.SystemFlowSection))
+const VisualProofSection = dynamic(() => import("@/components/home/visual-proof-section").then((module) => module.VisualProofSection))
+const SentinelSection = dynamic(() => import("@/components/home/sentinel-section").then((module) => module.SentinelSection))
+const ReviewsSection = dynamic(() => import("@/components/home/reviews-section").then((module) => module.ReviewsSection))
+const PricingSection = dynamic(() => import("@/components/home/pricing-section").then((module) => module.PricingSection))
+const FinalCtaSection = dynamic(() => import("@/components/home/final-cta-section").then((module) => module.FinalCtaSection))
 
 const particleLayout = [
   { left: "10%", top: "16%", size: 10, delay: 0 },
@@ -52,13 +56,14 @@ const revealChild = {
 }
 
 export function LandingPage() {
+  const isMobile = useIsMobile()
   const rootRef = useRef<HTMLDivElement>(null)
   const heroRef = useRef<HTMLElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const visualRef = useRef<HTMLDivElement>(null)
   const glowRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || isMobile) {
       return
     }
 
@@ -111,14 +116,17 @@ export function LandingPage() {
     }, rootRef)
 
     return () => ctx.revert()
-  }, [])
+  }, [isMobile])
+
+  const visibleParticles = isMobile ? particleLayout.slice(0, 3) : particleLayout
 
   return (
     <>
       <SmoothScroll />
 
       <div ref={rootRef} className="relative min-h-screen overflow-hidden bg-[#050816] text-white">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.12),transparent_24%),radial-gradient(circle_at_80%_10%,rgba(168,85,247,0.12),transparent_18%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(92,102,255,0.14),transparent_24%),radial-gradient(circle_at_80%_10%,rgba(112,183,255,0.1),transparent_20%),radial-gradient(circle_at_50%_100%,rgba(255,136,178,0.06),transparent_24%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0.18),rgba(5,5,5,0.58),rgba(10,10,10,0.96))]" />
 
         <header className="fixed inset-x-0 top-0 z-50">
           <div className="mx-auto flex max-w-[1200px] items-center justify-between px-5 py-5">
@@ -210,35 +218,47 @@ export function LandingPage() {
                   ref={visualRef}
                   className="relative overflow-hidden rounded-[40px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-4 shadow-[0_32px_140px_rgba(6,13,28,0.6)] backdrop-blur-2xl"
                 >
-                  <motion.div
-                    animate={{ x: ["-2%", "2%", "-2%"], y: ["0%", "-1.5%", "0%"] }}
-                    transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute inset-0 bg-[linear-gradient(135deg,rgba(34,211,238,0.08),rgba(168,85,247,0.06),rgba(255,255,255,0.01))]"
-                  />
-                  <motion.div
-                    animate={{ x: ["0%", "-2.5%", "0%"], y: ["0%", "2%", "0%"] }}
-                    transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(34,211,238,0.18),transparent_16%),radial-gradient(circle_at_82%_18%,rgba(168,85,247,0.16),transparent_18%),radial-gradient(circle_at_60%_74%,rgba(56,189,248,0.12),transparent_20%)]"
-                  />
+                  {isMobile ? (
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(104,171,255,0.18),transparent_16%),radial-gradient(circle_at_82%_18%,rgba(123,102,255,0.14),transparent_18%),radial-gradient(circle_at_60%_74%,rgba(255,134,177,0.08),transparent_22%),linear-gradient(180deg,rgba(7,11,24,0.2),rgba(7,11,24,0.72))]" />
+                  ) : (
+                    <>
+                      <BackgroundVideo
+                        mp4Src="/media/vishnulabs-cinematic.mp4"
+                        preload
+                        videoClassName="scale-[1.02] opacity-24"
+                        overlayClassName="bg-[linear-gradient(180deg,rgba(5,5,5,0.18),rgba(5,5,5,0.56),rgba(5,5,5,0.82))]"
+                      />
+                      <motion.div
+                        animate={{ x: ["-2%", "2%", "-2%"], y: ["0%", "-1.5%", "0%"] }}
+                        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute inset-0 bg-[linear-gradient(135deg,rgba(104,171,255,0.08),rgba(123,102,255,0.06),rgba(255,255,255,0.01))]"
+                      />
+                      <motion.div
+                        animate={{ x: ["0%", "-2.5%", "0%"], y: ["0%", "2%", "0%"] }}
+                        transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(104,171,255,0.16),transparent_16%),radial-gradient(circle_at_82%_18%,rgba(123,102,255,0.14),transparent_18%),radial-gradient(circle_at_60%_74%,rgba(255,134,177,0.08),transparent_20%)]"
+                      />
+                    </>
+                  )}
 
                   <div className="relative aspect-[0.94] overflow-hidden rounded-[30px] border border-white/8 bg-[#071022]">
                     <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,8,20,0.3),rgba(4,8,20,0.86))]" />
                     <motion.div
-                      animate={{ y: ["0%", "-1.2%", "0%"] }}
-                      transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+                      animate={{ y: ["0%", isMobile ? "-0.4%" : "-1.2%", "0%"] }}
+                      transition={{ duration: isMobile ? 24 : 20, repeat: Infinity, ease: "easeInOut" }}
                       className="absolute inset-0 opacity-48"
                     >
                       <div className="hero-grid absolute inset-0" />
                     </motion.div>
                     <motion.div
-                      animate={{ y: ["0%", "1.8%", "0%"], x: ["0%", "1.2%", "0%"] }}
-                      transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+                      animate={{ y: ["0%", isMobile ? "0.8%" : "1.8%", "0%"], x: ["0%", isMobile ? "0.5%" : "1.2%", "0%"] }}
+                      transition={{ duration: isMobile ? 28 : 22, repeat: Infinity, ease: "easeInOut" }}
                       className="absolute inset-0 opacity-62"
                     >
                       <div className="hero-mesh absolute inset-0" />
                     </motion.div>
 
-                    {particleLayout.map((particle) => (
+                    {visibleParticles.map((particle) => (
                       <motion.span
                         key={`${particle.left}-${particle.top}`}
                         className="hero-particle"
@@ -249,13 +269,13 @@ export function LandingPage() {
                           height: particle.size,
                         }}
                         animate={{
-                          y: [0, -14, 0],
-                          x: [0, 4, 0],
-                          opacity: [0.22, 0.55, 0.22],
-                          scale: [1, 1.18, 1],
+                          y: [0, isMobile ? -7 : -14, 0],
+                          x: [0, isMobile ? 2 : 4, 0],
+                          opacity: [0.18, isMobile ? 0.36 : 0.55, 0.18],
+                          scale: [1, isMobile ? 1.08 : 1.18, 1],
                         }}
                         transition={{
-                          duration: 7.5 + particle.delay * 1.4,
+                          duration: (isMobile ? 10.5 : 7.5) + particle.delay * 1.4,
                           delay: particle.delay,
                           repeat: Infinity,
                           ease: "easeInOut",
@@ -263,16 +283,24 @@ export function LandingPage() {
                       />
                     ))}
 
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
-                      className="absolute left-1/2 top-1/2 h-[82%] w-[82%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-300/12"
-                    />
-                    <motion.div
-                      animate={{ rotate: -360 }}
-                      transition={{ duration: 44, repeat: Infinity, ease: "linear" }}
-                      className="absolute left-1/2 top-1/2 h-[58%] w-[58%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-fuchsia-300/10"
-                    />
+                    {!isMobile ? (
+                      <>
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
+                          className="absolute left-1/2 top-1/2 h-[82%] w-[82%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-300/12"
+                        />
+                        <motion.div
+                          animate={{ rotate: -360 }}
+                          transition={{ duration: 44, repeat: Infinity, ease: "linear" }}
+                          className="absolute left-1/2 top-1/2 h-[58%] w-[58%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-fuchsia-300/10"
+                        />
+                        <div className="absolute left-[14%] top-[24%] h-24 w-24 rounded-full border border-white/10 bg-white/[0.03] shadow-[0_0_40px_rgba(104,171,255,0.12)]" />
+                        <div className="absolute right-[16%] top-[38%] h-16 w-16 rounded-full border border-white/10 bg-white/[0.02] shadow-[0_0_30px_rgba(164,120,255,0.12)]" />
+                      </>
+                    ) : (
+                      <div className="absolute left-1/2 top-1/2 h-[72%] w-[72%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-300/10" />
+                    )}
 
                     <div className="absolute inset-x-5 top-5 rounded-full border border-white/10 bg-black/30 px-4 py-3 text-[11px] uppercase tracking-[0.26em] text-cyan-200 backdrop-blur-md">
                       Protected demand flow

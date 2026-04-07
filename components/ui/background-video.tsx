@@ -20,11 +20,41 @@ export function BackgroundVideo({
   preload = false,
 }: BackgroundVideoProps) {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [shouldLoad, setShouldLoad] = useState(preload)
+  const [shouldLoad, setShouldLoad] = useState(false)
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
-    if (preload || shouldLoad) return
+    if (shouldLoad) return
+
+    const connection = navigator.connection as
+      | {
+          saveData?: boolean
+          effectiveType?: string
+        }
+      | undefined
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || connection?.saveData) {
+      return
+    }
+
+    const startLoading = () => setShouldLoad(true)
+
+    if (preload) {
+      const idleId =
+        "requestIdleCallback" in window
+          ? window.requestIdleCallback(startLoading, { timeout: 1200 })
+          : window.setTimeout(startLoading, 250)
+
+      return () => {
+        if ("cancelIdleCallback" in window && typeof idleId === "number") {
+          window.cancelIdleCallback(idleId)
+          return
+        }
+
+        window.clearTimeout(idleId as number)
+      }
+    }
+
     if (typeof IntersectionObserver === "undefined" || !containerRef.current) {
       setShouldLoad(true)
       return
@@ -54,7 +84,7 @@ export function BackgroundVideo({
           muted
           loop
           playsInline
-          preload={preload ? "auto" : "metadata"}
+          preload="none"
           onLoadedData={() => setLoaded(true)}
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${loaded ? "opacity-100" : "opacity-0"} ${videoClassName}`}
         >

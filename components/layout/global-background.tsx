@@ -17,7 +17,6 @@ export function GlobalBackground() {
       {isHome && !isMobile ? (
         <BackgroundVideo
           mp4Src="/media/vishnulabs-cinematic.mp4"
-          preload
           className="opacity-30"
           videoClassName="scale-105"
           overlayClassName="bg-[linear-gradient(180deg,rgba(5,5,5,0.62),rgba(5,5,5,0.82),rgba(5,5,5,0.95))]"

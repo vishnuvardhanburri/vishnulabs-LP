@@ -59,6 +59,34 @@ const processSteps = [
   { title: "Monitoring & Protection", detail: "Keep AI activity controlled with ongoing visibility, alerts, and enforcement." },
 ]
 
+const faqItems = [
+  {
+    question: "Why do teams need Sentinel?",
+    answer:
+      "Because AI usage usually spreads before control does. Sentinel adds the policy, logging, and interception layer before sensitive data leaves the system.",
+  },
+  {
+    question: "How fast can Sentinel be deployed?",
+    answer:
+      "Most teams start with a risk assessment or pilot first. Typical deployment timing depends on workflow complexity and integrations.",
+  },
+  {
+    question: "Does Sentinel support compliance work?",
+    answer:
+      "Yes. It helps teams build visibility, audit logs, and policy enforcement around HIPAA, GDPR, and similar requirements.",
+  },
+  {
+    question: "Can teams start small?",
+    answer:
+      "Yes. A pilot deployment is the lowest-friction way to validate control on one workflow or one team before expanding.",
+  },
+  {
+    question: "What kind of teams is Sentinel built for?",
+    answer:
+      "It is built for teams handling real client, patient, or operational data. Not lightweight experimentation use cases.",
+  },
+]
+
 export function SentinelPageClient() {
   const { openSentinelLeadCapture } = useSentinelLeadCapture()
 
@@ -326,6 +354,20 @@ export function SentinelPageClient() {
             <br />
             2–4 weeks depending on integrations and system complexity
           </p>
+        </div>
+      </section>
+
+      <section className="px-5 pb-24">
+        <div className="mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-xl md:px-8 md:py-12">
+          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">Common questions</h2>
+          <div className="mt-8 grid gap-4">
+            {faqItems.map((item) => (
+              <div key={item.question} className="rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-5">
+                <p className="text-xl font-semibold text-white">{item.question}</p>
+                <p className="mt-3 text-base leading-8 text-white/64">{item.answer}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

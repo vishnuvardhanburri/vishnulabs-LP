@@ -7,20 +7,43 @@ type BlogPostSection = {
   body: string[]
 }
 
+type BlogFaqItem = {
+  question: string
+  answer: string
+}
+
 type BlogPostTemplateProps = {
   eyebrow: string
   title: string
   intro: string
   sections: BlogPostSection[]
+  faqs: BlogFaqItem[]
   targetPage: {
     label: string
     href: string
   }
+  articleSchema: Record<string, unknown>
 }
 
-export function BlogPostTemplate({ eyebrow, title, intro, sections, targetPage }: BlogPostTemplateProps) {
+export function BlogPostTemplate({ eyebrow, title, intro, sections, faqs, targetPage, articleSchema }: BlogPostTemplateProps) {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  }
+
   return (
     <main className="relative overflow-hidden bg-zinc-950 px-5 py-16 text-white sm:px-6 lg:px-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-[-8rem] top-[-5rem] h-[18rem] w-[18rem] rounded-full bg-sky-500/10 blur-[140px] mix-blend-screen" />
         <div className="absolute right-[-8rem] top-[12rem] h-[16rem] w-[16rem] rounded-full bg-violet-500/10 blur-[140px] mix-blend-screen" />
@@ -49,6 +72,18 @@ export function BlogPostTemplate({ eyebrow, title, intro, sections, targetPage }
             </section>
           ))}
         </div>
+
+        <section className="mt-12">
+          <h2 className="text-2xl font-semibold tracking-[-0.04em] text-white">Common questions</h2>
+          <div className="mt-5 grid gap-4">
+            {faqs.map((item) => (
+              <div key={item.question} className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5">
+                <h3 className="text-lg font-semibold text-white">{item.question}</h3>
+                <p className="mt-3 text-sm leading-7 text-zinc-300">{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
         <div className="mt-12 rounded-[1.75rem] border border-sky-300/16 bg-white/[0.04] p-6 text-center shadow-[0_20px_80px_rgba(56,189,248,0.08)]">
           <h2 className="text-2xl font-semibold tracking-[-0.04em] text-white">See the system fix</h2>

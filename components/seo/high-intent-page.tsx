@@ -12,6 +12,11 @@ type CaseStudyMetric = {
   label: string
 }
 
+type FaqItem = {
+  question: string
+  answer: string
+}
+
 type HighIntentPageProps = {
   eyebrow: string
   title: string
@@ -29,6 +34,8 @@ type HighIntentPageProps = {
   primaryLinkLabel?: string
   supportingLink?: InternalLink
   internalLinks?: InternalLink[]
+  faqs: FaqItem[]
+  schema?: Record<string, unknown>
 }
 
 export function HighIntentPage({
@@ -48,9 +55,27 @@ export function HighIntentPage({
   primaryLinkLabel = "Get Free System Audit",
   supportingLink,
   internalLinks = [],
+  faqs,
+  schema,
 }: HighIntentPageProps) {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  }
+
   return (
     <main className="relative overflow-hidden bg-zinc-950 px-5 py-16 text-white sm:px-6 lg:px-10">
+      {schema ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /> : null}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-[-10rem] top-[-6rem] h-[20rem] w-[20rem] rounded-full bg-sky-500/10 blur-[140px] mix-blend-screen" />
         <div className="absolute right-[-8rem] top-[18rem] h-[18rem] w-[18rem] rounded-full bg-fuchsia-500/10 blur-[140px] mix-blend-screen" />
@@ -108,6 +133,9 @@ export function HighIntentPage({
         <section className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-7 backdrop-blur-xl md:p-8">
           <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">System solution</p>
           <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white">What the system does</h2>
+          <p className="mt-4 max-w-3xl text-base leading-8 text-zinc-300">
+            For teams handling sensitive data or controlled workflows, <AppLink href="/sentinel" className="text-sky-200 underline underline-offset-4">Sentinel</AppLink> adds the protection layer after the operating system is fixed.
+          </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {systemSolution.map((item) => (
               <div key={item} className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5">
@@ -154,6 +182,19 @@ export function HighIntentPage({
             </div>
           </section>
         ) : null}
+
+        <section className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-7 backdrop-blur-xl md:p-8">
+          <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">FAQ</p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white">Common questions</h2>
+          <div className="mt-6 grid gap-4">
+            {faqs.map((item) => (
+              <div key={item.question} className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5">
+                <h3 className="text-lg font-semibold text-white">{item.question}</h3>
+                <p className="mt-3 text-sm leading-7 text-zinc-300">{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
         <section className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-7 text-center backdrop-blur-xl md:p-10">
           <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white">Get Free System Audit</h2>

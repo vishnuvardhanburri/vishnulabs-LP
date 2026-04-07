@@ -3,6 +3,7 @@ import Script from "next/script"
 
 import "./globals.css"
 import { LeadCaptureProvider } from "@/components/home/lead-capture-provider"
+import { GaPageTracker } from "@/components/layout/ga-page-tracker"
 import { AppShell } from "@/components/layout/app-shell"
 
 const gaId = process.env.NEXT_PUBLIC_GA_ID
@@ -77,6 +78,7 @@ export default function RootLayout({
     <html lang="en-US">
       <body className="font-sans antialiased">
         <LeadCaptureProvider>
+          <GaPageTracker />
           <AppShell>
             <div className="app-shell-enter">{children}</div>
           </AppShell>

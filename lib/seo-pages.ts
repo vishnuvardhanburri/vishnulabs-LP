@@ -7,8 +7,8 @@ export const highIntentPages = {
     },
     page: {
       eyebrow: "Law firm intake",
-      title: "Law firm intake system that turns missed calls into consultations",
-      intro: "If consultation requests are coming in but not getting booked, the intake system is breaking before your team can recover it.",
+      title: "Law Firm Intake System",
+      intro: "Stop losing consultations from missed calls and slow follow-ups.",
       problem: "Calls get missed. Forms sit too long. Follow-up depends on staff availability. That means high-value legal leads go cold before the firm speaks to them.",
       whyItHappens: [
         "The first response depends on manual coverage.",
@@ -39,6 +39,22 @@ export const highIntentPages = {
         { label: "Why law firms lose leads", href: "/blog/why-law-firms-lose-leads" },
         { label: "See Sentinel for sensitive legal data", href: "/sentinel" },
       ],
+      faqs: [
+        { question: "Why do law firms lose leads?", answer: "Most firms lose leads in the first response window. Missed calls, delayed follow-up, and weak routing usually break the intake path before a consultation is booked." },
+        { question: "How does a law firm intake system help?", answer: "It captures every inquiry, responds fast, qualifies the lead, and routes it to the right person before intent drops." },
+        { question: "How fast can this be implemented?", answer: "Most focused intake fixes can be deployed in days, not months, when the scope is clear." },
+        { question: "Do you replace our current tools?", answer: "Not always. In many cases the better move is to fix the intake path around the tools already in use." },
+        { question: "Can this work with sensitive client data?", answer: "Yes. For firms handling confidential information, Sentinel adds the control layer for AI and sensitive data usage." },
+      ],
+      schema: {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Law Firm Intake System",
+        provider: { "@type": "Organization", name: "VishnuLabs", url: "https://vishnulabs.com" },
+        serviceType: "Law firm intake system",
+        areaServed: ["US", "India"],
+        description: "Fix missed calls, slow follow-up, and weak intake routing so more legal inquiries become booked consultations.",
+      },
     },
   },
   clinicNoShows: {
@@ -49,8 +65,8 @@ export const highIntentPages = {
     },
     page: {
       eyebrow: "Clinic no-shows",
-      title: "Reduce clinic no-shows with a booking and reminder system that actually holds",
-      intro: "If patients are booking but not showing up, the issue is usually not demand. It is the scheduling path around that demand.",
+      title: "Reduce Clinic No-Shows",
+      intro: "Stop losing appointments to weak reminders and manual scheduling gaps.",
       problem: "Appointments get booked without enough confirmation, reminders arrive too late, and staff end up manually chasing patients instead of running the clinic.",
       whyItHappens: [
         "Manual scheduling creates gaps between booking and confirmation.",
@@ -81,6 +97,22 @@ export const highIntentPages = {
         { label: "Hospitals and clinics page", href: "/industries/hospitals-clinics" },
         { label: "See Sentinel for patient data protection", href: "/sentinel" },
       ],
+      faqs: [
+        { question: "Why do clinics get so many no-shows?", answer: "The biggest causes are weak confirmation, poor reminder timing, and intake steps that are not finished before the appointment." },
+        { question: "How does the system reduce no-shows?", answer: "It confirms bookings instantly, sends reminders at the right times, and keeps intake from breaking before the visit." },
+        { question: "Will staff still need to chase patients manually?", answer: "Less often. The goal is to remove manual recovery work by making the appointment path hold on its own." },
+        { question: "How fast can this be implemented?", answer: "Most clinic scheduling fixes can be rolled out within a few weeks depending on the tools already in place." },
+        { question: "Can this work with patient data controls?", answer: "Yes. Sentinel can add the protection and visibility layer for teams using AI or handling sensitive patient data." },
+      ],
+      schema: {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Clinic No-Show Reduction System",
+        provider: { "@type": "Organization", name: "VishnuLabs", url: "https://vishnulabs.com" },
+        serviceType: "Appointment system optimization",
+        areaServed: ["US", "India"],
+        description: "Reduce clinic no-shows by fixing booking, reminder timing, and intake before appointments break.",
+      },
     },
   },
   realEstateFollowup: {
@@ -91,8 +123,8 @@ export const highIntentPages = {
     },
     page: {
       eyebrow: "Real estate follow-up",
-      title: "Real estate lead follow-up that keeps warm inquiries from going cold",
-      intro: "When inquiry volume rises, slow follow-up becomes expensive. The problem is rarely lead quality. It is the response path.",
+      title: "Real Estate Lead Follow-Up",
+      intro: "Stop losing warm inquiries before your team replies.",
       problem: "Leads come in across forms, listing portals, and direct contact. If response timing slips, serious buyers and sellers move on before the team can recover them.",
       whyItHappens: [
         "Leads arrive from multiple channels without one clear intake path.",
@@ -123,6 +155,22 @@ export const highIntentPages = {
         { label: "Real estate systems page", href: "/industries/real-estate" },
         { label: "View case studies", href: "/case-studies" },
       ],
+      faqs: [
+        { question: "Why do real estate leads go cold?", answer: "Most warm leads go cold when the first response is delayed or when ownership is unclear across channels and agents." },
+        { question: "How does a lead follow-up system help?", answer: "It captures the inquiry, responds instantly, routes it correctly, and tracks every step until the lead is booked or closed." },
+        { question: "Do you need to replace our CRM?", answer: "Not necessarily. Often the better move is to fix the follow-up path around the CRM you already use." },
+        { question: "How quickly can the system go live?", answer: "A focused follow-up rebuild can usually be launched within a few weeks depending on integrations." },
+        { question: "Can this connect to Sentinel?", answer: "Yes. For teams using AI with sensitive documents or operational data, Sentinel adds control and logging." },
+      ],
+      schema: {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Real Estate Lead Follow-Up System",
+        provider: { "@type": "Organization", name: "VishnuLabs", url: "https://vishnulabs.com" },
+        serviceType: "Lead follow-up system",
+        areaServed: ["US", "India"],
+        description: "Fix slow response and weak routing so more real estate leads turn into booked calls, visits, and deals.",
+      },
     },
   },
   aiDataLeak: {
@@ -133,8 +181,8 @@ export const highIntentPages = {
     },
     page: {
       eyebrow: "AI data leak prevention",
-      title: "AI data leak prevention for teams using real client, patient, and operational data",
-      intro: "If your team is already using AI with sensitive information, you have exposure risk whether you can see it or not.",
+      title: "AI Data Leak Prevention",
+      intro: "Control sensitive data before it reaches external AI tools.",
       problem: "Staff paste data into external AI tools, prompts move outside approved systems, and no one has a clear audit trail when something sensitive leaves.",
       whyItHappens: [
         "AI usage grows faster than internal controls.",
@@ -165,6 +213,22 @@ export const highIntentPages = {
         { label: "AI data leak risks article", href: "/blog/ai-data-leak-risks" },
         { label: "Sentinel FAQ", href: "/sentinel/faq" },
       ],
+      faqs: [
+        { question: "Why is AI data leak prevention urgent?", answer: "Because teams often use AI with real client, patient, or internal data before controls are fully in place." },
+        { question: "How does the prevention layer work?", answer: "Sensitive prompts are intercepted before they leave the system, then blocked, redacted, routed, and logged based on policy." },
+        { question: "Does this help with compliance?", answer: "Yes. It improves visibility, auditability, and enforcement for teams dealing with legal, medical, or operational data." },
+        { question: "How fast can this be deployed?", answer: "Pilot deployments usually start first, then expand into a broader rollout once the control path is validated." },
+        { question: "What product powers this?", answer: "Sentinel is the platform layer used to control AI interactions and prevent sensitive data from leaking out." },
+      ],
+      schema: {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "AI Data Leak Prevention",
+        provider: { "@type": "Organization", name: "VishnuLabs", url: "https://vishnulabs.com" },
+        serviceType: "AI data protection and governance",
+        areaServed: ["US", "India"],
+        description: "Prevent data leaks, enforce compliance, and control every AI interaction before sensitive information leaves the system.",
+      },
     },
   },
   bestLawFirm: {
@@ -175,8 +239,8 @@ export const highIntentPages = {
     },
     page: {
       eyebrow: "Best pages",
-      title: "Best law firm intake system for firms that need more booked consultations",
-      intro: "The best law firm intake system is not the one with the most features. It is the one that captures every consultation request and moves it forward fast.",
+      title: "Best Law Firm Intake System",
+      intro: "Choose the setup that books more consultations, not the one with the longest feature list.",
       problem: "Most firms lose leads in the first few steps: missed calls, incomplete intake, slow follow-up, and weak routing.",
       whyItHappens: [
         "Tools get added without fixing the intake path itself.",
@@ -206,6 +270,22 @@ export const highIntentPages = {
         { label: "Law firm intake system", href: "/law-firm-intake-system" },
         { label: "Why law firms lose leads", href: "/blog/why-law-firms-lose-leads" },
       ],
+      faqs: [
+        { question: "What makes a law firm intake system the best option?", answer: "Speed, clean qualification, reliable routing, and visibility into where consultations are being lost." },
+        { question: "Is more software always better?", answer: "No. The best setup is usually the one that removes delay and confusion, not the one with the most features." },
+        { question: "Can this work with current intake staff?", answer: "Yes. The system should support staff and remove failure points instead of forcing more manual rescue work." },
+        { question: "How quickly do results show up?", answer: "When the main issue is intake delay, results usually show quickly once first response and routing are fixed." },
+        { question: "Where should I start?", answer: "Start with a system audit so the exact intake failure points are clear before anything new is deployed." },
+      ],
+      schema: {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Best Law Firm Intake System",
+        provider: { "@type": "Organization", name: "VishnuLabs", url: "https://vishnulabs.com" },
+        serviceType: "Law firm intake evaluation",
+        areaServed: ["US", "India"],
+        description: "Compare what matters in a law firm intake system if the goal is more booked consultations and fewer missed leads.",
+      },
     },
   },
   bestAiProtection: {
@@ -216,8 +296,8 @@ export const highIntentPages = {
     },
     page: {
       eyebrow: "Best pages",
-      title: "Best AI data protection platform for teams handling sensitive information",
-      intro: "The best AI data protection platform does one job clearly: it stops sensitive data from leaving your system without control.",
+      title: "Best AI Data Protection Platform",
+      intro: "Choose the platform that stops sensitive data from leaving your system without control.",
       problem: "Most teams realize they need control only after AI usage is already spreading through daily operations.",
       whyItHappens: [
         "AI tools are adopted faster than governance layers.",
@@ -247,6 +327,22 @@ export const highIntentPages = {
         { label: "AI data leak prevention", href: "/ai-data-leak-prevention" },
         { label: "AI data leak risks article", href: "/blog/ai-data-leak-risks" },
       ],
+      faqs: [
+        { question: "What should the best AI data protection platform do?", answer: "It should intercept prompts, enforce policy, log activity, and fit real operational workflows." },
+        { question: "Is this just another software tool?", answer: "No. It is critical infrastructure for controlling AI usage around sensitive data." },
+        { question: "Can teams start smaller?", answer: "Yes. A pilot or risk assessment is often the best way to validate control before a full rollout." },
+        { question: "Does this support compliance work?", answer: "Yes. Visibility, audit logs, and policy enforcement are core parts of the control layer." },
+        { question: "Where does Sentinel fit?", answer: "Sentinel is the platform layer that provides the protection, control, and monitoring." },
+      ],
+      schema: {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Best AI Data Protection Platform",
+        provider: { "@type": "Organization", name: "VishnuLabs", url: "https://vishnulabs.com" },
+        serviceType: "AI data protection platform evaluation",
+        areaServed: ["US", "India"],
+        description: "Compare what matters in an AI data protection platform before sensitive prompts leave your system.",
+      },
     },
   },
 } as const
@@ -289,6 +385,21 @@ export const blogPosts = {
         label: "See the law firm intake system page",
         href: "/law-firm-intake-system",
       },
+      faqs: [
+        { question: "Why do law firms lose leads?", answer: "Missed calls, delayed follow-up, and weak intake routing are the main reasons consultations never get booked." },
+        { question: "Is lead volume usually the problem?", answer: "Not always. Many firms already have demand and lose it in execution." },
+        { question: "What improves results fastest?", answer: "First response speed and a cleaner intake path usually create the fastest lift." },
+        { question: "Should firms add more marketing first?", answer: "Not until the intake path holds. More demand into a broken system only increases waste." },
+      ],
+      articleSchema: {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: "Why law firms lose leads before a consultation is ever booked",
+        description: "Law firms do not usually lack demand. They lose leads in intake, follow-up, and first response.",
+        author: { "@type": "Organization", name: "VishnuLabs" },
+        publisher: { "@type": "Organization", name: "VishnuLabs" },
+        mainEntityOfPage: "https://vishnulabs.com/blog/why-law-firms-lose-leads",
+      },
     },
   },
   reduceClinicNoShows: {
@@ -326,6 +437,21 @@ export const blogPosts = {
       targetPage: {
         label: "See the clinic no-show page",
         href: "/reduce-clinic-no-shows",
+      },
+      faqs: [
+        { question: "Why do clinics get so many no-shows?", answer: "Weak confirmation, poor reminder timing, and incomplete intake are the biggest causes." },
+        { question: "Can reminder systems reduce no-shows?", answer: "Yes, when they are tied to the booking path and timed correctly." },
+        { question: "Does staff still need to confirm manually?", answer: "Much less. The point is to reduce manual rescue work." },
+        { question: "How quickly can clinics improve appointment completion?", answer: "Once the booking path is fixed, results usually show quickly." },
+      ],
+      articleSchema: {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: "How to reduce clinic no-shows without adding more manual work",
+        description: "Reduce clinic no-shows by fixing booking, reminders, and intake before appointments break.",
+        author: { "@type": "Organization", name: "VishnuLabs" },
+        publisher: { "@type": "Organization", name: "VishnuLabs" },
+        mainEntityOfPage: "https://vishnulabs.com/blog/how-to-reduce-clinic-no-shows",
       },
     },
   },
@@ -366,6 +492,21 @@ export const blogPosts = {
         label: "See the real estate follow-up page",
         href: "/real-estate-lead-followup",
       },
+      faqs: [
+        { question: "Why do follow-ups fail?", answer: "Because the first reply is too slow, ownership is unclear, or visibility into the lead path is too weak." },
+        { question: "Is lead quality always the issue?", answer: "No. Many teams blame lead quality when the real problem is response speed." },
+        { question: "Can this be fixed without replacing every tool?", answer: "Yes. Often the right move is to rebuild the path around the current stack." },
+        { question: "What does a better follow-up system look like?", answer: "It captures, responds, routes, and tracks every inquiry in one reliable path." },
+      ],
+      articleSchema: {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: "Why follow-ups fail even when teams think they are responding",
+        description: "Most follow-ups fail because speed, routing, and visibility break before the lead is contacted.",
+        author: { "@type": "Organization", name: "VishnuLabs" },
+        publisher: { "@type": "Organization", name: "VishnuLabs" },
+        mainEntityOfPage: "https://vishnulabs.com/blog/why-follow-ups-fail",
+      },
     },
   },
   aiDataLeakRisks: {
@@ -403,6 +544,21 @@ export const blogPosts = {
       targetPage: {
         label: "See the AI data leak prevention page",
         href: "/ai-data-leak-prevention",
+      },
+      faqs: [
+        { question: "What are the biggest AI data leak risks?", answer: "The biggest risks come from normal employee use of external AI tools with sensitive information." },
+        { question: "Why is visibility so important?", answer: "Without logs and policy checks, teams cannot see what left the system or when." },
+        { question: "Can policy alone solve this?", answer: "No. Control has to happen in the system before the prompt leaves." },
+        { question: "What should teams do first?", answer: "Start with a risk assessment to map where AI exposure already exists." },
+      ],
+      articleSchema: {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: "AI data leak risks most teams do not see until it is too late",
+        description: "AI data leak risks grow fast when teams use external tools without controls, logging, or policy checks.",
+        author: { "@type": "Organization", name: "VishnuLabs" },
+        publisher: { "@type": "Organization", name: "VishnuLabs" },
+        mainEntityOfPage: "https://vishnulabs.com/blog/ai-data-leak-risks",
       },
     },
   },

@@ -81,13 +81,13 @@ export function ReviewsSection() {
           <h2 className="mt-6 font-heading text-[40px] font-semibold leading-[0.98] tracking-[-0.04em] text-white md:text-[52px]">
             Trusted by teams building reliable systems
           </h2>
-          <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/68">
+          <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/82">
             When the lead flow works, teams feel it quickly. These reviews show the trust that comes from more booked calls and fewer missed chances.
           </p>
           </div>
 
           <div className="rounded-[28px] border border-white/10 bg-black/22 px-6 py-5 backdrop-blur-xl">
-            <p className="text-[11px] uppercase tracking-[0.24em] text-white/40">Average rating</p>
+            <p className="text-[11px] uppercase tracking-[0.24em] text-white/62">Average rating</p>
             <div className="mt-3 flex items-end gap-3">
               <p className="font-heading text-[44px] font-semibold leading-none text-white">4.9/5</p>
               <p className="pb-1 text-amber-300">★★★★★</p>
@@ -120,12 +120,12 @@ export function ReviewsSection() {
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <h3 className="font-heading text-[22px] font-semibold text-white">{review.name}</h3>
-                    <p className="mt-1 text-sm leading-6 text-white/52">{review.role}</p>
+                    <p className="mt-1 text-sm leading-6 text-white/72">{review.role}</p>
                   </div>
                   <p className="text-amber-300">{renderStars(review.rating)}</p>
                 </div>
 
-                <p className="mt-6 text-[15px] leading-7 text-white/76">{review.text}</p>
+                <p className="mt-6 text-[15px] leading-7 text-white/86">{review.text}</p>
               </div>
             </motion.article>
           ))}

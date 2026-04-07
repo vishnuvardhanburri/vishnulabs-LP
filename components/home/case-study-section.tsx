@@ -83,7 +83,7 @@ export function CaseStudySection() {
           <h2 className="mt-6 font-heading text-[40px] font-semibold leading-[0.98] tracking-[-0.04em] text-white md:text-[52px]">
             Proof that the right fixes lead to more booked calls.
           </h2>
-          <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/68">
+          <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/82">
             These systems were already generating demand. They were losing it in execution.
           </p>
         </motion.div>
@@ -116,21 +116,21 @@ export function CaseStudySection() {
                   <div className="mt-4 flex justify-center">
                     <ResultCounter result={study.result} />
                   </div>
-                  <p className="mt-2 text-sm leading-6 text-white/54">{study.timeframe}</p>
-                  <p className="mt-3 text-sm leading-6 text-white/48">{study.microProof}</p>
+                  <p className="mt-2 text-sm leading-6 text-white/74">{study.timeframe}</p>
+                  <p className="mt-3 text-sm leading-6 text-white/68">{study.microProof}</p>
                 </div>
 
                 <div className="mt-5 rounded-[24px] border border-white/8 bg-black/18 p-4">
-                  <p className="text-[11px] uppercase tracking-[0.24em] text-white/38">Problem</p>
-                  <p className="mt-3 text-[15px] leading-7 text-white/62">{study.problem}</p>
+                  <p className="text-[11px] uppercase tracking-[0.24em] text-white/60">Problem</p>
+                  <p className="mt-3 text-[15px] leading-7 text-white/78">{study.problem}</p>
                 </div>
 
                 <div className="mt-4 rounded-[24px] border border-white/8 bg-black/18 p-4">
-                  <p className="text-[11px] uppercase tracking-[0.24em] text-white/38">Fix</p>
-                  <p className="mt-3 text-[15px] leading-7 text-white/62">{study.fix}</p>
+                  <p className="text-[11px] uppercase tracking-[0.24em] text-white/60">Fix</p>
+                  <p className="mt-3 text-[15px] leading-7 text-white/78">{study.fix}</p>
                 </div>
 
-                <p className="mt-4 text-center text-sm leading-6 text-white/46">{study.summary}</p>
+                <p className="mt-4 text-center text-sm leading-6 text-white/64">{study.summary}</p>
 
                 <Link
                   href="/case-studies"
@@ -155,8 +155,8 @@ export function CaseStudySection() {
             Get Free System Audit
             <ArrowUpRight className="h-4 w-4" />
           </MagneticButton>
-          <p className="mt-3 text-sm leading-7 text-white/54">We&apos;ll show exactly what&apos;s broken in 15 minutes.</p>
-          <p className="mt-1 text-sm leading-7 text-white/48">No long-term contracts. Start with a single audit.</p>
+          <p className="mt-3 text-sm leading-7 text-white/74">We&apos;ll show exactly what&apos;s broken in 15 minutes.</p>
+          <p className="mt-1 text-sm leading-7 text-white/64">No long-term contracts. Start with a single audit.</p>
         </motion.div>
       </div>
     </section>
@@ -195,7 +195,7 @@ function ResultCounter({ result }: { result: string }) {
         {display.toFixed(parsed.decimals)}
         <span className="text-cyan-200">{parsed.suffix}</span>
       </p>
-      <p className="mt-2 text-[15px] leading-6 text-white/72">{parsed.label}</p>
+      <p className="mt-2 text-[15px] leading-6 text-white/84">{parsed.label}</p>
     </div>
   )
 }

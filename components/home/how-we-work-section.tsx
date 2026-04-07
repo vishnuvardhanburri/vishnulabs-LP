@@ -43,7 +43,7 @@ export function HowWeWorkSection() {
           <h2 className="mt-6 font-heading text-[40px] font-semibold leading-[0.98] tracking-[-0.04em] text-white md:text-[52px]">
             A clear process from broken flow to booked calls.
           </h2>
-          <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/68">
+          <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/82">
             We keep the work simple to understand so you always know what changed and why it matters.
           </p>
         </motion.div>
@@ -69,7 +69,7 @@ export function HowWeWorkSection() {
               <div className="relative">
                 <p className="text-[12px] uppercase tracking-[0.28em] text-cyan-200/74">{step.step}</p>
                 <h3 className="mt-5 font-heading text-[24px] font-semibold text-white">{step.title}</h3>
-                <p className="mt-4 text-[15px] leading-7 text-white/68">{step.description}</p>
+                <p className="mt-4 text-[15px] leading-7 text-white/82">{step.description}</p>
               </div>
             </motion.article>
           ))}

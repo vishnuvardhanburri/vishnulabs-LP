@@ -25,7 +25,7 @@ export function FinalCtaSection() {
           <h2 className="mt-6 font-heading text-[40px] font-semibold leading-[0.98] tracking-[-0.04em] text-white md:text-[56px]">
             Still losing leads without knowing why?
           </h2>
-          <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/68">
+          <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/82">
             We&apos;ll show you exactly where your system is breaking.
           </p>
         </motion.div>
@@ -41,8 +41,8 @@ export function FinalCtaSection() {
             Get Free System Audit
             <ArrowUpRight className="h-4 w-4" />
           </MagneticButton>
-          <p className="mt-3 text-sm leading-7 text-white/54">We&apos;ll show exactly what&apos;s broken in 15 minutes.</p>
-          <p className="mt-1 text-sm leading-7 text-white/48">No long-term contracts. Start with a single audit.</p>
+          <p className="mt-3 text-sm leading-7 text-white/74">We&apos;ll show exactly what&apos;s broken in 15 minutes.</p>
+          <p className="mt-1 text-sm leading-7 text-white/64">No long-term contracts. Start with a single audit.</p>
         </motion.div>
       </div>
     </section>

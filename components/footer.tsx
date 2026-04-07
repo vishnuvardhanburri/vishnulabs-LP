@@ -46,7 +46,7 @@ export function Footer() {
               <h2 className="mt-3 max-w-2xl text-balance text-2xl font-semibold tracking-tight text-white sm:text-3xl">
                 Start with the smallest intervention that removes the recurring failure.
               </h2>
-              <p className="mt-3 max-w-2xl text-sm leading-7 text-zinc-400">
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-zinc-300">
                 We can scope a lighter rollout, a broader system intervention, or a private deployment path. The right fit depends on the
                 operational bottleneck, not hype.
               </p>
@@ -93,40 +93,40 @@ export function Footer() {
               {["Backend systems", "Workflow reliability", "Operational visibility", "Scalable infrastructure"].map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-400"
+                  className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-300"
                 >
                   {item}
                 </span>
               ))}
             </div>
 
-            <p className="mt-8 text-xs text-zinc-500">&copy; {new Date().getFullYear()} VishnuLabs. All rights reserved.</p>
+            <p className="mt-8 text-xs text-zinc-400">&copy; {new Date().getFullYear()} VishnuLabs. All rights reserved.</p>
           </div>
 
           <FooterColumn title="Services" links={serviceLinks} />
           <FooterColumn title="Industries" links={industryLinks} />
 
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500">Contact</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-300">Contact</p>
             <div className="mt-4 grid gap-2">
               {pageLinks.map((link) => (
                 <AppLink
                   key={link.href}
                   href={link.href}
                   prefetch={!link.href.startsWith("http")}
-                  className="text-sm text-zinc-400 transition-colors hover:text-white"
+                  className="text-sm text-zinc-300 transition-colors hover:text-white"
                 >
                   {link.label}
                 </AppLink>
               ))}
-              <a href={customPackageMailto} className="text-sm text-zinc-400 transition-colors hover:text-white">
+              <a href={customPackageMailto} className="text-sm text-zinc-300 transition-colors hover:text-white">
                 hello@vishnulabs.com
               </a>
             </div>
 
             <div className="mt-6 rounded-[22px] border border-white/10 bg-white/5 p-4 backdrop-blur-md">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">Need a custom scope?</p>
-              <p className="mt-2 text-sm leading-6 text-zinc-400">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-300">Need a custom scope?</p>
+              <p className="mt-2 text-sm leading-6 text-zinc-300">
                 Bring your workflow, internal surface, or operational bottleneck. We will scope the right intervention around the part of
                 the system that keeps failing.
               </p>
@@ -147,14 +147,14 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500">{title}</p>
+      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-300">{title}</p>
       <div className="mt-4 grid gap-2">
         {links.map((link) => (
           <AppLink
             key={link.href}
             href={link.href}
             prefetch={!link.href.startsWith("http")}
-            className="text-sm text-zinc-400 transition-colors hover:text-white"
+            className="text-sm text-zinc-300 transition-colors hover:text-white"
           >
             {link.label}
           </AppLink>

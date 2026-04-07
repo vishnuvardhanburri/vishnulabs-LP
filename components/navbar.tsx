@@ -59,7 +59,7 @@ export function Navbar() {
               </div>
               <div>
                 <p className="text-[15px] font-semibold tracking-tight text-white">VishnuLabs</p>
-                <p className="text-[10px] uppercase tracking-[0.22em] text-zinc-400">System Reliability</p>
+                <p className="text-[10px] uppercase tracking-[0.22em] text-zinc-300">System Reliability</p>
               </div>
             </AppLink>
 
@@ -73,7 +73,7 @@ export function Navbar() {
                   className={`whitespace-nowrap rounded-full px-3 py-2 text-[12px] font-medium tracking-[0.01em] transition-all xl:px-3.5 xl:text-[13px] ${
                     isActive(link.href)
                       ? "bg-white text-zinc-950 shadow-[0_10px_24px_rgba(255,255,255,0.08)]"
-                      : "text-zinc-300 hover:bg-white/8 hover:text-white hover:drop-shadow-[0_0_12px_rgba(125,211,252,0.28)]"
+                      : "text-zinc-200 hover:bg-white/8 hover:text-white hover:drop-shadow-[0_0_12px_rgba(125,211,252,0.28)]"
                   }`}
                 >
                   {link.label}
@@ -113,7 +113,7 @@ export function Navbar() {
                     className={`tap-target rounded-2xl px-3 py-3 text-sm font-semibold transition-colors ${
                       isActive(link.href)
                         ? "bg-white text-zinc-950"
-                        : "text-zinc-300 hover:bg-white/8 hover:text-white"
+                        : "text-zinc-200 hover:bg-white/8 hover:text-white"
                     }`}
                     onClick={() => setMobileOpen(false)}
                   >

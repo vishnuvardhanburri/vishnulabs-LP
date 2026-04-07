@@ -115,7 +115,7 @@ export function PricingSection() {
           <h2 className="mt-6 font-heading text-[40px] font-semibold leading-[0.98] tracking-[-0.04em] text-white md:text-[52px]">
             Flexible Engineering Retainers
           </h2>
-          <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/68">
+          <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/82">
             Partner with us to build and fix revenue-critical systems.
           </p>
         </motion.div>
@@ -157,9 +157,9 @@ export function PricingSection() {
                     <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200">{plan.name}</p>
                     <div className="mt-5 flex items-end gap-2">
                       <p className="font-heading text-[46px] font-semibold leading-none text-white">{plan.price}</p>
-                      <p className="pb-1 text-sm text-white/46">{plan.term}</p>
+                      <p className="pb-1 text-sm text-white/68">{plan.term}</p>
                     </div>
-                    <p className="mt-3 text-sm uppercase tracking-[0.18em] text-white/46">{plan.hours}</p>
+                    <p className="mt-3 text-sm uppercase tracking-[0.18em] text-white/66">{plan.hours}</p>
                   </div>
 
                   {plan.featured ? (
@@ -169,10 +169,10 @@ export function PricingSection() {
                   ) : null}
                 </div>
 
-                <p className="mt-8 text-[15px] leading-7 text-white/72">{plan.audience}</p>
+                <p className="mt-8 text-[15px] leading-7 text-white/84">{plan.audience}</p>
 
                 <div className="mt-6 rounded-[24px] border border-white/8 bg-black/20 p-4">
-                  <p className="text-[11px] uppercase tracking-[0.24em] text-white/42">Expected outcome</p>
+                  <p className="text-[11px] uppercase tracking-[0.24em] text-white/64">Expected outcome</p>
                   <p className="mt-3 text-[15px] leading-7 text-cyan-100">{plan.outcome}</p>
                 </div>
 
@@ -180,7 +180,7 @@ export function PricingSection() {
                   {bullets.map((bullet) => (
                     <div key={bullet} className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-4.5 w-4.5 shrink-0 text-cyan-300" />
-                      <p className="text-[15px] leading-7 text-white/72">{bullet}</p>
+                      <p className="text-[15px] leading-7 text-white/84">{bullet}</p>
                     </div>
                   ))}
                 </div>
@@ -189,8 +189,8 @@ export function PricingSection() {
                   Get Free System Audit
                   <ArrowUpRight className="h-4 w-4" />
                 </MagneticButton>
-                <p className="mt-3 text-sm leading-6 text-white/52">We&apos;ll show exactly what&apos;s broken in 15 minutes.</p>
-                <p className="mt-1 text-sm leading-6 text-white/48">No long-term contracts. Start with a single audit.</p>
+                <p className="mt-3 text-sm leading-6 text-white/74">We&apos;ll show exactly what&apos;s broken in 15 minutes.</p>
+                <p className="mt-1 text-sm leading-6 text-white/64">No long-term contracts. Start with a single audit.</p>
               </div>
             </motion.article>
           ))}
@@ -205,7 +205,7 @@ export function PricingSection() {
         >
           <div className="max-w-2xl">
             <p className="font-heading text-[28px] font-semibold leading-tight text-white">Need a custom setup? We support enterprise engagements.</p>
-            <p className="mt-3 text-[15px] leading-7 text-white/68">
+            <p className="mt-3 text-[15px] leading-7 text-white/82">
               If the system is broader, more sensitive, or needs deeper ownership, we can scope a custom engagement around it.
             </p>
           </div>
@@ -215,8 +215,8 @@ export function PricingSection() {
               Get Free System Audit
               <ArrowUpRight className="h-4 w-4" />
             </MagneticButton>
-            <p className="mt-3 text-sm leading-6 text-white/52">We&apos;ll show exactly what&apos;s broken in 15 minutes.</p>
-            <p className="mt-1 text-sm leading-6 text-white/48">No long-term contracts. Start with a single audit.</p>
+            <p className="mt-3 text-sm leading-6 text-white/74">We&apos;ll show exactly what&apos;s broken in 15 minutes.</p>
+            <p className="mt-1 text-sm leading-6 text-white/64">No long-term contracts. Start with a single audit.</p>
           </div>
         </motion.div>
       </div>

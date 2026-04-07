@@ -25,10 +25,10 @@ export function SentinelSection() {
             <h2 className="mt-6 font-heading text-[40px] font-semibold leading-[0.98] tracking-[-0.04em] text-white md:text-[52px]">
               Sentinel — AI Data Protection & Governance Platform
             </h2>
-            <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/68">
+            <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/82">
               Prevent data leaks, enforce compliance, and control every AI interaction before it leaves your system.
             </p>
-            <p className="mt-4 max-w-2xl text-[16px] leading-8 text-white/60">
+            <p className="mt-4 max-w-2xl text-[16px] leading-8 text-white/76">
               Critical infrastructure for teams handling sensitive client and patient data.
             </p>
           </div>
@@ -43,8 +43,8 @@ export function SentinelSection() {
                 <ShieldCheck className="h-5 w-5 text-cyan-200" />
               </span>
               <div>
-              <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/72">Enterprise platform</p>
-              <p className="mt-1 text-sm leading-6 text-white/60">Deploys as governed protection around AI usage</p>
+              <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/84">Enterprise platform</p>
+              <p className="mt-1 text-sm leading-6 text-white/76">Deploys as governed protection around AI usage</p>
             </div>
             </div>
 
@@ -52,7 +52,7 @@ export function SentinelSection() {
               {sentinelFeatures.map((feature) => (
                 <div
                   key={feature}
-                  className="rounded-[24px] border border-white/10 bg-black/18 px-4 py-5 text-[15px] leading-7 text-white/72"
+                  className="rounded-[24px] border border-white/10 bg-black/18 px-4 py-5 text-[15px] leading-7 text-white/84"
                 >
                   {feature}
                 </div>
@@ -64,7 +64,7 @@ export function SentinelSection() {
                 Request Sentinel Demo & Risk Assessment
                 <ArrowUpRight className="h-4 w-4" />
               </MagneticButton>
-              <p className="mt-3 text-sm leading-7 text-white/54">See how Sentinel helps prevent costly failures before deployment.</p>
+              <p className="mt-3 text-sm leading-7 text-white/74">See how Sentinel helps prevent costly failures before deployment.</p>
             </div>
           </div>
         </motion.div>

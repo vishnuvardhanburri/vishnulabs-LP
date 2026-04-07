@@ -139,7 +139,7 @@ export function LandingPage() {
               </span>
               <div>
                 <p className="font-heading text-sm font-semibold uppercase tracking-[0.24em] text-white">VishnuLabs</p>
-                <p className="text-[11px] uppercase tracking-[0.28em] text-white/50">Revenue systems</p>
+                <p className="text-[11px] uppercase tracking-[0.28em] text-white/72">Revenue systems</p>
               </div>
             </a>
 
@@ -179,7 +179,7 @@ export function LandingPage() {
                   We build backend systems that capture, follow up, and convert every opportunity.
                 </motion.p>
 
-                <motion.p variants={revealChild} className="mt-6 max-w-2xl text-[17px] leading-8 text-white/70 md:text-[18px]">
+                <motion.p variants={revealChild} className="mt-6 max-w-2xl text-[17px] leading-8 text-white/82 md:text-[18px]">
                   We help businesses capture demand, respond instantly, and convert reliably without broken handoffs.
                 </motion.p>
 
@@ -191,9 +191,9 @@ export function LandingPage() {
                 </motion.div>
 
                 <motion.div variants={revealChild} className="mt-4">
-                  <p className="text-sm leading-7 text-white/58">We&apos;ll show exactly what&apos;s broken in 15 minutes.</p>
-                  <p className="mt-1 text-sm leading-7 text-white/46">Limited onboarding capacity each month.</p>
-                  <p className="mt-1 text-sm leading-7 text-white/46">No long-term contracts. Start with a single audit.</p>
+                  <p className="text-sm leading-7 text-white/74">We&apos;ll show exactly what&apos;s broken in 15 minutes.</p>
+                  <p className="mt-1 text-sm leading-7 text-white/64">Limited onboarding capacity each month.</p>
+                  <p className="mt-1 text-sm leading-7 text-white/64">No long-term contracts. Start with a single audit.</p>
                   <p className="mt-2 text-sm font-medium leading-7 text-cyan-100">Trusted by teams improving conversions by 30–60%</p>
                 </motion.div>
 
@@ -204,7 +204,7 @@ export function LandingPage() {
                     { label: "What stops", value: "Lost leads, missed inquiries, and broken workflows" },
                   ].map((item) => (
                     <div key={item.label} className="rounded-[24px] border border-white/10 bg-white/[0.04] p-5 backdrop-blur-xl">
-                      <p className="text-[11px] uppercase tracking-[0.24em] text-white/40">{item.label}</p>
+                      <p className="text-[11px] uppercase tracking-[0.24em] text-white/62">{item.label}</p>
                       <p className="mt-3 text-base font-medium leading-7 text-white">{item.value}</p>
                     </div>
                   ))}

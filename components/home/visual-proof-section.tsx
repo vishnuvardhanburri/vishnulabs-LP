@@ -21,18 +21,18 @@ export function VisualProofSection() {
           <h2 className="mt-6 font-heading text-[40px] font-semibold leading-[0.98] tracking-[-0.04em] text-white md:text-[52px]">
             A simple view of how the system works when it is fixed.
           </h2>
-          <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/68">
+          <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/82">
             Clean inputs, clear ownership, and follow-up that actually reaches the calendar.
           </p>
         </motion.div>
 
         <div className="mt-10 grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
           <div className="rounded-[32px] border border-white/10 bg-black/18 p-6 backdrop-blur-xl">
-            <p className="text-[11px] uppercase tracking-[0.24em] text-white/42">Before vs after</p>
+            <p className="text-[11px] uppercase tracking-[0.24em] text-white/64">Before vs after</p>
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               <div className="rounded-[24px] border border-red-400/12 bg-red-500/[0.04] p-5">
                 <p className="text-[11px] uppercase tracking-[0.24em] text-red-200/78">Before</p>
-                <ul className="mt-4 grid gap-3 text-[15px] leading-7 text-white/66">
+                <ul className="mt-4 grid gap-3 text-[15px] leading-7 text-white/82">
                   <li>Leads sit too long before anyone responds.</li>
                   <li>Handoffs break between tools and teams.</li>
                   <li>Reporting looks active, but bookings stay flat.</li>
@@ -40,7 +40,7 @@ export function VisualProofSection() {
               </div>
               <div className="rounded-[24px] border border-cyan-300/14 bg-cyan-400/[0.05] p-5">
                 <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/78">After</p>
-                <ul className="mt-4 grid gap-3 text-[15px] leading-7 text-white/72">
+                <ul className="mt-4 grid gap-3 text-[15px] leading-7 text-white/84">
                   <li>Every lead is usable before the next step fires.</li>
                   <li>Ownership is clear from first inquiry to booked call.</li>
                   <li>Results are visible because the path is consistent.</li>
@@ -50,7 +50,7 @@ export function VisualProofSection() {
           </div>
 
           <div className="rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.025))] p-6 backdrop-blur-2xl">
-            <p className="text-[11px] uppercase tracking-[0.24em] text-white/42">System architecture</p>
+            <p className="text-[11px] uppercase tracking-[0.24em] text-white/64">System architecture</p>
             <div className="mt-8 grid gap-4">
               {visualProofLayers.map((layer, index) => (
                 <div key={layer.label} className="flex items-center gap-4">
@@ -69,7 +69,7 @@ export function VisualProofSection() {
                     className="min-w-[220px] rounded-[22px] border border-white/10 bg-black/18 px-4 py-4 backdrop-blur-xl md:min-w-[280px]"
                   >
                     <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/72">{layer.label}</p>
-                    <p className="mt-2 text-[15px] leading-7 text-white/74">{layer.state}</p>
+                    <p className="mt-2 text-[15px] leading-7 text-white/84">{layer.state}</p>
                   </motion.div>
                 </div>
               ))}

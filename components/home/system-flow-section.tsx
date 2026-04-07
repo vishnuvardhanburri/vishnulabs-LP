@@ -102,7 +102,7 @@ export function SystemFlowSection() {
           <h2 className="mt-6 font-heading text-[40px] font-semibold leading-[0.98] tracking-[-0.04em] text-white md:text-[52px]">
             Stop losing leads between first click and booked call.
           </h2>
-          <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/68">
+          <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/82">
             We fix the path from first contact to booked call
             so every step is clear and easy to trust.
           </p>
@@ -133,7 +133,7 @@ export function SystemFlowSection() {
                   <div className="relative">
                     <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/72">0{index + 1}</p>
                     <h3 className="mt-5 font-heading text-[26px] font-semibold text-white">{step.title}</h3>
-                    <p className="mt-3 text-[15px] leading-7 text-white/68">{step.desc}</p>
+                    <p className="mt-3 text-[15px] leading-7 text-white/80">{step.desc}</p>
                   </div>
 
                   <motion.div
@@ -158,7 +158,7 @@ export function SystemFlowSection() {
                       }}
                       className="absolute inset-y-0 left-0 right-0 bg-[linear-gradient(90deg,rgba(34,211,238,0.15),rgba(34,211,238,0.95),rgba(168,85,247,0.65))]"
                     />
-                    <ArrowRight className={`absolute -right-1 -top-[11px] h-6 w-6 ${activeIndex > index ? "text-cyan-200" : "text-white/22"}`} />
+                    <ArrowRight className={`absolute -right-1 -top-[11px] h-6 w-6 ${activeIndex > index ? "text-cyan-200" : "text-white/40"}`} />
                   </div>
                 ) : null}
               </div>
@@ -179,7 +179,7 @@ export function SystemFlowSection() {
               >
                 <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/72">0{index + 1}</p>
                 <h3 className="mt-4 font-heading text-[24px] font-semibold text-white">{step.title}</h3>
-                <p className="mt-2 text-[15px] leading-7 text-white/66">{step.desc}</p>
+                <p className="mt-2 text-[15px] leading-7 text-white/80">{step.desc}</p>
                 <p className="mt-4 text-sm leading-6 text-cyan-100">{step.tooltip}</p>
               </motion.div>
             ))}
@@ -196,8 +196,8 @@ export function SystemFlowSection() {
               Get Free System Audit
               <ArrowUpRight className="h-4 w-4" />
             </MagneticButton>
-            <p className="mt-3 text-sm leading-7 text-white/54">We&apos;ll show exactly what&apos;s broken in 15 minutes.</p>
-            <p className="mt-1 text-sm leading-7 text-white/48">No long-term contracts. Start with a single audit.</p>
+            <p className="mt-3 text-sm leading-7 text-white/74">We&apos;ll show exactly what&apos;s broken in 15 minutes.</p>
+            <p className="mt-1 text-sm leading-7 text-white/64">No long-term contracts. Start with a single audit.</p>
           </motion.div>
         </div>
       </div>

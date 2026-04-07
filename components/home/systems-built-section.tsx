@@ -43,7 +43,7 @@ export function SystemsBuiltSection() {
           <h2 className="mt-6 font-heading text-[40px] font-semibold leading-[0.98] tracking-[-0.04em] text-white md:text-[52px]">
             Systems we build repeatedly for teams that need cleaner conversions.
           </h2>
-          <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/68">
+          <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/82">
             These are not products. They are the client systems we build again and again when booked calls need to rise.
           </p>
         </motion.div>
@@ -70,7 +70,7 @@ export function SystemsBuiltSection() {
               <div className="relative">
                 <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200/70">Built for clients</p>
                 <h3 className="mt-5 font-heading text-[24px] font-semibold leading-tight text-white">{system.title}</h3>
-                <p className="mt-4 text-[15px] leading-7 text-white/68">{system.description}</p>
+                <p className="mt-4 text-[15px] leading-7 text-white/82">{system.description}</p>
               </div>
             </motion.article>
           ))}

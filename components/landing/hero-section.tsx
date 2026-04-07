@@ -1,7 +1,7 @@
 "use client"
 
 import dynamic from "next/dynamic"
-import { useEffect, useRef } from "react"
+import { Component, type ReactNode, useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -29,6 +29,89 @@ const reveal = {
       ease: [0.19, 1, 0.22, 1],
     },
   }),
+}
+
+function HeroVisualFallback() {
+  return (
+    <div className="absolute inset-0">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_28%,rgba(59,130,246,0.28),transparent_20%),radial-gradient(circle_at_72%_22%,rgba(217,70,239,0.22),transparent_22%),radial-gradient(circle_at_52%_82%,rgba(168,85,247,0.18),transparent_30%)]" />
+      <div className="absolute left-[14%] top-[18%] h-24 w-24 rounded-full border border-sky-300/30 bg-sky-400/10 blur-[1px]" />
+      <div className="absolute right-[18%] top-[28%] h-32 w-32 rounded-full border border-fuchsia-300/20 bg-fuchsia-400/10" />
+      <div className="absolute bottom-[20%] left-[28%] h-20 w-20 rounded-[1.5rem] border border-violet-300/20 bg-violet-400/10" />
+    </div>
+  )
+}
+
+function canUseWebGL() {
+  if (typeof window === "undefined") return false
+
+  try {
+    const canvas = document.createElement("canvas")
+    const gl =
+      canvas.getContext("webgl2", { antialias: false }) ||
+      canvas.getContext("webgl", { antialias: false }) ||
+      canvas.getContext("experimental-webgl", { antialias: false })
+
+    return Boolean(gl)
+  } catch {
+    return false
+  }
+}
+
+class HeroCanvasBoundary extends Component<{ children: ReactNode; fallback: ReactNode }, { hasError: boolean }> {
+  state = { hasError: false }
+
+  static getDerivedStateFromError() {
+    return { hasError: true }
+  }
+
+  componentDidCatch(error: Error) {
+    console.error("Hero canvas failed to render", error)
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return this.props.fallback
+    }
+
+    return this.props.children
+  }
+}
+
+function DesktopHeroScene() {
+  const [ready, setReady] = useState(false)
+
+  useEffect(() => {
+    if (!canUseWebGL()) {
+      setReady(false)
+      return
+    }
+
+    const start = () => setReady(true)
+    const idleId =
+      "requestIdleCallback" in window
+        ? window.requestIdleCallback(start, { timeout: 600 })
+        : window.setTimeout(start, 90)
+
+    return () => {
+      if ("cancelIdleCallback" in window && typeof idleId === "number") {
+        window.cancelIdleCallback(idleId)
+        return
+      }
+
+      window.clearTimeout(idleId as number)
+    }
+  }, [])
+
+  if (!ready) {
+    return <HeroVisualFallback />
+  }
+
+  return (
+    <HeroCanvasBoundary fallback={<HeroVisualFallback />}>
+      <HeroCanvas />
+    </HeroCanvasBoundary>
+  )
 }
 
 export function HeroSection() {
@@ -133,16 +216,7 @@ export function HeroSection() {
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(236,72,153,0.15),transparent_24%),radial-gradient(circle_at_top_right,rgba(59,130,246,0.16),transparent_26%),radial-gradient(circle_at_bottom,rgba(139,92,246,0.16),transparent_30%)]" />
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
 
-            {isMobile ? (
-              <div className="absolute inset-0">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_28%,rgba(59,130,246,0.28),transparent_20%),radial-gradient(circle_at_72%_22%,rgba(217,70,239,0.22),transparent_22%),radial-gradient(circle_at_52%_82%,rgba(168,85,247,0.18),transparent_30%)]" />
-                <div className="absolute left-[14%] top-[18%] h-24 w-24 rounded-full border border-sky-300/30 bg-sky-400/10 blur-[1px]" />
-                <div className="absolute right-[18%] top-[28%] h-32 w-32 rounded-full border border-fuchsia-300/20 bg-fuchsia-400/10" />
-                <div className="absolute bottom-[20%] left-[28%] h-20 w-20 rounded-[1.5rem] border border-violet-300/20 bg-violet-400/10" />
-              </div>
-            ) : (
-              <HeroCanvas />
-            )}
+            {isMobile ? <HeroVisualFallback /> : <DesktopHeroScene />}
 
             <div className="pointer-events-none absolute bottom-5 left-5 right-5 rounded-[1.5rem] border border-white/10 bg-black/30 p-4 backdrop-blur-md">
               <div className="flex items-center gap-3">

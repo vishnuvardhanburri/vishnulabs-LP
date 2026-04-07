@@ -28,13 +28,13 @@ const intentPages = [
 export function IntentLinksSection() {
   return (
     <section className="px-5 py-24 sm:px-6 lg:px-10 xl:py-28">
-      <div className="reveal-in mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl md:p-8">
+      <div className="cinema-section-shell reveal-in mx-auto max-w-7xl p-6 md:p-8">
         <div className="max-w-3xl">
-          <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-300">High-intent pages</p>
+          <p className="section-kicker text-[11px] uppercase">High-intent pages</p>
           <h2 className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
             Start with the exact problem you need fixed.
           </h2>
-          <p className="mt-4 text-lg leading-8 text-zinc-300">
+          <p className="section-support-copy mt-4 text-lg leading-8">
             Short path. Clear problem. Direct next step. Serving clients globally across US and India.
           </p>
         </div>
@@ -44,7 +44,7 @@ export function IntentLinksSection() {
             <AppLink
               key={page.href}
               href={page.href}
-              className={`group rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.28)] transition-all duration-500 hover:-translate-y-1.5 hover:bg-white/[0.06] ${
+              className={`cinema-card cinema-card-hover group rounded-[1.75rem] p-5 ${
                 index % 2 === 0 ? "float-card-soft" : "float-card-soft float-card-delay-1"
               }`}
               style={{ animationDelay: `${index * 0.3}s` }}

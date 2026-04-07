@@ -14,10 +14,32 @@ export default function HomePage() {
       </div>
 
       <HeroSection />
-      <SystemFlowSection />
-      <IntentLinksSection />
-      <PricingSection />
-      <TestimonialsSection />
+
+      <div className="section-cinema-stack">
+        <section className="section-cinema section-cinema-delay-1">
+          <div className="section-divider-beam" />
+          <div className="section-spotlight-drift section-spotlight-a" />
+          <SystemFlowSection />
+        </section>
+
+        <section className="section-cinema section-cinema-delay-2">
+          <div className="section-divider-beam" />
+          <div className="section-spotlight-drift section-spotlight-b" />
+          <IntentLinksSection />
+        </section>
+
+        <section className="section-cinema section-cinema-delay-3">
+          <div className="section-divider-beam" />
+          <div className="section-spotlight-drift section-spotlight-c" />
+          <PricingSection />
+        </section>
+
+        <section className="section-cinema section-cinema-delay-4">
+          <div className="section-divider-beam" />
+          <div className="section-spotlight-drift section-spotlight-d" />
+          <TestimonialsSection />
+        </section>
+      </div>
     </main>
   )
 }

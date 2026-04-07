@@ -12,15 +12,15 @@ const plans = [
 export function PricingSection() {
   return (
     <section className="px-5 py-24 sm:px-6 lg:px-10 xl:py-28">
-      <div className="reveal-in mx-auto max-w-7xl rounded-[2rem] border border-white/12 bg-white/[0.05] p-6 backdrop-blur-xl md:p-8">
+      <div className="cinema-section-shell reveal-in mx-auto max-w-7xl p-6 md:p-8">
         <div className="flex flex-col gap-4 border-b border-white/10 pb-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
-            <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-200">Pricing</p>
+            <p className="section-kicker text-[11px] uppercase">Pricing</p>
             <h2 className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
               Clear pricing for teams that need stable systems.
             </h2>
           </div>
-          <p className="max-w-xl text-base leading-8 text-zinc-200">
+          <p className="section-support-copy max-w-xl text-base leading-8">
             Pick the level of control you need now. Expand only when the system earns it.
           </p>
         </div>
@@ -29,12 +29,12 @@ export function PricingSection() {
           {plans.map((plan, index) => (
             <article
               key={plan.name}
-              className={`group relative overflow-hidden rounded-[1.75rem] border p-5 shadow-[0_24px_80px_rgba(0,0,0,0.3)] backdrop-blur-md transition-transform duration-500 hover:-translate-y-2 hover:scale-[1.018] ${
+              className={`group relative overflow-hidden rounded-[1.75rem] p-5 backdrop-blur-md ${
                 plan.highlight
-                    ? "border-sky-300/40 bg-white/[0.12] float-card-soft"
+                    ? "cinema-card cinema-card-hover border-sky-300/28 bg-white/[0.12] float-card-soft"
                   : index % 2 === 0
-                    ? "border-white/12 bg-white/[0.06] float-card-soft"
-                    : "border-white/12 bg-white/[0.06] float-card-soft float-card-delay-1"
+                    ? "cinema-card cinema-card-hover float-card-soft"
+                    : "cinema-card cinema-card-hover float-card-soft float-card-delay-1"
               }`}
               style={{ animationDelay: `${index * 0.28}s` }}
             >

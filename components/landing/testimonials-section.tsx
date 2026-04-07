@@ -19,9 +19,9 @@ const testimonials = [
 export function TestimonialsSection() {
   return (
     <section className="px-5 pb-28 pt-24 sm:px-6 lg:px-10">
-      <div className="reveal-in mx-auto max-w-7xl rounded-[2rem] border border-white/12 bg-white/[0.05] p-6 backdrop-blur-xl md:p-8">
+      <div className="cinema-section-shell reveal-in mx-auto max-w-7xl p-6 md:p-8">
         <div className="max-w-3xl">
-          <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-200">Trust</p>
+          <p className="section-kicker text-[11px] uppercase">Trust</p>
           <h2 className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
             Trusted when reliability matters more than another tool.
           </h2>
@@ -31,7 +31,7 @@ export function TestimonialsSection() {
           {testimonials.map((item, index) => (
             <article
               key={item.author}
-              className={`group relative overflow-hidden rounded-[1.75rem] border border-white/12 bg-white/[0.07] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.3)] backdrop-blur-md transition-transform duration-500 hover:-translate-y-2 hover:scale-[1.018] ${
+              className={`cinema-card cinema-card-hover group relative overflow-hidden rounded-[1.75rem] p-6 backdrop-blur-md ${
                 index === 0 ? "float-card-soft" : index === 1 ? "float-card-soft float-card-delay-1" : "float-card-soft float-card-delay-2"
               }`}
               style={{ animationDelay: `${index * 0.32}s` }}

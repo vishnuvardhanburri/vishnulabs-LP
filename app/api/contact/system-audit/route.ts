@@ -106,7 +106,12 @@ export async function POST(request: NextRequest) {
 
   const storageResult = await storeLead(leadRecord)
   if (!storageResult.ok) {
-    return NextResponse.json({ error: storageResult.error }, { status: 500 })
+    console.error("System audit lead storage failed", {
+      error: storageResult.error,
+      email,
+      source,
+      tag: leadIntent,
+    })
   }
 
   const toAddress = process.env.SYSTEM_AUDIT_EMAIL || "hello@vishnulabs.com"

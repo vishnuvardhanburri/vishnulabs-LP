@@ -107,7 +107,13 @@ export async function POST(request: NextRequest) {
 
   const storageResult = await storeSentinelLead(leadRecord)
   if (!storageResult.ok) {
-    return NextResponse.json({ error: storageResult.error }, { status: 500 })
+    console.error("Sentinel lead storage failed", {
+      error: storageResult.error,
+      email,
+      company,
+      tag,
+      interestType,
+    })
   }
 
   const toAddress = process.env.SENTINEL_LEADS_EMAIL || process.env.SYSTEM_AUDIT_EMAIL || "hello@vishnulabs.com"

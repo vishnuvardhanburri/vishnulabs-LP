@@ -2,6 +2,7 @@ import Image from "next/image"
 
 import { AppLink } from "@/components/app-link"
 import { customPackageMailto } from "@/components/custom-solution-note"
+import { MagneticButton } from "@/components/home/magnetic-button"
 
 const serviceLinks = [
   { label: "Sentinel", href: "/sentinel" },
@@ -54,23 +55,26 @@ export function Footer() {
             <div className="flex flex-col gap-3 sm:flex-row">
               <AppLink
                 href="/pricing"
+                prefetch
                 className="inline-flex items-center justify-center rounded-full border border-sky-300/30 bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(186,230,253,0.92))] px-5 py-3 text-sm font-semibold text-zinc-950 shadow-[0_0_0_1px_rgba(255,255,255,0.15),0_20px_80px_rgba(56,189,248,0.18)] transition-transform duration-300 hover:scale-[1.03]"
               >
                 View Pricing
               </AppLink>
-              <AppLink
-                href="https://cal.com/vishnuvardhanburri/15min"
-                className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/[0.08]"
+              <MagneticButton
+                href="/book"
+                captureAudit
+                trackingSource="footer_book_review"
+                className="border border-white/12 bg-white/[0.04] px-5 py-3 text-sm text-white transition-colors hover:bg-white/[0.08]"
               >
                 Book Review
-              </AppLink>
+              </MagneticButton>
             </div>
           </div>
         </div>
 
         <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.9fr]">
           <div>
-            <AppLink href="/" className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2.5">
+            <AppLink href="/" prefetch className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2.5 transition-colors hover:bg-white/[0.08]">
               <Image
                 src="/vishnulabs-logo-full.svg"
                 alt="VishnuLabs logo"
@@ -106,7 +110,12 @@ export function Footer() {
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500">Contact</p>
             <div className="mt-4 grid gap-2">
               {pageLinks.map((link) => (
-                <AppLink key={link.href} href={link.href} className="text-sm text-zinc-400 transition-colors hover:text-white">
+                <AppLink
+                  key={link.href}
+                  href={link.href}
+                  prefetch={!link.href.startsWith("http")}
+                  className="text-sm text-zinc-400 transition-colors hover:text-white"
+                >
                   {link.label}
                 </AppLink>
               ))}
@@ -141,7 +150,12 @@ function FooterColumn({
       <p className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500">{title}</p>
       <div className="mt-4 grid gap-2">
         {links.map((link) => (
-          <AppLink key={link.href} href={link.href} className="text-sm text-zinc-400 transition-colors hover:text-white">
+          <AppLink
+            key={link.href}
+            href={link.href}
+            prefetch={!link.href.startsWith("http")}
+            className="text-sm text-zinc-400 transition-colors hover:text-white"
+          >
             {link.label}
           </AppLink>
         ))}

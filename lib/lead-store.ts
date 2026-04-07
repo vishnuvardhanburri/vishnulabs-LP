@@ -1,4 +1,5 @@
 import { promises as fs } from "node:fs"
+import os from "node:os"
 import path from "node:path"
 
 import { LeadRecord } from "@/lib/lead-capture"
@@ -177,9 +178,8 @@ async function storeLeadInAirtable(record: LeadRecord): Promise<{ ok: true } | {
 
 async function storeLeadInFile(record: LeadRecord): Promise<{ ok: true } | { ok: false; error: string }> {
   try {
-    const directory = path.join(process.cwd(), ".data")
+    const directory = await getWritableLeadDirectory()
     const filePath = path.join(directory, "system-audit-leads.ndjson")
-    await fs.mkdir(directory, { recursive: true })
     await fs.appendFile(filePath, `${JSON.stringify(record)}\n`, "utf8")
     return { ok: true }
   } catch (error) {
@@ -305,9 +305,8 @@ async function storeSentinelLeadInAirtable(record: SentinelLeadRecord): Promise<
 
 async function storeSentinelLeadInFile(record: SentinelLeadRecord): Promise<{ ok: true } | { ok: false; error: string }> {
   try {
-    const directory = path.join(process.cwd(), ".data")
+    const directory = await getWritableLeadDirectory()
     const filePath = path.join(directory, "sentinel-leads.ndjson")
-    await fs.mkdir(directory, { recursive: true })
     await fs.appendFile(filePath, `${JSON.stringify(record)}\n`, "utf8")
     return { ok: true }
   } catch (error) {
@@ -316,4 +315,25 @@ async function storeSentinelLeadInFile(record: SentinelLeadRecord): Promise<{ ok
       error: error instanceof Error ? error.message : "Sentinel lead file storage failed.",
     }
   }
+}
+
+async function getWritableLeadDirectory() {
+  const configuredDirectory = process.env.LEAD_STORE_DIR?.trim()
+  const candidates = [
+    configuredDirectory,
+    path.join(process.cwd(), ".data"),
+    path.join(os.tmpdir(), "vishnulabs-leads"),
+  ].filter((value): value is string => Boolean(value))
+
+  for (const directory of candidates) {
+    try {
+      await fs.mkdir(directory, { recursive: true })
+      await fs.access(directory)
+      return directory
+    } catch {
+      continue
+    }
+  }
+
+  throw new Error("No writable lead storage directory is available.")
 }

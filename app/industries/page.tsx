@@ -1,13 +1,12 @@
 import type { Metadata } from "next"
 import type { LucideIcon } from "lucide-react"
 import Image from "next/image"
-import { ArrowRight, ArrowUpRight, Building2, CheckCircle2, Home, Hospital, Rocket, Scale, ShieldCheck, Truck } from "lucide-react"
+import { ArrowRight, Building2, CheckCircle2, Home, Hospital, Rocket, Scale, ShieldCheck, Truck } from "lucide-react"
 
 import { AppLink } from "@/components/app-link"
 import { ConfidenceRail } from "@/components/confidence-rail"
 import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { TestimonialCard } from "@/components/testimonial-card"
-import { Button } from "@/components/ui/button"
 import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 import { testimonials } from "@/lib/testimonials"
 
@@ -20,8 +19,8 @@ type Industry = {
 }
 
 export const metadata: Metadata = {
-  title: "Industries | VishnuLabs",
-  description: "Industry pages for teams losing leads to missed response, dropped follow-up, and invisible execution gaps.",
+  title: "Industries | Where Revenue and Control Break First | VishnuLabs",
+  description: "Different industries. Same failure pattern: missed response, dropped follow-up, and weak control under real operating pressure.",
   alternates: {
     canonical: "/industries",
   },
@@ -30,71 +29,71 @@ export const metadata: Metadata = {
 const industries: Industry[] = [
   {
     title: "Startups",
-    description: "Launch faster with stronger websites, cleaner lead capture, and internal systems that can grow without breaking early.",
+    description: "Leads slip when founders route everything manually. We tighten intake, response, and visibility before scale exposes the weakness.",
     href: "/industries/startups",
     icon: Rocket,
-    bullets: ["Website + automation fit", "Founder visibility", "Lean ops support"],
+    bullets: ["Cleaner lead intake", "Founder visibility", "Less manual rescue"],
   },
   {
     title: "Hospitals & Clinics",
-    description: "Improve appointment response, admin coordination, and service clarity without adding friction to already-busy teams.",
+    description: "No-shows rise when reminders, routing, and admin follow-up stay manual. We make response and booking control predictable.",
     href: "/industries/hospitals-clinics",
     icon: Hospital,
-    bullets: ["Scheduling support", "Patient-service clarity", "Ops visibility"],
+    bullets: ["Lower no-show risk", "Cleaner scheduling flow", "Ops visibility"],
   },
   {
     title: "Transport & Logistics",
-    description: "Bring better visibility to moving-company and logistics inquiries, callbacks, quotes, and dispatch handoff.",
+    description: "Quote requests and dispatch handoffs fail quietly when callbacks lag. We restore visibility before jobs are lost.",
     href: "/industries/transport-logistics",
     icon: Truck,
-    bullets: ["Quote capture", "Moving-company visibility", "Dispatch handoff"],
+    bullets: ["Quote capture", "Dispatch control", "Callback visibility"],
   },
   {
     title: "Lawyers & Law Services",
-    description: "Stabilize intake, consultation handling, and workflow follow-up for legal teams that need speed and professionalism together.",
+    description: "Consultations are lost when intake is slow, sloppy, or inconsistent. We tighten the path from inquiry to booked call.",
     href: "/industries/law-services",
     icon: Scale,
-    bullets: ["Consultation coverage", "Legal workflow control", "Private system options"],
+    bullets: ["Consultation coverage", "Legal workflow control", "Faster first response"],
   },
   {
     title: "PI Law Firms",
-    description: "Stabilize intake, call handling, and private workflows without exposing sensitive matter data or losing operational clarity.",
+    description: "PI intake breaks under speed pressure and sensitive matter handling. We fix the workflow without exposing case data.",
     href: "/industries/pi-law-firms",
     icon: Scale,
-    bullets: ["Case qualification", "Private workflow support", "Follow-up automation"],
+    bullets: ["Case qualification", "Private workflow support", "Follow-up control"],
   },
   {
     title: "Real Estate",
-    description: "Respond to new inquiries faster, nurture leads automatically, and keep agent follow-up consistent.",
+    description: "Property inquiries cool fast when agent follow-up is uneven. We fix response speed, nurture timing, and booking flow.",
     href: "/industries/real-estate",
     icon: Home,
-    bullets: ["Lead response speed", "Automated nurture", "Booking workflows"],
+    bullets: ["Lead response speed", "Nurture control", "Booking workflows"],
   },
   {
     title: "Mortgage",
-    description: "Reduce manual follow-up lag and move borrower conversations through a cleaner intake pipeline.",
+    description: "Borrower conversations stall when intake and reminders stay manual. We clean up the pipeline before leads disappear.",
     href: "/industries/mortgage",
     icon: Building2,
-    bullets: ["Pipeline visibility", "Reminder flows", "Structured intake"],
+    bullets: ["Pipeline visibility", "Reminder flow", "Structured intake"],
   },
 ]
 
 const industryHeroSignals = [
   {
-    title: "Startup launches",
-    detail: "Lean teams that need a cleaner front-end, stronger lead routing, and early operational support.",
+    title: "Demand comes in",
+    detail: "Leads, bookings, requests, and staff actions enter the system every day.",
   },
   {
-    title: "Clinic operations",
-    detail: "Appointment-heavy teams that need visibility, cleaner response flow, and less manual admin drag.",
+    title: "Response slows",
+    detail: "Manual intake, missed follow-up, or weak routing starts cooling intent.",
   },
   {
-    title: "Transport handoff",
-    detail: "Quote, callback, dispatch, and moving-company workflows that need clearer intake before teams scale.",
+    title: "Handoffs break",
+    detail: "One weak transition creates cleanup work, delays, and lost confidence.",
   },
   {
-    title: "Legal intake clarity",
-    detail: "Consultation, intake, and private workflow paths built for firms that need speed without looking sloppy.",
+    title: "Revenue or trust leaks",
+    detail: "The visible problem changes by industry. The failure pattern does not.",
   },
 ]
 
@@ -112,14 +111,21 @@ export default function IndustriesPage() {
                 >
                   <div className="badge-pill border-primary/20 bg-slate-50 text-slate-700">Industries</div>
                   <h1 className="mt-6 max-w-4xl text-balance text-[2.8rem] font-bold leading-[0.96] tracking-[-0.04em] text-slate-950 sm:text-[4.1rem]">
-                    The same failure pattern. Different industry surface.
+                    The leak changes by industry. The failure pattern does not.
                   </h1>
                   <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-                    These pages show where demand leaks, what breaks first, and the fastest path to control.
+                    Missed response. Dropped follow-up. Uncontrolled data. These pages show where it breaks first and how to stop it.
                   </p>
 
+                  <div className="mt-6 rounded-[28px] border border-slate-200/90 bg-slate-50 p-4">
+                    <p className="text-sm font-medium text-slate-950">This is not for early-stage teams experimenting.</p>
+                    <p className="mt-2 text-sm leading-7 text-slate-600">
+                      This is for companies already operating with real data and revenue.
+                    </p>
+                  </div>
+
                   <div className="mt-7 flex flex-wrap gap-2">
-                    {["Launch-ready", "Clinic response", "Transport visibility", "Legal intake clarity"].map((item) => (
+                    {["Law firms", "Clinics", "Real estate", "Revenue-critical ops"].map((item) => (
                       <span key={item} className="soft-chip border-primary/10 bg-white text-slate-700">
                         {item}
                       </span>
@@ -130,16 +136,16 @@ export default function IndustriesPage() {
                     <div className="rounded-[24px] border border-slate-200/80 bg-white px-4 py-4 shadow-sm">
                       <div className="flex items-center gap-2 text-sm font-semibold text-slate-950">
                         <ShieldCheck className="h-4 w-4 text-primary" />
-                        Where we fit best
+                        Best fit
                       </div>
                       <p className="mt-2 text-sm leading-7 text-slate-600">
-                        Teams that need better intake, faster response, stronger visibility, and cleaner operations without adding process chaos.
+                        Teams already handling live demand, live data, and live operating pressure.
                       </p>
                     </div>
                     <div className="rounded-[24px] border border-slate-200/80 bg-white px-4 py-4 shadow-sm">
-                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Why this reads cleaner</p>
+                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">What changes</p>
                       <p className="mt-2 text-sm leading-7 text-slate-600">
-                        One entry page, one industry fit, one next step. Buyers can see where they belong before booking a call.
+                        One entry page. One industry fit. One audit-first next step.
                       </p>
                     </div>
                   </div>
@@ -149,16 +155,11 @@ export default function IndustriesPage() {
                       Get Free System Audit
                       <ArrowRight className="h-4 w-4" />
                     </AuditCtaButton>
-                    <Button asChild variant="outline" className="h-12 rounded-full border-slate-300 bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-50">
-                      <AppLink href="/automations">
-                        Explore Automations
-                        <ArrowUpRight className="h-4 w-4" />
-                      </AppLink>
-                    </Button>
                   </div>
+                  <p className="mt-4 text-sm text-slate-600">Limited onboarding capacity. No long-term contracts.</p>
 
                   <div className="mt-6 max-w-2xl">
-                    <CustomSolutionNote compact title="Custom industry solution available" />
+                    <CustomSolutionNote compact title="Operating with real revenue or sensitive data?" />
                   </div>
                 </div>
 
@@ -181,11 +182,11 @@ export default function IndustriesPage() {
               <article className="rounded-[34px] border border-slate-200 bg-white p-6 shadow-[0_24px_60px_rgba(15,23,42,0.10)] sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Ops flow</p>
                 <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                  One control layer. Any industry workflow.
+                  One control layer. Different industry surface.
                 </h2>
                 <p className="mt-4 max-w-xl text-base leading-8 text-slate-600">
-                  The same flow supports each industry: intake and staff requests pass through validation before downstream systems write
-                  new state. That is how you keep speed without losing control.
+                  The same path works across every industry: intake and staff actions pass through validation before downstream systems
+                  write new state. That is how speed stops creating failure.
                 </p>
                 <div className="mt-6 rounded-[26px] border border-slate-200 bg-slate-950 p-5 shadow-[0_22px_60px_rgba(2,8,23,0.25)]">
                   <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Flow diagram</p>
@@ -206,7 +207,7 @@ export default function IndustriesPage() {
                     <text x="260" y="70" textAnchor="middle" fill="#e2e8f0" fontSize="10">Validation</text>
                     <text x="480" y="70" textAnchor="middle" fill="#e2e8f0" fontSize="10">Processing</text>
                   </svg>
-                  <p className="mt-2 text-xs text-slate-300">Inspect → Validate → Route → Log before failures reach customers.</p>
+                  <p className="mt-2 text-xs text-slate-300">Inspect → Validate → Route → Log before failure reaches the customer.</p>
                 </div>
               </article>
 
@@ -230,6 +231,15 @@ export default function IndustriesPage() {
 
         <section className="py-20 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+            <div className="mb-6 max-w-3xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Industry fit</p>
+              <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+                Choose the surface where failure is already happening.
+              </h2>
+              <p className="mt-3 text-base leading-8 text-slate-600">
+                Start with the page that matches your operating pressure. Then we audit the exact leak.
+              </p>
+            </div>
             <div className="grid gap-5 lg:grid-cols-3">
               {industries.map((industry) => {
                 const Icon = industry.icon

@@ -29,8 +29,13 @@ export function CaseStudiesPage() {
               <span className="block text-white/78">They were losing it in execution.</span>
             </h1>
             <p className="section-support-copy mt-5 max-w-3xl text-[18px] leading-8">
-              Result first. Then the reason it was breaking. Then the fix.
+              Result first. Then the break. Then the fix.
             </p>
+            <div className="mt-6 max-w-3xl rounded-[1.5rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-md">
+              <p className="text-sm leading-7 text-white/88">
+                This is not for early-stage teams experimenting. This is for companies already operating with real data and revenue.
+              </p>
+            </div>
             <div className="mt-8">
               <AuditCtaButton trackingSource="case_studies_page_cta">
                 Get Free System Audit
@@ -155,17 +160,17 @@ export function CaseStudiesPage() {
 
           <section className="cinema-section-shell reveal-in mt-8 px-6 py-8 md:px-8 md:py-10">
             <h2 className="font-heading text-[38px] font-semibold leading-[0.98] tracking-[-0.04em] text-white md:text-[52px]">
-              Want to see where your system is breaking?
+              If demand is already coming in, the leak is inside the system.
             </h2>
             <p className="section-support-copy mt-5 max-w-2xl text-[17px] leading-8">
-              We&apos;ll show exactly where demand is leaking, where response slows down, and what to fix first.
+              We&apos;ll show where response breaks, where handoffs fail, and what to fix first.
             </p>
             <div className="mt-8">
               <AuditCtaButton trackingSource="case_studies_page_final_cta">
                 Get Free System Audit
                 <ArrowUpRight className="h-4 w-4" />
               </AuditCtaButton>
-              <p className="mt-3 text-sm leading-7 text-white/74">We&apos;ll show exactly what&apos;s broken in 15 minutes.</p>
+              <p className="mt-3 text-sm leading-7 text-white/74">Limited onboarding capacity. No long-term contracts.</p>
             </div>
           </section>
         </main>

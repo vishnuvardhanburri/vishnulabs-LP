@@ -7,12 +7,12 @@ const offers = [
     name: "Risk Assessment",
     price: "$1,500",
     highlight: false,
-    outcome: "See exactly where leads or data are leaking.",
+    outcome: "See exactly where revenue or data is leaking.",
     valueStack: [
-      "Outcome: failure map + priority fixes",
-      "Speed: 2–4 weeks to a stable deployment (if you proceed)",
+      "Outcome: failure map and priority fixes",
+      "Speed: clear next steps in days",
       "Risk removal: pilot-first rollout",
-      "Proof: +47% consults, -52% no-shows, 3x response",
+      "Proof: built from live system failures",
       "Access: direct audit review",
     ],
   },
@@ -25,7 +25,7 @@ const offers = [
       "Outcome: one workflow stops failing",
       "Speed: 2–3 weeks",
       "Risk removal: scoped, reversible, measurable",
-      "Proof: real metrics in production",
+      "Proof: real production validation",
       "Access: audit + pilot review",
     ],
   },
@@ -38,7 +38,7 @@ const offers = [
       "Outcome: end-to-end execution you can trust",
       "Speed: 2–4 weeks",
       "Risk removal: pilot first if needed",
-      "Proof: result-first delivery",
+      "Proof: result-first deployment",
       "Access: ongoing review until stable",
     ],
   },
@@ -63,13 +63,13 @@ export function PricingSection() {
       <div className="cinema-section-shell reveal-in mx-auto max-w-7xl p-6 md:p-8">
         <div className="flex flex-col gap-4 border-b border-white/10 pb-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
-            <p className="section-kicker text-[11px] uppercase">Pricing</p>
+            <p className="section-kicker text-[11px] uppercase">Deployment model</p>
             <h2 className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
-              Choose the entry point that removes risk first.
+              Start where the risk is highest.
             </h2>
           </div>
           <p className="section-support-copy max-w-xl text-base leading-8">
-            Most teams start with a pilot. It proves the fix before you commit.
+            Most teams start with a pilot. It proves the fix before a full rollout.
           </p>
         </div>
 
@@ -127,6 +127,19 @@ export function PricingSection() {
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="mt-8 rounded-[1.6rem] border border-white/10 bg-white/[0.03] px-5 py-5 backdrop-blur-md">
+          <p className="text-sm leading-7 text-white/84">
+            This is not for early-stage teams experimenting. It is for companies already operating with real revenue, real demand, or sensitive data.
+          </p>
+          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm leading-7 text-white/62">
+            <span>Most teams start with pilot.</span>
+            <span className="hidden h-1 w-1 rounded-full bg-white/20 md:inline-block" />
+            <span>Limited onboarding capacity.</span>
+            <span className="hidden h-1 w-1 rounded-full bg-white/20 md:inline-block" />
+            <span>No long-term contracts.</span>
+          </div>
         </div>
       </div>
     </section>

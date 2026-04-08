@@ -1,15 +1,14 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import { ArrowRight, ArrowUpRight, CheckCircle2, CircleAlert, ShieldCheck, TerminalSquare } from "lucide-react"
+import { ArrowRight, CheckCircle2, CircleAlert, ShieldCheck, TerminalSquare } from "lucide-react"
 
 import { TestimonialCard } from "@/components/testimonial-card"
 import { AuditCtaButton } from "@/components/ui/audit-cta-button"
-import { Button } from "@/components/ui/button"
 import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
   title: "Proof | VishnuLabs",
-  description: "See how VishnuLabs presents runtime evidence, system behavior, and stabilization outcomes before asking for trust.",
+  description: "See the runtime evidence before trust is requested. Failure, containment, and recovery should be visible.",
   alternates: {
     canonical: "/proof",
   },
@@ -45,23 +44,20 @@ export default function ProofPage() {
                   This page exists for one reason: to show the operating evidence before a buyer is asked to trust the engineering.
                 </p>
 
+                <div className="mt-6 rounded-[26px] border border-white/12 bg-white/[0.05] px-4 py-4">
+                  <p className="text-sm font-medium text-white">This is not for early-stage teams experimenting.</p>
+                  <p className="mt-2 text-sm leading-7 text-slate-300">
+                    This is for companies already operating with real data and revenue.
+                  </p>
+                </div>
+
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <AuditCtaButton trackingSource="proof_hero_cta" className="h-12 px-7 text-sm sm:h-14 sm:px-8 sm:text-base">
                     Get Free System Audit
                     <ArrowRight className="h-4 w-4" />
                   </AuditCtaButton>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    asChild
-                    className="h-12 rounded-full border-white/24 bg-white/12 px-7 text-sm font-semibold text-white hover:bg-white/18 sm:h-14 sm:px-8 sm:text-base"
-                  >
-                    <a href="/pricing">
-                      View Pricing
-                      <ArrowUpRight className="h-4 w-4" />
-                    </a>
-                  </Button>
                 </div>
+                <p className="mt-4 text-sm text-slate-300">Limited onboarding capacity. No long-term contracts.</p>
               </article>
 
               <article className="light-panel-solid p-6 sm:p-8">

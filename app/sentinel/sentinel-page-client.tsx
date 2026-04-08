@@ -9,31 +9,64 @@ const problemPoints = [
   "Shadow AI usage growing across teams",
 ]
 
-const licensePricing = [
+const deploymentOffers = [
   {
-    title: "Starter",
-    price: "$10K–$20K/year",
-    description: "For small teams with basic AI usage.",
+    title: "Risk Assessment",
+    price: "$1,500",
+    description: "See where AI usage is exposing the business before you deploy anything bigger.",
+    stack: [
+      "Outcome: exposure map and priority controls",
+      "Speed: clear next steps in days",
+      "Risk removal: no rollout required",
+      "Proof: built from live AI usage patterns",
+      "Access: direct audit review",
+    ],
   },
   {
-    title: "Professional",
-    price: "$20K–$50K/year",
-    description: "For growing teams with active workflows.",
+    title: "Pilot Deployment",
+    price: "$7,500",
+    description: "Control one workflow first. Validate the control layer before a broader rollout.",
+    stack: [
+      "Outcome: one risky workflow brought under control",
+      "Speed: 2–3 weeks",
+      "Risk removal: scoped and measurable",
+      "Proof: production validation",
+      "Access: audit + pilot review",
+    ],
+  },
+  {
+    title: "Full Deployment",
+    price: "$18K–$35K",
+    description: "Deploy the control layer across the workflows that matter most.",
+    stack: [
+      "Outcome: policy enforcement, logging, and control in the live path",
+      "Speed: 2–4 weeks",
+      "Risk removal: pilot first if needed",
+      "Proof: law firm deployment model",
+      "Access: review until stable",
+    ],
   },
   {
     title: "Enterprise",
-    price: "$50K–$100K+/year",
-    description: "For high-scale, compliance-heavy systems.",
+    price: "Custom",
+    description: "For multi-team rollouts, stricter compliance coverage, and deeper governance requirements.",
+    stack: [
+      "Outcome: controlled AI usage at scale",
+      "Speed: phased rollout",
+      "Risk removal: staged deployment",
+      "Proof: auditability and control coverage",
+      "Access: priority support",
+    ],
   },
 ]
 
-const features = [
-  "Real-time PII interception",
-  "Policy enforcement",
-  "Immutable audit logs",
-  "Multi-model AI gateway",
-  "Compliance-ready workflows",
-  "Shadow AI detection",
+const controlOutcomes = [
+  "Sensitive prompts stopped before they leave the system",
+  "Policy checks happen before AI output is returned",
+  "Every interaction is logged and traceable",
+  "Shadow AI usage becomes visible",
+  "Compliance teams get audit-ready records",
+  "Approved usage stays usable for staff",
 ]
 
 const industries = [
@@ -97,21 +130,26 @@ export function SentinelPageClient() {
       </div>
       <section className="px-5 pb-24 pt-36 text-center md:pt-40">
         <div className="cinema-section-shell reveal-in mx-auto max-w-6xl px-6 py-12 shadow-[0_24px_90px_rgba(3,10,24,0.28)] md:px-10 md:py-16">
-          <p className="section-kicker reveal-in text-[11px] uppercase">AI Data Protection & Governance Platform</p>
+          <p className="section-kicker reveal-in text-[11px] uppercase">Sentinel</p>
           <h1 className="reveal-in reveal-delay-1 mt-6 text-balance font-heading text-5xl font-semibold leading-[0.94] tracking-[-0.05em] text-white md:text-7xl">
-            Prevent data leaks and enforce AI compliance before it happens
+            AI Data Protection & Governance Infrastructure
           </h1>
           <p className="section-support-copy reveal-in reveal-delay-1 mx-auto mt-5 max-w-3xl text-lg leading-8">
-            Prevent data leaks, enforce compliance, and control every AI interaction before it leaves your system.
+            If your team uses AI with client, patient, or operational data, exposure is already happening.
           </p>
           <p className="section-support-copy reveal-in reveal-delay-2 mx-auto mt-4 max-w-3xl text-base leading-8">
-            This is not for teams experimenting with AI. This is for teams already using AI with real data and need control.
+            Missed policy checks. No audit trail. Sensitive prompts leaving the system.
           </p>
-          <p className="reveal-in reveal-delay-2 mx-auto mt-4 max-w-3xl text-base leading-8 text-white/56">
+          <div className="reveal-in reveal-delay-2 mx-auto mt-6 max-w-3xl rounded-[1.5rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-md">
+            <p className="text-sm leading-7 text-white/88">
+              This is not for early-stage teams experimenting. This is for companies already operating with real data and revenue.
+            </p>
+          </div>
+          <p className="reveal-in reveal-delay-2 mx-auto mt-6 max-w-3xl text-base leading-8 text-white/56">
             Most organizations are already leaking sensitive data through AI tools without realizing it.
           </p>
-          <p className="reveal-in reveal-delay-2 mt-4 text-sm leading-7 text-cyan-100/80">Supports HIPAA, GDPR, DPDP-ready workflows</p>
-          <p className="reveal-in reveal-delay-2 mt-2 text-sm leading-7 text-white/52">Built for teams handling sensitive client and patient data</p>
+          <p className="reveal-in reveal-delay-2 mt-4 text-sm leading-7 text-cyan-100/80">Critical infrastructure for AI data protection</p>
+          <p className="reveal-in reveal-delay-2 mt-2 text-sm leading-7 text-white/52">Supports HIPAA, GDPR, DPDP-ready workflows</p>
           <div className="reveal-in reveal-delay-3 mt-8 flex justify-center">
             <AuditCtaButton trackingSource="sentinel_hero_cta" className="px-7 py-3 text-sm">
               Get Free System Audit
@@ -128,7 +166,7 @@ export function SentinelPageClient() {
 
       <section className="px-5 pb-24">
         <div className="cinema-section-shell reveal-in mx-auto max-w-5xl px-6 py-10 md:px-8 md:py-12">
-          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">AI is leaking sensitive data, silently</h2>
+          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">Risk shows up quietly</h2>
           <ul className="mt-8 grid gap-4 text-base leading-8 text-white/72 md:grid-cols-2">
             {problemPoints.map((item, index) => (
               <li
@@ -193,18 +231,11 @@ export function SentinelPageClient() {
       </section>
 
       <section className="px-5 pb-24">
-        <div className="cinema-section-shell reveal-in mx-auto max-w-5xl px-6 py-10 text-center md:px-8 md:py-12">
-          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">How Sentinel Works</h2>
-          <p className="mt-6 text-lg leading-8 text-white/68">User Input → Scan → Redact → Policy Check → Route → Log</p>
-          <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-white/56">
-            Sentinel sits between your team and AI systems, scans every interaction, blocks or redacts sensitive data, and logs everything.
-          </p>
-        </div>
-      </section>
-
-      <section className="px-5 pb-24">
         <div className="cinema-section-shell reveal-in mx-auto max-w-6xl px-6 py-10 md:px-8 md:py-12">
           <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">How it works</h2>
+          <p className="mt-5 max-w-3xl text-base leading-8 text-white/60">
+            User input enters. Sensitive data is checked. Unsafe prompts are blocked or redacted. Safe activity is logged.
+          </p>
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
             {processSteps.map((step, index) => (
               <div
@@ -225,9 +256,9 @@ export function SentinelPageClient() {
 
       <section className="px-5 pb-24">
         <div className="cinema-section-shell reveal-in mx-auto max-w-5xl px-6 py-10 md:px-8 md:py-12">
-          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">Core Features</h2>
+          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">Control layer</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {features.map((feature, index) => (
+            {controlOutcomes.map((feature, index) => (
               <div
                 key={feature}
                 className={`cinema-card cinema-card-hover rounded-[24px] px-5 py-5 text-base leading-8 text-white/72 ${
@@ -315,67 +346,33 @@ export function SentinelPageClient() {
 
       <section className="px-5 pb-24">
         <div className="cinema-section-shell reveal-in mx-auto max-w-6xl px-6 py-10 text-center md:px-8 md:py-12">
-          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">Flexible Deployment Model</h2>
+          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">Deployment ladder</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            <div className="cinema-card cinema-card-hover float-card-soft rounded-[24px] px-5 py-6">
-              <p className="section-kicker text-[11px] uppercase">Platform License (annual)</p>
-              <div className="mt-4 grid gap-3">
-                {licensePricing.map((plan) => (
-                  <div key={plan.title} className="cinema-card rounded-[20px] bg-black/18 px-4 py-4 text-left">
-                    <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/74">{plan.title}</p>
-                    <p className="mt-2 text-2xl font-semibold text-white">{plan.price}</p>
-                    <p className="mt-2 text-sm leading-7 text-white/56">{plan.description}</p>
-                  </div>
-                ))}
+            {deploymentOffers.map((offer, index) => (
+              <div
+                key={offer.title}
+                className={`cinema-card cinema-card-hover rounded-[24px] px-5 py-6 text-left ${
+                  offer.title === "Pilot Deployment"
+                    ? "float-card-soft border-cyan-300/22 bg-cyan-400/[0.06]"
+                    : index % 2 === 0
+                      ? "float-card-soft"
+                      : "float-card-soft float-card-delay-1"
+                }`}
+              >
+                <p className="section-kicker text-[11px] uppercase">{offer.title}</p>
+                <p className="mt-4 text-3xl font-semibold text-white">{offer.price}</p>
+                <p className="mt-4 text-base leading-8 text-white/64">{offer.description}</p>
+                <div className="mt-5 grid gap-2 text-sm leading-7 text-white/66">
+                  {offer.stack.map((item) => (
+                    <p key={item}>{item}</p>
+                  ))}
+                </div>
               </div>
-            </div>
-
-            <div className="cinema-card cinema-card-hover float-card-soft float-card-delay-1 rounded-[24px] px-5 py-6 text-left">
-              <p className="section-kicker text-[11px] uppercase">Pilot Deployment (2–3 weeks)</p>
-              <p className="mt-4 text-3xl font-semibold text-white">$5K–$10K</p>
-              <p className="mt-4 text-base leading-8 text-white/64">
-                Scoped to one workflow or team and credited toward full deployment if you proceed.
-              </p>
-              <div className="mt-4 grid gap-2 text-base leading-8 text-white/64">
-                <p>Risk assessment</p>
-                <p>Limited rollout</p>
-                <p>Real system validation</p>
-              </div>
-            </div>
-
-            <div className="cinema-card cinema-card-hover float-card-soft float-card-delay-2 rounded-[24px] px-5 py-6 text-left">
-              <p className="section-kicker text-[11px] uppercase">Custom Deployment (one-time)</p>
-              <p className="mt-4 text-3xl font-semibold text-white">$10K–$50K+</p>
-              <div className="mt-4 grid gap-2 text-base leading-8 text-white/64">
-                <p>Integrations</p>
-                <p>Policy setup</p>
-                <p>Workflow configuration</p>
-                <p>Compliance setup</p>
-              </div>
-            </div>
-
-            <div className="cinema-card cinema-card-hover float-card-soft float-card-delay-1 rounded-[24px] px-5 py-6 text-left">
-              <p className="section-kicker text-[11px] uppercase">Enterprise (custom)</p>
-              <p className="mt-4 text-3xl font-semibold text-white">Custom</p>
-              <p className="mt-4 text-base leading-8 text-white/64">
-                For broader rollouts, stricter control requirements, and deeper compliance coverage.
-              </p>
-            </div>
+            ))}
           </div>
-          <p className="mt-6 text-base leading-8 text-white/56">
-            Final pricing depends on system complexity, integrations, and compliance requirements.
-          </p>
-          <p className="mt-2 text-base leading-8 text-white/56">
-            Most teams start in the Professional range depending on usage and compliance requirements.
-          </p>
-          <p className="mt-2 text-base leading-8 text-white/52">
-            No long-term lock-in for initial deployment — start with assessment.
-          </p>
-          <p className="mt-2 text-base leading-8 text-white/48">
-            Typical deployment timeline:
-            <br />
-            2–4 weeks depending on integrations and system complexity
-          </p>
+          <p className="mt-6 text-base leading-8 text-white/56">Most teams start with pilot.</p>
+          <p className="mt-2 text-base leading-8 text-white/52">2–4 weeks depending on integrations and system complexity.</p>
+          <p className="mt-2 text-base leading-8 text-white/48">Limited onboarding capacity. No long-term contracts.</p>
         </div>
       </section>
 
@@ -406,7 +403,7 @@ export function SentinelPageClient() {
             Start with a free system audit
           </h2>
           <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-white/64">
-            We map AI usage, show where exposure happens, and outline the fastest fix.
+            We show where AI usage creates exposure, where policy breaks, and what to control first.
           </p>
           <div className="mx-auto mt-8 flex justify-center">
             <AuditCtaButton trackingSource="sentinel_entry_offer_cta" className="px-7 py-3 text-sm">

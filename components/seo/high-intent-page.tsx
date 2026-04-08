@@ -87,22 +87,28 @@ export function HighIntentPage({
             {title}
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-zinc-300">{intro}</p>
+          <div className="mt-6 max-w-3xl rounded-[1.5rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-md">
+            <p className="text-sm leading-7 text-white/88">
+              This is not for early-stage teams experimenting. This is for companies already operating with real data and revenue.
+            </p>
+          </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <AuditCtaButton trackingSource={`seo_${eyebrow.toLowerCase().replace(/\s+/g, "_")}_cta`} className="px-6 py-3 text-sm">
               {primaryLinkLabel}
               <ArrowUpRight className="h-4 w-4" />
             </AuditCtaButton>
-          {supportingLink ? (
-            <AppLink
-              href={supportingLink.href}
-              className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/[0.08]"
-            >
-              {supportingLink.label}
-            </AppLink>
-          ) : null}
-        </div>
+            {supportingLink ? (
+              <AppLink
+                href={supportingLink.href}
+                className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/[0.08]"
+              >
+                {supportingLink.label}
+              </AppLink>
+            ) : null}
+          </div>
           <p className="mt-4 text-sm text-white/64">{ctaBody}</p>
+          <p className="mt-2 text-sm text-white/52">Limited onboarding capacity. No long-term contracts.</p>
         </section>
 
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
@@ -128,7 +134,7 @@ export function HighIntentPage({
 
         <section className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-7 backdrop-blur-xl md:p-8">
           <p className="text-[11px] uppercase tracking-[0.24em] text-white/64">System solution</p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white">What the system does</h2>
+          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white">How the system stops it</h2>
           <p className="mt-4 max-w-3xl text-base leading-8 text-zinc-300">
             It removes delay and uncertainty. If your team also uses AI with sensitive data, <AppLink href="/sentinel" className="text-sky-200 underline underline-offset-4">Sentinel</AppLink> adds a control layer.
           </p>
@@ -142,20 +148,27 @@ export function HighIntentPage({
         </section>
 
         <section className="rounded-[2rem] border border-sky-300/16 bg-white/[0.04] p-7 shadow-[0_20px_80px_rgba(56,189,248,0.08)] backdrop-blur-xl md:p-8">
-          <p className="text-[11px] uppercase tracking-[0.24em] text-sky-200">Case study</p>
-          <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-            <div className="max-w-2xl">
+          <p className="text-[11px] uppercase tracking-[0.24em] text-sky-200">Proof</p>
+          <div className="mt-5 grid gap-6 lg:grid-cols-[1.02fr_0.98fr]">
+            <div>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white">{caseStudyTitle}</h2>
-              <p className="mt-3 text-sm uppercase tracking-[0.18em] text-white/64">{caseStudyContext}</p>
-              <p className="mt-4 text-base leading-8 text-zinc-300">{caseStudySummary}</p>
+              <div className="mt-5 rounded-[1.4rem] border border-white/10 bg-black/20 p-4">
+                <p className="text-[11px] uppercase tracking-[0.18em] text-white/56">Context</p>
+                <p className="mt-2 text-sm leading-7 text-zinc-300">{caseStudyContext}</p>
+              </div>
+              <div className="mt-4 rounded-[1.4rem] border border-white/10 bg-black/20 p-4">
+                <p className="text-[11px] uppercase tracking-[0.18em] text-white/56">Fix</p>
+                <p className="mt-2 text-sm leading-7 text-zinc-300">{caseStudySummary}</p>
+              </div>
+              <p className="mt-4 text-sm leading-7 text-white/54">Built for teams already handling real revenue or sensitive data.</p>
             </div>
-            <div className="grid gap-3 sm:grid-cols-3 lg:w-[28rem] lg:grid-cols-1">
+            <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
               {caseStudyMetrics.map((metric) => (
                 <div key={metric.label} className="rounded-[1.5rem] border border-white/10 bg-black/20 p-4">
                   <p className="bg-[linear-gradient(90deg,#ffffff_0%,#c4b5fd_38%,#7dd3fc_100%)] bg-clip-text text-3xl font-semibold tracking-[-0.06em] text-transparent">
                     {metric.value}
                   </p>
-                  <p className="mt-2 text-sm text-zinc-400">{metric.label}</p>
+                  <p className="mt-2 text-sm text-zinc-300">{metric.label}</p>
                 </div>
               ))}
             </div>
@@ -209,6 +222,7 @@ export function HighIntentPage({
               </AppLink>
             ) : null}
           </div>
+          <p className="mt-4 text-sm leading-7 text-white/54">Limited onboarding capacity. No long-term contracts.</p>
         </section>
       </div>
     </main>

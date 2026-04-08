@@ -1,14 +1,13 @@
 import type { Metadata } from "next"
-import { ArrowRight, ArrowUpRight, CheckCircle2, Settings2, ShieldCheck, Workflow } from "lucide-react"
+import { ArrowRight, CheckCircle2, Settings2, ShieldCheck, Workflow } from "lucide-react"
 
 import { TestimonialCard } from "@/components/testimonial-card"
-import { Button } from "@/components/ui/button"
 import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
-  title: "Services | VishnuLabs",
-  description: "Fix the failure mode that is losing leads, wasting staff time, or creating data exposure. Built for real operating pressure.",
+  title: "Services | System Fixes Under Real Operating Pressure | VishnuLabs",
+  description: "Fix the exact handoff losing leads, time, or control. Built for teams already operating with real data and revenue.",
   alternates: {
     canonical: "/services",
   },
@@ -16,23 +15,23 @@ export const metadata: Metadata = {
 
 const rolloutSteps = [
   {
-    title: "Connect systems",
-    detail: "Map where demand enters and where it leaks.",
+    title: "Audit the break",
+    detail: "Map the exact handoff losing revenue, time, or control.",
   },
   {
-    title: "Define operating rules",
-    detail: "Remove the delay that kills intent.",
+    title: "Rebuild the control point",
+    detail: "Fix validation, routing, and fallback behavior where failure starts.",
   },
   {
-    title: "Monitor and harden",
-    detail: "Keep it stable so it does not regress.",
+    title: "Prove and harden",
+    detail: "Monitor live behavior, remove regressions, and lock in the gain.",
   },
 ]
 
 const serviceNotes = [
-  "We start with the leak. Not a feature list.",
-  "We prove the fix in production. Then we scale it.",
-  "The goal is simple: fewer lost leads. Less manual rescue. More control.",
+  "We start where revenue or data is already leaking.",
+  "We prove the fix in production before widening scope.",
+  "Teams stop rescuing the workflow by hand.",
 ]
 
 export default function ServicesPage() {
@@ -44,38 +43,34 @@ export default function ServicesPage() {
               <article className="dark-panel-solid p-6 sm:p-8">
                 <div className="inline-flex items-center gap-2 rounded-full border border-sky-300/20 bg-sky-400/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-sky-100">
                   <Settings2 className="h-3.5 w-3.5" />
-                  Systems delivery
+                  Operational intervention
                 </div>
 
                 <h1 className="mt-6 text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-                  We fix the part of the system that keeps failing in production.
+                  If the workflow keeps failing, we fix the exact break.
                 </h1>
                 <p className="mt-5 text-base leading-8 text-slate-200 sm:text-lg">
-                  Missed follow-ups. Dropped handoffs. No visibility. We isolate the failure mode, prove the fix, then deploy without
-                  adding new fragility.
+                  Dropped handoffs. Slow response. Bad data. We isolate the failure, prove the fix, then harden it in production.
                 </p>
+
+                <div className="mt-6 rounded-[26px] border border-white/12 bg-white/[0.05] px-4 py-4">
+                  <p className="text-sm font-medium text-white">This is not for early-stage teams experimenting.</p>
+                  <p className="mt-2 text-sm leading-7 text-slate-300">
+                    This is for companies already operating with real data and revenue.
+                  </p>
+                </div>
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <AuditCtaButton trackingSource="services_hero_cta" className="h-12 px-7 text-sm sm:h-14 sm:px-8 sm:text-base">
                     Get Free System Audit
                     <ArrowRight className="h-4 w-4" />
                   </AuditCtaButton>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    asChild
-                    className="h-12 rounded-full border-white/26 bg-white/12 px-7 text-sm font-semibold text-white hover:bg-white/18 sm:h-14 sm:px-8 sm:text-base"
-                  >
-                    <a href="/pricing">
-                      View Pricing
-                      <ArrowUpRight className="h-4 w-4" />
-                    </a>
-                  </Button>
                 </div>
+                <p className="mt-4 text-sm text-slate-300">Limited onboarding capacity. No long-term contracts.</p>
               </article>
 
               <article className="light-panel-solid p-6 sm:p-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Why this matters</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">What changes</p>
                 <div className="mt-5 space-y-3">
                   {serviceNotes.map((item) => (
                     <div key={item} className="flex gap-3 rounded-[24px] border border-slate-200 bg-slate-50 px-4 py-4 shadow-sm">
@@ -111,19 +106,19 @@ export default function ServicesPage() {
         <section className="py-8 sm:py-10">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="dark-panel-solid p-6 sm:p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Core promise</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">What we remove</p>
               <h2 className="mt-4 max-w-4xl text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-                Reliable execution comes from cleaner architecture, not more operator effort.
+                More operator effort is not the fix.
               </h2>
               <p className="mt-4 max-w-3xl text-base leading-8 text-slate-200">
-                We do not optimize for surface-level speed. We remove failure points, rebuild the weak handoff, and make the system easier
-                to operate when load, edge cases, and business pressure increase at the same time.
+                The problem is usually one weak handoff, one missing validation rule, or one workflow nobody trusts under pressure. We fix
+                that point first, then make the system easier to run when volume and edge cases increase together.
               </p>
               <div className="mt-7 grid gap-3 md:grid-cols-3">
                 {[
-                  "Validation before bad data propagates",
-                  "Structure before manual work piles up",
-                  "Visibility before incidents become expensive",
+                  "Bad data blocked before it spreads",
+                  "Manual rescue removed from the workflow",
+                  "Visibility restored before failures get expensive",
                 ].map((item) => (
                   <div key={item} className="rounded-[24px] border border-white/12 bg-slate-900/70 px-4 py-4 text-sm text-slate-100">
                     <div className="flex gap-2">
@@ -136,6 +131,7 @@ export default function ServicesPage() {
               <div className="mt-6">
                 <TestimonialCard testimonial={testimonials.michael} intent="dark" className="shadow-none" />
               </div>
+              <p className="mt-5 text-sm text-slate-300">Most teams start with a pilot. Typical deployment runs 2–4 weeks.</p>
             </div>
           </div>
         </section>

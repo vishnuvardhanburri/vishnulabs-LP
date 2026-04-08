@@ -1,14 +1,13 @@
 import type { Metadata } from "next"
-import { ArrowRight, ArrowUpRight, CheckCircle2, ShieldCheck, Workflow } from "lucide-react"
+import { ArrowRight, CheckCircle2, ShieldCheck, Workflow } from "lucide-react"
 
 import { TestimonialCard } from "@/components/testimonial-card"
 import { AuditCtaButton } from "@/components/ui/audit-cta-button"
-import { Button } from "@/components/ui/button"
 import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
-  title: "Automations | VishnuLabs",
-  description: "Workflow systems that replace brittle automations with reliable execution paths and clearer operational control.",
+  title: "Automations | Workflow Control Under Real Operating Pressure | VishnuLabs",
+  description: "Replace brittle automation with controlled workflows that stop missed events, weak routing, and manual rescue work.",
   alternates: {
     canonical: "/automations",
   },
@@ -34,9 +33,9 @@ const workflowCards = [
 ]
 
 const workflowReasons = [
-  "Most automation problems are architecture problems in disguise.",
-  "A workflow is not reliable if one missed event breaks the next three steps.",
-  "The goal is consistent execution, not just fewer clicks.",
+  "Most automation problems are control problems in disguise.",
+  "One missed event should not break the next three steps.",
+  "The goal is reliable execution, not fewer clicks.",
 ]
 
 export default function AutomationsPage() {
@@ -52,12 +51,18 @@ export default function AutomationsPage() {
                 </div>
 
                 <h1 className="mt-6 text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-                  We replace brittle automation with workflows that keep running cleanly.
+                  If automation keeps failing quietly, the workflow needs control.
                 </h1>
                 <p className="mt-5 text-base leading-8 text-slate-200 sm:text-lg">
-                  This page is about operational reliability. VishnuLabs rebuilds the workflow when scheduling, routing, reminders, or
-                  internal automations keep failing quietly and pulling the team back into manual work.
+                  Missed reminders. Broken routing. Silent failures. We rebuild the workflow so the team stops rescuing it by hand.
                 </p>
+
+                <div className="mt-6 rounded-[26px] border border-white/12 bg-white/[0.05] px-4 py-4">
+                  <p className="text-sm font-medium text-white">This is not for early-stage teams experimenting.</p>
+                  <p className="mt-2 text-sm leading-7 text-slate-300">
+                    This is for companies already operating with real data and revenue.
+                  </p>
+                </div>
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <AuditCtaButton
@@ -67,22 +72,12 @@ export default function AutomationsPage() {
                     Get Free System Audit
                     <ArrowRight className="h-4 w-4" />
                   </AuditCtaButton>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    asChild
-                    className="h-12 rounded-full border-white/26 bg-white/12 px-7 text-sm font-semibold text-white hover:bg-white/18 sm:h-14 sm:px-8 sm:text-base"
-                  >
-                    <a href="/proof">
-                      View Demo
-                      <ArrowUpRight className="h-4 w-4" />
-                    </a>
-                  </Button>
                 </div>
+                <p className="mt-4 text-sm text-slate-300">Limited onboarding capacity. No long-term contracts.</p>
               </article>
 
               <article className="light-panel-solid p-6 sm:p-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Why this matters</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">What changes</p>
                 <div className="mt-5 space-y-3">
                   {workflowReasons.map((item) => (
                     <div key={item} className="flex gap-3 rounded-[24px] border border-slate-200 bg-slate-50 px-4 py-4 shadow-sm">
@@ -115,6 +110,7 @@ export default function AutomationsPage() {
             <div className="mt-6">
               <TestimonialCard testimonial={testimonials.carlos} className="shadow-none" />
             </div>
+            <p className="mt-6 text-sm text-slate-600">Most teams start with pilot. Typical deployment runs 2–4 weeks.</p>
           </div>
         </section>
       </main>

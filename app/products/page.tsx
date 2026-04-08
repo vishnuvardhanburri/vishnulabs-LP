@@ -8,8 +8,8 @@ import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
-  title: "Products | VishnuLabs",
-  description: "See where systems usually leak money: intake, follow-up, and uncontrolled data. Built for teams operating with real demand.",
+  title: "Products | Control Layers for Lead and Data Risk | VishnuLabs",
+  description: "See where revenue or data leaves the system. Start with the leak, prove the fix, then expand only where needed.",
   alternates: {
     canonical: "/products",
   },
@@ -18,27 +18,27 @@ export const metadata: Metadata = {
 const productSurfaces = [
   {
     icon: ShieldAlert,
-    title: "Failure-prone intake points",
-    detail: "Identify where bad inputs, dropped events, and missing validation begin to destabilize the wider system.",
-    bullets: ["Stop bad data at the edge", "See where the workflow breaks", "Apply control before problems propagate"],
+    title: "Lead capture breakdowns",
+    detail: "Find where inbound demand dies first: weak intake, slow follow-up, missing routing, or silent handoff failure.",
+    bullets: ["Stop lead loss at entry", "See where the handoff breaks", "Restore control before demand cools"],
   },
   {
     icon: KeyRound,
-    title: "Critical dependencies",
-    detail: "Handle credentials, integrations, and third-party services with explicit safeguards and clearer fallback behavior.",
-    bullets: ["Catch dependency risk early", "Control retries and fallback paths", "Record recovery behavior clearly"],
+    title: "Dependency risk",
+    detail: "Stabilize the third-party tools, credentials, and external services that quietly turn into operating risk.",
+    bullets: ["Catch integration failure early", "Control retries and fallback paths", "Make recovery visible"],
   },
   {
     icon: ScanSearch,
-    title: "Data consistency paths",
-    detail: "Protect customer records and internal state from inconsistent writes, duplicate events, and broken handoffs.",
-    bullets: ["Monitor data transitions", "Validate before writes", "Keep a review trail"],
+    title: "Sensitive data paths",
+    detail: "Protect customer records and internal state from bad writes, broken prompts, duplicate events, and missing audit trails.",
+    bullets: ["Validate before writes", "Block uncontrolled data movement", "Keep a clean review trail"],
   },
   {
     icon: Workflow,
-    title: "Workflow execution surfaces",
-    detail: "Stabilize the internal tools, API-connected paths, and automations that teams depend on every day.",
-    bullets: ["Protect internal apps too", "Apply one operating model", "Scale control across surfaces"],
+    title: "Workflow control",
+    detail: "Fix the internal tools, API-connected paths, and automations teams depend on when revenue is already moving through the system.",
+    bullets: ["Protect internal apps too", "Apply one control model", "Scale after the fix is proven"],
   },
 ]
 
@@ -46,37 +46,37 @@ const collectionCards = [
   {
     icon: LockKeyhole,
     title: "System stabilization",
-    summary: "The layer that restores validation, control, and observability before workflow issues multiply downstream.",
+    summary: "Stops weak validation, silent failure, and bad state changes before they spread downstream.",
     cta: "/pricing",
     ctaLabel: "View pricing",
   },
   {
     icon: ShieldCheck,
-    title: "Structured intake",
-    summary: "Keep intake, reception, and routing predictable even when volume rises and edge cases appear.",
-    cta: "/automations",
-    ctaLabel: "See workflows",
+    title: "Sentinel",
+    summary: "Blocks sensitive data from leaving AI tools without policy, visibility, or audit control.",
+    cta: "/sentinel",
+    ctaLabel: "Open Sentinel",
   },
   {
     icon: Workflow,
     title: "Operational workflows",
-    summary: "Give teams validated workflows, cleaner state transitions, and fewer manual rescue steps.",
+    summary: "Fix follow-up, reminders, routing, and handoffs where revenue is already leaking.",
     cta: "/services",
     ctaLabel: "See rollout",
   },
   {
     icon: ShieldEllipsis,
-    title: "Scalable architecture",
-    summary: "Expand into custom deployment, broader internal coverage, and stronger infrastructure decisions only when needed.",
+    title: "Enterprise rollout",
+    summary: "Audit first. Pilot next. Expand only after the failure mode is proven closed.",
     cta: "https://cal.com/vishnuvardhanburri/15min",
     ctaLabel: "Book review",
   },
 ]
 
 const whyItMatters = [
-  "System failure usually starts with one weak handoff, not one dramatic outage.",
-  "The risky event is often small: one bad payload, one missed retry, one integration edge case.",
-  "VishnuLabs exists to stop that small event before it turns into a larger operational problem.",
+  "Failure usually starts with one weak handoff, not one dramatic outage.",
+  "The risky event is often small: one missed follow-up, one bad write, one uncontrolled prompt.",
+  "We close that gap before it turns into lost revenue, exposure, or cleanup work.",
 ]
 
 export default function ProductsPage() {
@@ -92,34 +92,31 @@ export default function ProductsPage() {
                 </div>
 
                 <h1 className="mt-6 text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-                  One operating model. Fewer places for failure to hide.
+                  See where revenue or data leaves the system.
                 </h1>
                 <p className="mt-5 text-base leading-8 text-slate-300 sm:text-lg">
-                  This is a buyer view. Start with where the leak starts. Then see how we close it.
+                  Missed intake. Weak follow-up. Uncontrolled AI use. Start with the leak. Then close it.
                 </p>
 
-                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                    <AuditCtaButton trackingSource="products_hero_cta" className="h-12 px-7 text-sm sm:h-14 sm:px-8 sm:text-base">
-                      Get Free System Audit
-                      <ArrowRight className="h-4 w-4" />
-                    </AuditCtaButton>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    asChild
-                    className="h-12 rounded-full border-white/14 bg-white/5 px-7 text-sm font-semibold text-white hover:bg-white/10 sm:h-14 sm:px-8 sm:text-base"
-                  >
-                    <a href="/proof">
-                      View Demo
-                      <ArrowUpRight className="h-4 w-4" />
-                    </a>
-                  </Button>
+                <div className="mt-6 rounded-[26px] border border-white/12 bg-white/[0.05] px-4 py-4">
+                  <p className="text-sm font-medium text-white">This is not for early-stage teams experimenting.</p>
+                  <p className="mt-2 text-sm leading-7 text-slate-300">
+                    This is for companies already operating with real data and revenue.
+                  </p>
                 </div>
+
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                  <AuditCtaButton trackingSource="products_hero_cta" className="h-12 px-7 text-sm sm:h-14 sm:px-8 sm:text-base">
+                    Get Free System Audit
+                    <ArrowRight className="h-4 w-4" />
+                  </AuditCtaButton>
+                </div>
+                <p className="mt-4 text-sm text-slate-300">Limited onboarding capacity. No long-term contracts.</p>
 
                 <div className="mt-8 grid gap-3 sm:grid-cols-2">
                   {[
-                    { label: "Core promise", value: "Reliable execution without constant operator rescue." },
-                    { label: "What it replaces", value: "Fragile workflows, hidden failure modes, and manual recovery." },
+                    { label: "Core promise", value: "One control model across lead flow, workflow execution, and data risk." },
+                    { label: "What it removes", value: "Fragile handoffs, missed follow-up, and manual rescue work." },
                   ].map((item) => (
                     <div key={item.label} className="rounded-[22px] border border-white/10 bg-white/[0.05] px-4 py-4">
                       <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">{item.label}</p>
@@ -134,12 +131,12 @@ export default function ProductsPage() {
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Quick collection view</p>
                     <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                      A clearer systems catalog for buyers who need fit fast.
+                      A buyer map, not a product catalog.
                     </h2>
                   </div>
                   <div className="rounded-[22px] border border-slate-200 bg-slate-50 px-4 py-4 sm:max-w-[220px]">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Starting ranges</p>
-                    <p className="mt-2 text-lg font-semibold text-slate-950">$149/mo → enterprise scope</p>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Typical entry</p>
+                    <p className="mt-2 text-lg font-semibold text-slate-950">$1.5K audit → $7.5K pilot</p>
                   </div>
                 </div>
 
@@ -172,11 +169,12 @@ export default function ProductsPage() {
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Collection</p>
                   <h2 className="mt-4 max-w-4xl text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
-                    Start with the core layer, then choose where control needs to show up first.
+                    One control layer. Deployed where failure starts.
                   </h2>
                 </div>
                 <p className="max-w-2xl text-base leading-8 text-slate-600">
-                  This is not a long list of services. It is one product deployed across the places where teams usually lose control first.
+                  This is not separate software for every problem. It is one operating model deployed across the places where lead loss,
+                  data exposure, and workflow failure usually begin.
                 </p>
               </div>
 
@@ -212,13 +210,13 @@ export default function ProductsPage() {
         <section className="py-8 sm:py-10">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
             <div className="rounded-[34px] border border-white/90 bg-white/98 p-6 shadow-[0_18px_46px_rgba(15,23,42,0.08)] sm:p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Where VishnuLabs fits</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Where failure starts</p>
               <h2 className="mt-4 max-w-4xl text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
-                The work follows the system wherever private information, customer data, or critical dependencies can slip out of control.
+                The work follows the system wherever leads, private information, or critical dependencies slip out of control.
               </h2>
               <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
-                Clients do not need a big catalog. They need to know whether the risk is in staff prompting, internal tools, customer records,
-                or API-connected workflows. This page answers that quickly.
+                Buyers do not need a long catalog. They need to know whether the risk is in intake, AI usage, internal tools, customer
+                records, or API-connected workflows. This page answers that quickly.
               </p>
 
               <div className="mt-8 grid gap-4 md:grid-cols-2">
@@ -248,6 +246,7 @@ export default function ProductsPage() {
                 <TestimonialCard testimonial={testimonials.jonas} />
                 <TestimonialCard testimonial={testimonials.noah} />
               </div>
+              <p className="mt-6 text-sm text-slate-600">Most teams start with pilot. Full deployment follows once the fix is proven.</p>
             </div>
           </div>
         </section>

@@ -1,12 +1,10 @@
 import type { Metadata } from "next"
-import Link from "next/link"
-import { ArrowRight, ArrowUpRight, CheckCircle2, Hospital, Scale, Truck, Workflow } from "lucide-react"
+import { ArrowRight, CheckCircle2, Hospital, Scale, Truck, Workflow } from "lucide-react"
 
 import { ConfidenceRail } from "@/components/confidence-rail"
 import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { TestimonialCard } from "@/components/testimonial-card"
 import { AuditCtaButton } from "@/components/ui/audit-cta-button"
-import { Button } from "@/components/ui/button"
 import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
@@ -61,6 +59,13 @@ export default function CustomSoftwarePage() {
                     We isolate the failure mode, prove the fix, then deploy it without adding new fragility.
                   </p>
 
+                  <div className="mt-6 rounded-[28px] border border-slate-200/90 bg-white/75 p-4">
+                    <p className="text-sm font-medium text-slate-950">This is not for early-stage teams experimenting.</p>
+                    <p className="mt-2 text-sm leading-7 text-slate-600">
+                      This is for companies already operating with real data and revenue.
+                    </p>
+                  </div>
+
                   <div className="mt-7 flex flex-wrap gap-2">
                     {["Dropped handoffs", "Missed follow-up", "No visibility", "Data exposure"].map((item) => (
                       <span key={item} className="soft-chip border-primary/10 text-slate-700">
@@ -74,16 +79,11 @@ export default function CustomSoftwarePage() {
                       Get Free System Audit
                       <ArrowRight className="h-4 w-4" />
                     </AuditCtaButton>
-                    <Button asChild variant="outline" className="h-12 rounded-full border-slate-300 bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-50">
-                      <Link href="/pricing">
-                        Review Platform Pricing
-                        <ArrowUpRight className="h-4 w-4" />
-                      </Link>
-                    </Button>
                   </div>
+                  <p className="mt-4 text-sm text-slate-600">Limited onboarding capacity. No long-term contracts.</p>
 
                   <div className="mt-6 max-w-2xl">
-                    <CustomSolutionNote compact title="Custom software available" />
+                    <CustomSolutionNote compact title="Need a custom scope under real operating pressure?" />
                   </div>
                 </div>
 

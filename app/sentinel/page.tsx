@@ -4,9 +4,9 @@ import { SentinelLeadCaptureProvider } from "@/components/sentinel/lead-capture-
 import { SentinelPageClient } from "@/app/sentinel/sentinel-page-client"
 
 export const metadata: Metadata = {
-  title: "AI Data Leak Prevention | Control AI Risk | VishnuLabs",
+  title: "Sentinel | AI Data Protection & Governance Infrastructure | VishnuLabs",
   description:
-    "Prevent ChatGPT and AI data leaks, enforce compliance, and control every AI interaction before sensitive data leaves your system.",
+    "Control AI risk before sensitive data leaves the system. Audit first, pilot next, then deploy governance where exposure is already happening.",
   alternates: {
     canonical: "/sentinel",
   },
@@ -17,15 +17,15 @@ export default function SentinelPage() {
     "@context": "https://schema.org",
     "@type": "Product",
     name: "Sentinel",
-    description: "AI Data Protection & Governance Platform for preventing data leaks, enforcing compliance, and controlling AI interactions.",
+    description: "AI Data Protection & Governance Infrastructure for controlling AI usage, preventing data leaks, and enforcing policy before sensitive data leaves the system.",
     brand: { "@type": "Brand", name: "VishnuLabs" },
-    category: "AI Data Protection & Governance Platform",
+    category: "AI Data Protection & Governance Infrastructure",
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "USD",
-      lowPrice: "10000",
-      highPrice: "100000",
-      offerCount: "3",
+      lowPrice: "1500",
+      highPrice: "35000",
+      offerCount: "4",
     },
   }
 

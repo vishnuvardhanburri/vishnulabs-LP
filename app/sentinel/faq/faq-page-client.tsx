@@ -3,7 +3,7 @@
 import { useState } from "react"
 
 import { FAQItem } from "@/components/sentinel/faq-item"
-import { useSentinelLeadCapture } from "@/components/sentinel/lead-capture-provider"
+import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 
 type FaqGroup = {
   title: string
@@ -93,7 +93,6 @@ const faqGroups: FaqGroup[] = [
 
 export function FaqPageClient() {
   const [openItem, setOpenItem] = useState<string | null>("Need / Risk-0")
-  const { openSentinelLeadCapture } = useSentinelLeadCapture()
 
   return (
     <main className="relative overflow-hidden bg-black px-5 pb-24 pt-36 text-white md:pt-40">
@@ -109,14 +108,12 @@ export function FaqPageClient() {
         <p className="section-support-copy mx-auto mt-5 max-w-3xl text-lg leading-8">
           Everything you need to understand how Sentinel protects your systems and data.
         </p>
-        <button
-          type="button"
-          onClick={() => openSentinelLeadCapture("ASSESSMENT", "sentinel_faq_hero")}
-          className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-black transition hover:bg-slate-100"
-        >
-          Request Sentinel Demo & Risk Assessment
-        </button>
-        <p className="mt-4 text-sm leading-7 text-white/54">Start with a demo + evaluation before full deployment</p>
+        <div className="mt-8 flex justify-center">
+          <AuditCtaButton trackingSource="sentinel_faq_hero_cta" className="px-7 py-3 text-sm">
+            Get Free System Audit
+          </AuditCtaButton>
+        </div>
+        <p className="mt-4 text-sm leading-7 text-white/54">Limited onboarding capacity. No long-term contracts.</p>
       </section>
 
       <section className="mx-auto mt-8 max-w-5xl grid gap-6">
@@ -162,14 +159,12 @@ export function FaqPageClient() {
         <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-white/64">
           We&apos;ll show exactly where your risks are.
         </p>
-        <button
-          type="button"
-          onClick={() => openSentinelLeadCapture("ASSESSMENT", "sentinel_faq_final")}
-          className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-black transition hover:bg-slate-100"
-        >
-          Request Sentinel Demo & Risk Assessment
-        </button>
-        <p className="mt-4 text-sm leading-7 text-white/54">Start with a demo + evaluation before full deployment</p>
+        <div className="mt-8 flex justify-center">
+          <AuditCtaButton trackingSource="sentinel_faq_final_cta" className="px-7 py-3 text-sm">
+            Get Free System Audit
+          </AuditCtaButton>
+        </div>
+        <p className="mt-4 text-sm leading-7 text-white/54">Limited onboarding capacity. No long-term contracts.</p>
       </section>
     </main>
   )

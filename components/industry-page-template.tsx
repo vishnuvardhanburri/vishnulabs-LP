@@ -1,12 +1,9 @@
 import Link from "next/link"
-import { ArrowUpRight, CheckCircle2 } from "lucide-react"
+import { ArrowLeft, ArrowUpRight, CheckCircle2 } from "lucide-react"
+
+import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { TestimonialCard } from "@/components/testimonial-card"
-import { Button } from "@/components/ui/button"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { MobileStickyCta } from "@/components/mobile-sticky-cta"
-import { LiveChatAssistant } from "@/components/live-chat-assistant"
-import { CustomSolutionNote, customPackageMailto } from "@/components/custom-solution-note"
+import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 import type { Testimonial } from "@/lib/testimonials"
 
 type IndustryTemplateProps = {
@@ -29,87 +26,103 @@ export function IndustryPageTemplate({
   testimonial,
 }: IndustryTemplateProps) {
   return (
-    <>
-      <Navbar />
-      <main className="mx-auto max-w-7xl px-6 pb-20 pt-32 lg:px-10">
-        <Link href="/" className="text-sm text-primary hover:text-primary/80">
-          ← Back to Home
+    <main className="relative min-h-screen overflow-hidden bg-black px-5 pb-24 pt-36 text-white md:pt-40">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="orb-float absolute left-[-12rem] top-[10rem] h-[24rem] w-[24rem] rounded-full bg-fuchsia-500/10 blur-[150px] mix-blend-screen" />
+        <div className="orb-float-slow absolute right-[-10rem] top-[18rem] h-[22rem] w-[22rem] rounded-full bg-sky-500/12 blur-[150px] mix-blend-screen" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-6xl">
+        <Link href="/industries" className="inline-flex items-center gap-2 text-sm leading-7 text-white/64 transition hover:text-white">
+          <ArrowLeft className="h-4 w-4" />
+          Back to industries
         </Link>
 
-        <section className="mt-6 rounded-3xl border border-border/35 bg-card/60 p-8 md:p-10">
-          <p className="text-xs uppercase tracking-widest text-primary/80">Industry Systems</p>
-          <h1 className="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground md:text-5xl">{title}</h1>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">{subtitle}</p>
+        <section className="cinema-section-shell reveal-in mt-6 px-6 py-10 shadow-[0_24px_90px_rgba(3,10,24,0.22)] md:px-8 md:py-12">
+          <p className="section-kicker text-[11px] uppercase">Industry systems</p>
+          <h1 className="mt-6 text-balance font-heading text-5xl font-semibold leading-[0.94] tracking-[-0.05em] text-white md:text-7xl">
+            {title}
+          </h1>
+          <p className="section-support-copy mt-5 max-w-3xl text-lg leading-8">{subtitle}</p>
 
-          <div className="mt-7 flex flex-wrap gap-3">
-            <Button asChild className="gap-2 rounded-xl bg-foreground text-background hover:bg-foreground/90">
-              <Link href="https://cal.com/vishnuvardhanburri/15min" data-track="industry_page_book_meeting">
-                Book System Review
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" className="rounded-xl border-border/50 hover:bg-secondary">
-              <a href={customPackageMailto} data-track="industry_page_email">
-                Request Scoped Proposal
-              </a>
-            </Button>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <AuditCtaButton trackingSource="industry_page_cta" className="px-7 py-3 text-sm">
+              Get Free System Audit
+              <ArrowUpRight className="h-4 w-4" />
+            </AuditCtaButton>
+            <p className="text-sm leading-7 text-white/64">Limited onboarding capacity. No long-term contracts.</p>
+          </div>
+
+          <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-md">
+            <p className="text-sm leading-7 text-white/88">
+              This is not for early-stage teams experimenting. This is for companies already operating with real data and revenue.
+            </p>
           </div>
         </section>
 
-        <section className="mt-8 grid gap-4 md:grid-cols-3">
-          <article className="rounded-2xl border border-border/35 bg-card/55 p-6">
-            <p className="text-sm font-semibold text-foreground">Common Failure Modes</p>
-            <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+        <section className="mt-8 grid gap-4 lg:grid-cols-3">
+          <article className="cinema-card cinema-card-hover float-card-soft rounded-[28px] px-6 py-6">
+            <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-200">What breaks</p>
+            <div className="mt-4 grid gap-3">
               {painPoints.map((item) => (
-                <li key={item}>• {item}</li>
-              ))}
-            </ul>
-          </article>
-
-          <article className="rounded-2xl border border-border/35 bg-card/55 p-6">
-            <p className="text-sm font-semibold text-foreground">Stabilization Approach</p>
-            <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-              {solutionStack.map((item) => (
-                <li key={item}>• {item}</li>
-              ))}
-            </ul>
-          </article>
-
-          <article className="rounded-2xl border border-border/35 bg-card/55 p-6">
-            <p className="text-sm font-semibold text-foreground">Expected Resolution</p>
-            <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-              {outcomes.map((item) => (
-                <li key={item} className="flex items-start gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <p key={item} className="rounded-[22px] border border-white/10 bg-black/18 px-4 py-4 text-sm leading-7 text-white/78">
                   {item}
-                </li>
+                </p>
               ))}
-            </ul>
-            <div className="mt-4 rounded-xl border border-border/35 bg-background/70 p-3 text-sm text-muted-foreground">
-              <span className="font-medium text-foreground">Investment range:</span> {investment}
+            </div>
+          </article>
+
+          <article className="cinema-card cinema-card-hover float-card-soft float-card-delay-1 rounded-[28px] px-6 py-6">
+            <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-200">System fix</p>
+            <div className="mt-4 grid gap-3">
+              {solutionStack.map((item) => (
+                <div key={item} className="flex gap-3 rounded-[22px] border border-white/10 bg-black/18 p-4">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-sky-200" />
+                  <p className="text-sm leading-7 text-white/78">{item}</p>
+                </div>
+              ))}
+            </div>
+          </article>
+
+          <article className="cinema-card cinema-card-hover float-card-soft float-card-delay-2 rounded-[28px] px-6 py-6">
+            <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-200">Outcome</p>
+            <div className="mt-4 grid gap-3">
+              {outcomes.map((item) => (
+                <div key={item} className="flex gap-3 rounded-[22px] border border-white/10 bg-black/18 p-4">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-fuchsia-200" />
+                  <p className="text-sm leading-7 text-white/78">{item}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 rounded-[22px] border border-white/10 bg-black/18 px-4 py-4">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-zinc-200">Investment range</p>
+              <p className="mt-2 text-lg font-semibold text-white">{investment}</p>
             </div>
           </article>
         </section>
 
         <section className="mt-8 grid gap-4 md:grid-cols-[1.1fr_0.9fr]">
-          <TestimonialCard testimonial={testimonial} />
-          <article className="rounded-2xl border border-border/35 bg-card/55 p-6">
-            <p className="text-sm font-semibold text-foreground">Visual Direction</p>
-            <div className="mt-3 space-y-2 text-sm text-muted-foreground">
-              <p>Use structure diagrams and operating-state indicators instead of abstract hero art.</p>
-              <p>Show where requests enter, where validation happens, and where teams recover visibility.</p>
-              <p>Support trust with clear spacing, high-contrast CTA treatment, and zero stock-photo dependency.</p>
-            </div>
-          </article>
+          <TestimonialCard testimonial={testimonial} intent="dark" className="shadow-none" />
+          <CustomSolutionNote dark compact title="Need a custom industry scope?" />
         </section>
 
-        <section className="mt-8">
-          <CustomSolutionNote />
+        <section className="cinema-section-shell reveal-in mt-8 px-6 py-12 text-center shadow-[0_24px_90px_rgba(3,10,24,0.2)] md:px-10 md:py-14">
+          <h2 className="text-balance text-3xl font-semibold tracking-tight text-white md:text-5xl">
+            Want to stop demand from leaking?
+          </h2>
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-white/64">
+            We&apos;ll show exactly where the intake or follow-up path breaks and what to fix first.
+          </p>
+          <div className="mt-8 flex justify-center">
+            <AuditCtaButton trackingSource="industry_page_final_cta" className="px-7 py-3 text-sm">
+              Get Free System Audit
+              <ArrowUpRight className="h-4 w-4" />
+            </AuditCtaButton>
+          </div>
+          <p className="mt-4 text-sm leading-7 text-white/54">We respond within 24 hours.</p>
         </section>
-      </main>
-      <Footer />
-      <MobileStickyCta />
-      <LiveChatAssistant />
-    </>
+      </div>
+    </main>
   )
 }
+

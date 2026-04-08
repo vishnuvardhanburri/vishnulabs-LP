@@ -64,7 +64,7 @@ export function Footer() {
                 trackingSource="footer_book_review"
                 className="border border-white/12 bg-white/[0.04] px-5 py-3 text-sm text-white transition-colors hover:bg-white/[0.08]"
               >
-                Book Review
+                Get Free System Audit
               </AuditCtaButton>
             </div>
           </div>
@@ -83,12 +83,12 @@ export function Footer() {
             </AppLink>
 
             <p className="mt-5 max-w-sm text-sm leading-7 text-zinc-400">
-              VishnuLabs helps teams regain control of backend workflows, replace fragile automations, and build infrastructure that behaves
-              reliably under real operating pressure.
+              If your system handles leads or data, silent failure costs money. We find the leak, prove the fix, then deploy it without
+              adding new fragility.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2">
-              {["Backend systems", "Workflow reliability", "Operational visibility", "Scalable infrastructure"].map((item) => (
+              {["Missed leads", "No-shows", "Dropped follow-ups", "Data exposure"].map((item) => (
                 <span
                   key={item}
                   className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-300 transition-colors duration-500 hover:bg-white/[0.08]"

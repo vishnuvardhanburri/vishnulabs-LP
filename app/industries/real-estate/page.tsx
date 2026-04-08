@@ -4,25 +4,25 @@ import { testimonials } from "@/lib/testimonials"
 export default function RealEstateIndustryPage() {
   return (
     <IndustryPageTemplate
-      title="AI Automation for Real Estate Lead Conversion"
-      subtitle="Designed for agents and broker teams that need rapid lead response, appointment booking, and follow-up consistency across evenings and weekends."
+      title="Real Estate Lead Follow-Up System"
+      subtitle="Speed wins. If your response is slow, leads go cold. We fix follow-up, booking, and consistency across teams and weekends."
       painPoints={[
-        "Lead inquiries arriving outside active sales hours",
-        "Manual response lag reducing conversion probability",
-        "Missed follow-up on stale CRM lead lists",
+        "Inquiries arrive outside active sales hours",
+        "Response lag kills intent",
+        "Old CRM leads never get reactivated",
       ]}
       solutionStack={[
-        "AI voice front desk and missed-call recovery",
-        "Buyer/seller qualification workflows",
-        "Auto-booking for showings and calls",
-        "Reactivation campaigns for old lead pipelines",
+        "Immediate response and ownership routing",
+        "Qualification and booking without delay",
+        "Follow-up sequences that do not stop early",
+        "Reactivation for older lead lists",
       ]}
       outcomes={[
-        "Higher contact rates from inbound leads",
-        "More booked consultations with less manual outreach",
-        "Improved pipeline movement from old CRM leads",
+        "More leads contacted fast",
+        "More booked calls and showings",
+        "Fewer leads going cold",
       ]}
-      investment="$4,997 to $9,500"
+      investment="Pilot: $7,500 (credited toward full deployment)"
       testimonial={testimonials.omar}
     />
   )

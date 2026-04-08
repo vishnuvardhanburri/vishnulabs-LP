@@ -3,11 +3,12 @@ import { ArrowRight, ArrowUpRight, CheckCircle2, Settings2, ShieldCheck, Workflo
 
 import { TestimonialCard } from "@/components/testimonial-card"
 import { Button } from "@/components/ui/button"
+import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
   title: "Services | VishnuLabs",
-  description: "See how VishnuLabs stabilizes systems, replaces fragile automations, and restores operational control.",
+  description: "Fix the failure mode that is losing leads, wasting staff time, or creating data exposure. Built for real operating pressure.",
   alternates: {
     canonical: "/services",
   },
@@ -16,22 +17,22 @@ export const metadata: Metadata = {
 const rolloutSteps = [
   {
     title: "Connect systems",
-    detail: "Map the current workflow, isolate breakpoints, and put control around the unstable handoff.",
+    detail: "Map where demand enters and where it leaks.",
   },
   {
     title: "Define operating rules",
-    detail: "Set validation, routing, retries, and escalation logic so the workflow behaves consistently under pressure.",
+    detail: "Remove the delay that kills intent.",
   },
   {
     title: "Monitor and harden",
-    detail: "Track system behavior, resolve hidden failure modes, and leave the team with a workflow that is easier to reason about.",
+    detail: "Keep it stable so it does not regress.",
   },
 ]
 
 const serviceNotes = [
-  "We start with the failure pattern, not a pre-selected stack.",
-  "Some teams need backend stabilization. Others need brittle automation replaced with workflow logic that actually holds.",
-  "The goal stays the same in every environment: restore control, consistency, and operator visibility.",
+  "We start with the leak. Not a feature list.",
+  "We prove the fix in production. Then we scale it.",
+  "The goal is simple: fewer lost leads. Less manual rescue. More control.",
 ]
 
 export default function ServicesPage() {
@@ -50,18 +51,15 @@ export default function ServicesPage() {
                   We fix the part of the system that keeps failing in production.
                 </h1>
                 <p className="mt-5 text-base leading-8 text-slate-200 sm:text-lg">
-                  VishnuLabs steps in when backend workflows are unpredictable, automations require constant supervision, or infrastructure
-                  decisions are starting to slow the team down. The structure stays straightforward: identify the failure mode, stabilize
-                  the path, and leave behind a system that behaves consistently.
+                  Missed follow-ups. Dropped handoffs. No visibility. We isolate the failure mode, prove the fix, then deploy without
+                  adding new fragility.
                 </p>
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                  <Button size="lg" asChild className="h-12 rounded-full bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-100 sm:h-14 sm:px-8 sm:text-base">
-                    <a href="https://cal.com/vishnuvardhanburri/15min">
-                      Book System Review
-                      <ArrowRight className="h-4 w-4" />
-                    </a>
-                  </Button>
+                  <AuditCtaButton trackingSource="services_hero_cta" className="h-12 px-7 text-sm sm:h-14 sm:px-8 sm:text-base">
+                    Get Free System Audit
+                    <ArrowRight className="h-4 w-4" />
+                  </AuditCtaButton>
                   <Button
                     size="lg"
                     variant="outline"

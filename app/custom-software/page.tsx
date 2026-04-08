@@ -5,13 +5,14 @@ import { ArrowRight, ArrowUpRight, CheckCircle2, Hospital, Scale, Truck, Workflo
 import { ConfidenceRail } from "@/components/confidence-rail"
 import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { TestimonialCard } from "@/components/testimonial-card"
+import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 import { Button } from "@/components/ui/button"
 import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
   title: "Custom Software Solutions | VishnuLabs",
   description:
-    "Custom software systems for teams that need reliable operations, cleaner backend workflows, and scalable execution.",
+    "If your ops depends on manual rescue, the system is failing. Fix the handoff, the visibility, and the control layer.",
   alternates: {
     canonical: "/custom-software",
   },
@@ -20,27 +21,27 @@ export const metadata: Metadata = {
 const softwareCollections = [
   {
     title: "Startup Software Solutions",
-    lead: "Internal tools, customer-facing workflow layers, and dashboards for founders who need clarity before the process gets expensive.",
+    lead: "Stop losing time and deals to messy handoffs and unclear internal state.",
     icon: Workflow,
-    bullets: ["Admin dashboards and internal tooling", "Lead-routing and ops workflow layers", "Custom product support around launch-stage teams"],
+    bullets: ["Fewer dropped requests", "Clearer owner visibility", "Less manual cleanup"],
   },
   {
     title: "Hospital & Clinic Operations",
-    lead: "Software systems for appointment routing, intake coordination, reminders, admin visibility, and calmer patient-service operations.",
+    lead: "Reduce missed bookings, missed reminders, and no-shows caused by weak follow-up.",
     icon: Hospital,
-    bullets: ["Ops dashboards and workflow logic", "Appointment and intake coordination", "Support for sensitive operational processes"],
+    bullets: ["Appointments hold more often", "Less staff chasing", "Cleaner intake"],
   },
   {
     title: "Transport, Logistics & Moving Ops",
-    lead: "Dispatch-friendly systems, quote tracking, callback logic, and workflow visibility for transport, logistics, and moving companies.",
+    lead: "Quote and callback failures are expensive. Fix the response and routing path.",
     icon: Truck,
-    bullets: ["Dispatch and quote workflow support", "Lead-to-ops handoff visibility", "Moving-company booking and follow-up layers"],
+    bullets: ["Callbacks stop slipping", "Quotes tracked end-to-end", "Less lead drop-off"],
   },
   {
     title: "Lawyers & Law Services",
-    lead: "Software systems for intake, matter triage, document workflows, and admin routing where professional handling matters.",
+    lead: "Legal intake breaks fast. Build a system that does not miss the window.",
     icon: Scale,
-    bullets: ["Legal intake and routing support", "Matter-status and handoff workflows", "Custom logic for law-service operations"],
+    bullets: ["Fewer missed consultations", "Faster first response", "Clear routing"],
   },
 ]
 
@@ -54,16 +55,14 @@ export default function CustomSoftwarePage() {
                 <div data-reveal style={{ transitionDelay: "30ms" }}>
                   <div className="badge-pill border-primary/20 bg-white/75 text-slate-700">Custom software solutions</div>
                   <h1 className="mt-6 max-w-4xl text-balance text-[2.8rem] font-bold leading-[0.96] tracking-[-0.04em] text-slate-950 sm:text-[4.2rem]">
-                    Software systems designed around the real workflow, not generic feature lists.
+                    If the system needs constant rescue, it is already costing you.
                   </h1>
                   <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-                    VishnuLabs builds custom systems for teams that have outgrown duct-taped operations. The focus is straightforward:
-                    remove recurring failure points, improve cross-team handoff, and leave the business with a backend that is easier to
-                    operate under load.
+                    We isolate the failure mode, prove the fix, then deploy it without adding new fragility.
                   </p>
 
                   <div className="mt-7 flex flex-wrap gap-2">
-                    {["Ops dashboards", "Workflow engines", "Booking + CRM", "Scalable backend paths"].map((item) => (
+                    {["Dropped handoffs", "Missed follow-up", "No visibility", "Data exposure"].map((item) => (
                       <span key={item} className="soft-chip border-primary/10 text-slate-700">
                         {item}
                       </span>
@@ -71,12 +70,10 @@ export default function CustomSoftwarePage() {
                   </div>
 
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <Button asChild className="cta-glow h-12 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white hover:bg-slate-900">
-                      <Link href="https://cal.com/vishnuvardhanburri/15min">
-                        Request Software Scope
-                        <ArrowRight className="h-4 w-4" />
-                      </Link>
-                    </Button>
+                    <AuditCtaButton trackingSource="custom_software_hero_cta" className="h-12 px-7 text-sm">
+                      Get Free System Audit
+                      <ArrowRight className="h-4 w-4" />
+                    </AuditCtaButton>
                     <Button asChild variant="outline" className="h-12 rounded-full border-slate-300 bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-50">
                       <Link href="/pricing">
                         Review Platform Pricing
@@ -92,10 +89,10 @@ export default function CustomSoftwarePage() {
 
                 <div className="grid gap-4" data-reveal style={{ transitionDelay: "110ms" }}>
                   {[
-                    "Custom internal tools tied to the real operational bottleneck",
-                    "Workflow layers that connect websites, automations, and team actions",
-                    "Visibility for admins, owners, and revenue teams",
-                    "Infrastructure decisions shaped around maintainability, not shortcuts",
+                    "Fix the first leak point",
+                    "Keep response fast",
+                    "Make execution visible",
+                    "Remove the need for manual rescue",
                   ].map((item) => (
                     <article key={item} className="metric-float p-5 text-sm leading-7 text-slate-700">
                       {item}

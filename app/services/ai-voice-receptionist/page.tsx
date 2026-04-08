@@ -5,31 +5,31 @@ export default function AiVoiceReceptionistPage() {
   return (
     <ServicePageTemplate
       title="AI Voice Receptionist"
-      subtitle="A voice intake layer built for teams losing opportunities to missed calls, delayed routing, and inconsistent first-response quality."
+      subtitle="Stop losing revenue to missed calls, slow callbacks, and inconsistent first response. Capture the call, qualify it, route it, and follow up until it is booked or closed."
       forWho={[
         "Real estate teams with after-hours lead volume",
         "Law firms handling urgent inbound intake",
-        "Mortgage and service businesses with missed-call leakage",
+        "Service teams bleeding leads from missed calls",
       ]}
       problems={[
         "Missed calls during evenings and weekends",
-        "Slow callback cycles and unqualified conversations",
-        "No visibility into dropped inbound opportunities",
+        "Leads go cold before anyone responds",
+        "No visibility into what was missed and why",
       ]}
       includes={[
-        "Call flow architecture and routing logic",
-        "Lead qualification and routing rules",
-        "Calendar booking integration",
-        "SMS/email follow-up and reminder setup",
-        "Monitoring and fallback flow configuration",
+        "Capture every inbound call, including after-hours",
+        "Qualify and route the right calls to the right team",
+        "Book directly or trigger immediate follow-up",
+        "Visibility into missed calls, drop-offs, and outcomes",
+        "Fallback paths so failures do not become silent",
       ]}
       outcomes={[
-        "Faster speed-to-lead and better first-response consistency",
-        "Reduced missed opportunities from inbound calls",
-        "Higher consultation booking coverage across business hours",
+        "Faster response without manual rescue",
+        "Fewer missed opportunities from inbound calls",
+        "More booked consults across business hours",
       ]}
-      timeline="5 to 7 days"
-      price="$4,997 one-time"
+      timeline="Pilot: 2–3 weeks"
+      price="Pilot: $7,500 (credited toward full deployment)"
       testimonial={testimonials.carlos}
     />
   )

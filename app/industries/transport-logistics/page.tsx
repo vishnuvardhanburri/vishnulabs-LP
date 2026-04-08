@@ -4,23 +4,23 @@ import { testimonials } from "@/lib/testimonials"
 export default function TransportLogisticsIndustryPage() {
   return (
     <IndustryPageTemplate
-      title="Automation for Transport, Logistics, and Moving Companies"
-      subtitle="Built for operators that need better quote visibility, cleaner dispatch handoff, and faster response to inbound transport or moving inquiries."
+      title="Moving & Logistics Lead Response System"
+      subtitle="Quote requests leak when response is slow and handoff is manual. We fix the intake, follow-up, and dispatch visibility so jobs do not slip."
       painPoints={[
-        "Lead and quote requests arriving faster than the team can follow up",
-        "Weak visibility between website inquiries, callbacks, and dispatch operations",
-        "Moving-company and logistics workflows relying on too much manual coordination",
+        "Quote requests go unanswered during busy periods",
+        "Callbacks slip between teams and shifts",
+        "Dispatch handoff has no clean visibility",
       ]}
       solutionStack={[
-        "Website and quote-capture flow for strong public visibility",
-        "Automation for callback, reminder, and booking workflows",
-        "Custom software support for dispatch and admin visibility",
-        "Operational handoff between inbound demand and service delivery",
+        "One intake path for calls, forms, and quote requests",
+        "Immediate response and follow-up until booked or closed",
+        "Routing and ownership so the right team acts fast",
+        "Visibility from inquiry to dispatch handoff",
       ]}
       outcomes={[
-        "Stronger visibility for moving and logistics services",
-        "Faster lead response and quote follow-up consistency",
-        "Cleaner handoff from inquiry to active job or dispatch workflow",
+        "Faster response time",
+        "More quotes converted into booked jobs",
+        "Cleaner handoff to dispatch",
       ]}
       investment="$9,500 to $19,500"
       testimonial={testimonials.lukas}

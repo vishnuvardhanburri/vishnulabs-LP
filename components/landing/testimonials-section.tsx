@@ -1,18 +1,18 @@
 const testimonials = [
   {
-    quote: "They identified the weak handoff, rebuilt the flow, and the system finally behaved the way the business needed.",
-    author: "Daniel Brooks",
-    title: "CTO, SaaS Platform",
+    quote: "We stopped losing inquiries in handoffs. Everything became visible and controlled.",
+    author: "Operations Lead",
+    title: "Law Firm",
   },
   {
-    quote: "The real value was control. We stopped guessing where inquiries were breaking and started seeing stable output.",
-    author: "Rachel Kim",
-    title: "Head of Revenue Ops, B2B SaaS",
+    quote: "No-shows dropped because follow-up stopped failing silently.",
+    author: "Practice Manager",
+    title: "Clinic",
   },
   {
-    quote: "Response speed improved, follow-up became consistent, and the workflow stopped depending on constant manual rescue.",
-    author: "Oliver Grant",
-    title: "Founder, Service Business",
+    quote: "Response time tightened. Leads stopped going cold.",
+    author: "Head of Sales Ops",
+    title: "Real Estate Team",
   },
 ]
 
@@ -23,7 +23,7 @@ export function TestimonialsSection() {
         <div className="max-w-3xl">
           <p className="section-kicker text-[11px] uppercase">Trust</p>
           <h2 className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
-            Trusted when reliability matters more than another tool.
+            Trusted when failure costs real money.
           </h2>
         </div>
 

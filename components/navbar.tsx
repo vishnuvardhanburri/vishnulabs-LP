@@ -98,6 +98,12 @@ export function Navbar() {
             </button>
           </div>
 
+          <div className="border-t border-white/8 px-4 pb-3 pt-2 sm:px-5">
+            <p className="text-center text-[11px] leading-5 text-zinc-300/85">
+              This is not for early-stage teams experimenting. This is for companies already operating with real data and revenue.
+            </p>
+          </div>
+
           {mobileOpen && (
             <nav
               className="border-t border-white/10 bg-zinc-950/94 px-3 pb-4 pt-3 backdrop-blur-2xl lg:hidden"

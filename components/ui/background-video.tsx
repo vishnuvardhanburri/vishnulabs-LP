@@ -26,7 +26,7 @@ export function BackgroundVideo({
   useEffect(() => {
     if (shouldLoad) return
 
-    const connection = navigator.connection as
+    const connection = (navigator as unknown as { connection?: unknown }).connection as
       | {
           saveData?: boolean
           effectiveType?: string
@@ -40,18 +40,17 @@ export function BackgroundVideo({
     const startLoading = () => setShouldLoad(true)
 
     if (preload) {
-      const idleId =
-        "requestIdleCallback" in window
-          ? window.requestIdleCallback(startLoading, { timeout: 1200 })
-          : window.setTimeout(startLoading, 250)
+      const requestIdleCallback = (window as unknown as { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number })
+        .requestIdleCallback
+      const idleId = requestIdleCallback ? requestIdleCallback(startLoading, { timeout: 1200 }) : window.setTimeout(startLoading, 250)
 
       return () => {
-        if ("cancelIdleCallback" in window && typeof idleId === "number") {
-          window.cancelIdleCallback(idleId)
+        const cancelIdleCallback = (window as unknown as { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback
+        if (cancelIdleCallback && typeof idleId === "number" && requestIdleCallback) {
+          cancelIdleCallback(idleId)
           return
         }
-
-        window.clearTimeout(idleId as number)
+        window.clearTimeout(idleId)
       }
     }
 

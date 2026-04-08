@@ -1,12 +1,9 @@
 import Link from "next/link"
-import { ArrowUpRight, CheckCircle2, Clock3, DollarSign, Layers } from "lucide-react"
+import { ArrowLeft, ArrowUpRight, CheckCircle2 } from "lucide-react"
+
+import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { TestimonialCard } from "@/components/testimonial-card"
-import { Button } from "@/components/ui/button"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { MobileStickyCta } from "@/components/mobile-sticky-cta"
-import { LiveChatAssistant } from "@/components/live-chat-assistant"
-import { CustomSolutionNote, customPackageMailto } from "@/components/custom-solution-note"
+import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 import type { Testimonial } from "@/lib/testimonials"
 
 type ServiceTemplateProps = {
@@ -33,119 +30,129 @@ export function ServicePageTemplate({
   testimonial,
 }: ServiceTemplateProps) {
   return (
-    <>
-      <Navbar />
-      <main className="mx-auto max-w-7xl px-6 pb-20 pt-32 lg:px-10">
-        <Link href="/" className="text-sm text-primary hover:text-primary/80">
-          ← Back to Home
+    <main className="relative min-h-screen overflow-hidden bg-black px-5 pb-24 pt-36 text-white md:pt-40">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="orb-float absolute left-[-12rem] top-[10rem] h-[24rem] w-[24rem] rounded-full bg-fuchsia-500/10 blur-[150px] mix-blend-screen" />
+        <div className="orb-float-slow absolute right-[-10rem] top-[18rem] h-[22rem] w-[22rem] rounded-full bg-sky-500/12 blur-[150px] mix-blend-screen" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-6xl">
+        <Link href="/services" className="inline-flex items-center gap-2 text-sm leading-7 text-white/64 transition hover:text-white">
+          <ArrowLeft className="h-4 w-4" />
+          Back to services
         </Link>
 
-        <section className="mt-6 rounded-3xl border border-border/35 bg-card/60 p-8 md:p-10">
-          <p className="text-xs uppercase tracking-widest text-primary/80">System Intervention</p>
-          <h1 className="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground md:text-5xl">{title}</h1>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">{subtitle}</p>
+        <section className="cinema-section-shell reveal-in mt-6 px-6 py-10 shadow-[0_24px_90px_rgba(3,10,24,0.22)] md:px-8 md:py-12">
+          <p className="section-kicker text-[11px] uppercase">System intervention</p>
+          <h1 className="mt-6 text-balance font-heading text-5xl font-semibold leading-[0.94] tracking-[-0.05em] text-white md:text-7xl">
+            {title}
+          </h1>
+          <p className="section-support-copy mt-5 max-w-3xl text-lg leading-8">{subtitle}</p>
 
-          <div className="mt-7 flex flex-wrap gap-3">
-            <Button asChild className="gap-2 rounded-xl bg-foreground text-background hover:bg-foreground/90">
-              <Link href="https://cal.com/vishnuvardhanburri/15min" data-track="service_page_book_meeting">
-                Book System Review
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" className="rounded-xl border-border/50 hover:bg-secondary">
-              <a href={customPackageMailto} data-track="service_page_scope_request">
-                Request Scoped Proposal
-              </a>
-            </Button>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <AuditCtaButton trackingSource="service_page_cta" className="px-7 py-3 text-sm">
+              Get Free System Audit
+              <ArrowUpRight className="h-4 w-4" />
+            </AuditCtaButton>
+            <p className="text-sm leading-7 text-white/64">Limited onboarding capacity. No long-term contracts.</p>
+          </div>
+
+          <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-md">
+            <p className="text-sm leading-7 text-white/88">
+              This is not for early-stage teams experimenting. This is for companies already operating with real data and revenue.
+            </p>
           </div>
         </section>
 
-        <section className="mt-8 grid gap-4 md:grid-cols-3">
-          <article className="rounded-2xl border border-border/35 bg-card/55 p-6">
-            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-              <Layers className="h-4.5 w-4.5 text-primary" />
-            </div>
-            <p className="text-sm font-semibold text-foreground">Best Fit</p>
-            <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+        <section className="mt-8 grid gap-4 lg:grid-cols-3">
+          <article className="cinema-card cinema-card-hover float-card-soft rounded-[28px] px-6 py-6">
+            <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-200">Best fit</p>
+            <div className="mt-4 grid gap-3">
               {forWho.map((item) => (
-                <li key={item} className="flex items-start gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                  {item}
-                </li>
+                <div key={item} className="flex gap-3 rounded-[22px] border border-white/10 bg-black/18 p-4">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-sky-200" />
+                  <p className="text-sm leading-7 text-white/78">{item}</p>
+                </div>
               ))}
-            </ul>
-          </article>
-
-          <article className="rounded-2xl border border-border/35 bg-card/55 p-6">
-            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-              <Clock3 className="h-4.5 w-4.5 text-primary" />
-            </div>
-            <p className="text-sm font-semibold text-foreground">Timeline & Pricing</p>
-            <div className="mt-3 space-y-2 text-sm text-muted-foreground">
-              <p>
-                <span className="font-medium text-foreground">Timeline:</span> {timeline}
-              </p>
-              <p>
-                <span className="font-medium text-foreground">Price:</span> {price}
-              </p>
             </div>
           </article>
 
-          <article className="rounded-2xl border border-border/35 bg-card/55 p-6">
-            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-              <DollarSign className="h-4.5 w-4.5 text-primary" />
+          <article className="cinema-card cinema-card-hover float-card-soft float-card-delay-1 rounded-[28px] px-6 py-6">
+            <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-200">Failure modes</p>
+            <div className="mt-4 grid gap-3">
+              {problems.map((item) => (
+                <p key={item} className="rounded-[22px] border border-white/10 bg-black/18 px-4 py-4 text-sm leading-7 text-white/78">
+                  {item}
+                </p>
+              ))}
             </div>
-            <p className="text-sm font-semibold text-foreground">Expected Resolution</p>
-            <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+          </article>
+
+          <article className="cinema-card cinema-card-hover float-card-soft float-card-delay-2 rounded-[28px] px-6 py-6">
+            <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-200">Outcome</p>
+            <div className="mt-4 grid gap-3">
               {outcomes.map((item) => (
-                <li key={item} className="flex items-start gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                  {item}
-                </li>
+                <div key={item} className="flex gap-3 rounded-[22px] border border-white/10 bg-black/18 p-4">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-fuchsia-200" />
+                  <p className="text-sm leading-7 text-white/78">{item}</p>
+                </div>
               ))}
-            </ul>
+            </div>
           </article>
         </section>
 
-        <section className="mt-8 grid gap-4 md:grid-cols-2">
-          <article className="rounded-2xl border border-border/35 bg-card/55 p-6">
-            <p className="text-sm font-semibold text-foreground">Failure Modes Addressed</p>
-            <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-              {problems.map((item) => (
-                <li key={item}>• {item}</li>
+        <section className="mt-8 grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
+          <article className="cinema-section-shell reveal-in px-6 py-10 md:px-8 md:py-12">
+            <p className="section-kicker text-[11px] uppercase">What changes</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">Scope</h2>
+            <p className="mt-4 max-w-2xl text-base leading-8 text-white/64">
+              No feature tour. Just the fix that stops failure from repeating.
+            </p>
+            <div className="mt-6 grid gap-3 md:grid-cols-2">
+              {includes.map((item) => (
+                <div key={item} className="cinema-card rounded-[24px] bg-black/18 px-5 py-4 text-sm leading-7 text-white/78">
+                  {item}
+                </div>
               ))}
-            </ul>
+            </div>
           </article>
 
-          <article className="rounded-2xl border border-border/35 bg-card/55 p-6">
-            <p className="text-sm font-semibold text-foreground">Intervention Scope</p>
-            <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-              {includes.map((item) => (
-                <li key={item}>• {item}</li>
-              ))}
-            </ul>
-          </article>
+          <div className="grid gap-4">
+            <article className="cinema-card cinema-card-hover float-card-soft rounded-[28px] px-6 py-6">
+              <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-200">Speed</p>
+              <p className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white">{timeline}</p>
+              <p className="mt-3 text-base leading-8 text-white/64">Typical timeline. Scope stays tight to hit this.</p>
+            </article>
+            <article className="cinema-card cinema-card-hover float-card-soft float-card-delay-1 rounded-[28px] px-6 py-6">
+              <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-200">Investment</p>
+              <p className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white">{price}</p>
+              <p className="mt-3 text-base leading-8 text-white/64">Most teams start with the smallest scope that proves the fix.</p>
+            </article>
+          </div>
         </section>
 
         <section className="mt-8 grid gap-4 md:grid-cols-[1.1fr_0.9fr]">
-          <TestimonialCard testimonial={testimonial} />
-          <article className="rounded-2xl border border-border/35 bg-card/55 p-6">
-            <p className="text-sm font-semibold text-foreground">Visual Direction</p>
-            <div className="mt-3 space-y-2 text-sm text-muted-foreground">
-              <p>Show the workflow as inputs, validation, processing, and outputs. Avoid decorative illustration.</p>
-              <p>Use calm status colors: failure states in muted red, stabilized states in slate and cyan.</p>
-              <p>Keep the CTA high-contrast and static. Motion should feel like a stable system heartbeat, not a product demo reel.</p>
-            </div>
-          </article>
+          <TestimonialCard testimonial={testimonial} intent="dark" className="shadow-none" />
+          <CustomSolutionNote dark compact title="Need a custom scope?" />
         </section>
 
-        <section className="mt-8">
-          <CustomSolutionNote />
+        <section className="cinema-section-shell reveal-in mt-8 px-6 py-12 text-center shadow-[0_24px_90px_rgba(3,10,24,0.2)] md:px-10 md:py-14">
+          <h2 className="text-balance text-3xl font-semibold tracking-tight text-white md:text-5xl">
+            Want to see where your system is breaking?
+          </h2>
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-white/64">
+            We&apos;ll map the failure path, show what to fix first, and give you a clear next step.
+          </p>
+          <div className="mt-8 flex justify-center">
+            <AuditCtaButton trackingSource="service_page_final_cta" className="px-7 py-3 text-sm">
+              Get Free System Audit
+              <ArrowUpRight className="h-4 w-4" />
+            </AuditCtaButton>
+          </div>
+          <p className="mt-4 text-sm leading-7 text-white/54">We respond within 24 hours.</p>
         </section>
-      </main>
-      <Footer />
-      <MobileStickyCta />
-      <LiveChatAssistant />
-    </>
+      </div>
+    </main>
   )
 }
+

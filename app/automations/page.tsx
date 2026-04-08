@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { ArrowRight, ArrowUpRight, CheckCircle2, ShieldCheck, Workflow } from "lucide-react"
 
 import { TestimonialCard } from "@/components/testimonial-card"
+import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 import { Button } from "@/components/ui/button"
 import { testimonials } from "@/lib/testimonials"
 
@@ -59,12 +60,13 @@ export default function AutomationsPage() {
                 </p>
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                  <Button size="lg" asChild className="h-12 rounded-full bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-100 sm:h-14 sm:px-8 sm:text-base">
-                    <a href="https://cal.com/vishnuvardhanburri/15min">
-                      Book Workflow Review
-                      <ArrowRight className="h-4 w-4" />
-                    </a>
-                  </Button>
+                  <AuditCtaButton
+                    trackingSource="automations_hero_cta"
+                    className="h-12 px-7 text-sm sm:h-14 sm:px-8 sm:text-base"
+                  >
+                    Get Free System Audit
+                    <ArrowRight className="h-4 w-4" />
+                  </AuditCtaButton>
                   <Button
                     size="lg"
                     variant="outline"

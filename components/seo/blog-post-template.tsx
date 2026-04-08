@@ -4,7 +4,7 @@ import { AppLink } from "@/components/app-link"
 
 type BlogPostSection = {
   title: string
-  body: string[]
+  body: readonly string[]
 }
 
 type BlogFaqItem = {
@@ -16,8 +16,8 @@ type BlogPostTemplateProps = {
   eyebrow: string
   title: string
   intro: string
-  sections: BlogPostSection[]
-  faqs: BlogFaqItem[]
+  sections: readonly BlogPostSection[]
+  faqs: readonly BlogFaqItem[]
   targetPage: {
     label: string
     href: string

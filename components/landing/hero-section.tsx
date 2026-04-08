@@ -1,6 +1,7 @@
-import { ArrowRight, Play, ShieldCheck, Workflow } from "lucide-react"
+import { ArrowRight, ShieldCheck, Workflow } from "lucide-react"
 
-import { AppLink } from "@/components/app-link"
+import { AuditCtaButton } from "@/components/ui/audit-cta-button"
+import { HeroSplineVisual } from "@/components/landing/hero-spline-visual"
 
 function HeroVisualFallback() {
   return (
@@ -46,40 +47,40 @@ export function HeroSection() {
           <div className="relative z-10 max-w-3xl">
             <div className="reveal-in inline-flex items-center gap-2 rounded-full border border-sky-400/20 bg-sky-400/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-200">
               <ShieldCheck className="h-3.5 w-3.5" />
-              Backend Stabilization
+              Mission-critical infrastructure
             </div>
 
-            <h1 className="reveal-in reveal-delay-1 mt-8 max-w-4xl text-balance font-sans text-[2.9rem] font-semibold leading-[0.92] tracking-[-0.06em] text-white sm:text-[4.25rem] lg:text-[5.5rem]">
-              Backend Systems,
+            <h1 className="reveal-in reveal-delay-1 mt-8 max-w-4xl text-balance font-sans text-[2.9rem] font-semibold leading-[0.92] tracking-[-0.06em] text-white sm:text-[4.05rem] lg:text-[5.1rem]">
+              If your system handles leads or data,
               <span className="block bg-[linear-gradient(90deg,#e879f9_0%,#60a5fa_48%,#c084fc_100%)] bg-clip-text text-transparent">
-                Workflow Reliability
+                failure is already happening.
               </span>
             </h1>
 
-            <p className="reveal-in reveal-delay-2 mt-6 max-w-2xl text-lg leading-8 text-zinc-300">
-              Fix broken workflows, stabilize brittle automations, and rebuild the systems that revenue depends on.
+            <p className="reveal-in reveal-delay-2 mt-6 max-w-2xl text-lg leading-8 text-zinc-200">
+              Missed follow-ups. Lost clients. Data exposure.
             </p>
 
-            <div className="reveal-in reveal-delay-2 mt-8 max-w-2xl rounded-[1.7rem] border border-white/10 bg-white/[0.035] px-5 py-5 backdrop-blur-md">
-              <p className="text-[11px] uppercase tracking-[0.26em] text-zinc-300">What changes</p>
-              <p className="mt-3 text-base leading-8 text-zinc-100">
-                Fewer silent failures. Faster response. Controlled execution from first inquiry to final output.
+            <div className="reveal-in reveal-delay-2 mt-6 max-w-2xl rounded-[1.5rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-md">
+              <p className="text-sm leading-7 text-white/88">
+                This is not for early-stage teams experimenting. This is for companies already operating with real data and revenue.
               </p>
             </div>
 
+            <div className="reveal-in reveal-delay-2 mt-8 max-w-2xl rounded-[1.7rem] border border-white/10 bg-white/[0.035] px-5 py-5 backdrop-blur-md">
+              <p className="text-[11px] uppercase tracking-[0.26em] text-zinc-300">What changes</p>
+              <p className="mt-3 text-base leading-8 text-zinc-100">Fewer lost leads. Cleaner execution. No blind spots.</p>
+            </div>
+
             <div className="reveal-in reveal-delay-2 mt-8 flex flex-col gap-3 sm:flex-row">
-              <AppLink
-                href="/book"
-                className="glow-button group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-black shadow-[0_0_0_1px_rgba(255,255,255,0.15),0_20px_80px_rgba(56,189,248,0.2)]"
-              >
-                Book System Review
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </AppLink>
+              <AuditCtaButton trackingSource="home_hero_cta" className="px-6 py-3 text-sm">
+                Get Free System Audit
+                <ArrowRight className="h-4 w-4" />
+              </AuditCtaButton>
               <a
                 href="#system-flow"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/[0.08]"
               >
-                <Play className="h-4 w-4" />
                 View System Flow
               </a>
             </div>
@@ -109,7 +110,10 @@ export function HeroSection() {
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(10,14,28,0.18),rgba(10,14,28,0.5),rgba(10,14,28,0.78))]" />
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
 
-            <HeroVisualFallback />
+            <HeroSplineVisual />
+            <div className="absolute inset-0 opacity-70 lg:opacity-45">
+              <HeroVisualFallback />
+            </div>
 
             <div className="pointer-events-none absolute left-5 right-5 top-5 flex items-center justify-between rounded-[1.3rem] border border-white/10 bg-black/28 px-4 py-3 backdrop-blur-md">
               <div>

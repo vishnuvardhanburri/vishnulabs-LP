@@ -1,4 +1,4 @@
-import { PricingSection } from "@/components/home/pricing-section"
+import { PricingSection } from "@/components/landing/pricing-section"
 
 export function PricingPage() {
   return (
@@ -13,10 +13,10 @@ export function PricingPage() {
             Pricing
           </p>
           <h1 className="mt-6 max-w-[13ch] text-balance font-heading text-[44px] font-semibold leading-[0.96] tracking-[-0.05em] text-white md:text-[58px] xl:text-[64px]">
-            Retainers built for systems that cannot fail quietly.
+            The cost of failure is higher than the fix.
           </h1>
           <p className="section-support-copy mt-5 max-w-3xl text-[18px] leading-8">
-            Choose the level of implementation support you need now, then expand only when the system demands it.
+            Start small. Prove it works. Expand only after the leak is closed.
           </p>
         </section>
       </div>

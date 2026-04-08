@@ -25,10 +25,11 @@ export function CaseStudiesPage() {
               Case studies
             </p>
             <h1 className="mt-6 max-w-[13ch] text-balance font-heading text-[44px] font-semibold leading-[0.96] tracking-[-0.05em] text-white md:text-[58px] xl:text-[64px]">
-              Proof that we fix the systems behind revenue.
+              These systems were already generating demand.
+              <span className="block text-white/78">They were losing it in execution.</span>
             </h1>
             <p className="section-support-copy mt-5 max-w-3xl text-[18px] leading-8">
-              These flagship case studies show how better intake, faster response, and cleaner follow-up lead to stronger conversion outcomes.
+              Result first. Then the reason it was breaking. Then the fix.
             </p>
             <div className="mt-8">
               <AuditCtaButton trackingSource="case_studies_page_cta">
@@ -50,15 +51,40 @@ export function CaseStudiesPage() {
                   <div className="grid gap-8 xl:grid-cols-[1.02fr_0.98fr]">
                     <div>
                       <p className="section-kicker inline-flex rounded-full border border-cyan-400/18 bg-cyan-400/10 px-4 py-2 text-[11px] uppercase">
-                        {study.context}
+                        Result
                       </p>
-                      <h2 className="mt-6 max-w-[12ch] text-balance font-heading text-[34px] font-semibold leading-[0.98] tracking-[-0.04em] text-white md:max-w-[13ch] md:text-[44px] xl:text-[48px]">
-                        {study.title}
+                      <h2 className="mt-6 max-w-[18ch] text-balance font-heading text-[36px] font-semibold leading-[0.96] tracking-[-0.05em] text-white md:text-[48px] xl:text-[52px]">
+                        {support?.title ?? study.title}
                       </h2>
-                      <p className="mt-5 max-w-[56ch] text-[16px] leading-8 text-white/78">{study.problem}</p>
+
+                      <div className="mt-6 grid gap-5">
+                        <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-md">
+                          <p className="text-[11px] uppercase tracking-[0.24em] text-white/52">Context</p>
+                          <p className="mt-2 text-base leading-8 text-white/78">{study.context}</p>
+                        </div>
+
+                        <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-md">
+                          <p className="text-[11px] uppercase tracking-[0.24em] text-white/52">Problem</p>
+                          <p className="mt-2 max-w-[62ch] text-base leading-8 text-white/72">
+                            {support?.problem ?? study.problem}
+                          </p>
+                        </div>
+
+                        <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-md">
+                          <p className="text-[11px] uppercase tracking-[0.24em] text-white/52">Fix</p>
+                          <p className="mt-2 max-w-[62ch] text-base leading-8 text-white/72">
+                            {support?.fix ?? "We rebuilt the path so response and follow-up cannot slip."}
+                          </p>
+                        </div>
+
+                        <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-md">
+                          <p className="text-[11px] uppercase tracking-[0.24em] text-white/52">Micro proof</p>
+                          <p className="mt-2 text-base leading-8 text-white/72">{study.microProof}</p>
+                        </div>
+                      </div>
 
                       <div className="cinema-card cinema-card-hover float-card-soft mt-6 rounded-[28px] bg-black/18 p-5">
-                        <p className="section-kicker text-[11px] uppercase">System</p>
+                        <p className="section-kicker text-[11px] uppercase">What changed</p>
                         <div className="mt-4 grid gap-3">
                           {study.system.map((item) => (
                             <p key={item} className="text-[15px] leading-7 text-white/84">
@@ -71,7 +97,7 @@ export function CaseStudiesPage() {
 
                     <div className="grid gap-6">
                       <div className="cinema-card cinema-card-hover float-card-soft rounded-[32px] border-cyan-300/14 bg-[linear-gradient(180deg,rgba(34,211,238,0.08),rgba(255,255,255,0.025))] p-6 shadow-[0_0_80px_rgba(34,211,238,0.08)] hover:shadow-[0_0_100px_rgba(34,211,238,0.12)]">
-                        <p className="section-kicker text-[11px] uppercase">Result</p>
+                        <p className="section-kicker text-[11px] uppercase">Micro proof</p>
                         <div className="mt-5 grid gap-4 md:grid-cols-3">
                           {study.results.map((item) => (
                             <div key={item} className="cinema-card rounded-[24px] bg-black/18 p-4 md:min-h-[132px]">
@@ -159,7 +185,9 @@ function CaseStudyMetric({ metric }: { metric: string }) {
   return (
     <div className="flex h-full flex-col justify-between">
       <p className="font-heading text-[30px] font-semibold leading-[0.95] tracking-[-0.04em] text-white">{value}</p>
-      <p className="mt-4 max-w-[10ch] text-balance text-[15px] font-medium leading-7 text-white/84">{label}</p>
+      <p className="mt-4 text-balance text-[15px] font-medium leading-7 text-white/84 [overflow-wrap:anywhere]">
+        {label}
+      </p>
     </div>
   )
 }

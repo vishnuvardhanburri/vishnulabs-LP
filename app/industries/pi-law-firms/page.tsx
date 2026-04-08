@@ -4,23 +4,23 @@ import { testimonials } from "@/lib/testimonials"
 export default function PiLawFirmsPage() {
   return (
     <IndustryPageTemplate
-      title="AI Automation for PI Law Firm Intake"
-      subtitle="Built for firms that need faster intake response, better case qualification quality, and fewer dropped opportunities after business hours."
+      title="PI Intake That Does Not Drop Cases"
+      subtitle="PI leads are expensive. If calls go to voicemail, you already lost. We fix intake coverage, qualification, and follow-up so cases do not slip."
       painPoints={[
-        "Voicemails and delayed callbacks losing high-intent case leads",
-        "Manual intake notes that miss key details",
-        "Uneven follow-up for documents and consultation scheduling",
+        "Voicemails and delayed callbacks losing high-intent cases",
+        "Intake notes miss key details",
+        "Follow-up for documents and booking is inconsistent",
       ]}
       solutionStack={[
-        "AI voice receptionist for 24/7 intake coverage",
-        "Structured legal intake workflow by case type",
-        "Consultation booking + reminder sequence",
-        "Attorney/staff routing with priority logic",
+        "Coverage for missed calls and after-hours intake",
+        "Structured qualification by case type",
+        "Follow-up until consult is booked or closed",
+        "Priority routing to the right staff member",
       ]}
       outcomes={[
-        "Faster intake-to-consultation conversion",
-        "Higher intake consistency across staff shifts",
-        "Cleaner case handoff for legal teams",
+        "More booked consults",
+        "Cleaner qualification",
+        "Fewer dropped cases",
       ]}
       investment="$8,500 to $15,000"
       testimonial={testimonials.noah}

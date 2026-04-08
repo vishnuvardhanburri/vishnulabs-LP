@@ -1,6 +1,6 @@
 "use client"
 
-import { useSentinelLeadCapture } from "@/components/sentinel/lead-capture-provider"
+import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 
 const problemPoints = [
   "Employees pasting client data into AI tools",
@@ -88,8 +88,6 @@ const faqItems = [
 ]
 
 export function SentinelPageClient() {
-  const { openSentinelLeadCapture } = useSentinelLeadCapture()
-
   return (
     <main className="relative overflow-hidden bg-black text-white">
       <div className="pointer-events-none absolute inset-0">
@@ -114,26 +112,17 @@ export function SentinelPageClient() {
           </p>
           <p className="reveal-in reveal-delay-2 mt-4 text-sm leading-7 text-cyan-100/80">Supports HIPAA, GDPR, DPDP-ready workflows</p>
           <p className="reveal-in reveal-delay-2 mt-2 text-sm leading-7 text-white/52">Built for teams handling sensitive client and patient data</p>
-          <button
-            type="button"
-            onClick={() => openSentinelLeadCapture("ASSESSMENT", "sentinel_hero")}
-            className="reveal-in reveal-delay-3 mt-8 inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-black transition duration-500 hover:-translate-y-0.5 hover:bg-slate-100"
-          >
-            Request Sentinel Demo & Risk Assessment
-          </button>
-          <button
-            type="button"
-            onClick={() => openSentinelLeadCapture("PILOT", "sentinel_hero_pilot")}
-            className="reveal-in reveal-delay-3 mt-3 inline-flex items-center justify-center rounded-full border border-white/14 bg-white/[0.04] px-7 py-3 text-sm font-semibold text-white transition duration-500 hover:-translate-y-0.5 hover:bg-white/[0.08]"
-          >
-            Start Pilot Deployment
-          </button>
+          <div className="reveal-in reveal-delay-3 mt-8 flex justify-center">
+            <AuditCtaButton trackingSource="sentinel_hero_cta" className="px-7 py-3 text-sm">
+              Get Free System Audit
+            </AuditCtaButton>
+          </div>
           <div className="reveal-in reveal-delay-3 mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm leading-7 text-white/54">
             <span>Used in environments handling legal, medical, and financial data</span>
             <span className="hidden h-1 w-1 rounded-full bg-white/20 md:inline-block" />
             <span>Supports HIPAA, GDPR, DPDP-ready workflows</span>
           </div>
-          <p className="reveal-in reveal-delay-3 mt-4 text-sm leading-7 text-white/54">Start with a demo + evaluation before full deployment</p>
+          <p className="reveal-in reveal-delay-3 mt-4 text-sm leading-7 text-white/54">Limited onboarding capacity. No long-term contracts.</p>
         </div>
       </section>
 
@@ -414,26 +403,15 @@ export function SentinelPageClient() {
         <div className="cinema-section-shell reveal-in mx-auto mb-8 max-w-5xl px-6 py-12 shadow-[0_24px_90px_rgba(3,10,24,0.18)] md:px-10 md:py-14">
           <p className="section-kicker text-[11px] uppercase">Entry offer</p>
           <h2 className="mt-6 text-balance text-3xl font-semibold tracking-tight text-white md:text-5xl">
-            Start with a Sentinel Risk Assessment
+            Start with a free system audit
           </h2>
           <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-white/64">
-            We evaluate your current AI usage and identify where exposure risk exists.
+            We map AI usage, show where exposure happens, and outline the fastest fix.
           </p>
-          <div className="mx-auto mt-8 flex max-w-4xl flex-col gap-3 sm:flex-row sm:justify-center">
-            <button
-              type="button"
-              onClick={() => openSentinelLeadCapture("ASSESSMENT", "sentinel_entry_offer")}
-              className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-black transition hover:bg-slate-100"
-            >
-              Request Sentinel Risk Assessment
-            </button>
-            <button
-              type="button"
-              onClick={() => openSentinelLeadCapture("PILOT", "sentinel_entry_offer_pilot")}
-              className="inline-flex items-center justify-center rounded-full border border-white/14 bg-white/[0.04] px-7 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.08]"
-            >
-              Start Pilot Deployment
-            </button>
+          <div className="mx-auto mt-8 flex justify-center">
+            <AuditCtaButton trackingSource="sentinel_entry_offer_cta" className="px-7 py-3 text-sm">
+              Get Free System Audit
+            </AuditCtaButton>
           </div>
           <div className="mx-auto mt-8 grid max-w-4xl gap-4 md:grid-cols-3">
             {["Map AI usage across team", "Identify data leak points", "Show how Sentinel would prevent them"].map((item, index) => (
@@ -456,21 +434,12 @@ export function SentinelPageClient() {
           <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-white/64">
             Sentinel prevents costly leaks, compliance failures, and unsafe AI usage before they spread.
           </p>
-          <button
-            type="button"
-            onClick={() => openSentinelLeadCapture("ASSESSMENT", "sentinel_final_cta")}
-            className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-black transition hover:bg-slate-100"
-          >
-            Request Sentinel Risk Assessment
-          </button>
-          <button
-            type="button"
-            onClick={() => openSentinelLeadCapture("PILOT", "sentinel_final_cta_pilot")}
-            className="mt-3 inline-flex items-center justify-center rounded-full border border-white/14 bg-white/[0.04] px-7 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.08]"
-          >
-            Start Pilot Deployment
-          </button>
-          <p className="mt-4 text-sm leading-7 text-white/54">Start with a demo + evaluation before full deployment</p>
+          <div className="mt-8 flex justify-center">
+            <AuditCtaButton trackingSource="sentinel_final_cta" className="px-7 py-3 text-sm">
+              Get Free System Audit
+            </AuditCtaButton>
+          </div>
+          <p className="mt-4 text-sm leading-7 text-white/54">Limited onboarding capacity. No long-term contracts.</p>
           <p className="mt-2 text-sm leading-7 text-white/54">We respond within 24 hours with next steps.</p>
           <p className="mt-4 text-xs uppercase tracking-[0.22em] text-white/42">
             Enterprise-grade security, auditability, and policy control

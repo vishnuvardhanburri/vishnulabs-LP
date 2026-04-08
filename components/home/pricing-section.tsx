@@ -59,7 +59,7 @@ const cardReveal = {
     filter: "blur(0px)",
     transition: {
       duration: 0.95,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as const,
     },
   },
 }
@@ -106,7 +106,7 @@ export function PricingSection() {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.45 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
           className="max-w-3xl"
         >
           <p className="section-kicker inline-flex rounded-full border border-cyan-400/18 bg-cyan-400/10 px-4 py-2 text-[11px] uppercase">
@@ -133,7 +133,7 @@ export function PricingSection() {
               data-pricing-card
               variants={cardReveal}
               whileHover={{ y: -8, scale: 1.05 }}
-              transition={{ duration: 0.32, ease: [0.2, 1, 0.3, 1] }}
+              transition={{ duration: 0.32, ease: [0.2, 1, 0.3, 1] as const }}
               className={`cinema-card cinema-card-hover group rounded-[34px] p-6 ${
                 plan.featured
                   ? "xl:-my-3 xl:px-7 xl:py-9 border-cyan-300/30 bg-[linear-gradient(180deg,rgba(34,211,238,0.14),rgba(255,255,255,0.04))] shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_0_90px_rgba(34,211,238,0.16)]"
@@ -200,7 +200,7 @@ export function PricingSection() {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.45 }}
-          transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1] as const }}
           className="cinema-card mt-10 rounded-[32px] bg-black/22 px-6 py-7 md:flex md:items-center md:justify-between"
         >
           <div className="max-w-2xl">

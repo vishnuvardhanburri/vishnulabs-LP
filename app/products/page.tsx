@@ -4,11 +4,12 @@ import { ArrowRight, ArrowUpRight, CheckCircle2, KeyRound, LockKeyhole, ScanSear
 
 import { TestimonialCard } from "@/components/testimonial-card"
 import { Button } from "@/components/ui/button"
+import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
   title: "Products | VishnuLabs",
-  description: "See where VishnuLabs applies structured backend thinking across fragile workflows, data consistency, and operational load.",
+  description: "See where systems usually leak money: intake, follow-up, and uncontrolled data. Built for teams operating with real demand.",
   alternates: {
     canonical: "/products",
   },
@@ -91,20 +92,17 @@ export default function ProductsPage() {
                 </div>
 
                 <h1 className="mt-6 text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-                  One engineering approach. Multiple places where systems usually break down.
+                  One operating model. Fewer places for failure to hide.
                 </h1>
                 <p className="mt-5 text-base leading-8 text-slate-300 sm:text-lg">
-                  This page is the fast buyer view. Start with the coverage area, then see where the failure is concentrated: intake,
-                  dependencies, data consistency, or workflow execution.
+                  This is a buyer view. Start with where the leak starts. Then see how we close it.
                 </p>
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                  <Button size="lg" asChild className="h-12 rounded-full bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-100 sm:h-14 sm:px-8 sm:text-base">
-                    <a href="https://cal.com/vishnuvardhanburri/15min">
-                      Book Review
+                    <AuditCtaButton trackingSource="products_hero_cta" className="h-12 px-7 text-sm sm:h-14 sm:px-8 sm:text-base">
+                      Get Free System Audit
                       <ArrowRight className="h-4 w-4" />
-                    </a>
-                  </Button>
+                    </AuditCtaButton>
                   <Button
                     size="lg"
                     variant="outline"

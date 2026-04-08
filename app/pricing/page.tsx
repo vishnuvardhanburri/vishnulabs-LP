@@ -3,8 +3,8 @@ import type { Metadata } from "next"
 import { PricingPage } from "@/components/home/pricing-page"
 
 export const metadata: Metadata = {
-  title: "Pricing | VishnuLabs",
-  description: "Flexible engineering retainers for intake systems, automation rebuilds, and production delivery from idea to deployment.",
+  title: "Pricing | Stop Lead Loss and Data Exposure | VishnuLabs",
+  description: "Start with a risk assessment, validate with a pilot, then deploy the full fix. Built for teams handling real revenue and real data.",
   alternates: {
     canonical: "/pricing",
   },

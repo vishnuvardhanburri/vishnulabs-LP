@@ -5,13 +5,14 @@ import { ArrowRight, ArrowUpRight, CheckCircle2, Globe, Hospital, Scale, ShieldC
 import { ConfidenceRail } from "@/components/confidence-rail"
 import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { TestimonialCard } from "@/components/testimonial-card"
+import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 import { Button } from "@/components/ui/button"
 import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
   title: "Websites | VishnuLabs",
   description:
-    "Websites for teams that need clearer positioning, stronger conversion flow, and cleaner operational handoff.",
+    "If your site gets attention but the pipeline stays quiet, demand is leaking. Fix the conversion path and response system.",
   alternates: {
     canonical: "/websites",
   },
@@ -20,46 +21,46 @@ export const metadata: Metadata = {
 const websiteCollections = [
   {
     title: "Startup Websites",
-    lead: "Launch sites and landing pages that help new companies look credible early and convert interest into qualified calls.",
+    lead: "Stop losing early demand because the first step feels unclear or slow.",
     icon: Globe,
-    bullets: ["Launch pages with strong CTA structure", "Investor, product, and demo-ready sections", "Mobile-first performance and clear conversion flow"],
+    bullets: ["Traffic turns into booked calls", "Clear trust above the fold", "No dead-end forms"],
   },
   {
     title: "Hospitals & Clinics",
-    lead: "High-trust websites built around appointments, patient-service clarity, and a calmer experience for busy operations teams.",
+    lead: "Reduce missed inquiries and booking drop-off before it becomes a no-show problem.",
     icon: Hospital,
-    bullets: ["Appointment and inquiry routing", "Service clarity and trust-building page structure", "Operationally clean forms and follow-up paths"],
+    bullets: ["Appointments hold more often", "Less back-and-forth", "Faster confirmation"],
   },
   {
     title: "Transport, Logistics & Moving Companies",
-    lead: "Sites designed for stronger visibility, quote capture, dispatch-ready lead handling, and clearer service positioning across local or regional coverage.",
+    lead: "Quote requests leak when follow-up is slow and service info is unclear. Fix that path.",
     icon: Truck,
-    bullets: ["Quote and booking flow for moving companies", "Coverage-area and service visibility", "Lead capture tied to ops and callback workflows"],
+    bullets: ["Quotes captured cleanly", "Callbacks stop slipping", "Less manual chasing"],
   },
   {
     title: "Lawyers & Law Services",
-    lead: "Professional websites for firms that need authority, fast inquiry response, and cleaner handoff from public page to intake workflow.",
+    lead: "Legal leads go cold fast. Your website should not be the weak link.",
     icon: Scale,
-    bullets: ["Practice-area landing pages", "Consultation booking and intake-ready CTA flow", "High-trust visibility for legal buyers"],
+    bullets: ["Fewer missed consultations", "Faster first response", "Higher trust on mobile"],
   },
 ]
 
 const websiteHeroSignals = [
   {
     title: "Conversion structure",
-    detail: "Pages laid out around inquiry, booking, and follow-up instead of loose brochure sections.",
+    detail: "The path to a call is obvious.",
   },
   {
     title: "Launch routing",
-    detail: "Domain, SSL, launch flow, and page handoff handled as one release path.",
+    detail: "No broken links. No silent form failures.",
   },
   {
     title: "Ops-ready CTA flow",
-    detail: "Forms, booking, intake, and automation handoff built into the page logic from day one.",
+    detail: "Inquiry goes somewhere fast.",
   },
   {
     title: "Credibility on mobile",
-    detail: "Clean hierarchy, clear CTA placement, and fast reading on phones and laptops.",
+    detail: "Trust holds on phones.",
   },
 ]
 
@@ -77,15 +78,15 @@ export default function WebsitesPage() {
                 >
                   <div className="badge-pill border-primary/20 bg-slate-50 text-slate-700">Website systems</div>
                   <h1 className="mt-6 max-w-4xl text-balance text-[2.8rem] font-bold leading-[0.96] tracking-[-0.04em] text-slate-950 sm:text-[4.2rem]">
-                    Websites built for trust, technical credibility, and cleaner conversion paths.
+                    If your site gets attention but the pipeline stays quiet, demand is leaking.
                   </h1>
                   <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-                    VishnuLabs builds modern websites for teams that need stronger positioning at the top of the funnel and cleaner routing
-                    underneath. The page has to do more than look good. It has to move the right buyer into the right next step.
+                    Weak trust, slow response, and broken handoffs cost more than a redesign. Fix the conversion path. Then keep the response
+                    system stable.
                   </p>
 
                   <div className="mt-7 flex flex-wrap gap-2">
-                    {["Conversion structure", "Authority signals", "Operational handoff", "Domain + launch support"].map((item) => (
+                    {["Lost inquiries", "Weak trust", "Slow response", "Broken handoff"].map((item) => (
                       <span key={item} className="soft-chip border-primary/10 bg-white text-slate-700">
                         {item}
                       </span>
@@ -99,24 +100,22 @@ export default function WebsitesPage() {
                         Why this converts better
                       </div>
                       <p className="mt-2 text-sm leading-7 text-slate-600">
-                        Fewer loose sections. Sharper CTA placement. Stronger technical credibility above the fold.
+                        Buyers do not have to guess what happens next. Response does not depend on someone noticing the lead.
                       </p>
                     </div>
                     <div className="rounded-[24px] border border-slate-200/80 bg-white px-4 py-4 shadow-sm">
                       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Best fit</p>
                       <p className="mt-2 text-sm leading-7 text-slate-600">
-                        Startup launches, clinics, moving companies, logistics teams, and legal service pages.
+                        Teams with real demand and real follow-up pressure.
                       </p>
                     </div>
                   </div>
 
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <Button asChild className="cta-glow h-12 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white hover:bg-slate-900">
-                      <Link href="https://cal.com/vishnuvardhanburri/15min">
-                        Request Website Plan
-                        <ArrowRight className="h-4 w-4" />
-                      </Link>
-                    </Button>
+                    <AuditCtaButton trackingSource="websites_hero_cta" className="h-12 px-7 text-sm">
+                      Get Free System Audit
+                      <ArrowRight className="h-4 w-4" />
+                    </AuditCtaButton>
                     <Button asChild variant="outline" className="h-12 rounded-full border-slate-300 bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-50">
                       <Link href="/pricing">
                         View Combo Pricing

@@ -8,6 +8,7 @@ import { ConfidenceRail } from "@/components/confidence-rail"
 import { CustomSolutionNote } from "@/components/custom-solution-note"
 import { TestimonialCard } from "@/components/testimonial-card"
 import { Button } from "@/components/ui/button"
+import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 import { testimonials } from "@/lib/testimonials"
 
 type Industry = {
@@ -20,7 +21,7 @@ type Industry = {
 
 export const metadata: Metadata = {
   title: "Industries | VishnuLabs",
-  description: "Industry-specific pages for teams that need stronger system consistency, cleaner workflows, and more dependable execution.",
+  description: "Industry pages for teams losing leads to missed response, dropped follow-up, and invisible execution gaps.",
   alternates: {
     canonical: "/industries",
   },
@@ -111,12 +112,10 @@ export default function IndustriesPage() {
                 >
                   <div className="badge-pill border-primary/20 bg-slate-50 text-slate-700">Industries</div>
                   <h1 className="mt-6 max-w-4xl text-balance text-[2.8rem] font-bold leading-[0.96] tracking-[-0.04em] text-slate-950 sm:text-[4.1rem]">
-                    Backend thinking adapted to the workflow pressure of each industry.
+                    The same failure pattern. Different industry surface.
                   </h1>
                   <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-                    Startups, hospitals and clinics, transport and logistics teams, moving companies, lawyers, law services, real estate,
-                    and mortgage teams all need fast response and cleaner operations, but the failure modes differ. These pages show where
-                    VishnuLabs fits and what needs to be stabilized first.
+                    These pages show where demand leaks, what breaks first, and the fastest path to control.
                   </p>
 
                   <div className="mt-7 flex flex-wrap gap-2">
@@ -146,12 +145,10 @@ export default function IndustriesPage() {
                   </div>
 
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <Button asChild className="cta-glow h-12 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white hover:bg-slate-900">
-                      <AppLink href="https://cal.com/vishnuvardhanburri/15min">
-                        Request Demo
-                        <ArrowRight className="h-4 w-4" />
-                      </AppLink>
-                    </Button>
+                    <AuditCtaButton trackingSource="industries_hero_cta" className="h-12 px-7 text-sm">
+                      Get Free System Audit
+                      <ArrowRight className="h-4 w-4" />
+                    </AuditCtaButton>
                     <Button asChild variant="outline" className="h-12 rounded-full border-slate-300 bg-white px-7 text-sm font-semibold text-slate-950 hover:bg-slate-50">
                       <AppLink href="/automations">
                         Explore Automations

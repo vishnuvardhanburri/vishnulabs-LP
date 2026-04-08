@@ -4,23 +4,23 @@ import { testimonials } from "@/lib/testimonials"
 export default function HospitalsClinicsIndustryPage() {
   return (
     <IndustryPageTemplate
-      title="Automation for Hospitals and Clinics"
-      subtitle="Designed for teams that need calmer front-desk operations, cleaner appointment routing, and better visibility across patient-service workflows."
+      title="Clinic Systems That Cut No-Shows"
+      subtitle="No-shows are not random. They are a system failure. We fix confirmation, reminders, and follow-up so appointments actually happen."
       painPoints={[
-        "Appointment and inquiry handling spread across too many manual steps",
-        "Staff time lost to repetitive reminders and follow-up coordination",
-        "Operational pressure from delayed responses and poor visibility",
+        "Appointments drop between booking and arrival",
+        "Reminders are inconsistent or too late",
+        "Staff spend time chasing instead of running the clinic",
       ]}
       solutionStack={[
-        "Website and inquiry flow designed for patient-service clarity",
-        "Scheduling, reminder, and callback automation",
-        "Custom ops support for intake, routing, and admin visibility",
-        "Role-aware workflows for sensitive operating environments",
+        "Confirmation and reminder sequences that run on time",
+        "Reschedule recovery so drop-offs do not disappear",
+        "Visibility into where no-shows start",
+        "Control for sensitive patient workflows",
       ]}
       outcomes={[
-        "Faster response to patient and service inquiries",
-        "Less front-desk admin friction across busy periods",
-        "Better visibility into scheduling and follow-up operations",
+        "Lower no-show rate",
+        "Higher appointment completion",
+        "Less manual chasing for staff",
       ]}
       investment="$8,500 to $16,500"
       testimonial={testimonials.priya}

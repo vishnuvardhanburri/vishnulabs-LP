@@ -21,7 +21,7 @@ const item = {
     filter: "blur(0px)",
     transition: {
       duration: 0.85,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as const,
     },
   },
 }
@@ -34,7 +34,7 @@ export function SystemsBuiltSection() {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.45 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
           className="max-w-3xl"
         >
           <p className="inline-flex rounded-full border border-cyan-400/18 bg-cyan-400/10 px-4 py-2 text-[11px] uppercase tracking-[0.24em] text-cyan-200">
@@ -60,7 +60,7 @@ export function SystemsBuiltSection() {
               key={system.title}
               variants={item}
               whileHover={{ y: -6, scale: 1.02 }}
-              transition={{ duration: 0.28, ease: [0.2, 1, 0.3, 1] }}
+              transition={{ duration: 0.28, ease: [0.2, 1, 0.3, 1] as const }}
               className="group relative overflow-hidden rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.028))] p-5 shadow-[0_20px_80px_rgba(3,10,24,0.24)] backdrop-blur-2xl"
             >
               <div className="pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">

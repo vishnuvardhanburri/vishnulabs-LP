@@ -1,10 +1,10 @@
 import { ArrowRight, Database, ShieldCheck, Sparkles, Workflow } from "lucide-react"
 
 const nodes = [
-  { icon: Database, label: "Input", detail: "Requests, form fills, inbound events" },
-  { icon: ShieldCheck, label: "Validation", detail: "Bad data blocked before it spreads" },
-  { icon: Workflow, label: "Processing", detail: "Clean orchestration with visible logic" },
-  { icon: Sparkles, label: "Outputs", detail: "Bookings, alerts, updates, tracked outcomes" },
+  { icon: Database, label: "Input", detail: "Calls, forms, inbound demand" },
+  { icon: ShieldCheck, label: "Validation", detail: "Stops bad inputs and missed steps" },
+  { icon: Workflow, label: "Execution", detail: "No dropped handoffs" },
+  { icon: Sparkles, label: "Outcome", detail: "Booked calls, kept appointments, controlled data" },
 ]
 
 export function SystemFlowSection() {
@@ -17,7 +17,7 @@ export function SystemFlowSection() {
             Input to output, without silent failure in the middle.
           </h2>
           <p className="section-support-copy mt-4 text-lg leading-8">
-            Replace hidden breakpoints with a controlled sequence your team can trust.
+            Close the leak. Keep it closed.
           </p>
         </div>
 

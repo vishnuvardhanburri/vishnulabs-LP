@@ -5,31 +5,31 @@ export default function AiSchedulingReminderPage() {
   return (
     <ServicePageTemplate
       title="AI Scheduling & Reminder System"
-      subtitle="A structured scheduling system for teams losing revenue to missed callbacks, fragile reminders, and inconsistent booking follow-through."
+      subtitle="Stop losing booked appointments to delay, weak reminders, and silent drop-offs. Confirm fast. Remind on time. Keep attendance high."
       forWho={[
         "Consulting teams booking high-value calls",
         "Law firms managing intake consultations",
-        "Mortgage and real estate teams with appointment-heavy workflows",
+        "Teams with appointment-heavy pipelines",
       ]}
       problems={[
-        "Manual back-and-forth creates delay before a call is even booked",
-        "Reminder logic fails quietly and no-show rates rise",
-        "Booking visibility breaks across channels and teams",
+        "Manual back-and-forth creates delay before anything is booked",
+        "Reminders fail quietly and no-shows climb",
+        "Teams lose visibility across channels and handoffs",
       ]}
       includes={[
-        "Booking workflow architecture",
-        "Calendar integration and slot validation rules",
-        "SMS and email reminder orchestration",
-        "Reschedule and no-show recovery logic",
-        "Pipeline status updates and owner alerts",
+        "Fast booking confirmation and slot validation",
+        "Reminder sequences that run on time, every time",
+        "Reschedule recovery so no-shows do not disappear",
+        "Visibility into drop-offs and follow-up gaps",
+        "Alerts when the path breaks",
       ]}
       outcomes={[
-        "Lower no-show rates and more reliable calendar attendance",
-        "Reduced manual intervention for appointment teams",
-        "Cleaner handoff between lead capture and booked calls",
+        "Lower no-show rates and higher attendance",
+        "Less manual chasing for staff",
+        "Cleaner handoff from inquiry to booked appointment",
       ]}
-      timeline="5 to 7 days"
-      price="$6,500 to $9,500"
+      timeline="Pilot: 2–3 weeks"
+      price="Pilot: $7,500 (credited toward full deployment)"
       testimonial={testimonials.james}
     />
   )

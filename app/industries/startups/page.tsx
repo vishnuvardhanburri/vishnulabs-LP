@@ -4,23 +4,23 @@ import { testimonials } from "@/lib/testimonials"
 export default function StartupsIndustryPage() {
   return (
     <IndustryPageTemplate
-      title="Automation, Websites, and Software for Startups"
-      subtitle="Built for startup teams that need sharper positioning, cleaner lead handling, and internal systems that do not fall apart as volume starts to grow."
+      title="Startup Systems That Stop Lead Loss"
+      subtitle="If demand is real, missed follow-up is expensive. We fix the intake and response path before volume exposes the weak handoff."
       painPoints={[
-        "Early-stage teams juggling inbound interest manually",
-        "Website and booking flow not matching the actual sales process",
-        "Operational gaps between lead capture, follow-up, and founder visibility",
+        "Leads fall through because response depends on manual coverage",
+        "Follow-up is inconsistent across channels and owners",
+        "No visibility into where the pipeline is breaking",
       ]}
       solutionStack={[
-        "Website creation aligned to the actual offer and buying journey",
-        "Automation for booking, reminders, and lead follow-up",
-        "Custom dashboards or workflow layers for founder visibility",
-        "Domain launch support and operating-system cleanup",
+        "One intake path for every inbound channel",
+        "Fast first response that does not depend on a person noticing",
+        "Routing rules so qualified leads reach the right owner",
+        "Visibility into drop-offs, delay, and follow-up failure",
       ]}
       outcomes={[
-        "Stronger first impression for buyers and partners",
-        "Cleaner lead-to-demo movement with less manual admin",
-        "Better visibility into the early sales and ops workflow",
+        "Fewer missed leads",
+        "Faster response time",
+        "Cleaner lead-to-demo execution",
       ]}
       investment="$9,500 to $18,500"
       testimonial={testimonials.ethan}

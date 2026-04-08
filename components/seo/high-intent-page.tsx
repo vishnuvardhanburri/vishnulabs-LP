@@ -1,6 +1,7 @@
 import { ArrowUpRight, CheckCircle2 } from "lucide-react"
 
 import { AppLink } from "@/components/app-link"
+import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 
 type InternalLink = {
   label: string
@@ -22,19 +23,18 @@ type HighIntentPageProps = {
   title: string
   intro: string
   problem: string
-  whyItHappens: string[]
-  systemSolution: string[]
+  whyItHappens: readonly string[]
+  systemSolution: readonly string[]
   caseStudyTitle: string
   caseStudyContext: string
   caseStudySummary: string
-  caseStudyMetrics: CaseStudyMetric[]
+  caseStudyMetrics: readonly CaseStudyMetric[]
   ctaTitle?: string
   ctaBody?: string
-  primaryLinkHref?: string
   primaryLinkLabel?: string
   supportingLink?: InternalLink
-  internalLinks?: InternalLink[]
-  faqs: FaqItem[]
+  internalLinks?: readonly InternalLink[]
+  faqs: readonly FaqItem[]
   schema?: Record<string, unknown>
 }
 
@@ -51,7 +51,6 @@ export function HighIntentPage({
   caseStudyMetrics,
   ctaTitle = "Get Free System Audit",
   ctaBody = "We’ll show exactly what’s broken in 15 minutes.",
-  primaryLinkHref = "/book",
   primaryLinkLabel = "Get Free System Audit",
   supportingLink,
   internalLinks = [],
@@ -90,34 +89,31 @@ export function HighIntentPage({
           <p className="mt-5 max-w-3xl text-lg leading-8 text-zinc-300">{intro}</p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <AppLink
-              href={primaryLinkHref}
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-sky-300/30 bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(186,230,253,0.92))] px-6 py-3 text-sm font-semibold text-zinc-950 shadow-[0_0_0_1px_rgba(255,255,255,0.15),0_20px_80px_rgba(56,189,248,0.2)] transition-transform duration-300 hover:scale-[1.03]"
-            >
+            <AuditCtaButton trackingSource={`seo_${eyebrow.toLowerCase().replace(/\s+/g, "_")}_cta`} className="px-6 py-3 text-sm">
               {primaryLinkLabel}
               <ArrowUpRight className="h-4 w-4" />
+            </AuditCtaButton>
+          {supportingLink ? (
+            <AppLink
+              href={supportingLink.href}
+              className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/[0.08]"
+            >
+              {supportingLink.label}
             </AppLink>
-            {supportingLink ? (
-              <AppLink
-                href={supportingLink.href}
-                className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/[0.08]"
-              >
-                {supportingLink.label}
-              </AppLink>
-            ) : null}
-          </div>
-          <p className="mt-4 text-sm text-zinc-500">{ctaBody}</p>
+          ) : null}
+        </div>
+          <p className="mt-4 text-sm text-white/64">{ctaBody}</p>
         </section>
 
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <section className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-7 backdrop-blur-xl md:p-8">
-            <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">Problem</p>
+            <p className="text-[11px] uppercase tracking-[0.24em] text-white/64">Problem</p>
             <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white">What’s broken</h2>
             <p className="mt-4 text-base leading-8 text-zinc-300">{problem}</p>
           </section>
 
           <section className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-7 backdrop-blur-xl md:p-8">
-            <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">Why it happens</p>
+            <p className="text-[11px] uppercase tracking-[0.24em] text-white/64">Why it happens</p>
             <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white">Why teams miss it</h2>
             <div className="mt-5 grid gap-3">
               {whyItHappens.map((item) => (
@@ -131,10 +127,10 @@ export function HighIntentPage({
         </div>
 
         <section className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-7 backdrop-blur-xl md:p-8">
-          <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">System solution</p>
+          <p className="text-[11px] uppercase tracking-[0.24em] text-white/64">System solution</p>
           <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white">What the system does</h2>
           <p className="mt-4 max-w-3xl text-base leading-8 text-zinc-300">
-            For teams handling sensitive data or controlled workflows, <AppLink href="/sentinel" className="text-sky-200 underline underline-offset-4">Sentinel</AppLink> adds the protection layer after the operating system is fixed.
+            It removes delay and uncertainty. If your team also uses AI with sensitive data, <AppLink href="/sentinel" className="text-sky-200 underline underline-offset-4">Sentinel</AppLink> adds a control layer.
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {systemSolution.map((item) => (
@@ -150,7 +146,7 @@ export function HighIntentPage({
           <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
             <div className="max-w-2xl">
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white">{caseStudyTitle}</h2>
-              <p className="mt-3 text-sm uppercase tracking-[0.18em] text-zinc-500">{caseStudyContext}</p>
+              <p className="mt-3 text-sm uppercase tracking-[0.18em] text-white/64">{caseStudyContext}</p>
               <p className="mt-4 text-base leading-8 text-zinc-300">{caseStudySummary}</p>
             </div>
             <div className="grid gap-3 sm:grid-cols-3 lg:w-[28rem] lg:grid-cols-1">
@@ -168,7 +164,7 @@ export function HighIntentPage({
 
         {internalLinks.length ? (
           <section className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-7 backdrop-blur-xl md:p-8">
-            <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">Keep reading</p>
+            <p className="text-[11px] uppercase tracking-[0.24em] text-white/64">Keep reading</p>
             <div className="mt-5 grid gap-4 md:grid-cols-2">
               {internalLinks.map((link) => (
                 <AppLink
@@ -184,7 +180,7 @@ export function HighIntentPage({
         ) : null}
 
         <section className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-7 backdrop-blur-xl md:p-8">
-          <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">FAQ</p>
+          <p className="text-[11px] uppercase tracking-[0.24em] text-white/64">FAQ</p>
           <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white">Common questions</h2>
           <div className="mt-6 grid gap-4">
             {faqs.map((item) => (
@@ -200,13 +196,10 @@ export function HighIntentPage({
           <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white">Get Free System Audit</h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-zinc-300">{ctaBody}</p>
           <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <AppLink
-              href={primaryLinkHref}
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-sky-300/30 bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(186,230,253,0.92))] px-6 py-3 text-sm font-semibold text-zinc-950 shadow-[0_0_0_1px_rgba(255,255,255,0.15),0_20px_80px_rgba(56,189,248,0.2)] transition-transform duration-300 hover:scale-[1.03]"
-            >
+            <AuditCtaButton trackingSource={`seo_${eyebrow.toLowerCase().replace(/\s+/g, "_")}_final_cta`} className="px-6 py-3 text-sm">
               {ctaTitle}
               <ArrowUpRight className="h-4 w-4" />
-            </AppLink>
+            </AuditCtaButton>
             {supportingLink ? (
               <AppLink
                 href={supportingLink.href}

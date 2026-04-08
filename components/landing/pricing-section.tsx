@@ -1,12 +1,60 @@
 import { ArrowUpRight } from "lucide-react"
 
-import { AppLink } from "@/components/app-link"
+import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 
-const plans = [
-  { name: "Starter", price: "$149", detail: "For teams cleaning up one fragile workflow.", highlight: false },
-  { name: "Growth", price: "$799", detail: "For operations that need broader routing, validation, and visibility.", highlight: true },
-  { name: "Pro", price: "$1499", detail: "For teams stabilizing multiple critical paths at once.", highlight: false },
-  { name: "Enterprise", price: "Custom", detail: "For high-volume or compliance-heavy systems with deeper rollout needs.", highlight: false },
+const offers = [
+  {
+    name: "Risk Assessment",
+    price: "$1,500",
+    highlight: false,
+    outcome: "See exactly where leads or data are leaking.",
+    valueStack: [
+      "Outcome: failure map + priority fixes",
+      "Speed: 2–4 weeks to a stable deployment (if you proceed)",
+      "Risk removal: pilot-first rollout",
+      "Proof: +47% consults, -52% no-shows, 3x response",
+      "Access: direct audit review",
+    ],
+  },
+  {
+    name: "Pilot Deployment",
+    price: "$7,500",
+    highlight: true,
+    outcome: "Validate the fix on one workflow before you scale.",
+    valueStack: [
+      "Outcome: one workflow stops failing",
+      "Speed: 2–3 weeks",
+      "Risk removal: scoped, reversible, measurable",
+      "Proof: real metrics in production",
+      "Access: audit + pilot review",
+    ],
+  },
+  {
+    name: "Full Deployment",
+    price: "$18K–$35K",
+    highlight: false,
+    outcome: "Stop missed follow-ups. Stop silent handoffs. Stop exposure.",
+    valueStack: [
+      "Outcome: end-to-end execution you can trust",
+      "Speed: 2–4 weeks",
+      "Risk removal: pilot first if needed",
+      "Proof: result-first delivery",
+      "Access: ongoing review until stable",
+    ],
+  },
+  {
+    name: "Enterprise",
+    price: "Custom",
+    highlight: false,
+    outcome: "Multi-team rollout with compliance and control.",
+    valueStack: [
+      "Outcome: controlled execution at scale",
+      "Speed: phased rollouts",
+      "Risk removal: pilot + staged expansion",
+      "Proof: auditability + measurable lift",
+      "Access: priority support",
+    ],
+  },
 ]
 
 export function PricingSection() {
@@ -17,21 +65,21 @@ export function PricingSection() {
           <div className="max-w-3xl">
             <p className="section-kicker text-[11px] uppercase">Pricing</p>
             <h2 className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
-              Clear pricing for teams that need stable systems.
+              Choose the entry point that removes risk first.
             </h2>
           </div>
           <p className="section-support-copy max-w-xl text-base leading-8">
-            Pick the level of control you need now. Expand only when the system earns it.
+            Most teams start with a pilot. It proves the fix before you commit.
           </p>
         </div>
 
         <div className="mt-8 grid gap-4 lg:grid-cols-4">
-          {plans.map((plan, index) => (
+          {offers.map((offer, index) => (
             <article
-              key={plan.name}
+              key={offer.name}
               className={`group relative overflow-hidden rounded-[1.75rem] p-5 backdrop-blur-md ${
-                plan.highlight
-                    ? "cinema-card cinema-card-hover border-sky-300/28 bg-white/[0.12] float-card-soft"
+                offer.highlight
+                  ? "cinema-card cinema-card-hover border-sky-300/28 bg-white/[0.12] float-card-soft"
                   : index % 2 === 0
                     ? "cinema-card cinema-card-hover float-card-soft"
                     : "cinema-card cinema-card-hover float-card-soft float-card-delay-1"
@@ -43,33 +91,39 @@ export function PricingSection() {
                 <div className="absolute inset-[1px] rounded-[1.72rem] border border-sky-300/24 shadow-[0_0_0_1px_rgba(96,165,250,0.08),0_0_80px_rgba(217,70,239,0.12)]" />
               </div>
 
-              {plan.highlight ? (
+              {offer.highlight ? (
                 <div className="pointer-events-none absolute inset-0 rounded-[1.75rem] border border-sky-300/26 shadow-[0_0_0_1px_rgba(96,165,250,0.12),0_0_90px_rgba(96,165,250,0.12)]" />
               ) : null}
 
               <div className="relative">
-                <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-200">{plan.name}</p>
+                <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-200">{offer.name}</p>
                 <p className="mt-6 bg-[linear-gradient(90deg,#ffffff_0%,#c4b5fd_38%,#7dd3fc_100%)] bg-clip-text text-5xl font-semibold tracking-[-0.06em] text-transparent">
-                  {plan.price}
+                  {offer.price}
                 </p>
-                <p className="mt-4 min-h-[84px] text-sm leading-7 text-zinc-100">{plan.detail}</p>
-                {plan.highlight ? (
-                  <AppLink
-                    href="/book"
-                    className="mt-8 inline-flex items-center gap-2 rounded-full border border-sky-300/30 bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(186,230,253,0.92))] px-4 py-2 text-sm font-semibold text-zinc-950 shadow-[0_18px_50px_rgba(56,189,248,0.18)] transition-transform duration-300 hover:scale-[1.03]"
+                <p className="mt-4 text-sm leading-7 text-zinc-100">{offer.outcome}</p>
+
+                <div className="mt-5 grid gap-2">
+                  {offer.valueStack.map((item) => (
+                    <p key={item} className="text-sm leading-7 text-white/72">
+                      {item}
+                    </p>
+                  ))}
+                </div>
+
+                <div className="mt-7">
+                  <AuditCtaButton
+                    trackingSource={`pricing_offer_${offer.name.toLowerCase().replace(/\s+/g, "_")}`}
+                    className={
+                      offer.highlight
+                        ? "w-full px-4 py-3 text-sm"
+                        : "w-full border border-white/12 bg-white/[0.04] px-4 py-3 text-sm text-white hover:bg-white/[0.08]"
+                    }
                   >
-                    Book System Review
+                    Get Free System Audit
                     <ArrowUpRight className="h-4 w-4" />
-                  </AppLink>
-                ) : (
-                  <AppLink
-                    href="/book"
-                    className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-sky-200 transition-all hover:bg-white/[0.08] hover:text-white"
-                  >
-                    Book System Review
-                    <ArrowUpRight className="h-4 w-4" />
-                  </AppLink>
-                )}
+                  </AuditCtaButton>
+                </div>
+                <p className="mt-3 text-sm leading-7 text-white/64">Limited onboarding capacity. No long-term contracts.</p>
               </div>
             </article>
           ))}

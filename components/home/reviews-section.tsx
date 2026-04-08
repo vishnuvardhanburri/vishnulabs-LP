@@ -24,7 +24,7 @@ const cardReveal = {
     filter: "blur(0px)",
     transition: {
       duration: 0.9,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as const,
     },
   },
 }
@@ -71,7 +71,7 @@ export function ReviewsSection() {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.45 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
           className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between"
         >
           <div className="max-w-3xl">
@@ -108,7 +108,7 @@ export function ReviewsSection() {
               data-review-card
               variants={cardReveal}
               whileHover={{ y: -6, scale: 1.03 }}
-              transition={{ duration: 0.3, ease: [0.2, 1, 0.3, 1] }}
+              transition={{ duration: 0.3, ease: [0.2, 1, 0.3, 1] as const }}
               className="group relative overflow-hidden rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.028))] p-5 shadow-[0_20px_80px_rgba(3,10,24,0.26)] backdrop-blur-2xl"
             >
               <div className="pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">

@@ -225,8 +225,8 @@ export const visualProofLayers = [
 ]
 
 export const sentinelFeatures = [
-  "Failure detection",
-  "Data validation",
-  "Workflow monitoring",
-  "Alerting",
+  "Stops AI data exposure",
+  "Creates audit visibility",
+  "Enforces control before output",
+  "Supports compliance workflows",
 ]

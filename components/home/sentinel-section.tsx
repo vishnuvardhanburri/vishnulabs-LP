@@ -1,10 +1,10 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowUpRight, ShieldCheck } from "lucide-react"
+import { ShieldCheck } from "lucide-react"
 
-import { MagneticButton } from "@/components/home/magnetic-button"
 import { sentinelFeatures } from "@/components/home/site-data"
+import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 
 export function SentinelSection() {
   return (
@@ -30,6 +30,9 @@ export function SentinelSection() {
             </p>
             <p className="mt-4 max-w-2xl text-[16px] leading-8 text-white/76">
               Critical infrastructure for teams handling sensitive client and patient data.
+            </p>
+            <p className="mt-4 max-w-2xl text-[15px] leading-7 text-white/76">
+              Not for experimentation. Built for teams already operating with real data and revenue.
             </p>
           </div>
 
@@ -60,11 +63,8 @@ export function SentinelSection() {
             </div>
 
             <div className="mt-8">
-              <MagneticButton href="/sentinel" trackingSource="sentinel_cta">
-                Request Sentinel Demo & Risk Assessment
-                <ArrowUpRight className="h-4 w-4" />
-              </MagneticButton>
-              <p className="mt-3 text-sm leading-7 text-white/74">See how Sentinel helps prevent costly failures before deployment.</p>
+              <AuditCtaButton trackingSource="home_sentinel_cta">Get Free System Audit</AuditCtaButton>
+              <p className="mt-3 text-sm leading-7 text-white/74">Limited onboarding capacity. No long-term contracts.</p>
             </div>
           </div>
         </motion.div>

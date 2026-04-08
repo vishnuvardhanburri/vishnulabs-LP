@@ -7,8 +7,8 @@ import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { ArrowUpRight } from "lucide-react"
 
-import { MagneticButton } from "@/components/home/magnetic-button"
 import { homepageCaseStudies } from "@/components/home/site-data"
+import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 
 const sectionReveal = {
   hidden: {},
@@ -27,7 +27,7 @@ const cardReveal = {
     filter: "blur(0px)",
     transition: {
       duration: 1,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as const,
     },
   },
 }
@@ -74,14 +74,14 @@ export function CaseStudySection() {
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
           className="max-w-3xl"
         >
           <p className="inline-flex rounded-full border border-cyan-400/18 bg-cyan-400/10 px-4 py-2 text-[11px] uppercase tracking-[0.24em] text-cyan-200">
             Case studies
           </p>
           <h2 className="mt-6 font-heading text-[40px] font-semibold leading-[0.98] tracking-[-0.04em] text-white md:text-[52px]">
-            Proof that the right fixes lead to more booked calls.
+            Results first. Proof second.
           </h2>
           <p className="mt-5 max-w-2xl text-[17px] leading-8 text-white/82">
             These systems were already generating demand. They were losing it in execution.
@@ -101,7 +101,7 @@ export function CaseStudySection() {
               data-case-card
               variants={cardReveal}
               whileHover={{ y: -8, scale: 1.0125 }}
-              transition={{ duration: 0.32, ease: [0.2, 1, 0.3, 1] }}
+              transition={{ duration: 0.32, ease: [0.2, 1, 0.3, 1] as const }}
               className="group relative overflow-hidden rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.03))] p-6 shadow-[0_24px_90px_rgba(3,10,24,0.3)] backdrop-blur-2xl"
             >
               <div className="pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">
@@ -148,13 +148,13 @@ export function CaseStudySection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.45 }}
-          transition={{ duration: 0.9, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.9, delay: 0.08, ease: [0.16, 1, 0.3, 1] as const }}
           className="mt-10"
         >
-          <MagneticButton href="https://cal.com/vishnuvardhanburri/15min" captureAudit trackingSource="case_studies_cta">
+          <AuditCtaButton trackingSource="case_studies_cta">
             Get Free System Audit
             <ArrowUpRight className="h-4 w-4" />
-          </MagneticButton>
+          </AuditCtaButton>
           <p className="mt-3 text-sm leading-7 text-white/74">We&apos;ll show exactly what&apos;s broken in 15 minutes.</p>
           <p className="mt-1 text-sm leading-7 text-white/64">No long-term contracts. Start with a single audit.</p>
         </motion.div>

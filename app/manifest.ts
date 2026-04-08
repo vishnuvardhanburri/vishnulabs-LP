@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "VishnuLabs",
     short_name: "VishnuLabs",
-    description: "VishnuLabs builds backend systems and AI control layers that prevent dropped demand, data leaks, and workflow failure.",
+    description: "VishnuLabs fixes missed leads, no-shows, and AI data exposure for teams handling real revenue and real data.",
     start_url: "/",
     display: "standalone",
     background_color: "#07111f",

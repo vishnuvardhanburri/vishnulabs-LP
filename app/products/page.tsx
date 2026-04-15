@@ -59,6 +59,13 @@ const collectionCards = [
   },
   {
     icon: Workflow,
+    title: "AI Sales Brain",
+    summary: "Private outbound infrastructure with owned sending pods, AI agent workflows, and deliverability controls.",
+    cta: "/products/ai-sales-brain",
+    ctaLabel: "Open product",
+  },
+  {
+    icon: Workflow,
     title: "Operational workflows",
     summary: "Fix follow-up, reminders, routing, and handoffs where revenue is already leaking.",
     cta: "/services",
@@ -178,7 +185,7 @@ export default function ProductsPage() {
                 </p>
               </div>
 
-              <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
                 {collectionCards.map((item) => {
                   const Icon = item.icon
 

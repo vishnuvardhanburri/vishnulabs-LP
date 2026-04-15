@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/industries/mortgage",
     "/proof",
     "/pricing",
+    "/products/ai-sales-brain",
     "/blog",
     "/blog/why-law-firms-lose-leads",
     "/blog/how-to-reduce-clinic-no-shows",

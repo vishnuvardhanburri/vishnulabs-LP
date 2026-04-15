@@ -9,6 +9,7 @@ const serviceLinks = [
   { label: "Automations", href: "/automations" },
   { label: "Websites", href: "/websites" },
   { label: "Custom Software", href: "/custom-software" },
+  { label: "AI Sales Brain", href: "/products/ai-sales-brain" },
   { label: "AI Voice Receptionist", href: "/services/ai-voice-receptionist" },
   { label: "AI Scheduling & Reminder", href: "/services/ai-scheduling-reminder" },
   { label: "AI Legal Intake Automation", href: "/services/ai-legal-intake" },

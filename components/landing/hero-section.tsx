@@ -1,5 +1,6 @@
 import { ArrowRight, ShieldCheck, Workflow } from "lucide-react"
 
+import { AppLink } from "@/components/app-link"
 import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 import { HeroSplineVisual } from "@/components/landing/hero-spline-visual"
 
@@ -83,6 +84,22 @@ export function HeroSection() {
               >
                 View System Flow
               </a>
+            </div>
+
+            <div className="reveal-in reveal-delay-3 mt-4 max-w-2xl rounded-[1.4rem] border border-cyan-300/14 bg-cyan-400/[0.06] px-5 py-4 backdrop-blur-md">
+              <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200">New product</p>
+              <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <p className="text-sm leading-7 text-white/84">
+                  AI Sales Brain gives teams private outbound infrastructure with owned sending pods, AI agents, and deliverability control.
+                </p>
+                <AppLink
+                  href="/products/ai-sales-brain"
+                  className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-cyan-100 transition hover:text-white"
+                >
+                  Explore product
+                  <ArrowRight className="h-4 w-4" />
+                </AppLink>
+              </div>
             </div>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-3">

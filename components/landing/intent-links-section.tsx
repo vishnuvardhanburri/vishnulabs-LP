@@ -55,10 +55,10 @@ export function IntentLinksSection() {
                 AI Sales Brain
               </h2>
               <p className="mt-4 max-w-2xl text-lg leading-8 text-zinc-100">
-                Enterprise outbound infrastructure for teams that want to own the engine instead of renting another lead-gen SaaS stack.
+                Enterprise revenue infrastructure for teams that want to own the engine instead of renting another lead-gen SaaS stack.
               </p>
               <p className="mt-4 max-w-2xl text-sm leading-7 text-zinc-300">
-                Private sending pods, AI agent workflows, real-time intent detection, and deliverability controls built into one system.
+                Private servers, AI agent workflows, real-time reply triage, and high-volume execution built into one owned system.
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <AppLink

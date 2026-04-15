@@ -90,7 +90,7 @@ export function HeroSection() {
               <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200">New product</p>
               <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <p className="text-sm leading-7 text-white/84">
-                  AI Sales Brain gives teams private outbound infrastructure with owned sending pods, AI agents, and deliverability control.
+                  AI Sales Brain gives teams private revenue infrastructure with owned servers, AI agents, and zero-touch outbound execution.
                 </p>
                 <AppLink
                   href="/products/ai-sales-brain"

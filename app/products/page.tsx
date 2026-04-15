@@ -60,7 +60,7 @@ const collectionCards = [
   {
     icon: Workflow,
     title: "AI Sales Brain",
-    summary: "Private outbound infrastructure with owned sending pods, AI agent workflows, and deliverability controls.",
+    summary: "Private revenue infrastructure with owned servers, AI agent workflows, and high-volume outbound control.",
     cta: "/products/ai-sales-brain",
     ctaLabel: "Open product",
   },

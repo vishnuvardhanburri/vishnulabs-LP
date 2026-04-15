@@ -20,9 +20,9 @@ import { AppLink } from "@/components/app-link"
 import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 
 export const metadata: Metadata = {
-  title: "AI Sales Brain | Enterprise Outbound Infrastructure | VishnuLabs",
+  title: "AI Sales Brain | Enterprise Revenue Infrastructure | VishnuLabs",
   description:
-    "Private outbound infrastructure for companies that want to own the engine, scale personalized outreach, and stop paying recurring SaaS tax.",
+    "Private revenue infrastructure for companies that want to own the engine, replace rented sales software, and scale high-volume outbound on private servers.",
   alternates: {
     canonical: "/products/ai-sales-brain",
   },
@@ -30,154 +30,153 @@ export const metadata: Metadata = {
 
 const heroStats = [
   {
-    label: "Scalable outreach",
-    value: "10,000 emails/day",
-    detail: "Distributed sending architecture designed for inbox-first outbound at real volume.",
+    label: "Execution speed",
+    value: "10,000+ emails/day",
+    detail: "Distributed cluster logic built for high-volume execution while protecting primary-domain reputation.",
   },
   {
-    label: "Asset ownership",
-    value: "Code, servers, database",
-    detail: "This is private infrastructure you own after delivery, not rented software with seat caps.",
+    label: "Ownership",
+    value: "Engine, code, data",
+    detail: "Once deployed, you own the full software stack and database instead of paying recurring SaaS tax.",
   },
   {
-    label: "Launch window",
-    value: "60-day rollout",
-    detail: "Cluster deployment, warm-up, agent tuning, and full scale-up handled in one implementation path.",
+    label: "Autonomy",
+    value: "Zero-touch funnel flow",
+    detail: "Input credentials, choose your industry, and let the Brain run lead hunting through reply triage.",
   },
 ]
 
 const swarmAgents = [
   {
     icon: BrainCircuit,
-    name: "The Lead Researcher",
-    role: "SDR Agent",
+    name: "SDR Agent",
+    role: "The Researcher",
     description:
-      "Scans LinkedIn profiles, company sites, and recent news to write hyper-personalized opening lines that sound like a top rep did the homework.",
-  },
-  {
-    icon: Sparkles,
-    name: "The Intent Specialist",
-    role: "AE Agent",
-    description:
-      "Monitors replies in real time and classifies them into Interested, Not Interested, Out of Office, or Follow-up Requested with LLM-based intent detection.",
+      "Scans LinkedIn, recent news, and podcasts to write hyper-personalized intro lines for every prospect.",
   },
   {
     icon: Network,
-    name: "The Multi-Touch Orchestrator",
-    role: "Account swarm agent",
+    name: "Account Swarm",
+    role: "The Orchestrator",
     description:
-      "Runs account-based sequences across the CEO, manager, and CXO layers while keeping threads coordinated so the motion feels like a real internal conversation.",
+      "Executes multi-touch account-based sequences across CEOs, Managers, and CXOs simultaneously without handoff fatigue.",
+  },
+  {
+    icon: Sparkles,
+    name: "AE Agent",
+    role: "The Intent Specialist",
+    description:
+      "Monitors your inbox in real time, classifying replies like Interested, OOO, and Objection with human-level sentiment detection.",
   },
 ]
 
 const infrastructure = [
   {
     icon: Cpu,
-    title: "Distributed pod cluster",
+    title: "Decoupled pod architecture",
     detail:
-      "Deploy across 10+ VPS pods, each with its own IP and isolated risk profile. If one pod is throttled, the remaining cluster keeps working.",
+      "Provision a private 10-pod VPS cluster with isolated sending logic so scale can increase without exposing your main brand domain.",
   },
   {
     icon: Bot,
-    title: "Decoupled intelligence stack",
+    title: "Zero-touch autonomy",
     detail:
-      "Java backend for execution, Next.js dashboard for control, BillionMail for sending power, and OpenRouter-backed LLMs for research, writing, and reply handling.",
+      "The Brain handles lead hunting, message generation, orchestration, and reply handling after setup instead of waiting on constant human intervention.",
   },
   {
     icon: ShieldCheck,
-    title: "Global killswitch",
+    title: "Owned infrastructure",
     detail:
-      "24/7 monitoring pauses every pod instantly if bounce rates rise above the safety threshold, protecting domain reputation before damage spreads.",
+      "Private servers, private data, private engine. No middleman controls the software stack after deployment.",
   },
 ]
 
 const roadmap = [
   {
-    window: "Days 1-15",
+    window: "Phase 1",
     title: "Foundation",
-    detail: "Deploy the pod cluster, configure VPS nodes, and harden SPF, DKIM, and DMARC.",
+    detail: "Provision your private VPS cluster and harden SPF, DKIM, and DMARC for enterprise-grade inbox trust.",
   },
   {
-    window: "Days 16-30",
-    title: "Intelligence training",
-    detail: "Train the AI agents on your product knowledge, voice, positioning, and media kit.",
+    window: "Phase 2",
+    title: "Intelligence Mapping",
+    detail: "Train the AI agents on your tone of voice, product knowledge, personas, and proprietary mapping templates.",
   },
   {
-    window: "Days 31-45",
-    title: "Trust building",
-    detail: "Warm domains and establish sending credibility with Google and Outlook before aggressive scale.",
+    window: "Phase 3",
+    title: "The Trust Handshake",
+    detail: "Warm domains and build sender reputation so global mail servers recognize the infrastructure as high-authority.",
   },
   {
-    window: "Days 46-60",
-    title: "War speed",
-    detail: "Scale to full outbound velocity with CRM syncing, automated reply handling, and live monitoring.",
+    window: "Phase 4",
+    title: "War Speed Execution",
+    detail: "Scale to full velocity with autonomous reply handling, Ghost Threading, and live CRM synchronization.",
   },
 ]
 
 const packages = [
   {
-    name: "Startup Package",
-    label: "The launch wedge",
+    name: "The Launch Wedge",
+    label: "Best for small founders",
     price: "$7,000",
     podCluster: "1-2 pod cluster",
-    sendVolume: "2,000 emails/day",
+    sendVolume: "2,000 leads/day",
     features: [
-      "Basic AI personalization",
-      "Core sequence engine",
-      "60-day white-glove setup and management",
+      "White-glove setup and 60 days of technical management",
+      "Private outbound infrastructure foundation",
+      "Fastest path to owned outbound execution",
     ],
   },
   {
-    name: "The Team Replacement",
-    label: "Best fit for growth teams",
+    name: "The Autonomous Sales Dept",
+    label: "Replaces 5+ full-time SDRs",
     price: "$14,000",
     podCluster: "5 pod cluster",
-    sendVolume: "5,000 emails/day",
+    sendVolume: "5,000 leads/day",
     features: [
-      "Account-based logic",
-      "Sentiment and intent detection",
-      "60-day white-glove setup and management",
+      "Full account-based mapping",
+      "AI reply intent classification",
+      "White-glove setup and 60 days of technical management",
     ],
     featured: true,
   },
   {
-    name: "Enterprise Beast",
-    label: "Full outbound ownership",
+    name: "The Enterprise Beast",
+    label: "The 10k/day infrastructure",
     price: "$21,000",
     podCluster: "10+ pod cluster",
-    sendVolume: "10,000+ emails/day",
+    sendVolume: "10,000+ leads/day",
     features: [
       "Full white-label dashboard",
-      "Priority ghost threading",
-      "Continuous deliverability insurance",
+      "Priority Ghost Threading",
+      "White-glove setup and 60 days of technical management",
     ],
   },
 ]
 
-const supportLayers = [
-  "Postmaster monitoring to protect IP health and inbox placement.",
-  "Domain rotation strategy to keep high-volume sending stable.",
-  "Brain upgrades as new LLM models become faster and smarter.",
-  "Ongoing pod maintenance so your team stays focused on closing.",
+const fuelInputs = [
+  "Your private VPS logins.",
+  "Your OpenRouter AI keys.",
+  "Your sending domains.",
 ]
 
 const roiCards = [
   {
-    label: "Traditional human team",
+    label: "Traditional team",
     value: "~$165,000 / year",
-    detail: "Salaries, software fees, coordination overhead, and recurring outbound tooling tax.",
+    detail: "Salaries plus rented software keep the cost base high before you even improve output.",
     tone: "border-red-400/16 bg-red-500/[0.05]",
   },
   {
     label: "AI Sales Brain",
     value: "~$22,750 year 1",
-    detail: "Includes the one-time build plus ongoing infrastructure support starting on day 91.",
+    detail: "Year 1 investment stays far below the cost of people plus recurring outbound SaaS.",
     tone: "border-cyan-300/18 bg-cyan-400/[0.06]",
   },
   {
-    label: "Year 1 savings",
+    label: "The difference",
     value: "$142,250",
-    detail: "Year 2 and beyond typically clears $155,000+ in annual savings while you still own the stack.",
+    detail: "Year 2 and beyond can clear $155,000+ in annual savings while you still own the stack.",
     tone: "border-emerald-300/18 bg-emerald-400/[0.08]",
   },
 ]
@@ -188,9 +187,9 @@ export default function AiSalesBrainPage() {
     "@type": "Product",
     name: "AI Sales Brain",
     description:
-      "Enterprise outbound infrastructure for owning private sales infrastructure, scaling AI-powered outreach, and reducing dependence on recurring SDR and SaaS spend.",
+      "Enterprise revenue infrastructure for owning private outbound operations, replacing rented sales software, and scaling AI-powered outreach on private servers.",
     brand: { "@type": "Brand", name: "VishnuLabs" },
-    category: "Enterprise Outbound Infrastructure",
+    category: "Enterprise Revenue Infrastructure",
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "USD",
@@ -219,13 +218,13 @@ export default function AiSalesBrainPage() {
         <section className="cinema-section-shell reveal-in mt-6 px-6 py-10 shadow-[0_24px_90px_rgba(3,10,24,0.22)] md:px-8 md:py-12">
           <div className="flex flex-col gap-6 lg:grid lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
             <div>
-              <p className="section-kicker text-[11px] uppercase">Enterprise outbound infrastructure</p>
+              <p className="section-kicker text-[11px] uppercase">Enterprise revenue infrastructure</p>
               <h1 className="mt-6 text-balance font-heading text-5xl font-semibold leading-[0.92] tracking-[-0.05em] text-white md:text-7xl">
                 AI Sales Brain
               </h1>
               <p className="mt-5 max-w-3xl text-lg leading-8 text-white/80">
-                Own the engine. Stop paying the SaaS tax. We build a private outbound system your team controls forever, with AI agents
-                doing the research, writing, routing, and reply handling that usually burns headcount and margin.
+                The last sales team you&apos;ll ever hire. AI Sales Brain is a private, owned outbound infrastructure designed to replace
+                traditional rented SaaS software with a system you control on your own servers.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -244,8 +243,8 @@ export default function AiSalesBrainPage() {
 
               <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-white/[0.04] px-5 py-4 backdrop-blur-md">
                 <p className="text-sm leading-7 text-white/86">
-                  Most outbound teams rent fragile software stacks and keep adding SDR cost on top. This flips the model: private
-                  infrastructure, full ownership, and high-volume execution without seat limits or lead caps.
+                  Stop renting your growth. Most companies are trapped in rising subscriptions and rising headcount cost. We flip the
+                  model with total asset ownership, zero-touch autonomy, and private infrastructure built for scale.
                 </p>
               </div>
             </div>
@@ -265,20 +264,18 @@ export default function AiSalesBrainPage() {
         <section className="mt-8 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
           <article className="cinema-card cinema-card-hover float-card-soft rounded-[28px] px-6 py-6">
             <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-200">The vision</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">
-              Replace rented outbound tooling with owned infrastructure.
-            </h2>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">Owned infrastructure, not rented growth.</h2>
             <p className="mt-4 text-base leading-8 text-white/72">
-              The AI Sales Brain is built for companies that want more than a campaign tool. It is a private outbound layer that keeps
-              the sending engine, deliverability controls, and intelligence stack under your control.
+              You own the engine, the code, and the data forever. The Brain replaces fragile subscription tooling with private revenue
+              infrastructure your team controls end to end.
             </p>
           </article>
 
           <div className="grid gap-4 md:grid-cols-3">
             {[
-              "No per-lead tax, no seat pricing, no rented growth bottleneck.",
-              "AI agents work around the clock without handoff fatigue or inconsistency.",
-              "Reply handling, account-based logic, and CRM sync stay inside one operating model.",
+              "Total asset ownership after deployment with no middleman between your team and the outbound engine.",
+              "Zero-touch autonomy that can run from lead hunting all the way through reply triage.",
+              "Decoupled pod architecture designed for 10,000+ emails a day while keeping primary-domain reputation safe.",
             ].map((item, index) => (
               <article
                 key={item}
@@ -294,12 +291,12 @@ export default function AiSalesBrainPage() {
 
         <section className="cinema-section-shell reveal-in mt-8 px-6 py-10 md:px-8 md:py-12">
           <div className="max-w-3xl">
-            <p className="section-kicker text-[11px] uppercase">Agent swarm</p>
+            <p className="section-kicker text-[11px] uppercase">Digital workforce</p>
             <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-white md:text-5xl">
-              Your digital workforce runs research, intent triage, and multi-touch sequencing 24/7.
+              Three specialized agents replace the repetitive labor of a human sales department.
             </h2>
             <p className="mt-4 text-base leading-8 text-white/64">
-              Three specialized agents replace repetitive outbound labor while keeping the motion personalized, coordinated, and measurable.
+              They work 24/7 with zero handoff fatigue while keeping research, orchestration, and inbox triage inside one agent swarm.
             </p>
           </div>
 
@@ -328,8 +325,10 @@ export default function AiSalesBrainPage() {
 
         <section className="mt-8 grid gap-4 lg:grid-cols-[1.02fr_0.98fr]">
           <article className="cinema-section-shell reveal-in px-6 py-10 md:px-8 md:py-12">
-            <p className="section-kicker text-[11px] uppercase">Technical backbone</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">Built like infrastructure, not a lightweight app.</h2>
+            <p className="section-kicker text-[11px] uppercase">Infrastructure</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">
+              Built as enterprise revenue infrastructure, not lightweight sales software.
+            </h2>
             <div className="mt-6 grid gap-4">
               {infrastructure.map((item) => {
                 const Icon = item.icon
@@ -352,23 +351,23 @@ export default function AiSalesBrainPage() {
           </article>
 
           <article className="cinema-card cinema-card-hover float-card-soft rounded-[28px] px-6 py-6">
-            <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-200">Why operators buy this</p>
+            <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-200">Why this wins</p>
             <div className="mt-5 grid gap-3">
               {[
                 {
                   icon: Mail,
-                  title: "Primary-inbox design",
-                  detail: "Deliverability strategy is built into the infrastructure from day one instead of treated like a later repair.",
+                  title: "SaaS tax removed",
+                  detail: "No seat-based growth penalty and no recurring rented stack sitting between you and outbound execution.",
                 },
                 {
                   icon: Building2,
-                  title: "White-label control",
-                  detail: "The dashboard, servers, and outbound logic can all live under your operational ownership.",
+                  title: "Private servers",
+                  detail: "You provide the infrastructure inputs, which keeps ownership real instead of dependent on another vendor.",
                 },
                 {
                   icon: ShieldOff,
-                  title: "No seat caps",
-                  detail: "Growth is not tied to adding more licenses every time you want to widen a campaign.",
+                  title: "Primary-domain safety",
+                  detail: "Decoupled sending pods separate scale from the reputation risk of your core branded domain.",
                 },
               ].map((item) => {
                 const Icon = item.icon
@@ -390,13 +389,13 @@ export default function AiSalesBrainPage() {
         <section className="cinema-section-shell reveal-in mt-8 px-6 py-10 md:px-8 md:py-12">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="section-kicker text-[11px] uppercase">Implementation roadmap</p>
+              <p className="section-kicker text-[11px] uppercase">Path to war speed</p>
               <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-white md:text-5xl">
-                60 days from raw infrastructure to full outbound speed.
+                The system scales only after trust is built.
               </h2>
             </div>
             <p className="max-w-2xl text-base leading-8 text-white/64">
-              The rollout is staged to protect deliverability while the engine learns your positioning, sequence logic, and response handling.
+              We move away from rigid calendars and harden the infrastructure first so the engine reaches high-authority status before scale.
             </p>
           </div>
 
@@ -421,11 +420,11 @@ export default function AiSalesBrainPage() {
             <div>
               <p className="section-kicker text-[11px] uppercase">Pricing</p>
               <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-white md:text-5xl">
-                One-time build pricing for teams that want to own the stack.
+                The investment in your future.
               </h2>
             </div>
             <div className="rounded-[24px] border border-amber-300/18 bg-amber-400/[0.08] px-5 py-4 text-sm leading-7 text-amber-100">
-              All packages include a 60-day white-glove setup and management period.
+              All packages include white-glove setup and 60 days of technical management.
             </div>
           </div>
 
@@ -471,18 +470,18 @@ export default function AiSalesBrainPage() {
 
           <div className="mt-8 grid gap-4 lg:grid-cols-[0.96fr_1.04fr]">
             <article className="cinema-card rounded-[30px] border border-white/10 bg-white/[0.04] px-6 py-6">
-              <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-300">Ongoing support</p>
+              <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-300">The Fuel</p>
               <div className="mt-4 flex items-end gap-2">
                 <BadgeDollarSign className="h-6 w-6 text-emerald-200" />
-                <p className="text-3xl font-semibold tracking-[-0.04em] text-white">$750 / month</p>
+                <p className="text-3xl font-semibold tracking-[-0.04em] text-white">What you provide</p>
               </div>
               <p className="mt-3 text-sm leading-7 text-white/68">
-                Starting on day 91, we keep the engine sharp so your domain health, pods, and AI agents stay production-ready.
+                To ensure 100% ownership, you provide the raw materials and we build the engine around them.
               </p>
             </article>
 
-            <div className="grid gap-3 md:grid-cols-2">
-              {supportLayers.map((item) => (
+            <div className="grid gap-3 md:grid-cols-3">
+              {fuelInputs.map((item) => (
                 <article key={item} className="cinema-card rounded-[24px] bg-black/18 px-5 py-4">
                   <p className="text-sm leading-7 text-white/76">{item}</p>
                 </article>
@@ -495,11 +494,11 @@ export default function AiSalesBrainPage() {
           <article className="cinema-section-shell reveal-in px-6 py-10 md:px-8 md:py-12">
             <p className="section-kicker text-[11px] uppercase">ROI</p>
             <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-white md:text-5xl">
-              The million-dollar difference is not hype. It is math.
+              The million-dollar difference.
             </h2>
             <p className="mt-4 text-base leading-8 text-white/64">
-              Traditional outbound teams compound cost through people, tooling, and coordination. AI Sales Brain compresses that spend
-              into owned infrastructure with lower recurring overhead.
+              Traditional teams burn money on salaries and rented software. AI Sales Brain compresses that spend into owned infrastructure
+              with radically lower annual cost.
             </p>
           </article>
 
@@ -516,10 +515,10 @@ export default function AiSalesBrainPage() {
 
         <section className="cinema-section-shell reveal-in mt-8 px-6 py-12 text-center shadow-[0_24px_90px_rgba(3,10,24,0.2)] md:px-10 md:py-14">
           <h2 className="text-balance text-3xl font-semibold tracking-tight text-white md:text-5xl">
-            Ready to own your sales infrastructure?
+            Ready to own your revenue infrastructure?
           </h2>
           <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-white/64">
-            We&apos;ll map the outbound architecture, show the best-fit cluster size, and give you a clear rollout path before anything gets built.
+            We&apos;ll map the architecture, show the right cluster for your volume, and lay out the clearest path to war speed before anything gets built.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <AuditCtaButton trackingSource="ai_sales_brain_final_cta" className="px-7 py-3 text-sm">

@@ -135,10 +135,10 @@ export function LandingPage() {
               className="flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-xl transition hover:border-cyan-300/30 hover:bg-white/10"
             >
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black">
-                <img src="/vishnulabs-logo-mark.svg" alt="VishnuLabs" className="h-6 w-6" />
+                <img src="/vishnulabs-logo-mark.svg" alt="Xavira Tech Labs" className="h-6 w-6" />
               </span>
               <div>
-                <p className="font-heading text-sm font-semibold uppercase tracking-[0.24em] text-white">VishnuLabs</p>
+                <p className="font-heading text-sm font-semibold uppercase tracking-[0.24em] text-white">Xavira Tech Labs</p>
                 <p className="text-[11px] uppercase tracking-[0.28em] text-white/72">Revenue systems</p>
               </div>
             </a>

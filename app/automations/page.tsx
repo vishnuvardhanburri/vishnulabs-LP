@@ -6,7 +6,7 @@ import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
-  title: "Automations | Workflow Control Under Real Operating Pressure | VishnuLabs",
+  title: "Automations | Workflow Control Under Real Operating Pressure | Xavira Tech Labs",
   description: "Replace brittle automation with controlled workflows that stop missed events, weak routing, and manual rescue work.",
   alternates: {
     canonical: "/automations",

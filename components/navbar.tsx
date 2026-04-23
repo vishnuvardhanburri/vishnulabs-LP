@@ -51,14 +51,14 @@ export function Navbar() {
               <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] shadow-[0_12px_26px_rgba(0,0,0,0.18)] transition-all duration-500 hover:border-sky-300/20 hover:bg-white/[0.06]">
                 <Image
                   src="/vishnulabs-logo-mark.svg"
-                  alt="VishnuLabs V logo"
+                  alt="Xavira Tech Labs V logo"
                   width={28}
                   height={28}
                   className="h-[28px] w-[28px] object-contain"
                 />
               </div>
               <div>
-                <p className="text-[15px] font-semibold tracking-tight text-white">VishnuLabs</p>
+                <p className="text-[15px] font-semibold tracking-tight text-white">Xavira Tech Labs</p>
                 <p className="text-[10px] uppercase tracking-[0.22em] text-zinc-300">System Reliability</p>
               </div>
             </AppLink>

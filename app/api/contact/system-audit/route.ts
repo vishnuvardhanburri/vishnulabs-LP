@@ -160,7 +160,7 @@ export async function POST(request: NextRequest) {
       <p>Most systems we review have 2–3 hidden failure points affecting conversions.</p>
       <p>If this is urgent, you can book directly here:</p>
       <p><a href="${escapeHtml(calendarLink)}" style="color:#0f766e;">${escapeHtml(calendarLink)}</a></p>
-      <p style="margin-top:20px;">VishnuLabs</p>
+      <p style="margin-top:20px;">Xavira Tech Labs</p>
     </div>
   `
 

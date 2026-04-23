@@ -15,7 +15,7 @@ type ResendResponse = {
 
 export async function sendEmail(payload: EmailPayload): Promise<{ ok: true; id?: string } | { ok: false; error: string }> {
   const apiKey = process.env.RESEND_API_KEY
-  const from = process.env.RESEND_FROM_EMAIL ?? "VishnuLabs <no-reply@vishnulabs.com>"
+  const from = process.env.RESEND_FROM_EMAIL ?? "Xavira Tech Labs <no-reply@vishnulabs.com>"
 
   if (!apiKey) {
     return { ok: false, error: "RESEND_API_KEY is missing" }

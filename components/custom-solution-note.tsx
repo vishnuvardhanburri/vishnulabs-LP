@@ -6,10 +6,10 @@ type CustomSolutionNoteProps = {
   title?: string
 }
 
-const customPackageSubject = encodeURIComponent("Custom Package Request - VishnuLabs")
+const customPackageSubject = encodeURIComponent("Custom Package Request - Xavira Tech Labs")
 const customPackageBody = encodeURIComponent(
   [
-    "Hi VishnuLabs,",
+    "Hi Xavira Tech Labs,",
     "",
     "We want the right scope without delays, missed leads, or security gaps.",
     "",
@@ -63,7 +63,7 @@ export function CustomSolutionNote({
           </p>
           <div className={`mt-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] ${dark ? "text-slate-400" : "text-slate-500"}`}>
             <Mail className="h-3.5 w-3.5" />
-            Direct response from VishnuLabs
+            Direct response from Xavira Tech Labs
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
-# VishnuLabs Website
+# Xavira Tech Labs Website
 
-Production website for VishnuLabs (Next.js + Tailwind) with services, Sentinel product pages, lead capture flows, and enterprise marketing surfaces.
+Production website for Xavira Tech Labs (Next.js + Tailwind) with services, Sentinel product pages, lead capture flows, and enterprise marketing surfaces.
 
 ## Stack
 - Next.js (App Router)

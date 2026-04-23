@@ -83,7 +83,7 @@ export function ConfidenceRail({
               </div>
               <div>
                 <p className="text-sm font-semibold text-slate-950">Direct founder review</p>
-                <p className="text-xs uppercase tracking-[0.18em] text-slate-500">VishnuLabs</p>
+                <p className="text-xs uppercase tracking-[0.18em] text-slate-500">Xavira Tech Labs</p>
               </div>
             </div>
           </div>

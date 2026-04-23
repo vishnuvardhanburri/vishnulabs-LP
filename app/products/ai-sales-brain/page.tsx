@@ -20,7 +20,7 @@ import { AppLink } from "@/components/app-link"
 import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 
 export const metadata: Metadata = {
-  title: "AI Sales Brain | Enterprise Revenue Infrastructure | VishnuLabs",
+  title: "AI Sales Brain | Enterprise Revenue Infrastructure | Xavira Tech Labs",
   description:
     "Private revenue infrastructure for companies that want to own the engine, replace rented sales software, and scale high-volume outbound on private servers.",
   alternates: {
@@ -188,7 +188,7 @@ export default function AiSalesBrainPage() {
     name: "AI Sales Brain",
     description:
       "Enterprise revenue infrastructure for owning private outbound operations, replacing rented sales software, and scaling AI-powered outreach on private servers.",
-    brand: { "@type": "Brand", name: "VishnuLabs" },
+    brand: { "@type": "Brand", name: "Xavira Tech Labs" },
     category: "Enterprise Revenue Infrastructure",
     offers: {
       "@type": "AggregateOffer",

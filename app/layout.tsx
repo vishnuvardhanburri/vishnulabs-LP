@@ -11,9 +11,9 @@ const apolloAppId = process.env.NEXT_PUBLIC_APOLLO_APP_ID
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vishnulabs.com"),
-  title: "VishnuLabs | Fix Missed Leads, No-Shows, and AI Data Leaks",
+  title: "Xavira Tech Labs | Fix Missed Leads, No-Shows, and AI Data Leaks",
   description:
-    "VishnuLabs fixes intake systems, follow-up breakdowns, clinic no-shows, and AI data leak exposure for teams handling real demand and sensitive data.",
+    "Xavira Tech Labs fixes intake systems, follow-up breakdowns, clinic no-shows, and AI data leak exposure for teams handling real demand and sensitive data.",
   keywords: [
     "law firm intake system",
     "reduce clinic no shows",
@@ -38,15 +38,15 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "VishnuLabs | Fix Missed Leads, No-Shows, and AI Data Leaks",
+    title: "Xavira Tech Labs | Fix Missed Leads, No-Shows, and AI Data Leaks",
     description: "Fix intake breakdowns, follow-up delays, no-shows, and AI data exposure with systems built for real operating pressure.",
     type: "website",
     url: "https://vishnulabs.com",
-    siteName: "VishnuLabs",
+    siteName: "Xavira Tech Labs",
   },
   twitter: {
     card: "summary_large_image",
-    title: "VishnuLabs | Fix Missed Leads, No-Shows, and AI Data Leaks",
+    title: "Xavira Tech Labs | Fix Missed Leads, No-Shows, and AI Data Leaks",
     description: "Fix intake breakdowns, follow-up delays, no-shows, and AI data exposure with systems built for real operating pressure.",
   },
 }
@@ -65,13 +65,13 @@ export default function RootLayout({
   const organizationLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "VishnuLabs",
+    name: "Xavira Tech Labs",
     url: "https://vishnulabs.com",
     email: "hello@vishnulabs.com",
     logo: "https://vishnulabs.com/vishnulabs-logo-mark.svg",
     areaServed: "US",
     description:
-      "VishnuLabs fixes intake systems, follow-up breakdowns, clinic no-shows, and AI data leak exposure for teams handling real demand and sensitive data.",
+      "Xavira Tech Labs fixes intake systems, follow-up breakdowns, clinic no-shows, and AI data leak exposure for teams handling real demand and sensitive data.",
   }
 
   return (

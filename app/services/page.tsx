@@ -6,7 +6,7 @@ import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
-  title: "Services | System Fixes Under Real Operating Pressure | VishnuLabs",
+  title: "Services | System Fixes Under Real Operating Pressure | Xavira Tech Labs",
   description: "Fix the exact handoff losing leads, time, or control. Built for teams already operating with real data and revenue.",
   alternates: {
     canonical: "/services",

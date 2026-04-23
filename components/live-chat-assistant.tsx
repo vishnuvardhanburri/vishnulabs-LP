@@ -28,7 +28,7 @@ const STORAGE_KEY = "vishnulabs_assistant_messages_v4"
 
 const initialAssistantMessage: ChatMessage = {
   role: "assistant",
-  text: "Hi, I am VishnuLabs Assistant. Ask about pricing, services, Sentinel, websites, custom software, security, or rollout scope.",
+  text: "Hi, I am Xavira Tech Labs Assistant. Ask about pricing, services, Sentinel, websites, custom software, security, or rollout scope.",
 }
 
 const quickPrompts = [
@@ -50,7 +50,7 @@ const defaultLead: AssistantLead = {
 }
 
 const fallbackMailto =
-  "mailto:hello@vishnulabs.com?subject=Need%20Help%20From%20Live%20Assistant&body=Hi%20VishnuLabs%2C%0A%0AThe%20live%20assistant%20widget%20could%20not%20send%20my%20request.%20Please%20contact%20me.%0A%0AName%3A%0AEmail%3A%0APhone%3A%0AUse-case%3A%0A"
+  "mailto:hello@vishnulabs.com?subject=Need%20Help%20From%20Live%20Assistant&body=Hi%20Xavira Tech Labs%2C%0A%0AThe%20live%20assistant%20widget%20could%20not%20send%20my%20request.%20Please%20contact%20me.%0A%0AName%3A%0AEmail%3A%0APhone%3A%0AUse-case%3A%0A"
 
 const intents: Intent[] = [
   {
@@ -69,7 +69,7 @@ const intents: Intent[] = [
     id: "platform_services",
     patterns: ["website", "websites", "domain", "domains", "software solution", "software solutions", "platform"],
     answer:
-      "Yes, VishnuLabs can scope website creation, domain management, and custom software solutions alongside the automation systems. The goal is a more complete SaaS-style platform view instead of isolated pieces.",
+      "Yes, Xavira Tech Labs can scope website creation, domain management, and custom software solutions alongside the automation systems. The goal is a more complete SaaS-style platform view instead of isolated pieces.",
   },
   {
     id: "sentinel",
@@ -123,13 +123,13 @@ const intents: Intent[] = [
     id: "websites",
     patterns: ["website", "websites", "landing page", "site", "web design", "domain", "domains"],
     answer:
-      "Yes, VishnuLabs builds websites and landing pages for startups, hospitals and clinics, transport and logistics teams, moving companies, and law-service businesses. Domain management and launch support are also available.",
+      "Yes, Xavira Tech Labs builds websites and landing pages for startups, hospitals and clinics, transport and logistics teams, moving companies, and law-service businesses. Domain management and launch support are also available.",
   },
   {
     id: "custom_software",
     patterns: ["custom software", "software", "portal", "dashboard", "internal tool", "admin tool", "custom system"],
     answer:
-      "Yes, VishnuLabs also builds custom software solutions like admin dashboards, workflow tools, and operating-system layers that connect your website, automation, and team operations. If you are not sure what to choose, email hello@vishnulabs.com and VishnuLabs will suggest the right custom package with transparent pricing.",
+      "Yes, Xavira Tech Labs also builds custom software solutions like admin dashboards, workflow tools, and operating-system layers that connect your website, automation, and team operations. If you are not sure what to choose, email hello@vishnulabs.com and Xavira Tech Labs will suggest the right custom package with transparent pricing.",
   },
   {
     id: "delivery",
@@ -159,7 +159,7 @@ const intents: Intent[] = [
     id: "ownership",
     patterns: ["ownership", "own", "vendor lock", "lock in", "lock-in", "handoff"],
     answer:
-      "You keep operational ownership after delivery. VishnuLabs provides documentation and implementation clarity so your team is not stuck in opaque vendor dependencies.",
+      "You keep operational ownership after delivery. Xavira Tech Labs provides documentation and implementation clarity so your team is not stuck in opaque vendor dependencies.",
   },
   {
     id: "support",
@@ -171,7 +171,7 @@ const intents: Intent[] = [
     id: "payment",
     patterns: ["payment", "paypal", "payoneer", "card", "checkout", "buy", "invoice"],
     answer:
-      "VishnuLabs uses direct scoped engagements, invoices, and product deployment agreements based on the work. For Sentinel or services, book first and the next commercial step is handled directly.",
+      "Xavira Tech Labs uses direct scoped engagements, invoices, and product deployment agreements based on the work. For Sentinel or services, book first and the next commercial step is handled directly.",
   },
   {
     id: "contact",
@@ -362,7 +362,7 @@ export function LiveChatAssistant() {
         ...prev,
         {
           role: "assistant",
-          text: "Thanks, details received. VishnuLabs team will contact you shortly from hello@vishnulabs.com.",
+          text: "Thanks, details received. Xavira Tech Labs team will contact you shortly from hello@vishnulabs.com.",
         },
       ])
       trackAssistantEvent("funnel_live_assistant_lead_submit_success")
@@ -383,7 +383,7 @@ export function LiveChatAssistant() {
         >
           <header className="flex items-center justify-between border-b border-border/50 px-4 py-3">
             <div>
-              <p className="text-base font-semibold text-foreground">VishnuLabs Live Assistant</p>
+              <p className="text-base font-semibold text-foreground">Xavira Tech Labs Live Assistant</p>
               <p className="text-[11px] text-muted-foreground">Ask about pricing, scope, delivery, and best-fit systems</p>
             </div>
             <div className="flex items-center gap-1">

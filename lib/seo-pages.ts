@@ -1,7 +1,7 @@
 export const highIntentPages = {
   lawFirmIntake: {
     metadata: {
-      title: "Law Firm Intake System | Increase Consultations | VishnuLabs",
+      title: "Law Firm Intake System | Increase Consultations | Xavira Tech Labs",
       description: "Losing leads due to missed calls and slow follow-up? Fix your law firm intake system.",
       canonical: "/law-firm-intake-system",
     },
@@ -50,7 +50,7 @@ export const highIntentPages = {
         "@context": "https://schema.org",
         "@type": "Service",
         name: "Law Firm Intake System",
-        provider: { "@type": "Organization", name: "VishnuLabs", url: "https://vishnulabs.com" },
+        provider: { "@type": "Organization", name: "Xavira Tech Labs", url: "https://vishnulabs.com" },
         serviceType: "Law firm intake system",
         areaServed: ["US", "India"],
         description: "Fix missed calls, slow follow-up, and weak intake routing so more legal inquiries become booked consultations.",
@@ -59,7 +59,7 @@ export const highIntentPages = {
   },
   clinicNoShows: {
     metadata: {
-      title: "Reduce Clinic No-Shows | Appointment System Fix | VishnuLabs",
+      title: "Reduce Clinic No-Shows | Appointment System Fix | Xavira Tech Labs",
       description: "Missed appointments and manual scheduling hurting clinic performance? Reduce clinic no-shows with a better system.",
       canonical: "/reduce-clinic-no-shows",
     },
@@ -108,7 +108,7 @@ export const highIntentPages = {
         "@context": "https://schema.org",
         "@type": "Service",
         name: "Clinic No-Show Reduction System",
-        provider: { "@type": "Organization", name: "VishnuLabs", url: "https://vishnulabs.com" },
+        provider: { "@type": "Organization", name: "Xavira Tech Labs", url: "https://vishnulabs.com" },
         serviceType: "Appointment system optimization",
         areaServed: ["US", "India"],
         description: "Reduce clinic no-shows by fixing booking, reminder timing, and intake before appointments break.",
@@ -117,7 +117,7 @@ export const highIntentPages = {
   },
   realEstateFollowup: {
     metadata: {
-      title: "Real Estate Lead Follow-Up System | Convert More Leads | VishnuLabs",
+      title: "Real Estate Lead Follow-Up System | Convert More Leads | Xavira Tech Labs",
       description: "Leads going cold before your team replies? Fix your real estate lead follow-up system.",
       canonical: "/real-estate-lead-followup",
     },
@@ -166,7 +166,7 @@ export const highIntentPages = {
         "@context": "https://schema.org",
         "@type": "Service",
         name: "Real Estate Lead Follow-Up System",
-        provider: { "@type": "Organization", name: "VishnuLabs", url: "https://vishnulabs.com" },
+        provider: { "@type": "Organization", name: "Xavira Tech Labs", url: "https://vishnulabs.com" },
         serviceType: "Lead follow-up system",
         areaServed: ["US", "India"],
         description: "Fix slow response and weak routing so more real estate leads turn into booked calls, visits, and deals.",
@@ -175,7 +175,7 @@ export const highIntentPages = {
   },
   aiDataLeak: {
     metadata: {
-      title: "AI Data Leak Prevention | Control Sensitive Data | VishnuLabs",
+      title: "AI Data Leak Prevention | Control Sensitive Data | Xavira Tech Labs",
       description: "Using AI with client or patient data? Prevent data leaks before sensitive information leaves your system.",
       canonical: "/ai-data-leak-prevention",
     },
@@ -224,7 +224,7 @@ export const highIntentPages = {
         "@context": "https://schema.org",
         "@type": "Service",
         name: "AI Data Leak Prevention",
-        provider: { "@type": "Organization", name: "VishnuLabs", url: "https://vishnulabs.com" },
+        provider: { "@type": "Organization", name: "Xavira Tech Labs", url: "https://vishnulabs.com" },
         serviceType: "AI data protection and governance",
         areaServed: ["US", "India"],
         description: "Prevent data leaks, enforce compliance, and control every AI interaction before sensitive information leaves the system.",
@@ -233,7 +233,7 @@ export const highIntentPages = {
   },
   bestLawFirm: {
     metadata: {
-      title: "Best Law Firm Intake System | What Actually Works | VishnuLabs",
+      title: "Best Law Firm Intake System | What Actually Works | Xavira Tech Labs",
       description: "Looking for the best law firm intake system? Here is what matters if you want more consultations and fewer missed leads.",
       canonical: "/best-law-firm-intake-system",
     },
@@ -281,7 +281,7 @@ export const highIntentPages = {
         "@context": "https://schema.org",
         "@type": "Service",
         name: "Best Law Firm Intake System",
-        provider: { "@type": "Organization", name: "VishnuLabs", url: "https://vishnulabs.com" },
+        provider: { "@type": "Organization", name: "Xavira Tech Labs", url: "https://vishnulabs.com" },
         serviceType: "Law firm intake evaluation",
         areaServed: ["US", "India"],
         description: "Compare what matters in a law firm intake system if the goal is more booked consultations and fewer missed leads.",
@@ -290,7 +290,7 @@ export const highIntentPages = {
   },
   bestAiProtection: {
     metadata: {
-      title: "Best AI Data Protection Platform | Enterprise Control | VishnuLabs",
+      title: "Best AI Data Protection Platform | Enterprise Control | Xavira Tech Labs",
       description: "Need the best AI data protection platform? Compare what matters before sensitive data reaches external AI tools.",
       canonical: "/best-ai-data-protection-platform",
     },
@@ -338,7 +338,7 @@ export const highIntentPages = {
         "@context": "https://schema.org",
         "@type": "Service",
         name: "Best AI Data Protection Platform",
-        provider: { "@type": "Organization", name: "VishnuLabs", url: "https://vishnulabs.com" },
+        provider: { "@type": "Organization", name: "Xavira Tech Labs", url: "https://vishnulabs.com" },
         serviceType: "AI data protection platform evaluation",
         areaServed: ["US", "India"],
         description: "Compare what matters in an AI data protection platform before sensitive prompts leave your system.",
@@ -350,7 +350,7 @@ export const highIntentPages = {
 export const blogPosts = {
   whyLawFirmsLoseLeads: {
     metadata: {
-      title: "Why Law Firms Lose Leads | VishnuLabs",
+      title: "Why Law Firms Lose Leads | Xavira Tech Labs",
       description: "Law firms do not usually lack demand. They lose leads in intake, follow-up, and first response.",
       canonical: "/blog/why-law-firms-lose-leads",
     },
@@ -396,15 +396,15 @@ export const blogPosts = {
         "@type": "Article",
         headline: "Why law firms lose leads before a consultation is ever booked",
         description: "Law firms do not usually lack demand. They lose leads in intake, follow-up, and first response.",
-        author: { "@type": "Organization", name: "VishnuLabs" },
-        publisher: { "@type": "Organization", name: "VishnuLabs" },
+        author: { "@type": "Organization", name: "Xavira Tech Labs" },
+        publisher: { "@type": "Organization", name: "Xavira Tech Labs" },
         mainEntityOfPage: "https://vishnulabs.com/blog/why-law-firms-lose-leads",
       },
     },
   },
   reduceClinicNoShows: {
     metadata: {
-      title: "How to Reduce Clinic No-Shows | VishnuLabs",
+      title: "How to Reduce Clinic No-Shows | Xavira Tech Labs",
       description: "Reduce clinic no-shows by fixing booking, reminders, and intake before appointments break.",
       canonical: "/blog/how-to-reduce-clinic-no-shows",
     },
@@ -449,15 +449,15 @@ export const blogPosts = {
         "@type": "Article",
         headline: "How to reduce clinic no-shows without adding more manual work",
         description: "Reduce clinic no-shows by fixing booking, reminders, and intake before appointments break.",
-        author: { "@type": "Organization", name: "VishnuLabs" },
-        publisher: { "@type": "Organization", name: "VishnuLabs" },
+        author: { "@type": "Organization", name: "Xavira Tech Labs" },
+        publisher: { "@type": "Organization", name: "Xavira Tech Labs" },
         mainEntityOfPage: "https://vishnulabs.com/blog/how-to-reduce-clinic-no-shows",
       },
     },
   },
   whyFollowUpsFail: {
     metadata: {
-      title: "Why Follow-Ups Fail | VishnuLabs",
+      title: "Why Follow-Ups Fail | Xavira Tech Labs",
       description: "Most follow-ups fail because speed, routing, and visibility break before the lead is contacted.",
       canonical: "/blog/why-follow-ups-fail",
     },
@@ -503,15 +503,15 @@ export const blogPosts = {
         "@type": "Article",
         headline: "Why follow-ups fail even when teams think they are responding",
         description: "Most follow-ups fail because speed, routing, and visibility break before the lead is contacted.",
-        author: { "@type": "Organization", name: "VishnuLabs" },
-        publisher: { "@type": "Organization", name: "VishnuLabs" },
+        author: { "@type": "Organization", name: "Xavira Tech Labs" },
+        publisher: { "@type": "Organization", name: "Xavira Tech Labs" },
         mainEntityOfPage: "https://vishnulabs.com/blog/why-follow-ups-fail",
       },
     },
   },
   aiDataLeakRisks: {
     metadata: {
-      title: "AI Data Leak Risks | VishnuLabs",
+      title: "AI Data Leak Risks | Xavira Tech Labs",
       description: "AI data leak risks grow fast when teams use external tools without controls, logging, or policy checks.",
       canonical: "/blog/ai-data-leak-risks",
     },
@@ -556,8 +556,8 @@ export const blogPosts = {
         "@type": "Article",
         headline: "AI data leak risks most teams do not see until it is too late",
         description: "AI data leak risks grow fast when teams use external tools without controls, logging, or policy checks.",
-        author: { "@type": "Organization", name: "VishnuLabs" },
-        publisher: { "@type": "Organization", name: "VishnuLabs" },
+        author: { "@type": "Organization", name: "Xavira Tech Labs" },
+        publisher: { "@type": "Organization", name: "Xavira Tech Labs" },
         mainEntityOfPage: "https://vishnulabs.com/blog/ai-data-leak-risks",
       },
     },

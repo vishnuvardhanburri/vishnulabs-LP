@@ -76,7 +76,7 @@ export function Footer() {
             <AppLink href="/" prefetch className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2.5 transition-all duration-500 hover:-translate-y-0.5 hover:bg-white/[0.08]">
               <Image
                 src="/vishnulabs-logo-full.svg"
-                alt="VishnuLabs logo"
+                alt="Xavira Tech Labs logo"
                 width={170}
                 height={50}
                 className="h-auto w-[170px] object-contain"
@@ -99,7 +99,7 @@ export function Footer() {
               ))}
             </div>
 
-            <p className="mt-8 text-xs text-zinc-400">&copy; {new Date().getFullYear()} VishnuLabs. All rights reserved.</p>
+            <p className="mt-8 text-xs text-zinc-400">&copy; {new Date().getFullYear()} Xavira Tech Labs. All rights reserved.</p>
           </div>
 
           <FooterColumn title="Services" links={serviceLinks} />

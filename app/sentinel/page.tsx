@@ -4,7 +4,7 @@ import { SentinelLeadCaptureProvider } from "@/components/sentinel/lead-capture-
 import { SentinelPageClient } from "@/app/sentinel/sentinel-page-client"
 
 export const metadata: Metadata = {
-  title: "Sentinel | AI Data Protection & Governance Infrastructure | VishnuLabs",
+  title: "Sentinel | AI Data Protection & Governance Infrastructure | Xavira Tech Labs",
   description:
     "Control AI risk before sensitive data leaves the system. Audit first, pilot next, then deploy governance where exposure is already happening.",
   alternates: {
@@ -18,7 +18,7 @@ export default function SentinelPage() {
     "@type": "Product",
     name: "Sentinel",
     description: "AI Data Protection & Governance Infrastructure for controlling AI usage, preventing data leaks, and enforcing policy before sensitive data leaves the system.",
-    brand: { "@type": "Brand", name: "VishnuLabs" },
+    brand: { "@type": "Brand", name: "Xavira Tech Labs" },
     category: "AI Data Protection & Governance Infrastructure",
     offers: {
       "@type": "AggregateOffer",

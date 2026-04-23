@@ -165,7 +165,7 @@ export async function POST(request: NextRequest) {
       <p>Most teams uncover 2–3 hidden exposure points during the first review.</p>
       <p>If you want to move faster, you can book directly here:</p>
       <p><a href="${escapeHtml(calendarLink)}" style="color:#0f766e;">${escapeHtml(calendarLink)}</a></p>
-      <p style="margin-top:20px;">VishnuLabs</p>
+      <p style="margin-top:20px;">Xavira Tech Labs</p>
     </div>
   `
 

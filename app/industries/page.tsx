@@ -19,7 +19,7 @@ type Industry = {
 }
 
 export const metadata: Metadata = {
-  title: "Industries | Where Revenue and Control Break First | VishnuLabs",
+  title: "Industries | Where Revenue and Control Break First | Xavira Tech Labs",
   description: "Different industries. Same failure pattern: missed response, dropped follow-up, and weak control under real operating pressure.",
   alternates: {
     canonical: "/industries",
@@ -214,12 +214,12 @@ export default function IndustriesPage() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="overflow-hidden rounded-[26px] border border-slate-200 bg-white shadow-[0_18px_44px_rgba(15,23,42,0.08)]">
                   <div className="aspect-[4/3] w-full">
-                    <Image src="/media/team-1.png" alt="VishnuLabs delivery team" width={900} height={600} className="h-full w-full object-cover" />
+                    <Image src="/media/team-1.png" alt="Xavira Tech Labs delivery team" width={900} height={600} className="h-full w-full object-cover" />
                   </div>
                 </div>
                 <div className="overflow-hidden rounded-[26px] border border-slate-200 bg-white shadow-[0_18px_44px_rgba(15,23,42,0.08)]">
                   <div className="aspect-[4/3] w-full">
-                    <Image src="/media/team-2.png" alt="VishnuLabs operations team" width={900} height={600} className="h-full w-full object-cover" />
+                    <Image src="/media/team-2.png" alt="Xavira Tech Labs operations team" width={900} height={600} className="h-full w-full object-cover" />
                   </div>
                 </div>
               </div>

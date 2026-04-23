@@ -7,7 +7,7 @@ import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
-  title: "Proof | VishnuLabs",
+  title: "Proof | Xavira Tech Labs",
   description: "See the runtime evidence before trust is requested. Failure, containment, and recovery should be visible.",
   alternates: {
     canonical: "/proof",
@@ -92,7 +92,7 @@ export default function ProofPage() {
                 <div className="overflow-hidden rounded-[24px] border border-white/10">
                   <Image
                     src="/marketing/sentinel-shield/final_hero_shot.png"
-                    alt="VishnuLabs system proof interface"
+                    alt="Xavira Tech Labs system proof interface"
                     width={1600}
                     height={1000}
                     className="h-auto w-full object-cover"

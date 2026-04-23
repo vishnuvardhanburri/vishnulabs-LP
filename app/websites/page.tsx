@@ -8,7 +8,7 @@ import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
-  title: "Websites | VishnuLabs",
+  title: "Websites | Xavira Tech Labs",
   description:
     "If your site gets attention but the pipeline stays quiet, demand is leaking. Fix the conversion path and response system.",
   alternates: {

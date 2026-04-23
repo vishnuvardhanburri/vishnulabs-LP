@@ -27,7 +27,7 @@ const posts = [
 ]
 
 export const metadata: Metadata = {
-  title: "VishnuLabs Blog | High-Intent System Fixes",
+  title: "Xavira Tech Labs Blog | High-Intent System Fixes",
   description: "Problem-first articles on intake systems, no-shows, follow-up failures, and AI data leak prevention.",
   alternates: {
     canonical: "/blog",

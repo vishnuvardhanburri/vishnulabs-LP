@@ -8,7 +8,7 @@ import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 import { testimonials } from "@/lib/testimonials"
 
 export const metadata: Metadata = {
-  title: "Products | Control Layers for Lead and Data Risk | VishnuLabs",
+  title: "Products | Control Layers for Lead and Data Risk | Xavira Tech Labs",
   description: "See where revenue or data leaves the system. Start with the leak, prove the fix, then expand only where needed.",
   alternates: {
     canonical: "/products",
@@ -150,7 +150,7 @@ export default function ProductsPage() {
                 <div className="mt-5 overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-sm">
                   <Image
                     src="/marketing/sentinel-shield/final_hero_shot.png"
-                    alt="VishnuLabs system coverage surface"
+                    alt="Xavira Tech Labs system coverage surface"
                     width={1200}
                     height={760}
                     className="h-auto w-full object-cover"

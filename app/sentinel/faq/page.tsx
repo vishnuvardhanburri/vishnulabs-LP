@@ -4,7 +4,7 @@ import { SentinelLeadCaptureProvider } from "@/components/sentinel/lead-capture-
 import { FaqPageClient } from "@/app/sentinel/faq/faq-page-client"
 
 export const metadata: Metadata = {
-  title: "Sentinel FAQ | Questions & Answers | VishnuLabs",
+  title: "Sentinel FAQ | Questions & Answers | Xavira Tech Labs",
   description: "Everything you need to understand how Sentinel protects your systems and data.",
   alternates: {
     canonical: "/sentinel/faq",

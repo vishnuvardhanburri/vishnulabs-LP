@@ -3,7 +3,7 @@ export default function TermsPage() {
     <main className="mx-auto max-w-3xl px-6 pb-20 pt-32">
       <h1 className="text-3xl font-bold tracking-tight text-foreground">Terms of Service</h1>
       <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-        VishnuLabs provides custom automation design, integration, and implementation services. Final scope,
+        Xavira Tech Labs provides custom automation design, integration, and implementation services. Final scope,
         timeline, pricing, and deliverables are defined in a written proposal before project kickoff.
       </p>
       <p className="mt-4 text-sm leading-relaxed text-muted-foreground">

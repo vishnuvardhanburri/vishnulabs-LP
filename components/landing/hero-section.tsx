@@ -1,6 +1,5 @@
 import { ArrowRight, ShieldCheck, Workflow } from "lucide-react"
 
-import { AppLink } from "@/components/app-link"
 import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 import { HeroSplineVisual } from "@/components/landing/hero-spline-visual"
 
@@ -48,34 +47,20 @@ export function HeroSection() {
           <div className="relative z-10 max-w-3xl">
             <div className="reveal-in inline-flex items-center gap-2 rounded-full border border-sky-400/20 bg-sky-400/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-200">
               <ShieldCheck className="h-3.5 w-3.5" />
-              Mission-critical infrastructure
+              Xavira Tech Labs — Scalable Software Systems for Real-World Production
             </div>
 
             <h1 className="reveal-in reveal-delay-1 mt-8 max-w-4xl text-balance font-sans text-[2.9rem] font-semibold leading-[0.92] tracking-[-0.06em] text-white sm:text-[4.05rem] lg:text-[5.1rem]">
-              If your system handles leads or data,
-              <span className="block bg-[linear-gradient(90deg,#e879f9_0%,#60a5fa_48%,#c084fc_100%)] bg-clip-text text-transparent">
-                failure is already happening.
-              </span>
+              Software Systems Built for Real-World Scale
             </h1>
 
             <p className="reveal-in reveal-delay-2 mt-6 max-w-2xl text-lg leading-8 text-zinc-200">
-              Missed follow-ups. Lost clients. Data exposure.
+              We design and build secure, scalable backend systems, SaaS platforms, and AI-driven automation for businesses that need production reliability.
             </p>
-
-            <div className="reveal-in reveal-delay-2 mt-6 max-w-2xl rounded-[1.5rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-md">
-              <p className="text-sm leading-7 text-white/88">
-                This is not for early-stage teams experimenting. This is for companies already operating with real data and revenue.
-              </p>
-            </div>
-
-            <div className="reveal-in reveal-delay-2 mt-8 max-w-2xl rounded-[1.7rem] border border-white/10 bg-white/[0.035] px-5 py-5 backdrop-blur-md">
-              <p className="text-[11px] uppercase tracking-[0.26em] text-zinc-300">What changes</p>
-              <p className="mt-3 text-base leading-8 text-zinc-100">Fewer lost leads. Cleaner execution. No blind spots.</p>
-            </div>
 
             <div className="reveal-in reveal-delay-2 mt-8 flex flex-col gap-3 sm:flex-row">
               <AuditCtaButton trackingSource="home_hero_cta" className="px-6 py-3 text-sm">
-                Get Free System Audit
+                Request Consultation
                 <ArrowRight className="h-4 w-4" />
               </AuditCtaButton>
               <a
@@ -86,27 +71,11 @@ export function HeroSection() {
               </a>
             </div>
 
-            <div className="reveal-in reveal-delay-3 mt-4 max-w-2xl rounded-[1.4rem] border border-cyan-300/14 bg-cyan-400/[0.06] px-5 py-4 backdrop-blur-md">
-              <p className="text-[11px] uppercase tracking-[0.24em] text-cyan-200">New product</p>
-              <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <p className="text-sm leading-7 text-white/84">
-                  AI Sales Brain gives teams private revenue infrastructure with owned servers, AI agents, and zero-touch outbound execution.
-                </p>
-                <AppLink
-                  href="/products/ai-sales-brain"
-                  className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-cyan-100 transition hover:text-white"
-                >
-                  Explore product
-                  <ArrowRight className="h-4 w-4" />
-                </AppLink>
-              </div>
-            </div>
-
             <div className="mt-10 grid gap-4 sm:grid-cols-3">
                 {[
-                  { label: "Failure mode", value: "Dropped handoffs" },
-                  { label: "Priority", value: "Reliable execution" },
-                  { label: "Fit", value: "Revenue-critical ops" },
+                  { label: "Focus", value: "Reliability and scalability" },
+                  { label: "Work", value: "Backend, SaaS, AI automation" },
+                  { label: "Execution", value: "Production-grade delivery" },
                 ].map((item, index) => (
                   <div
                     key={item.label}

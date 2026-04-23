@@ -119,7 +119,7 @@ export function PricingSection() {
                         : "w-full border border-white/12 bg-white/[0.04] px-4 py-3 text-sm text-white hover:bg-white/[0.08]"
                     }
                   >
-                    Get Free System Audit
+                    Request Consultation
                     <ArrowUpRight className="h-4 w-4" />
                   </AuditCtaButton>
                 </div>
@@ -131,7 +131,7 @@ export function PricingSection() {
 
         <div className="mt-8 rounded-[1.6rem] border border-white/10 bg-white/[0.03] px-5 py-5 backdrop-blur-md">
           <p className="text-sm leading-7 text-white/84">
-            This is not for early-stage teams experimenting. It is for companies already operating with real revenue, real demand, or sensitive data.
+            This is for teams that want production-grade execution: reliability, scalability, and operational clarity.
           </p>
           <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm leading-7 text-white/62">
             <span>Most teams start with pilot.</span>

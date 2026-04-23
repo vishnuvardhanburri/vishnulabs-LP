@@ -11,9 +11,9 @@ const apolloAppId = process.env.NEXT_PUBLIC_APOLLO_APP_ID
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vishnulabs.com"),
-  title: "Xavira Tech Labs | Fix Missed Leads, No-Shows, and AI Data Leaks",
+  title: "Xavira Tech Labs — Scalable Software Systems for Real-World Production",
   description:
-    "Xavira Tech Labs fixes intake systems, follow-up breakdowns, clinic no-shows, and AI data leak exposure for teams handling real demand and sensitive data.",
+    "We design and build secure, scalable backend systems, SaaS platforms, AI-driven automation, and cloud-native infrastructure for production reliability.",
   keywords: [
     "law firm intake system",
     "reduce clinic no shows",
@@ -38,16 +38,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Xavira Tech Labs | Fix Missed Leads, No-Shows, and AI Data Leaks",
-    description: "Fix intake breakdowns, follow-up delays, no-shows, and AI data exposure with systems built for real operating pressure.",
+    title: "Xavira Tech Labs — Scalable Software Systems for Real-World Production",
+    description: "Secure backend systems, SaaS platforms, AI-driven automation, and cloud-native infrastructure built for production reliability.",
     type: "website",
     url: "https://vishnulabs.com",
     siteName: "Xavira Tech Labs",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Xavira Tech Labs | Fix Missed Leads, No-Shows, and AI Data Leaks",
-    description: "Fix intake breakdowns, follow-up delays, no-shows, and AI data exposure with systems built for real operating pressure.",
+    title: "Xavira Tech Labs — Scalable Software Systems for Real-World Production",
+    description: "Secure backend systems, SaaS platforms, AI-driven automation, and cloud-native infrastructure built for production reliability.",
   },
 }
 
@@ -71,7 +71,7 @@ export default function RootLayout({
     logo: "https://vishnulabs.com/vishnulabs-logo-mark.svg",
     areaServed: "US",
     description:
-      "Xavira Tech Labs fixes intake systems, follow-up breakdowns, clinic no-shows, and AI data leak exposure for teams handling real demand and sensitive data.",
+      "Xavira Tech Labs builds reliable, scalable backend systems, SaaS platforms, automation systems, and cloud infrastructure for production environments.",
   }
 
   return (

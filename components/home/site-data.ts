@@ -133,7 +133,7 @@ export const reviews = [
   { name: "David L.", role: "Head of Growth, SaaS Company", rating: 5, text: "The flow feels stable now. We can scale campaigns without worrying the backend will break." },
   { name: "Rachel P.", role: "Operations Manager, Home Services", rating: 5, text: "No-shows dropped because reminders and confirmations finally worked the way they should." },
   { name: "Aman V.", role: "Founder, Booking Platform", rating: 5, text: "We went from messy handoffs to a system that feels organized and dependable." },
-  { name: "Sarah D.", role: "Revenue Lead, Agency", rating: 5, text: "The biggest improvement was clarity. Everyone knew where leads were and what happened next." },
+  { name: "Sarah D.", role: "Revenue Lead", rating: 5, text: "The biggest improvement was clarity. Everyone knew where leads were and what happened next." },
   { name: "Lucas B.", role: "Product Lead, SaaS Team", rating: 5, text: "We saw a visible lift in conversions after cleaning up the intake and follow-up process." },
   { name: "Megan H.", role: "Director, Clinic Operations", rating: 5, text: "Our staff no longer had to chase avoidable issues because the system handled them upfront." },
   { name: "Omar F.", role: "Founder, Local Services Brand", rating: 5, text: "The difference was immediate: cleaner lead quality, faster handoffs, and more booked calls." },

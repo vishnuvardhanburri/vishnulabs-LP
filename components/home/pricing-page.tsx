@@ -13,16 +13,11 @@ export function PricingPage() {
             Pricing
           </p>
           <h1 className="mt-6 max-w-[13ch] text-balance font-heading text-[44px] font-semibold leading-[0.96] tracking-[-0.05em] text-white md:text-[58px] xl:text-[64px]">
-            Pricing is not the risk. Failure is.
+            Pricing is not the risk. Production reliability is.
           </h1>
           <p className="section-support-copy mt-5 max-w-3xl text-[18px] leading-8">
-            Missed follow-ups. Lost clients. Data exposure. Start with the smallest move that removes real risk.
+            Start with the smallest move that improves reliability, scalability, and operational clarity in real-world environments.
           </p>
-          <div className="mt-6 max-w-3xl rounded-[1.5rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-md">
-            <p className="text-sm leading-7 text-white/88">
-              This is not for early-stage teams experimenting. This is for companies already operating with real data and revenue.
-            </p>
-          </div>
         </section>
       </div>
       <PricingSection />

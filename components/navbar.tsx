@@ -10,9 +10,10 @@ import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Case Studies", href: "/case-studies" },
-  { label: "Sentinel", href: "/sentinel" },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Services", href: "/services" },
+  { label: "Work", href: "/work" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ]
 
 export function Navbar() {
@@ -100,7 +101,7 @@ export function Navbar() {
 
           <div className="border-t border-white/8 px-4 pb-3 pt-2 sm:px-5">
             <p className="text-center text-[11px] leading-5 text-zinc-300/85">
-              This is not for early-stage teams experimenting. This is for companies already operating with real data and revenue.
+              Xavira Tech Labs — Scalable Software Systems for Real-World Production.
             </p>
           </div>
 

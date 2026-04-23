@@ -5,33 +5,25 @@ import { customPackageMailto } from "@/components/custom-solution-note"
 import { AuditCtaButton } from "@/components/ui/audit-cta-button"
 
 const serviceLinks = [
-  { label: "Sentinel", href: "/sentinel" },
-  { label: "Automations", href: "/automations" },
-  { label: "Websites", href: "/websites" },
-  { label: "Custom Software", href: "/custom-software" },
-  { label: "AI Sales Brain", href: "/products/ai-sales-brain" },
-  { label: "AI Voice Receptionist", href: "/services/ai-voice-receptionist" },
-  { label: "AI Scheduling & Reminder", href: "/services/ai-scheduling-reminder" },
-  { label: "AI Legal Intake Automation", href: "/services/ai-legal-intake" },
+  { label: "Backend Systems Development", href: "/services" },
+  { label: "SaaS Product Development", href: "/services" },
+  { label: "AI & Automation Systems", href: "/services" },
+  { label: "Cloud & Infrastructure Engineering", href: "/services" },
 ]
 
 const industryLinks = [
-  { label: "Industry Overview", href: "/industries" },
-  { label: "Startups", href: "/industries/startups" },
-  { label: "Hospitals & Clinics", href: "/industries/hospitals-clinics" },
-  { label: "Transport & Logistics", href: "/industries/transport-logistics" },
-  { label: "Law Services", href: "/industries/law-services" },
-  { label: "PI Law Firms", href: "/industries/pi-law-firms" },
-  { label: "Real Estate", href: "/industries/real-estate" },
-  { label: "Mortgage", href: "/industries/mortgage" },
+  { label: "Work", href: "/work" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ]
 
 const pageLinks = [
-  { label: "Proof", href: "/proof" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Sentinel FAQ", href: "/sentinel/faq" },
-  { label: "Book Meeting", href: "https://cal.com/vishnuvardhanburri/15min" },
-  { label: "Backup Site", href: "/backup" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Work", href: "/work" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
   { label: "Privacy", href: "/privacy" },
   { label: "Terms", href: "/terms" },
 ]
@@ -65,7 +57,7 @@ export function Footer() {
                 trackingSource="footer_book_review"
                 className="border border-white/12 bg-white/[0.04] px-5 py-3 text-sm text-white transition-colors hover:bg-white/[0.08]"
               >
-                Get Free System Audit
+                Request Consultation
               </AuditCtaButton>
             </div>
           </div>

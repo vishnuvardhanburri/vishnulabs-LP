@@ -1,10 +1,10 @@
 import { ArrowRight, Database, ShieldCheck, Sparkles, Workflow } from "lucide-react"
 
 const nodes = [
-  { icon: Database, label: "Input", detail: "Calls, forms, inbound demand" },
-  { icon: ShieldCheck, label: "Validation", detail: "Stops bad inputs and missed steps" },
-  { icon: Workflow, label: "Execution", detail: "No dropped handoffs" },
-  { icon: Sparkles, label: "Outcome", detail: "Booked calls, kept appointments, controlled data" },
+  { icon: Database, label: "Architecture", detail: "Backend-first design with clear contracts" },
+  { icon: ShieldCheck, label: "Reliability", detail: "Failure handling, observability, and safe rollouts" },
+  { icon: Workflow, label: "Execution", detail: "Production-ready delivery and operational ownership" },
+  { icon: Sparkles, label: "Scale", detail: "Systems designed to grow with traffic and complexity" },
 ]
 
 export function SystemFlowSection() {
@@ -14,10 +14,10 @@ export function SystemFlowSection() {
         <div className="max-w-3xl">
           <p className="section-kicker text-[11px] uppercase">System Flow</p>
           <h2 className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
-            Input to output, without silent failure in the middle.
+            Architecture to production, without fragile execution.
           </h2>
           <p className="section-support-copy mt-4 text-lg leading-8">
-            Close the leak. Keep it closed.
+            Reliability, scalability, and long-term maintainability.
           </p>
         </div>
 

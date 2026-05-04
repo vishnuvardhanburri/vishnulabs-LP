@@ -82,14 +82,29 @@ export function IntentLinksSection() {
 
         <div id="about" className="mt-16 max-w-4xl scroll-mt-28">
           <p className="section-kicker text-[11px] uppercase">About</p>
-          <h2 className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-white md:text-5xl">Software engineering, built for production.</h2>
+          <h2 className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-white md:text-5xl">About Xavira Tech Labs</h2>
           <div className="mt-5 space-y-4 text-base leading-8 text-zinc-200">
             <p>
-              Xavira Tech Labs is a software engineering company focused on building reliable, scalable systems for real-world production environments.
+              Xavira Tech Labs is a software engineering company focused on building scalable, production-grade systems for real-world environments.
             </p>
             <p>
-              We specialize in backend architecture, SaaS platforms, and automation systems that prioritize stability, performance, and long-term maintainability.
+              Founded by Vishnu Vardhan, the company specializes in backend architecture, SaaS platforms, and AI-driven automation designed for reliability, performance, and long-term maintainability.
             </p>
+            <p>
+              At Xavira, the approach is simple - systems are built to work under real conditions, not just demos. Every solution is designed with clear architecture, strong validation layers, and predictable execution.
+            </p>
+            <p>
+              From backend systems to full product platforms, the focus remains on building technology that holds under scale and adapts as businesses grow.
+            </p>
+          </div>
+          <div className="mt-6">
+            <p className="text-sm font-semibold text-white">Led by Vishnu Vardhan (Founder &amp; CEO)</p>
+            <a
+              href="https://www.linkedin.com/in/vishnuvardhanburri/"
+              className="mt-2 inline-flex text-sm font-semibold text-sky-200 transition hover:text-white"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
 
@@ -152,4 +167,3 @@ export function IntentLinksSection() {
     </section>
   )
 }
-
